@@ -11,3 +11,5 @@ Additional Features:
 * Leverages Angular's dynamic data driven forms approach for gadget property pages and properties - https://angular.io/guide/dynamic-form
 * Dynamic component strategy for creating gadget instances during runtime - https://angular.io/guide/dynamic-component-loader
 
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-main.png)
+![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-add-gadget.png)

@@ -1,0 +1,152 @@
+<div (mouseover)="showGadgetControls(true)"
+     (mouseleave)="showGadgetControls(false)" class="ui  raised segment left aligned gadget" dnd-draggable
+     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
+
+    <a class="ui left corner label">
+        <i class="circle icon" [ngClass]="{'green':inRun, 'yellow':!inRun}"></i>
+    </a>
+
+    <app-gadget-header
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleConfigMode()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()">
+    </app-gadget-header>
+
+    <div class="ui divided selection list" *ngIf="!inConfig">
+
+        <table class="ui padded table">
+            <tr>
+                <td>
+                    <button class="ui basic blue button" (click)="checkPoxySelection()">Test Load Balance Algorithm
+                    </button>
+                </td>
+                <td>
+                    <button class="ui basic blue button" (click)="seedProxiesWithWork()">Add VMs to Proxies
+                    </button>
+                </td>
+                <td>
+                    <select id="color" style="text-align:center; color:#2185D0; background: transparent;padding: 10px;font-size: 14px;line-height: 1; border-width:1px;border-style:solid; border-color:#2185D0; height: 37px;-webkit-appearance: none;
+   }">
+                        <option value="none"> Select Preferred Affinity</option>
+                        <option value="lan"> lan</option>
+                        <option value="san"> san</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="color" style="text-align:center; color:#2185D0; background: transparent;padding: 10px;font-size: 14px;line-height: 1; border-width:1px;border-style:solid; border-color:#2185D0; height: 37px;-webkit-appearance: none;
+   }">
+                        <option value="none"> Select Preferred Proximity</option>
+                        <option value="lan"> ny</option>
+                        <option value="san"> nj</option>
+                        <option value="san"> cal</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <table class="ui padded table">
+            <thead>
+            <th>
+                Status
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Host
+            </th>
+            <th>
+                Port
+            </th>
+            <th>
+                Select
+            </th>
+            <th>
+                Tasks
+            </th>
+
+            <th colspan="2">
+                Meta-Data
+            </th>
+            <th>Run Job On Proxy</th>
+            </thead>
+            <tr *ngFor="let serviceItem of edgeServiceList" class="item">
+                <td>
+                    <div class="left floated content">
+                        <i *ngIf="serviceItem.status == 'UP'"  class="big green check icon"></i>
+                        <i *ngIf="serviceItem.processId==''"  class="big red minus circle"></i>
+                    </div>
+                </td>
+                <td><a class="header">{{serviceItem.serviceId}}</a></td>
+                <td><a class="header">{{serviceItem.host}}</a></td>
+                <td><a class="header">{{serviceItem.port}}</a></td>
+                <td>
+                    <div class="left floated content">
+                        <i *ngIf="serviceItem.uri == selectedUri" [@showHideAnimation]
+                           class="big blue check icon"></i>
+                    </div>
+                </td>
+                <td>{{serviceItem.runningTaskCount}}</td>
+                <td>{{serviceItem.metaData.affinity}}</td>
+                <td>{{serviceItem.metaData.proximity}}</td>
+                <td>
+                    <button class="ui basic blue button" (click)="runProxyJob(serviceItem.uri)">Run</button>
+                </td>
+            </tr>
+        </table>
+        <div style="display: block !important;" [@accordion]="detailMenuOpen">
+            <table class="ui table" style="border:none !important" [@accordion2]="detailMenuOpen">
+                <tbody>
+                <tr>
+                    <td>
+                        <ngx-charts-bar-vertical
+                                [view]="view"
+                                [scheme]="colorScheme"
+                                [results]="single"
+                                [gradient]="gradient"
+                                [xAxis]="showXAxis"
+                                [yAxis]="showYAxis"
+                                [legend]="showLegend"
+                                [showXAxisLabel]="showXAxisLabel"
+                                [showYAxisLabel]="showYAxisLabel"
+                                [xAxisLabel]="xAxisLabel"
+                                [yAxisLabel]="yAxisLabel"
+                                [barPadding]="20"
+                                (select)="onSelect($event)">
+                        </ngx-charts-bar-vertical>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br>
+        </div>
+    </div>
+
+    <app-dynamic-form *ngIf="inConfig"
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
+    </app-dynamic-form>
+
+    <app-error-handler
+            [errorObject]="errorObject"
+            [errorExists]="errorExists">
+    </app-error-handler>
+
+    <div *ngIf="!inConfig" class="ui bottom right attached label" style="background-color: white"><i
+            class="large chevron icon" (click)="toggleAcordion()"
+            [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"
+            style="color:lightgrey"></i></div>
+
+</div>
+

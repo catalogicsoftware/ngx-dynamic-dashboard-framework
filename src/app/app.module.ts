@@ -46,6 +46,8 @@ import {DndModule} from 'ng2-dnd';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SearchResultComponent} from './components/gadgets/_library/search-filter/search-result-component';
+import {EdgeServiceListGadgetComponent} from './components/gadgets/edge-service-list/edge-service-list-gadget.component';
+import {EdgeService} from './components/gadgets/edge-service-list/service';
 
 
 @NgModule({
@@ -64,7 +66,8 @@ import {SearchResultComponent} from './components/gadgets/_library/search-filter
             TrendGadgetComponent,
             NewsGadgetComponent,
             JobAnalysisGadgetComponent,
-            TrendLineGadgetComponent
+            TrendLineGadgetComponent,
+            EdgeServiceListGadgetComponent
         ]),
         RoutingModule,
         NgxChartsModule,
@@ -104,7 +107,8 @@ import {SearchResultComponent} from './components/gadgets/_library/search-filter
       GadgetOperationComponent,
       CapitalizeFirstPipe,
       FacetComponent,
-      SearchResultComponent
+      SearchResultComponent,
+      EdgeServiceListGadgetComponent
   ],
 
   providers: [
@@ -114,7 +118,8 @@ import {SearchResultComponent} from './components/gadgets/_library/search-filter
       GadgetPropertyService,
       TrendService,
       DiskService,
-      StatisticService
+      StatisticService,
+      EdgeService
   ],
   bootstrap: [AppComponent]
 })

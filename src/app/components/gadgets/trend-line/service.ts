@@ -61,7 +61,7 @@ export class TrendLineService {
         return new Observable(observer => {
             Observable.timer(500, 5000).subscribe(t => {
 
-                let data = [];
+                const data = [];
                 collectors.forEach(collector => {
                     data.push(TrendLineService.retrieveData());
                 });

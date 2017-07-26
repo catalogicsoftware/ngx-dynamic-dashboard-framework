@@ -13,6 +13,7 @@ import {NewsService} from '../../gadgets/news/service';
 import {JobAnalysisService} from '../../gadgets/job-analysis/service';
 import {TrendService} from '../../gadgets/trend/service';
 import {TrendLineService} from '../../gadgets/trend-line/service';
+import {EdgeService} from '../../gadgets/edge-service-list/service';
 
 
 
@@ -36,7 +37,8 @@ import {TrendLineService} from '../../gadgets/trend-line/service';
         NewsService,
         JobAnalysisService,
         TrendLineService,
-        TrendService
+        TrendService,
+        EdgeService
     ]
 })
 export class GridModule {

@@ -22,7 +22,7 @@ export class EndPointComponent {
     constructor(private _endPointService: EndPointService) {
 
         this._endPointService.getEndPoints().subscribe(data => {
-            this.endPoints = data.endPoint;
+            this.endPoints = data['endPoint'];
 
             if (this.endPoints && this.endPoints.length) {
                 this.setSelectedEndPoint(this.endPoints[0]);

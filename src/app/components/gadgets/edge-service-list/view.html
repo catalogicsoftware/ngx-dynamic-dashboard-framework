@@ -34,17 +34,17 @@
                     </button>
                 </td>
                 <td>
-                    <select id="color" style="text-align:center; color:#2185D0; background: transparent;padding: 10px;font-size: 14px;line-height: 1; border-width:1px;border-style:solid; border-color:#2185D0; height: 37px;-webkit-appearance: none;
+                    <select  style="text-overflow: ellipsis; text-align:center; color:#2185D0; background: transparent;padding: 10px;font-size: 14px;line-height: 1; border-width:1px;border-style:solid; border-color:#2185D0; height: 37px;-webkit-appearance: none;
    }">
-                        <option value="none"> Select Preferred Affinity</option>
+                        <option value="none">Affinity</option>
                         <option value="lan"> lan</option>
                         <option value="san"> san</option>
                     </select>
                 </td>
                 <td>
-                    <select id="color" style="text-align:center; color:#2185D0; background: transparent;padding: 10px;font-size: 14px;line-height: 1; border-width:1px;border-style:solid; border-color:#2185D0; height: 37px;-webkit-appearance: none;
+                    <select  style="text-overflow: ellipsis; text-align:center; color:#2185D0; background: transparent;padding: 10px;font-size: 14px;line-height: 1; border-width:1px;border-style:solid; border-color:#2185D0; height: 37px;-webkit-appearance: none;
    }">
-                        <option value="none"> Select Preferred Proximity</option>
+                        <option value="none">Proximity</option>
                         <option value="lan"> ny</option>
                         <option value="san"> nj</option>
                         <option value="san"> cal</option>
@@ -82,8 +82,8 @@
             <tr *ngFor="let serviceItem of edgeServiceList" class="item">
                 <td>
                     <div class="left floated content">
-                        <i *ngIf="serviceItem.status == 'UP'"  class="big green check icon"></i>
-                        <i *ngIf="serviceItem.processId==''"  class="big red minus circle"></i>
+                        <i *ngIf="serviceItem.status == 'UP'" class="big green check icon"></i>
+                        <i *ngIf="serviceItem.processId==''" class="big red minus circle"></i>
                     </div>
                 </td>
                 <td><a class="header">{{serviceItem.serviceId}}</a></td>

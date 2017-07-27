@@ -119,7 +119,6 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
         if (this.propertyPages.length === 0 && this.config.propertyPages) {
             this._propertyService.setPropertyPagesAndProperties(this.config.propertyPages, this.propertyPages);
         }
-
     }
 
     public abstract run(): void
@@ -176,12 +175,18 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
 
         this._endPointService.getEndPoints().subscribe(data => {
 
-            data.endPoint.forEach(item => {
-                if (item.name === endpoint) {
-                    this.endpointObject = item;
-                }
-            });
+            if (data['endPoint']) {
+                data['endPoint'].forEach(item => {
+                    if (item.name === endpoint) {
+                        this.endpointObject = item;
+                    }
+                });
+            }
         });
+    }
+
+    protected getEndPoint() {
+        return this.endpointObject;
     }
 
     protected setTitle(title: string) {

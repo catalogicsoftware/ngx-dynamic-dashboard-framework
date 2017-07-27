@@ -1,8 +1,7 @@
 import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../../services/runtime.service';
-import {Observable} from "rxjs/Observable";
-import {TrendLineService} from "../trend-line/service";
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class EdgeService {
@@ -10,21 +9,15 @@ export class EdgeService {
     constructor(private _http: Http) {
     }
 
-    getB() {
-        return this._http.get('http://localhost:8083/service-instances/vadp')
-            .map(res => res.json())
-            .catch(RuntimeService.handleError);
-    }
-
     getSelectedProxy() {
         return this._http.get('http://localhost:9090/select')
             .catch(RuntimeService.handleError);
     }
-
-    get() {
+    // http://localhost:9090/service-instances/vadp'
+    getMicroServices(url: string) {
         return new Observable(observer => {
             Observable.timer(500, 5000).subscribe(t => {
-                this._http.get('http://localhost:9090/service-instances/vadp')
+                this._http.get(url)
                     .map(res => res.json())
                     .catch(RuntimeService.handleError).subscribe(data => {
 

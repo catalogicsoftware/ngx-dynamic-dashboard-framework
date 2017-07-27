@@ -70,7 +70,6 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
         domain: ['#0d5481', '#0AFF16', '#da871e', '#D449E1']
     };
 
-    webSocketConnection: any;
     remoteService: any;
     detailMenuOpen: string;
 
@@ -101,38 +100,21 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
 
         Object.assign(this, {serviceList});
 
-        const single = [
-            {
-                'name': 'Germany',
-                'value': 89
-            },
-            {
-                'name': 'USA',
-                'value': 50
-            },
-            {
-                'name': 'France',
-                'value': 72
-            }
-        ];
+        const single = [];
 
         Object.assign(this, {single});
-
-
     }
 
     public preRun(): void {
         this.detailMenuOpen = 'out';
-
     }
 
     public run() {
         this.errorExists = false;
         this.actionInitiated = true;
         const me = this;
-        this.remoteService = this._edgeService.get().subscribe(results => {
+        this.remoteService = this._edgeService.getMicroServices(this.getEndPoint().address).subscribe(results => {
                 const edgeServiceList = [];
-
                 this.actionInitiated = false;
                 this.inRun = true;
 
@@ -183,7 +165,7 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
             () =>
                 console
                     .debug(
-                        'Connecting to web socket'
+                        'Connecting to the service'
                     ));
     }
 
@@ -216,9 +198,10 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
         this.inRun = false;
         this.actionInitiated = true;
 
-        this.remoteService.unsubscribe();
+        if (this.remoteService) {
+            this.remoteService.unsubscribe();
+        }
         this.edgeServiceList.length = 0;
-
         this.actionInitiated = false;
 
     }
@@ -287,22 +270,23 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
             });
         });
 
+        single.sort(function (a, b) {
+            if (a['name'] < b['name']) {
+                return -1;
+            } else if (a['name'] > b['name']) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+
         Object.assign(this, {single});
 
     }
 
     public ngOnDestroy() {
 
-        this.unSubscribeToWebSocketObservable();
-
-    }
-
-    private unSubscribeToWebSocketObservable() {
-
-        if (this.webSocketConnection) {
-            this.webSocketConnection.unsubscribe();
-        }
-        this.actionInitiated = false;
+        this.stop();
 
     }
 

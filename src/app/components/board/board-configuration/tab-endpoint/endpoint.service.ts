@@ -18,11 +18,34 @@ export class EndPointService {
     }
 
     getEndPoints() {
+
         if (this.demo) {
-            return this._http.request('/assets/api/endpoint-model.json').map(res => res.json());
+
+            if (localStorage.getItem('endpoint') == null) {
+
+                return new Observable(observer => {
+                    const base = {endPoint: []};
+                    localStorage.setItem('endpoint', JSON.stringify(base));
+                    observer.next(base);
+                    return () => {
+                    };
+                });
+            } else {
+
+                return new Observable(observer => {
+                    const data = JSON.parse(localStorage.getItem('endpoint'));
+                    observer.next(data);
+                    return () => {
+                    };
+                });
+
+            }
         } else {
+
             return this._http.get(this.localStore + '/endpoint').map(res => res.json());
         }
+
+
     }
 
     deleteEndPoint() {
@@ -30,16 +53,24 @@ export class EndPointService {
     }
 
     saveEndPoint(endpoint: any) {
-        const headers = new Headers();
 
-        headers.append('Content-Type', 'application/json');
+        if (this.demo) {
+            return new Observable(observer => {
 
+                localStorage.setItem('endpoint', JSON.stringify(endpoint));
+                observer.next({});
+                return () => {
+                };
 
-        if (Object.keys(endpoint).length === 0 && endpoint.constructor === Object) {
-            return Observable.empty();
+            });
+        } else {
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            if (Object.keys(endpoint).length === 0 && endpoint.constructor === Object) {
+                return Observable.empty();
+            }
+            return this._http.post(this.localStore + '?id=endpoint', JSON.stringify(endpoint), {headers: headers});
         }
-
-        return this._http.post(this.localStore + '?id=endpoint', JSON.stringify(endpoint), {headers: headers});
 
     }
 }

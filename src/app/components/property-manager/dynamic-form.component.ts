@@ -41,7 +41,7 @@ import {EndPoint} from '../board/board-configuration/tab-endpoint/endpoint.model
             'showHideAnimation',
             [
                 transition(':enter', [   // :enter is alias to 'void => *'
-                    style({opacity:0}),
+                    style({opacity: 0}),
                     animate(750, style({opacity: 1}))
                 ]),
                 transition(':leave', [   // :leave is alias to '* => void'
@@ -76,7 +76,7 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
     updateEndPointList() {
 
         this.endPointService.getEndPoints().subscribe(data => {
-            this.endPoints = data.endPoint;
+            this.endPoints = data['endPoint'];
         });
     }
 

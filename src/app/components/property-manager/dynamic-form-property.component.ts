@@ -49,7 +49,7 @@ export class DynamicFormPropertyComponent {
 
         this.endPointService.getEndPoints().subscribe(data => {
 
-            this.endPoints = data.endPoint;
+            this.endPoints = data['endPoint'];
 
         });
     }

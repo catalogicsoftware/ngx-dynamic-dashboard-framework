@@ -1,14 +1,14 @@
 [
   {
-    "heading": "What's New in Catalogic 2.7",
+    "heading": "What's New",
     "summary": "",
     "details": [
       {
-        "category": "SQL Server Enhancements",
+        "category": "Application A Enhancements",
         "articles": [
           {
             "headline": "Automated Seeding for Always On",
-            "description": "ECX enables automated seeding of your SQL Server AlwaysON availability group by leveraging Storage snapshot technology to minimize the data movement between primary and secondary replica.",
+            "description": "Enables automated seeding of your Application A AlwaysON availability group by leveraging Storage snapshot technology to minimize the data movement between primary and secondary replica.",
             "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
             "id": "id string",
             "date": "09/10/2017"
@@ -16,18 +16,18 @@
         ]
       },
       {
-        "category": "SAP HANA Enhancements",
+        "category": "Application B Enhancements",
         "articles": [
           {
-            "headline": "SAP HANA 2.0 support",
-            "description": "ECX 2.7 introduces CDM support for SAP HANA 2.0 SPS01. Single tenant configuration can now be automatically protected using storage snapshot.",
-            "benefit": "Protect your latest version of SAP HANA using ECX Copy Data Management",
+            "headline": "Application B support",
+            "description": "Introduces CDM support for Application B. Single tenant configuration can now be automatically protected using storage snapshot.",
+            "benefit": "Protect your latest version of Application B using Product Copy Data Management",
             "id": "id string",
             "date": "09/10/2017"
           },
           {
             "headline": "Recovery improvements",
-            "description": "ECX now enables Instant recovery of SAP HANA database to original location from the UI portal.",
+            "description": "Product now enables Instant recovery of Application B database to original location from the UI portal.",
             "benefit": "Flexible recovery options",
             "id": "id string",
             "date": "09/10/2017"
@@ -35,18 +35,18 @@
         ]
       },
       {
-        "category": "NetApp MetroCluster support",
+        "category": "Application C support",
         "articles": [
           {
-            "headline": "MetroCluster support",
-            "description": "ECX now supports NetApp MetroCluster configurations running ONTAP 9 and above.",
+            "headline": "Application C support",
+            "description": "Product now supports Application C configurations running 9 and above.",
             "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
             "id": "id string",
             "date": "09/10/2017"
           },
           {
             "headline": "Recovery improvements",
-            "description": "ECX now provides an option to change GUID of recovered Cache Instance.",
+            "description": "Product now provides an option to change GUID of recovered Cache Instance.",
             "benefit": "Flexible recovery options",
             "id": "id string",
             "date": "09/10/2017"
@@ -58,14 +58,14 @@
         "articles": [
           {
             "headline": "Auto cataloging",
-            "description": "ECX now automatically inventories registered hosts and storage providers.",
+            "description": "Product now automatically inventories registered hosts and storage providers.",
             "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
             "id": "id string",
             "date": "09/10/2017"
           },
           {
             "headline": "Instant Restore option",
-            "description": "ECX now offers an option to overwrite existing VMDK during Instant Disk restore..",
+            "description": "Product now offers an option to overwrite existing VMDK during Instant Disk restore..",
             "benefit": "Flexible recovery options",
             "id": "id string",
             "date": "09/10/2017"
@@ -84,14 +84,14 @@
         "articles": [
           {
             "headline": "HA configuration support",
-            "description": "ECX enables automated seeding of your SQL Server AlwaysON availability group by leveraging Storage snapshot technology to minimize the data movement between primary and secondary replica.",
+            "description": "Product enables automated seeding of your Application A AlwaysON availability group by leveraging Storage snapshot technology to minimize the data movement between primary and secondary replica.",
             "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
             "id": "id string",
             "date": "09/10/2017"
           },
           {
             "headline": "New Reports",
-            "description": "ECX 2.7 introduces Instant Disk Restore Volumes report. The report lists the volumes that are created as part of IA disk restore..",
+            "description": "Product introduces Instant Disk Restore Volumes report. The report lists the volumes that are created as part of IA disk restore..",
             "benefit": "Flexible recovery options",
             "id": "id string",
             "date": "09/10/2017"

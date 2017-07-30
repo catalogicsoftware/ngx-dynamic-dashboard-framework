@@ -192,15 +192,6 @@ export class ConfigurationService {
         this.savePropertyPageConfigurationToStore(gadgetConfig, instanceId);
     }
 
-    getConfigurationModels() {
-
-        if (this.demo) {
-            return this._http.request('/assets/api/board-example-config-model.json').map(res => res.json());
-
-        } else {
-            return this._http.get(this.remoteConfigurationRepository).map(res => res.json());
-        }
-    }
 
     setCurrentModel(_currentModel: any) {
         this.currentModel = _currentModel;

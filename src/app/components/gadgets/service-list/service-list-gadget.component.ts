@@ -130,8 +130,6 @@ export class ServiceListGadgetComponent extends GadgetBase implements OnDestroy 
             },
             error => this.handleError(error),
             () => console.log('Closing Process Subscription!'));
-
-
     }
 
     public updateData(data: any[]) {

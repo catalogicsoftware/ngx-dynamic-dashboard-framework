@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ConfigurationService} from '../../../services/configuration.service';
 
 
@@ -13,39 +13,46 @@ import {ConfigurationService} from '../../../services/configuration.service';
 
 
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
 
-    gadgetLibraryData: any[] = [];
     dashboardList: any[] = [];
-    currentBoardId = '';
+    selectedBoard = '';
 
-    constructor( private _configurationService: ConfigurationService) {
-
+    constructor(private _configurationService: ConfigurationService) {
     }
 
-    updateDashboardMenu(tabItemToSelect: string) {
+    ngOnInit() {
+        this.updateDashboardMenu('');
+    }
 
-        this._configurationService.getConfigurationModels().subscribe(data => {
+    updateDashboardMenu(selectedBoard: string) {
 
-            if (data.storeIds) {
+        this._configurationService.getBoards().subscribe(data => {
+
+            const me = this;
+            if (data && data instanceof Array && data.length) {
                 this.dashboardList.length = 0;
+                data.forEach(board => {
 
-                const me = this;
-                data.storeIds.forEach(function (item) {
+                    me.dashboardList.push(board.title);
 
-                    if (item.storeId !== 'endpoint') {
-
-                        me.dashboardList.push(item);
-                    }
                 });
+
+                if (selectedBoard === '') {
+
+                    this.selectBoard(this.dashboardList[0]);
+
+                } else {
+
+                    this.selectBoard(selectedBoard);
+                }
             }
-            this.setCurrentTab(tabItemToSelect);
         });
     }
 
 
-    setCurrentTab(_currentTab: string) {
-        this.currentBoardId = _currentTab;
+    selectBoard(selectedBoard: string) {
+        this.selectedBoard = selectedBoard;
     }
 
 }

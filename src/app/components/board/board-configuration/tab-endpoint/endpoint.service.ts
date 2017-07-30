@@ -44,8 +44,6 @@ export class EndPointService {
 
             return this._http.get(this.localStore + '/endpoint').map(res => res.json());
         }
-
-
     }
 
     deleteEndPoint() {

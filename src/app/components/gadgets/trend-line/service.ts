@@ -77,7 +77,7 @@ export class TrendLineService {
 
     getHelpTopic() {
 
-        return this._http.request('../../plugins/procmon/components/gadgets/trend-line/help.json')
+        return this._http.request('/assets/api/trendline-help-model.json')
             .map(res => res.json())
             .catch(RuntimeService.handleError);
 

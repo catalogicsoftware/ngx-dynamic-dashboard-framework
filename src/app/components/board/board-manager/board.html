@@ -2,9 +2,9 @@
 
     <div class="ui secondary pointing menu">
         <a *ngFor="let board of dashboardList; let i = index" class="item"
-           [ngClass]="{'active':board.storeId == currentBoardId}"
-           (click)="gadgetGrid.loadBoard(board.storeId)" (click)="setCurrentTab(board.storeId)">
-            {{board.storeId}}
+           [ngClass]="{'active':board == selectedBoard}"
+           (click)="gadgetGrid.loadBoard(board)" (click)="selectBoard(board)">
+            {{board}}
         </a>
     </div>
 

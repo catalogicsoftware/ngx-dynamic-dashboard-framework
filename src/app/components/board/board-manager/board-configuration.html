@@ -25,11 +25,11 @@
                 <th>name</th>
                 <th></th>
                 </thead>
-                <tr class="ui basic segment" *ngFor="let boardName of dashboardList; let i = index" dnd-sortable [sortableIndex]="i">
+                <tr class="ui basic segment" *ngFor="let board of dashboardList; let i = index" dnd-sortable [sortableIndex]="i">
                     <td class="c-col">{{i + 1}}</td>
-                    <td>{{boardName.storeId}}</td>
+                    <td>{{board}}</td>
                     <td style="text-align:right">
-                        <button class="circular gray ui icon button" (click)="deleteBoard(boardName.storeId)">
+                        <button class="circular gray ui icon button" (click)="deleteBoard(board)">
                             <i class="icon inverted delete"></i>
                         </button>
                     </td>

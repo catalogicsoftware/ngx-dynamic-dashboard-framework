@@ -88,7 +88,7 @@ export class GridComponent {
 
     public deleteBoard(name: string) {
 
-        this._configurationService.deletePersistedModel(name).subscribe(data => {
+        this._configurationService.deleteBoard(name).subscribe(data => {
 
                 this.initializeBoard();
 
@@ -223,39 +223,26 @@ export class GridComponent {
 
     private initializeBoard() {
 
-        const store = this._configurationService.getConfigurationModels();
+        this._configurationService.getBoards().subscribe(board => {
 
-        const storeToLoadFound = false;
+            if (board && board instanceof Array && board.length) {
+                this.loadBoard(board[0].title);
+            } else {
 
-        /*
-        if (store.storeIds && store.storeIds.length) {
-
-            store.storeIds.forEach(item => {
-
-                if (item.storeId.toLowerCase() !== 'endpoint' && !storeToLoadFound) {
-                    storeToLoadFound = true;
-                    this.loadBoard(item.storeId);
-                }
-            });
-        }
-        */
-
-        if (!storeToLoadFound) {
-            this.loadDefaultBoard();
-        }
-
-
+                this.loadDefaultBoard();
+            }
+        });
     }
 
-    private loadBoard(configurationName: string) {
+    private loadBoard(boardTitle: string) {
 
         this.clearGridModelAndGadgetInstanceStructures();
 
-        this._configurationService.getConfigurationModelFromPersistentStore(configurationName).subscribe(res => {
+        this._configurationService.getBoardByTitle(boardTitle).subscribe(board => {
 
-                this.setModel(res);
+                this.setModel(board);
                 this.updateServicesAndGridWithModel();
-                this.boardUpdateEvent.emit(configurationName);
+                this.boardUpdateEvent.emit(boardTitle);
             },
             error => {
                 console.error(error);
@@ -269,10 +256,10 @@ export class GridComponent {
 
         this.clearGridModelAndGadgetInstanceStructures();
 
-        this._configurationService.getDefaultConfigurationModelFromDisk().subscribe(res => {
+        this._configurationService.getDefaultBoard().subscribe(board => {
 
             console.log('loading default board');
-            this.setModel(res);
+            this.setModel(board);
             this.updateServicesAndGridWithModel();
             this.saveBoard('Initialization of a default board', true);
 
@@ -284,7 +271,7 @@ export class GridComponent {
 
         this.clearGridModelAndGadgetInstanceStructures();
 
-        this._configurationService.getDefaultConfigurationModelFromDisk().subscribe(res => {
+        this._configurationService.getDefaultBoard().subscribe(res => {
 
             this.setModel(res);
             this.getModel().title = name;
@@ -306,21 +293,15 @@ export class GridComponent {
 
         this.updateServicesAndGridWithModel();
 
-        this._configurationService.deletePersistedModel(this.getModel().title).subscribe(data => {
-
-                this._configurationService.saveConfigurationModel(this.getModel()).subscribe(result => {
+        this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
 
-                        if (alertBoardListenerThatTheMenuShouldBeUpdated) {
-                            this.boardUpdateEvent.emit(this.getModel().title);
-                        }
-                    },
-                    error => console.error('Error' + error),
-                    () => console.debug('Saving configuration to store!'));
-
+                if (alertBoardListenerThatTheMenuShouldBeUpdated) {
+                    this.boardUpdateEvent.emit(this.getModel().title);
+                }
             },
-            error => console.error('Error', error),
-            () => console.debug('The following model was deleted so that an update to the model can be saved : ' + this.model.title));
+            error => console.error('Error' + error),
+            () => console.debug('Saving configuration to store!'));
 
     }
 

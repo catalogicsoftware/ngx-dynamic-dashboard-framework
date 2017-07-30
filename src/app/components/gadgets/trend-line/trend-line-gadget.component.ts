@@ -19,7 +19,7 @@ declare var d3: any;
 export class TrendLineGadgetComponent extends GadgetBase {
 
 
-    topic:any;
+    topic: any;
 
     // chart options
     showXAxis  = true;
@@ -28,7 +28,7 @@ export class TrendLineGadgetComponent extends GadgetBase {
     showLegend  = true;
     showXAxisLabel  = true;
     showYAxisLabel  = true;
-    yAxisLabel  = 'Values';
+    yAxisLabel  = 'IOPS';
     xAxisLabel  = 'Time';
     autoScale = true;
     view: any[];
@@ -65,7 +65,7 @@ export class TrendLineGadgetComponent extends GadgetBase {
          * todo - get collectors from property page data
          * @type {[string,string]}
          */
-        this.collectors = ['IOPS', 'CPU'];
+        this.collectors = ['read', 'write'];
 
         for (let y = 0; y < this.collectors.length; y++) {
 

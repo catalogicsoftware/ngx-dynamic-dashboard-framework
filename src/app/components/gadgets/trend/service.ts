@@ -8,7 +8,7 @@ export class TrendService {
     }
 
     get() {
-        return this._http.request('../../plugins/procmon/components/gadgets/trend/model.json')
+        return this._http.request('/assets/api/trend-model.json')
             .map(res => res.json())
             .catch(RuntimeService.handleError);
     }

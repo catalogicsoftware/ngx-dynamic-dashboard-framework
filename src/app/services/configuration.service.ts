@@ -4,7 +4,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
+import {defaultBoard} from '../components/board/board-manager/models/board-default';
+import {sampleBoardCollection} from '../components/board/board-manager/models/board-collection-sample';
 
 
 @Injectable()
@@ -13,62 +14,151 @@ export class ConfigurationService {
     currentModel: any; // this object helps with updates to property page values
     demo = true;
 
+    defaultBoard: any;
+    sampleBoardCollection: any;
+
     /**
      * todo - fix this hard coded store
      * @type {string}
      */
-    localStore = 'http://localhost:8090/api/store';
+    remoteConfigurationRepository = 'http://localhost:8090/api/store';
 
     constructor(private _http: Http) {
+
+        Object.assign(this, {defaultBoard});
+        Object.assign(this, {sampleBoardCollection});
+        this.seedLocalStorageWithSampleBoardCollection();
     }
 
-    getConfigurationModelFromPersistentStore(configurationName: string) {
+    private seedLocalStorageWithSampleBoardCollection() {
 
-        if (this.demo) {
-
-            return this._http.request('/assets/api/board-store/' + configurationName.toLocaleLowerCase() + '.json').map(res => res.json());
-        } else {
-
-            return this._http.get(this.localStore + '/' + configurationName).map(res => res.json());
+        if (localStorage.getItem('board') === null) {
+            localStorage.setItem('board', JSON.stringify(this.sampleBoardCollection));
         }
     }
 
-    getDefaultConfigurationModelFromDisk() {
-        return this._http.request('/assets/api/board-default-model.json').map(res => res.json());
-    }
-
-    deletePersistedModel(configurationName: string) {
+    public getBoardByTitle(title: string) {
 
         if (this.demo) {
 
             return new Observable(observer => {
+                const board_collection = JSON.parse(localStorage.getItem('board'));
 
-                localStorage.removeItem(configurationName);
-                observer.next({});
+                let data = '';
+                board_collection['board'].forEach(boardModel => {
+
+                    if (boardModel.title === title) {
+                        data = boardModel;
+                    }
+                });
+                observer.next(data);
                 return () => {
                 };
-
             });
-
         } else {
 
-            return this._http.delete(this.localStore + '/' + configurationName);
+            return this._http.get(this.remoteConfigurationRepository + '/' + name).map(res => res.json());
         }
     }
 
-    saveConfigurationModel(model: any) {
+    public getBoards() {
 
-        this.model = model;
+        if (this.demo) {
+            return new Observable(observer => {
+                let data = JSON.parse(localStorage.getItem('board'));
+                if (!data) {
+                    data = {board: []};
+                }
+                observer.next(data.board);
+                return () => {
+                };
+            });
 
-        if (Object.keys(model).length === 0 && model.constructor === Object) {
+        } else {
+            /**
+             * todo - this call is based on an internal representation (admin console) of something called a store.
+             * That concept requires refactoring.
+             */
+            return this._http.get(this.remoteConfigurationRepository).map(res => res.json());
+        }
+    }
+
+    public saveBoard(board: any) {
+
+        this.model = board;
+
+        if (Object.keys(board).length === 0 && board.constructor === Object) {
             return Observable.empty();
         }
 
         if (this.demo) {
-            const me = this;
+            return new Observable(observer => {
+                let board_collection;
+
+                // find and remove board from storage
+                this.deleteBoardFromLocalStore(board.title);
+
+                // get a collection object and add board to it
+                if ((board_collection = JSON.parse(localStorage.getItem('board'))) == null) {
+
+                    board_collection = {
+                        board: []
+                    };
+                }
+                board_collection['board'].push(board);
+
+                // save
+                localStorage.setItem('board', JSON.stringify(board_collection));
+
+                observer.next({});
+
+                return () => {
+                };
+
+            });
+
+        } else {
+
+            /**
+             * todo - a delete must happen here
+             *
+             */
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            return this._http.post(this.remoteConfigurationRepository + '?id=' + board.title, JSON.stringify(board), {headers: headers});
+        }
+    }
+
+    private delete(board_collection: any) {
+
+        localStorage.removeItem('board');
+        localStorage.setItem('board', JSON.stringify(board_collection));
+
+    }
+
+    private deleteBoardFromLocalStore(boardTitle: string) {
+        const board_collection = JSON.parse(localStorage.getItem('board'));
+
+        let index;
+        if (board_collection && ( index = board_collection['board'].findIndex(item => {
+                return item.title === boardTitle;
+            })) >= 0) {
+
+            board_collection['board'].splice(index, 1);
+
+            this.delete(board_collection);
+
+        }
+    }
+
+    public deleteBoard(boardTitle: string) {
+
+        if (this.demo) {
+
             return new Observable(observer => {
 
-                localStorage.setItem(me.model.title, JSON.stringify(me.model));
+                this.deleteBoardFromLocalStore(boardTitle);
+
                 observer.next({});
                 return () => {
                 };
@@ -77,12 +167,19 @@ export class ConfigurationService {
 
         } else {
 
-            const headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            return this._http.post(this.localStore + '?id=' + model.title, JSON.stringify(model), {headers: headers});
-
+            return this._http.delete(this.remoteConfigurationRepository + '/' + boardTitle);
         }
     }
+
+    public getDefaultBoard() {
+
+        return new Observable(observer => {
+            observer.next(this.defaultBoard);
+            return () => {
+            };
+        });
+    }
+
 
     /*
      when a gadget instance's property page is updated and saved, the change gets communicated to all
@@ -98,13 +195,10 @@ export class ConfigurationService {
     getConfigurationModels() {
 
         if (this.demo) {
-
             return this._http.request('/assets/api/board-example-config-model.json').map(res => res.json());
 
         } else {
-
-            return this._http.get(this.localStore).map(res => res.json());
-
+            return this._http.get(this.remoteConfigurationRepository).map(res => res.json());
         }
     }
 
@@ -127,29 +221,18 @@ export class ConfigurationService {
             });
         });
 
+        this.saveBoard(this.currentModel).subscribe(result => {
 
-        /**
-         * todo - saving a configuration involves deletion from the store first. This is also
-         * done in the grid.component.ts file. Improve save logic such that the caller does not have
-         * to be concerned with deletion first. In addition this may be causing occasional 409 errors seen in the console.
-         * The attempt to save may be occurring prematurely even though the delete operation is returning.
-         */
-        this.deletePersistedModel(this.currentModel.title).subscribe(data => {
-
-                this.saveConfigurationModel(this.currentModel).subscribe(result => {
-
-                        /**
-                         * todo - create popup/toast to show configuration saved message
-                         */
-                        console.debug('The following configuration model was saved!');
-
-                    },
-                    error => console.error('Error' + error),
-                    () => console.debug('Saving configuration to store!'));
+                /**
+                 * todo - create popup/toast to show configuration saved message
+                 */
+                console.debug('The following configuration model was saved!');
 
             },
-            error => console.error('Error', error),
-            () => console.debug('Attempting to remove model'));
+            error => console.error('Error' + error),
+            () => console.debug('Saving configuration to store!'));
+
+
     }
 
     updateProperties(updatedProperties: any, gadget: any, instanceId: number) {

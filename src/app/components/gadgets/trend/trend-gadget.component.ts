@@ -70,8 +70,8 @@ export class TrendGadgetComponent extends GadgetBase {
 
     public updateData(data: any[]) {
 
-        this._trendService.get().subscribe(data => {
-                this.data = data;
+        this._trendService.get().subscribe(res => {
+                this.data = res.data;
             },
             error => this.handleError(error));
     }

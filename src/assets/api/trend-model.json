@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "name": "IBM",
+      "name": "Resource A",
       "series": [
         {
           "name": "January",
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "name": "NetApp",
+      "name": "Resource B",
       "series": [
         {
           "name": "January",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "name": "Pure",
+      "name": "Resource C",
       "series": [
         {
           "name": "January",

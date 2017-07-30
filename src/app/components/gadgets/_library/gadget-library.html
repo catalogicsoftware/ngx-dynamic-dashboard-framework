@@ -15,22 +15,30 @@
                 <br>
 
                 <app-filter-tag #filterTag
-                            (updateFilterListEvent)="adjustGadgetLibraryListWithFilter($event)"></app-filter-tag>
+                                (updateFilterListEvent)="adjustGadgetLibraryListWithFilter($event)"></app-filter-tag>
 
-                <div [@showHideAnimation] class="ui segment" style="background-color:white"
-                     *ngFor="let gadget of gadgetLibraryDataFiltered;">
-                    <div class="ui large middle aligned divided list">
-                        <div class="item">
-                            <div class="right floated content">
-                                <div class="ui small blue button" (click)="addGadget(gadget)">Add</div>
-                            </div>
-                            <img class="ui image" src="{{gadget.icon}}">
-                            <div class="content">
-                                <div class="header">{{gadget.name}} Gadget</div>
-                                {{gadget.description}}
+                <div style="max-height: 500px; overflow-y: scroll; margin-top: 20px; padding-right: 10px">
+
+                    <div [@showHideAnimation] class="ui segment" style="background-color:white;"
+                         *ngFor="let gadget of gadgetLibraryDataFiltered;">
+                        <div class="ui large middle aligned divided list">
+                            <div class="item">
+                                <div class="right floated content">
+                                    <div class="ui small blue button" (click)="addGadget(gadget)">Add</div>
+                                </div>
+                                <img class="ui image" src="{{gadget.icon}}">
+                                <div class="content">
+                                    <div class="header">{{gadget.name}} Gadget</div>
+                                    {{gadget.description}}
+                                </div>
                             </div>
                         </div>
+                        <div class="ui bottom attached">
+                            <button *ngFor="let tag of gadget.tags" class="ui basic gray compact button">{{tag.name}}
+                            </button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

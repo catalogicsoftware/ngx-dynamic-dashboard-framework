@@ -31,12 +31,13 @@ export class NewsGadgetComponent extends GadgetBase {
             _propertyService,
             _endPointService,
             _changeDetectionRef);
-
-        this.run();
+        
     }
 
     public preRun(): void {
         this.updateData(null);
+
+        this.run();
     }
 
     public run() {

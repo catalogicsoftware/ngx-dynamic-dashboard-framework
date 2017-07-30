@@ -23,9 +23,9 @@ export class TrendGadgetComponent extends GadgetBase {
     gradient = true;
     showLegend = false;
     showXAxisLabel = true;
-    showYAxisLabel = false;
-    yAxisLabel = 'Available CPUs';
-    xAxisLabel = 'Storage Consumption Trend';
+    showYAxisLabel = true;
+    yAxisLabel = 'Trend Data';
+    xAxisLabel = 'Trend Time Line';
     view: any[];
     data: any[] = [];
     colorScheme: any = {

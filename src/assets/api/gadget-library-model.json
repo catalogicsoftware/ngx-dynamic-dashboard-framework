@@ -2,7 +2,7 @@
   {
     "componentType": "EdgeServiceListGadgetComponent",
     "name": "Edge Service Status",
-    "description": "Monitors Edge Service Status",
+    "description": "Monitors edge service status",
     "icon": "assets/images/edge-service.png",
     "instanceId": -1,
     "tags": [
@@ -22,7 +22,7 @@
               "controlType": "dynamicdropdown",
               "key": "endpoint",
               "label": "API Endpoints",
-              "value": "Carlosappliance-ECX",
+              "value": "Carlosappliance",
               "required": true,
               "order": 2
             },
@@ -30,7 +30,7 @@
               "controlType": "textbox",
               "key": "title",
               "label": "Title",
-              "value": "Proxy Service Status",
+              "value": "Proxy service status",
               "required": true,
               "order": 1
             },
@@ -133,7 +133,7 @@
   {
     "componentType": "TrendLineGadgetComponent",
     "name": "Realtime Performance",
-    "description": "IOPs and Network Bandwidth.",
+    "description": "Monitors IOPs and network bandwidth.",
     "icon": "assets/images/trend-line.png",
     "instanceId": -1,
     "tags": [
@@ -200,7 +200,7 @@
   {
     "componentType": "CPUGadgetComponent",
     "name": "CPU Chart",
-    "description": "Monitors CPU utilization for CDM.",
+    "description": "Monitors CPU utilization.",
     "icon": "assets/images/cpu.png",
     "instanceId": -1,
     "tags": [
@@ -223,7 +223,7 @@
               "controlType": "textbox",
               "key": "title",
               "label": "Title",
-              "value": "CPU Utilization",
+              "value": "CPU utilization",
               "required": true,
               "order": 1
             },
@@ -267,7 +267,7 @@
   {
     "componentType": "MemoryGadgetComponent",
     "name": "Memory Chart",
-    "description": "Monitors Memory utilization for CDM",
+    "description": "Monitors memory utilization",
     "icon": "assets/images/memory.png",
     "instanceId": -1,
     "tags": [
@@ -334,7 +334,7 @@
   {
     "componentType": "ServiceListGadgetComponent",
     "name": "Service Status",
-    "description": "Monitors Service Status",
+    "description": "Monitors service status",
     "icon": "assets/images/service.png",
     "instanceId": -1,
     "tags": [
@@ -453,7 +453,7 @@
   {
     "componentType": "DiskGadgetComponent",
     "name": "Disk Utilization",
-    "description": "Disk consumption information for ECX.",
+    "description": "Disk consumption information.",
     "icon": "assets/images/donut.png",
     "instanceId": -1,
     "tags": [
@@ -707,7 +707,7 @@
   {
     "componentType": "JobAnalysisGadgetComponent",
     "name": "Job Analyzer",
-    "description": "Performs job analysis between ECX and device.",
+    "description": "Performs operation analysis.",
     "icon": "assets/images/job-analysis.png",
     "instanceId": -1,
     "tags": [
@@ -726,7 +726,7 @@
             {
               "controlType": "dynamicdropdown",
               "key": "endpoint",
-              "label": "ECX URL",
+              "label": "Application URL",
               "value": "",
               "required": true,
               "order": 3

@@ -33,7 +33,7 @@ export class TrendLineGadgetComponent extends GadgetBase {
     autoScale = true;
     view: any[];
     colorScheme: any = {
-        domain: ['#2185D0', '#0AFF16', '#FAFF16']
+        domain: ['#2185D0', '#0AFF16']
     };
 
     d3 = d3;
@@ -55,12 +55,13 @@ export class TrendLineGadgetComponent extends GadgetBase {
             _endPointService,
             _changeDetectionRef);
 
-        this.setTopic();
+
     }
 
 
     public preRun(): void {
 
+        this.setHelpTopic();
         /**
          * todo - get collectors from property page data
          * @type {[string,string]}
@@ -161,11 +162,10 @@ export class TrendLineGadgetComponent extends GadgetBase {
 
     }
 
-    setTopic() {
+    private setHelpTopic() {
         this._trendLineService.getHelpTopic().subscribe(data => {
 
             this.topic = data;
-            console.log(data);
 
         });
     }

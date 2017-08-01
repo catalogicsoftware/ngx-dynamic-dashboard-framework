@@ -14,6 +14,7 @@ import {JobAnalysisService} from '../../gadgets/job-analysis/service';
 import {TrendService} from '../../gadgets/trend/service';
 import {TrendLineService} from '../../gadgets/trend-line/service';
 import {EdgeService} from '../../gadgets/edge-service-list/service';
+import {CPUMService} from '../../gadgets/cpum/service';
 
 
 
@@ -38,7 +39,8 @@ import {EdgeService} from '../../gadgets/edge-service-list/service';
         JobAnalysisService,
         TrendLineService,
         TrendService,
-        EdgeService
+        EdgeService,
+        CPUMService
     ]
 })
 export class GridModule {

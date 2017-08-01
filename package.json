@@ -34,6 +34,8 @@
     "reflect-metadata": "0.1.8",
     "semantic-ui": "2.2.2",
     "socket.io-client": "^1.7.2",
+    "sockjs-client": "^1.1.4",
+    "stompjs":"^2.3.3",
     "@swimlane/ngx-charts": "6.0.0"
 
   },

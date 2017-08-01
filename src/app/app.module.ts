@@ -33,6 +33,7 @@ import {DiskGadgetComponent} from './components/gadgets/disk/disk-gadget.compone
 import {PropertyListGadgetComponent} from './components/gadgets/property-list/property-list-gadget.component';
 import {ServiceListGadgetComponent} from './components/gadgets/service-list/service-list-gadget.component';
 import {CPUGadgetComponent} from './components/gadgets/cpu/cpu-gadget.component';
+import {CPUMGadgetComponent} from './components/gadgets/cpum/cpum-gadget.component';
 import {MemoryGadgetComponent} from './components/gadgets/memory/memory-gadget.component';
 import {BoardLayoutManagerComponent} from './components/board/board-manager/board-layout-manager-component';
 import {GadgetLibraryComponent} from './components/gadgets/_library/gadget-library-component';
@@ -48,6 +49,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SearchResultComponent} from './components/gadgets/_library/search-filter/search-result-component';
 import {EdgeServiceListGadgetComponent} from './components/gadgets/edge-service-list/edge-service-list-gadget.component';
 import {EdgeService} from './components/gadgets/edge-service-list/service';
+import {CPUMService} from './components/gadgets/cpum/service';
+import { StompService } from 'ng2-stomp-service';
 
 
 @NgModule({
@@ -67,7 +70,8 @@ import {EdgeService} from './components/gadgets/edge-service-list/service';
             NewsGadgetComponent,
             JobAnalysisGadgetComponent,
             TrendLineGadgetComponent,
-            EdgeServiceListGadgetComponent
+            EdgeServiceListGadgetComponent,
+            CPUMGadgetComponent
         ]),
         RoutingModule,
         NgxChartsModule,
@@ -108,7 +112,8 @@ import {EdgeService} from './components/gadgets/edge-service-list/service';
       CapitalizeFirstPipe,
       FacetComponent,
       SearchResultComponent,
-      EdgeServiceListGadgetComponent
+      EdgeServiceListGadgetComponent,
+      CPUMGadgetComponent
   ],
 
   providers: [
@@ -119,7 +124,9 @@ import {EdgeService} from './components/gadgets/edge-service-list/service';
       TrendService,
       DiskService,
       StatisticService,
-      EdgeService
+      EdgeService,
+      CPUMService,
+      StompService
   ],
   bootstrap: [AppComponent]
 })

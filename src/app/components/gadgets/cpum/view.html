@@ -1,0 +1,62 @@
+<div (mouseover)="showGadgetControls(true)"
+     (mouseleave)="showGadgetControls(false)"
+     class="ui  center aligned raised segment gadget" dnd-draggable
+     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
+
+    <a class="ui left corner label">
+        <i class="circle icon" [ngClass]="{'green':inRun, 'yellow':!inRun}"></i>
+    </a>
+
+    <app-gadget-header
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleConfigMode()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()">
+    </app-gadget-header>
+
+    <div class="ui grid">
+        <div class="row">
+            <div *ngIf="!inConfig" style="min-height: 275px">
+                <ngx-charts-bar-vertical-normalized
+                        [view]="view"
+                        [scheme]="colorScheme"
+                        [results]="single"
+                        [gradient]="gradient"
+                        [xAxis]="showXAxis"
+                        [yAxis]="showYAxis"
+                        [legend]="showLegend"
+                        [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel"
+                        [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel"
+                        [barPadding]=30
+                        (select)="drillDownPopUp.showDetail($event)">
+                </ngx-charts-bar-vertical-normalized>
+            </div>
+        </div>
+    </div>
+
+    <app-dynamic-form *ngIf="inConfig"
+                  [propertyPages]="propertyPages"
+                  [instanceId]="instanceId"
+                  (updatePropertiesEvent)="updateProperties($event)">
+    </app-dynamic-form>
+
+    <app-error-handler
+            [errorObject]="errorObject"
+            [errorExists]="errorExists">
+    </app-error-handler>
+
+    <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
+
+</div>
+
+

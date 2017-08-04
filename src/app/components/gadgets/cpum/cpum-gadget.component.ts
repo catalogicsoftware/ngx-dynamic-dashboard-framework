@@ -6,6 +6,8 @@ import {EndPointService} from '../../board/board-configuration/tab-endpoint/endp
 import {GadgetBase} from '../_common/gadget-base';
 import {StompService} from 'ng2-stomp-service';
 import {isUndefined} from 'util';
+import {StompWebSocket} from './stompws';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'app-dynamic-component',
@@ -44,18 +46,15 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
             _propertyService,
             _endPointService,
             _changeDetectionRef);
+    }
 
-        // configuration
-        _stomp.configure({
+    public preRun(): void {
+        // from the following site: https://github.com/devsullo/ng2-STOMP-Over-WebSocket
+        this._stomp.configure({
             host: 'http://localhost:8080/cpu_monitor_websocket',
             debug: true,
             queue: {'init': true}
         });
-
-    }
-
-    public preRun(): void {
-
 
     }
 
@@ -64,16 +63,38 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.errorExists = false;
         this.actionInitiated = true;
 
+        const socket = new StompWebSocket('http://localhost:8080/cpu_monitor_websocket', '/topic/cpu-metrics' , '/app/collect');
 
+        const timer = Observable.timer(5000);
+        timer.subscribe(t => {
+            if (socket.isInitialized()) {
+                socket.send({'requestParam': 'start'});
+
+                socket.getSubject().subscribe(data => {
+
+                    this.updateGraph(data.cpu_utilization);
+
+                });
+
+                this.inRun = true;
+                this.actionInitiated = false;
+
+            } else {
+                // delay and wait a few more times
+            }
+        });
+
+
+        /*
         // start connection
+        // todo handle errors
         this._stomp.startConnect().then(() => {
             this._stomp.done('init');
             console.log('connected');
 
             // subscribe
             this.webSocketSubscription = this._stomp.subscribe('/topic/cpu-metrics', (data) => {
-                console.log('Socket Response' + data);
-                this.updateGraph (data.cpu_utilization);
+                this.updateGraph(data.cpu_utilization);
             });
 
             // send data
@@ -83,6 +104,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
             this.actionInitiated = false;
 
         });
+        */
     }
 
     public stop() {
@@ -95,8 +117,6 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     }
 
     public updateGraph(value: number) {
-
-        console.log(value);
 
         const series: any[] = [];
         const single: any = [];
@@ -174,21 +194,27 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
     private unSubscribeToWebSocketObservable() {
 
-        if (! isUndefined(this._stomp.send )) {
-            // send data
-            this._stomp.send('/app/collect', {'requestParam': 'stop'});
+        try {
 
-            // un-subscribe
-            this.webSocketSubscription.unsubscribe();
+            if (!isUndefined(this._stomp.send)) {
+                // send data
+                this._stomp.send('/app/collect', {'requestParam': 'stop'});
 
-            // disconnect
-            this._stomp.disconnect().then(() => {
-                console.log('Connection closed');
-            });
+                // un-subscribe
+                this.webSocketSubscription.unsubscribe();
+
+                // disconnect
+                this._stomp.disconnect().then(() => {
+                    console.log('Connection closed');
+                });
+            }
+
+            this.actionInitiated = false;
+            this.inRun = false;
+        } catch (e) {
+
+            // todo - this is problemantic when the WebSocket server is not running
         }
-
-        this.actionInitiated = false;
-        this.inRun = false;
     }
 
 }

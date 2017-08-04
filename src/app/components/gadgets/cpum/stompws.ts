@@ -3,12 +3,9 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/observable/interval';
 
+import * as SockJS from 'sockjs-client';
+import * as Stomp from 'stompjs';
 
-
-
-declare var System: any;
-declare var SockJS: any;
-declare var Stomp: any;
 
 export class StompWebSocket {
 
@@ -16,9 +13,6 @@ export class StompWebSocket {
     private reconnectProxy: () => void;
 
     private listener: Subject<String>;
-
-    private socketjs_lib: any;
-    private stomp_lib: any;
 
     private client: any;
     private stomp: any;
@@ -52,7 +46,7 @@ export class StompWebSocket {
         };
 
         this.initializeSockets();
-        // this.loadDependencies();
+
     }
 
 
@@ -63,6 +57,7 @@ export class StompWebSocket {
         this.setSocketUrl(_url);
         this.setTopic(_topic);
         this.setBroker(_broker);
+        this.init();
     }
 
     public getSocketUrl(): string {
@@ -100,7 +95,7 @@ export class StompWebSocket {
 
     private startListener() {
         const _listener = this.listener;
-        this.stomp.subscribe(this.getTopic(), function(data) {
+        this.stomp.subscribe(this.getTopic(), data => {
 
             console.log(data);
             _listener.next(JSON.parse(data.body));
@@ -115,26 +110,5 @@ export class StompWebSocket {
         this.stomp.onclose = this.reconnectProxy;
         this.isInit = true;
     }
-
-    /*
-    private loadDependencies() {
-        System.import('../lib/sockjs-0.3.4.js', module.id).then(
-            refModule => {
-                this.socketjs_lib = refModule;
-                console.log('socketjs loaded');
-                System.import('../lib/stomp.js', module.id).then(
-                    refModule2 => {
-                        this.stomp_lib = refModule2;
-                        console.log('stomp loaded');
-
-                        this.initializeSockets();
-                    }
-                );
-            }
-        );
-
-    }
-    */
-
 
 }

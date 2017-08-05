@@ -5,8 +5,8 @@ import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../board/board-configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {JobAnalysisService} from './service';
-import {DomSanitizer} from "@angular/platform-browser";
-import {MdIconRegistry} from "@angular/material";
+import {DomSanitizer} from '@angular/platform-browser';
+import {MdIconRegistry} from '@angular/material';
 
 declare var d3: any;
 
@@ -14,7 +14,7 @@ declare var d3: any;
     selector: 'app-dynamic-component',
     moduleId: module.id,
     templateUrl: 'view.html',
-    styleUrls: ['../_common/styles-gadget.css']
+    styleUrls: ['./ja.css']
 })
 
 export class JobAnalysisGadgetComponent extends GadgetBase {

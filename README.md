@@ -6,6 +6,7 @@ The primary projects leveraged:
 * ngx-charts (angular based d3 charts) - https://github.com/swimlane/ngx-charts
 * Semantic-UI - https://semantic-ui.com/
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
+* angular material
 
 Additional Features:
 * Leverages Angular's dynamic data driven forms approach for gadget property pages and properties - https://angular.io/guide/dynamic-form

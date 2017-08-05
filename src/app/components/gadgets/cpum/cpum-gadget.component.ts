@@ -116,6 +116,8 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.socket.send({'requestParam': 'stop'});
         // this.unSubscribeToWebSocketObservable();
 
+        this.actionInitiated = false;
+
     }
 
     public updateGraph(value: number) {

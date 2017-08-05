@@ -20,8 +20,23 @@
 
     <div *ngIf="!inConfig">
 
-        <a md-mini-fab routerLink="."><md-icon svgIcon="thumbs-up"></md-icon></a>
-        <md-card class="example-card">
+        Experimenting with Angular Material
+        <br> <br>
+
+        MD-ICON
+        <br> <br>
+        <a md-mini-fab routerLink=".">
+            <md-icon>plus</md-icon>
+        </a>
+
+        <a md-fab routerLink="."><md-icon>add</md-icon></a>
+
+        <br> <br>
+
+        MD-CARD
+        <br> <br>
+
+        <md-card class="example-card" style="width:inherit !important">
             <md-card-header>
                 <div md-card-avatar class="example-header-image"></div>
                 <md-card-title>Shiba Inu</md-card-title>
@@ -44,9 +59,9 @@
     </div>
 
     <app-dynamic-form *ngIf="inConfig"
-                  [propertyPages]="propertyPages"
-                  [instanceId]="instanceId"
-                  (updatePropertiesEvent)="updateProperties($event)">
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
     </app-dynamic-form>
 
     <app-error-handler

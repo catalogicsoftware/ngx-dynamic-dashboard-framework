@@ -25,7 +25,8 @@
                 <th>name</th>
                 <th></th>
                 </thead>
-                <tr class="ui basic segment" *ngFor="let board of dashboardList; let i = index" dnd-sortable [sortableIndex]="i">
+                <tr class="ui basic segment" *ngFor="let board of dashboardList; let i = index" dnd-sortable
+                    [sortableIndex]="i">
                     <td class="c-col">{{i + 1}}</td>
                     <td>{{board}}</td>
                     <td style="text-align:right">
@@ -37,14 +38,17 @@
             </table>
 
             <div class="ui basic segment">
-                <div class="ui action fluid input">
-                    <input [(ngModel)]="newDashboardItem" type="text"
-                           placeholder="Enter Dashboard Name">
-                    <button class="ui right labeled icon button" (click)="createBoard(newDashboardItem)">
-                        <i class="add icon"></i>
-                        Add
-                    </button>
+
+                <div class="grid-row">
+                    <md-input-container class="example-full-width">
+                        <input [(ngModel)]="newDashboardItem" mdInput placeholder="Enter Dashboard Name">
+                    </md-input-container>
+
+                    <a md-mini-fab routerLink="." (click)="createBoard(newDashboardItem)">
+                        <md-icon>add</md-icon>
+                    </a>
                 </div>
+
             </div>
         </div>
 

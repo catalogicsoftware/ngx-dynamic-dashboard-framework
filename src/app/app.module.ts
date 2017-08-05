@@ -51,7 +51,7 @@ import {EdgeServiceListGadgetComponent} from './components/gadgets/edge-service-
 import {EdgeService} from './components/gadgets/edge-service-list/service';
 import {CPUMService} from './components/gadgets/cpum/service';
 import { StompService } from 'ng2-stomp-service';
-import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxModule} from '@angular/material';
+import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxModule, MdInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -60,7 +60,7 @@ import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxM
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule,MdCheckboxModule,
+        MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxModule, MdInputModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,

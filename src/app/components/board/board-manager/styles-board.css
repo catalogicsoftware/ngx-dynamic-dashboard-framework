@@ -92,3 +92,13 @@ td.detail {
 .ui.tabular.menu + .attached:not(.top).segment, .ui.tabular.menu + .attached:not(.top).segment + .attached:not(.top).segment {
     border-bottom: none !important;
 }
+
+.example-full-width {
+    width: 100%;
+}
+
+.grid-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

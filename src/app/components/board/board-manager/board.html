@@ -1,4 +1,4 @@
-<div class="ui right aligned raised segment grid">
+<div class="ui right aligned segment grid">
 
     <div class="ui secondary pointing menu">
         <a *ngFor="let board of dashboardList; let i = index" class="item"
@@ -32,27 +32,26 @@
 </div>
 
 <app-board-layout-manager-modal #boardLayoutModal
-                            (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
+                                (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
 
 </app-board-layout-manager-modal>
 
 <!-- the modal will emit an event and call the grid component to add the requested cell to the board -->
 <app-gadget-library-modal #gadgetLibraryModal
-                      (addGadgetEvent)="gadgetGrid.addGadget($event)">
+                          (addGadgetEvent)="gadgetGrid.addGadget($event)">
 </app-gadget-library-modal>
 
 <!-- the grid component will create the requested gadget dynamically -->
 <app-grid-component #gadgetGrid
-                (boardUpdateEvent)="updateDashboardMenu($event)"
+                    (boardUpdateEvent)="updateDashboardMenu($event)"
 >
 </app-grid-component>
 
 <app-board-configuration-modal #boardConfigModal
-                           (dashboardCreateEvent)="gadgetGrid.createBoard($event)"
-                           (dashboardEditEvent) ="gadgetGrid.editBoard($event)"
-                           (dashboardDeleteEvent) ="gadgetGrid.deleteBoard($event)"
-                           [dashboardList]="dashboardList">
-
+                               (dashboardCreateEvent)="gadgetGrid.createBoard($event)"
+                               (dashboardEditEvent)="gadgetGrid.editBoard($event)"
+                               (dashboardDeleteEvent)="gadgetGrid.deleteBoard($event)"
+                               [dashboardList]="dashboardList">
 
 
 </app-board-configuration-modal>

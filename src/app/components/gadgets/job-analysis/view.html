@@ -1,6 +1,6 @@
 <div (mouseover)="showGadgetControls(true)"
      (mouseleave)="showGadgetControls(false)"
-     class="ui center aligned raised segment gadget" dnd-draggable
+     class="ui center aligned segment gadget" dnd-draggable
      [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
 
     <app-gadget-header
@@ -18,17 +18,13 @@
             (stopEvent)="stop()">
     </app-gadget-header>
 
-    <div *ngIf="!inConfig" class="ui grid">
-        <div class="row">
-            <i class="huge icons">
-                <i class="settings icon"></i>
-                <i class="corner search icon"></i>
-            </i>
-            <p class="description"> This tool will allow the user to search for a job log, review it and exercise
-                commands against the device it is operating on. For instance, if the job indicates there is no activity
-                for some period of time, the user should be able to connect and inspect operations against a NetApp
-                device. </p>
-        </div>
+    <div *ngIf="!inConfig">
+
+        <a md-mini-fab routerLink="."><md-icon svgIcon="thumbs-up"></md-icon></a>
+        <md-card>
+            This is a test card <md-checkbox>Check me!</md-checkbox>
+        </md-card>
+
     </div>
 
     <app-dynamic-form *ngIf="inConfig"

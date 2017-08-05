@@ -34,6 +34,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     };
 
     webSocketSubscription: any;
+    socket: any ;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -63,14 +64,14 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.errorExists = false;
         this.actionInitiated = true;
 
-        const socket = new StompWebSocket('http://localhost:8080/cpu_monitor_websocket', '/topic/cpu-metrics' , '/app/collect');
+        this.socket = new StompWebSocket('http://localhost:8080/cpu_monitor_websocket', '/topic/cpu-metrics' , '/app/collect');
 
         const timer = Observable.timer(5000);
         timer.subscribe(t => {
-            if (socket.isInitialized()) {
-                socket.send({'requestParam': 'start'});
+            if (this.socket.isInitialized()) {
+                this.socket.send({'requestParam': 'start'});
 
-                socket.getSubject().subscribe(data => {
+                this.socket.getSubject().subscribe(data => {
 
                     this.updateGraph(data.cpu_utilization);
 
@@ -112,7 +113,8 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.inRun = false;
         this.actionInitiated = true;
 
-        this.unSubscribeToWebSocketObservable();
+        this.socket.send({'requestParam': 'stop'});
+        // this.unSubscribeToWebSocketObservable();
 
     }
 

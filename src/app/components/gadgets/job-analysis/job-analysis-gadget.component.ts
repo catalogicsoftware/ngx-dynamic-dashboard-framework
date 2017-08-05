@@ -5,6 +5,8 @@ import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../board/board-configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {JobAnalysisService} from './service';
+import {DomSanitizer} from "@angular/platform-browser";
+import {MdIconRegistry} from "@angular/material";
 
 declare var d3: any;
 
@@ -25,12 +27,17 @@ export class JobAnalysisGadgetComponent extends GadgetBase {
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
-                protected _jobAnalysisService: JobAnalysisService) {
+                protected _jobAnalysisService: JobAnalysisService,
+                iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
             _changeDetectionRef);
+
+        iconRegistry.addSvgIcon(
+            'thumbs-up',
+            sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg-icons/ic_add_white_36px.svg'));
 
         this.run();
     }

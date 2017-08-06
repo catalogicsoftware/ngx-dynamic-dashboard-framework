@@ -1,6 +1,6 @@
 export const sampleBoardCollection = {
     'board': [{
-        'title': 'Jay',
+        'title': 'Board Sample 1',
         'structure': '4-12',
         'id': 4,
         'rows': [
@@ -205,7 +205,7 @@ export const sampleBoardCollection = {
     },
 
         {
-            'title': 'Dashboard',
+            'title': 'Board Sample 2',
             'structure': '4-4-4-4/8-4-4',
             'id': 8,
             'rows': [

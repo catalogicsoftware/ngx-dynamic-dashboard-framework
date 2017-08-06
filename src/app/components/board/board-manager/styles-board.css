@@ -4,9 +4,9 @@
 
 
 .ui.secondary.pointing.menu .active.item {
-    color:  #2185D0 !important;
+    color:  #3f51b5 !important;
     font-weight: 500 !important;
-    border-color: #2185D0 !important;
+    border-color: #3f51b5 !important;
     border-width: medium !important;
     font-family: 'Roboto', sans-serif !important;
     font-size: 1.4em;
@@ -26,7 +26,7 @@
 .ui.tabular.menu .active.item {
 
     border-top-width: 3px !important;
-    border-top-color: #2185D0 !important;
+    border-top-color: #3f51b5 !important;
 
 }
 
@@ -39,7 +39,7 @@ input {
 }
 
 #content {
-    background: #06c;
+    background: #3f51b5;
     width: 120px;
     margin-left: auto;
     margin-right: auto;

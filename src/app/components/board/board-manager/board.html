@@ -10,22 +10,21 @@
 
     <div class="right floated six wide column">
 
-        <button class="ui circular blue plus icon button"
-                (click)="gadgetLibraryModal.showComponentLibraryModal('Gadget Library')">
-            <i class="plus icon"></i>
-        </button>
+        <a md-mini-fab routerLink="." color="primary" (click)="gadgetLibraryModal.showComponentLibraryModal('Gadget Library')">
+            <md-icon>add_circle_outline</md-icon>
+        </a>
         Add Gadget
         &nbsp;
-        <button class="ui circular orange edit icon button"
-                (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
-            <i class="block layout icon"></i>
-        </button>
+
+        <a md-mini-fab routerLink="." color="primary" (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
+            <md-icon>grid_on</md-icon>
+        </a>
         Edit Layout
         &nbsp;
-        <button class="ui circular green edit icon button"
-                (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
-            <i class="setting icon"></i>
-        </button>
+
+        <a md-mini-fab routerLink="." color="primary" (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
+            <md-icon>settings</md-icon>
+        </a>
         Configure
         &nbsp;
     </div>

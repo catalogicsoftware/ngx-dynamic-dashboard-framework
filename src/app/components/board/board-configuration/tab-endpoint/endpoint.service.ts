@@ -5,6 +5,7 @@ import {Injectable, Output} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
+import {EndPoint} from "./endpoint.model";
 
 
 @Injectable()
@@ -25,6 +26,14 @@ export class EndPointService {
 
                 return new Observable(observer => {
                     const base = {endPoint: []};
+                    const testEndPoint = new EndPoint(
+                        'TestEndPoint',
+                        'localhost://test',
+                        'test user',
+                        'testCredential',
+                        'password',
+                        'description');
+                    base.endPoint.push(testEndPoint);
                     localStorage.setItem('endpoint', JSON.stringify(base));
                     observer.next(base);
                     return () => {

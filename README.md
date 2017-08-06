@@ -1,4 +1,5 @@
 
+
 # Angular-4+-Dashboard-Framework
 
 > Note: This project is under heavy construction and is not intended for general production use yet. As such, we are not accepting bugs at the moment and documentation is quite lacking.
@@ -18,6 +19,8 @@ Additional Features:
 
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-main.png)
 ![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-add-gadget.png)
+
+![alt text](documentation/images/ngADF-main.png "Board")
 
 # NgADF
 

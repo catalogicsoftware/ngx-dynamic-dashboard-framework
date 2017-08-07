@@ -1,0 +1,60 @@
+<div class="ui long modal" #boardconfigmodal_tag>
+    <div class="header">
+        <h2>{{modalheader}}</h2>
+    </div>
+
+
+    <div class="ui top attached tabular menu">
+
+        <a *ngFor="let tab of tabsModel; let i = index" class="item"
+           [ngClass]="{'active': tab.displayName == currentTab }"
+           attr.data-tab="{{tab.groupId}}" (click)="setCurrentTab(i)">{{tab.displayName}}</a>
+
+    </div>
+
+    <div *ngFor="let tab of tabsModel; let i = index" [ngClass]="{'active': tab.displayName == currentTab }"
+         class="ui bottom attached tab segment"
+         attr.data-tab="{{tab.groupId}}" [@contentSwitch]="tab.displayName == currentTab ? 'active':'inactive'">
+
+
+        <div *ngIf="tab.groupId == 'dashboard_config'">
+
+            <table class="ui padded table" dnd-sortable-container [sortableData]="dashboardList">
+                <thead>
+                <th class="c-col">#</th>
+                <th>name</th>
+                <th></th>
+                </thead>
+                <tr class="ui basic segment" *ngFor="let boardName of dashboardList; let i = index" dnd-sortable [sortableIndex]="i">
+                    <td class="c-col">{{i + 1}}</td>
+                    <td>{{boardName.storeId}}</td>
+                    <td style="text-align:right">
+                        <button class="circular gray ui icon button" (click)="deleteBoard(boardName.storeId)">
+                            <i class="icon inverted delete"></i>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="ui basic segment">
+                <div class="ui action fluid input">
+                    <input [(ngModel)]="newDashboardItem" type="text"
+                           placeholder="Enter Dashboard Name">
+                    <button class="ui right labeled icon button" (click)="createBoard(newDashboardItem)">
+                        <i class="add icon"></i>
+                        Add
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="tab.groupId == 'apiendpoint_config'">
+            <app-endpoint></app-endpoint>
+        </div>
+    </div>
+
+
+    <div class="actions">
+        <div class="ui approve button">Close</div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div [formGroup]="form">
+
+    <div class="field">
+        <label [attr.for]="property.key">{{property.label}}</label>
+
+        <div [ngSwitch]="property.controlType">
+
+            <input *ngSwitchCase="'textbox'"
+                   [formControlName]="property.key"
+                   [id]="property.key"
+                   [type]="property.type">
+
+            <select *ngSwitchCase="'dropdown'"
+                    [formControlName]="property.key"
+                    [id]="property.key">
+
+                <option *ngFor="let opt of property.options"
+                        [value]="opt.key">{{opt.value}}
+                </option>
+            </select>
+
+            <!--todo - fix checkbox type. The value is not properly set by the data so using hard coded type -->
+            <input *ngSwitchCase="'checkbox'"
+                   [formControlName]="property.key"
+                   [id]="property.key"
+                   [type]="'checkbox'"
+                   (change)="property.value = $event.target.checked"
+                   [(ngModel)]="property.value"
+                   [attr.checked]="property.value ? true : null">
+
+            <input *ngSwitchCase="'number'"
+                   [formControlName]="property.key"
+                   [id]="property.key"
+                   [type]="'number'">
+
+
+            <input *ngSwitchCase="'hidden'"
+                   [formControlName]="property.key"
+                   [id]="property.key"
+                   [type]="property.type">
+
+            <select *ngSwitchCase="'dynamicdropdown'"
+                    [formControlName]="property.key"
+                    [id]="property.key"
+                    (change)="property.value = $event.target.toString()">
+
+                <option *ngFor="let opt of endPoints"
+                        [value]="opt.name">{{opt.name}}
+                </option>
+
+            </select>
+        </div>
+    </div>
+
+    <div [@showHideAnimation] class="ui error message" *ngIf="!isValid">{{property.label}} is required</div>
+
+
+</div>

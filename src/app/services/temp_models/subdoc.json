@@ -1,0 +1,467 @@
+{
+  "config": {
+    "cache": false,
+    "oob": null
+  },
+  "session": {
+    "node": {
+      "desc": "Endpoints for node info",
+      "msg": [],
+      "metrics": {
+        "cpu_util": {
+          "desc": "Input: none; output 'value':  total, system, user, and nice instantaneous CPU utilization for the node",
+          "subscribe": false,
+          "timergran": 5,
+          "value": null,
+          "type": "array:[total,system,user,nice]",
+          "units": "pct",
+          "record": false
+        },
+        "mem_util": {
+          "desc": "Input: none; output 'value': RAM utilization for the node",
+          "subscribe": false,
+          "timergran": 5,
+          "value": null,
+          "units": "pct",
+          "record": false
+        },
+        "load_average": {
+          "desc": "Input: none; output 'value': the three Linux load averages along with dispatchable and total threads",
+          "subscribe": false,
+          "timergran": 5,
+          "value": null,
+          "type": "array[1 minute average, 5 minute average, 15 minute average, number of dispatchable threads, total number of threads]",
+          "units": "scalar",
+          "record": false
+        }
+      },
+      "ip": "71.100.14.30",
+      "info": {
+        "cpuInfo": {
+          "manufacturer": "Intel®",
+          "brand": "Xeon®            X5570",
+          "speed": "2.93",
+          "cores": 4
+        },
+        "disks": {
+          "sda": {
+            "deviceNumber": "8",
+            "deviceNumberMinor": "0",
+            "readsCompleted": "40547",
+            "readsMerged": 0,
+            "sectorsRead": "1600652",
+            "msReading": "142818",
+            "writesCompleted": "479144",
+            "writesMerged": 0,
+            "sectorsWritten": "7147596",
+            "msWriting": "539535",
+            "iosPending": "0",
+            "msIo": "256116",
+            "msWeightedIo": "682705"
+          },
+          "sda1": {
+            "deviceNumber": "8",
+            "deviceNumberMinor": "1",
+            "readsCompleted": "672",
+            "readsMerged": 0,
+            "sectorsRead": "23218",
+            "msReading": "833",
+            "writesCompleted": "18",
+            "writesMerged": 0,
+            "sectorsWritten": "60",
+            "msWriting": "305",
+            "iosPending": "0",
+            "msIo": "872",
+            "msWeightedIo": "1138"
+          },
+          "sda2": {
+            "deviceNumber": "8",
+            "deviceNumberMinor": "2",
+            "readsCompleted": "6281",
+            "readsMerged": 0,
+            "sectorsRead": "200352",
+            "msReading": "10222",
+            "writesCompleted": "371",
+            "writesMerged": 0,
+            "sectorsWritten": "267544",
+            "msWriting": "56039",
+            "iosPending": "0",
+            "msIo": "5802",
+            "msWeightedIo": "66235"
+          },
+          "sda3": {
+            "deviceNumber": "8",
+            "deviceNumberMinor": "3",
+            "readsCompleted": "33440",
+            "readsMerged": 0,
+            "sectorsRead": "1375850",
+            "msReading": "131597",
+            "writesCompleted": "478755",
+            "writesMerged": 0,
+            "sectorsWritten": "6879992",
+            "msWriting": "483191",
+            "iosPending": "0",
+            "msIo": "252682",
+            "msWeightedIo": "615166"
+          },
+          "sdb": {
+            "deviceNumber": "8",
+            "deviceNumberMinor": "16",
+            "readsCompleted": "1943",
+            "readsMerged": 0,
+            "sectorsRead": "202162",
+            "msReading": "23332",
+            "writesCompleted": "191130",
+            "writesMerged": 0,
+            "sectorsWritten": "5135360",
+            "msWriting": "228023",
+            "iosPending": "0",
+            "msIo": "157843",
+            "msWeightedIo": "251208"
+          },
+          "sdc": {
+            "deviceNumber": "8",
+            "deviceNumberMinor": "32",
+            "readsCompleted": "1476",
+            "readsMerged": 0,
+            "sectorsRead": "164346",
+            "msReading": "14483",
+            "writesCompleted": "540",
+            "writesMerged": 0,
+            "sectorsWritten": "8624",
+            "msWriting": "387",
+            "iosPending": "0",
+            "msIo": "9831",
+            "msWeightedIo": "14868"
+          },
+          "dm-0": {
+            "deviceNumber": "253",
+            "deviceNumberMinor": "0",
+            "readsCompleted": "1472",
+            "readsMerged": 0,
+            "sectorsRead": "163706",
+            "msReading": "17189",
+            "writesCompleted": "876",
+            "writesMerged": 0,
+            "sectorsWritten": "8624",
+            "msWriting": "681",
+            "iosPending": "0",
+            "msIo": "9696",
+            "msWeightedIo": "18030"
+          },
+          "dm-1": {
+            "deviceNumber": "253",
+            "deviceNumberMinor": "1",
+            "readsCompleted": "2044",
+            "readsMerged": 0,
+            "sectorsRead": "201586",
+            "msReading": "28296",
+            "writesCompleted": "637849",
+            "writesMerged": 0,
+            "sectorsWritten": "5135360",
+            "msWriting": "1908936",
+            "iosPending": "0",
+            "msIo": "158095",
+            "msWeightedIo": "1940806"
+          }
+        },
+        "fileSystems": [
+          {
+            "fs": "/dev/sda3",
+            "type": "ext4",
+            "size": 35931217920,
+            "used": 3727544320,
+            "use": 10.37,
+            "mount": "/"
+          },
+          {
+            "fs": "/dev/sda1",
+            "type": "ext4",
+            "size": 251575296,
+            "used": 81744896,
+            "use": 32.49,
+            "mount": "/boot"
+          },
+          {
+            "fs": "/dev/mapper/data_vg-data",
+            "type": "ext4",
+            "size": 105551003648,
+            "used": 6890446848,
+            "use": 6.53,
+            "mount": "/data"
+          },
+          {
+            "fs": "/dev/mapper/data2_vg-data2",
+            "type": "ext4",
+            "size": 264085311488,
+            "used": 4473421824,
+            "use": 1.69,
+            "mount": "/data2"
+          }
+        ],
+        "ecoMaster": null,
+        "ecoMsUp": null,
+        "os": "centos",
+        "osCodename": "",
+        "osver": "6.7",
+        "monsid": "1372fa60-de49-11e6-bd39-4bea3b5123b3",
+        "tzo": 0,
+        "ecxType": "s",
+        "runningContainers": false,
+        "roomNum": "f4ef823d"
+      }
+    },
+    "process": {
+      "desc": "Endpoints for process info",
+      "msg": [],
+      "metrics": {
+        "cpu_util": {
+          "desc": "Input 'pids': array of process IDs; output 'value': array of CPU utilizations for each process in 'pids'",
+          "subscribe": false,
+          "pids": [],
+          "timergran": 5,
+          "value": null,
+          "type": "array[cpu_util,...cpu_util], corresponding 1-1 with process IDs in pids",
+          "units": "pct",
+          "record": false
+        },
+        "mem_util": {
+          "desc": "Input 'pids': array of process IDs; output 'value': array of memory utilizations for each process in 'pids'",
+          "subscribe": false,
+          "pids": [],
+          "timergran": 5,
+          "value": null,
+          "type": "array[mem_util,...mem_util], corresponding 1-1 with process IDs in pids",
+          "units": "pct",
+          "record": false
+        },
+        "mongod_bgflush": {
+          "desc": "Input 'pids': array of mongod process IDs; output 'value': last and mean MongoDB backgroundflush times for each mongod process in 'pids'",
+          "subscribe": false,
+          "pids": [],
+          "timergran": 5,
+          "value": null,
+          "type": "array:[{last, mean},..,{last, mean}], corresponding 1-1 with process IDs in pids",
+          "units": "ms",
+          "record": false
+        }
+      }
+    },
+    "container": {
+      "desc": "Endpoints for container info",
+      "msg": [],
+      "metrics": {
+        "cpu_util": {
+          "desc": "Input 'ctrids': array of container IDs; output 'value': array of CPU utilization for each container in 'ctrids'",
+          "subscribe": false,
+          "ctrids": [],
+          "timergran": 5,
+          "value": null,
+          "type": "array:[cpu_util,...cpu_util], corresponding 1-1 with container IDs in ctrids",
+          "units": "pct",
+          "record": false
+        }
+      }
+    },
+    "event": {
+      "desc": "Endpoints for event detection and response",
+      "msg": [],
+      "metrics": {
+        "diskspace_limits": {
+          "desc": "Input 'disklimits': array of {diskid, limit} objects where limit is a percentage full; output 'value': array of boolean values where TRUE means 'limit' violated for 'diskid'  barfola",
+          "subscribe": false,
+          "disklimits": [],
+          "timergran": 20,
+          "value": null,
+          "type": "array:[boolean,...boolean], corresponding 1-1 with diskids in disklimits",
+          "eventrscript": {
+            "name": "email",
+            "cmd": null,
+            "path": null,
+            "args": [],
+            "desc": "Disk Space Violation Events"
+          },
+          "units": "boolean",
+          "record": false
+        },
+        "process_birth": {
+          "desc": "Input 'pcrit': an array of pcrit objects whose properties define process of interest; output 'value': array of objects - {pid:, notice:, time:}",
+          "subscribe": false,
+          "comment": "A one time event; new false means that a process already up is a match; true means that monitor will only match process that appears during the session",
+          "pcrit": [],
+          "timergran": 5,
+          "value": null,
+          "type": "array:[PID,...PID], corresponding 1-1 with criteria in pcrit",
+          "eventrscript": {
+            "name": "email",
+            "cmd": null,
+            "path": null,
+            "args": [],
+            "desc": "Process Birth Events"
+          },
+          "units": "",
+          "record": false
+        },
+        "process_death": {
+          "desc": "Input 'pids': an array of process IDs whose birth was detected by process_birth event; output 'value': array: true if process has died, false if not, 'NA' if pid unknown",
+          "subscribe": false,
+          "comment": "A one time event",
+          "pids": [],
+          "timergran": 10,
+          "value": null,
+          "type": "array:[true|false|NA], corresponding 1-1 with pids",
+          "eventrscript": {
+            "name": "email",
+            "cmd": null,
+            "path": null,
+            "args": [],
+            "desc": "Process Death Events"
+          },
+          "units": "",
+          "record": false
+        },
+        "ecx_session": {
+          "desc": "Input 'creds': authentication object; output 'value': object returned by ECX in response to login attempt; unsubscribing terminates the session",
+          "subscribe": false,
+          "creds": {
+            "auth": "base64 username:password",
+            "port": 8443,
+            "api": "/api/endeavour/session"
+          },
+          "timergran": -1,
+          "value": null,
+          "type": "object: as returned by ECX",
+          "units": "",
+          "record": false
+        },
+        "ecx_processes": {
+          "desc": "Input none",
+          "subscribe": false,
+          "eventdscript": {
+            "name": "ecx_processes",
+            "cmd": null,
+            "path": null,
+            "args": []
+          },
+          "eventrscript": null,
+          "event": [
+            []
+          ],
+          "timergran": 5,
+          "value": null,
+          "type": "object",
+          "units": "",
+          "record": false
+        },
+        "ecx_job_start": {
+          "desc": "Input 'event': an array of idspec objects whose array value contains the job name, which can be a regex",
+          "subscribe": false,
+          "event": [],
+          "eventdscript": {
+            "name": "ecx_job_start",
+            "cmd": null,
+            "path": null,
+            "args": []
+          },
+          "eventrscript": {
+            "name": "client",
+            "cmd": null,
+            "path": null,
+            "args": [
+              "process.cpu_util s 3847"
+            ],
+            "desc": "UNUSED FOR NON-MAILER"
+          },
+          "timergran": 5,
+          "value": null,
+          "type": "object",
+          "units": "",
+          "record": false
+        },
+        "ecx_job_status": {
+          "desc": "Input 'event': an array of idspec objects whose array value contains the job name followed by a RegExp of completion codes (COMPLETED, STOPPED, PARTIAL, FAILED, ABORTED, CANCELLED) to match; output 'value': true if event occurs, else false",
+          "subscribe": false,
+          "event": [],
+          "eventdscript": {
+            "name": "ecx_job_status",
+            "cmd": null,
+            "path": null,
+            "args": []
+          },
+          "eventrscript": {
+            "name": "email",
+            "cmd": null,
+            "path": null,
+            "args": [],
+            "desc": "ECX Job Status Events"
+          },
+          "timergran": 15,
+          "value": null,
+          "type": "object",
+          "units": "",
+          "record": false
+        },
+        "ecx_job_history": {
+          "desc": "Input 'event': an idspec array, 0-> policy name, 1-> RegExp completion codes, 2-> rate above which event is raised, 3-> period; output 'value': true if event occurs, else false",
+          "comment": "ECX completion codes are COMPLETED, STOPPED, PARTIAL, FAILED, ABORTED, CANCELLED",
+          "subscribe": false,
+          "comment2": "E.g., if policy esxi ends with any of these statuses more than 50% of the time of the last week, raise an event; period is hours, days, weeks, months",
+          "event": [
+            {
+              "idspec": [
+                "esxi",
+                "PARTIAL|FAILED|ABORTED|CANCELLED",
+                0.5,
+                "1w"
+              ]
+            }
+          ],
+          "eventdscript": {
+            "name": "ecx_job_history",
+            "cmd": null,
+            "path": null,
+            "args": []
+          },
+          "eventrscript": {
+            "name": "email",
+            "cmd": null,
+            "path": null,
+            "args": [],
+            "desc": "ECX Job History Events"
+          },
+          "timergran": 5,
+          "value": null,
+          "type": "object",
+          "units": "",
+          "record": false
+        },
+        "ecx_login": {
+          "desc": "Input 'event': none; output 'value': {time:, user:, session:, type:,} if event occurs, else null",
+          "subscribe": false,
+          "event": [
+            []
+          ],
+          "comment": "Monitors both login and logout w/o regard to user. Combination of detection script and an empty event array causes problems; hence use of [[]] for event.",
+          "eventdscript": {
+            "name": "ecx_login",
+            "cmd": null,
+            "path": null,
+            "args": []
+          },
+          "eventrscript": {
+            "name": "email",
+            "cmd": null,
+            "path": null,
+            "args": [],
+            "desc": "ECX Login Events"
+          },
+          "timergran": 10,
+          "value": null,
+          "type": "object",
+          "units": "",
+          "record": false
+        }
+      }
+    }
+  }
+}

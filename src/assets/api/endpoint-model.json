@@ -1,0 +1,40 @@
+{
+  "endPoint": [
+    {
+      "name": "Devappliance - Process Monitor",
+      "address": "https://192.168.56.101:9443",
+      "user": "root",
+      "credential": "$ys8dmin",
+      "credentialType": "password",
+      "description": "Description",
+      "id": 0
+    },
+    {
+      "name": "Carlosappliance - Process Monitor",
+      "address": "https://172.20.54.1:9443",
+      "user": "root",
+      "credential": "$ys8dmin",
+      "credentialType": "password",
+      "description": "Description",
+      "id": 0
+    },
+    {
+      "name": "Devappliance - ECX",
+      "address": "http://192.168.56.101:8082",
+      "user": "admin",
+      "credential": "catalogic",
+      "credentialType": "password",
+      "description": "ecx",
+      "id": 0
+    },
+    {
+      "name": "Carlosappliance-ECX",
+      "address": "https://172.20.54.1:8443",
+      "user": "admin",
+      "credential": "password",
+      "credentialType": "password",
+      "description": "password",
+      "id": 0
+    }
+  ]
+}

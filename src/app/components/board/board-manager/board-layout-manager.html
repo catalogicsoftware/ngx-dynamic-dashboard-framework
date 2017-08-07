@@ -1,0 +1,23 @@
+<div class="ui long modal" #messagemodala_tag>
+    <div class="header">
+        <h2>{{modalheader}}</h2>
+    </div>
+    <div class="ui basic segment">
+        <div class="ui centered grid">
+            <div class="three wide column"></div>
+            <div class="ten wide column">
+                <div class="inLine"
+                     *ngFor="let layout of boardLayouts; let i = index">
+                    <img src="/assets/images/{{layout.title}}.png"
+                         (click)="selectBoardLayout(layout.id)">
+                </div>
+            </div>
+            <div class="three wide column"></div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="ui approve button">Close</div>
+    </div>
+</div>
+      

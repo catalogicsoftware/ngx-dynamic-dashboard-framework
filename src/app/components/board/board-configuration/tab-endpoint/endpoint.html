@@ -1,0 +1,27 @@
+<div class="ui equal width fields grid container">
+
+    <div class="field six wide column">
+
+        <table class="ui selectable celled table">
+            <tbody>
+            <tr *ngFor="let endPoint of endPoints" (click)="setSelectedEndPoint(endPoint)">
+                <td [ngClass]="{'selected': endPoint.name == currentEndPoint.name}">{{endPoint.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="field ten wide column">
+
+        <div *ngIf="currentEndPoint">
+
+            <app-endpoint-detail [currentEndPoint]=currentEndPoint
+                            (createEvent)="createEndPoint($event)"
+                            (updateEvent)="updateEndPoint($event)"
+                            (deleteEvent)="deleteEndPoint($event)"
+            ></app-endpoint-detail>
+        </div>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,32 @@
+.field > label {
+    font-size: 1.1em !important;
+    color: #767676 !important;
+    font-weight: 300
+}
+
+.ui.tabular.menu .active.item {
+    border-top-width: 3px !important;
+    border-top-color: #2185D0 !important;
+}
+
+.ui.segment{
+    border:none;
+}
+
+select{
+    color: rgba(97, 97, 97, 0.68) !important;
+    height: 3em !important;
+}
+
+input{
+
+    line-height: 2em;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+    width:100%;
+
+
+}

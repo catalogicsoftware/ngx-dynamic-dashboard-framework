@@ -1,0 +1,89 @@
+<div class="ui right aligned grid">
+    <div class="right aligned column">
+        <button *ngIf="currentState == 'save as' && endPointForm.valid" (click)="createEndPoint()"
+                class="ui circular copy icon button">
+            <i class="blue copy icon"></i>
+        </button>
+        <button *ngIf="currentState == 'update' && endPointForm.valid"
+                (click)="updateEndPoint()" class="ui  circular  save icon button">
+            <i class="green save icon"></i>
+        </button>
+        <button *ngIf="currentState == 'create' && endPointForm.valid"
+                (click)="createEndPoint()" class="ui  circular  save icon button">
+            <i class="green save icon"></i>
+        </button>
+        <button *ngIf="endPointForm.dirty && currentState != 'create'" (click)="resetEndPoint()"
+                class="ui circular  undo icon button">
+            <i class="black undo icon"></i>
+        </button>
+
+        <button (click)="newEndPoint()"
+                class="ui  circular plus icon button">
+            <i class="green plus icon"></i>
+        </button>
+
+        <button *ngIf="currentEndPoint.name !='' && currentState != 'create'" (click)="deleteEndPoint()"
+                class="ui circular  delete icon button">
+            <i class="red delete icon"></i>
+        </button>
+    </div>
+</div>
+
+
+<br>
+
+<form [formGroup]="endPointForm" novalidate class="ui form">
+    <div class="field">
+        <div class="ui left icon input">
+            <input formControlName="name" type="text" placeholder="Name">
+            <i class="tag icon"></i>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="ui left icon input">
+            <input formControlName="address" type="text" placeholder="URL">
+            <i class="marker icon"></i>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="ui left icon input">
+            <input formControlName="user" type="text" placeholder="User">
+            <i class="user icon"></i>
+        </div>
+    </div>
+
+    <div class="field">
+        <label>Credential Type
+            <select class="ui transparent" formControlName="credentialType">
+                <option *ngFor="let credentialType of credentialScheme" [value]="credentialType">
+                    {{credentialType}}
+                </option>
+            </select>
+        </label>
+    </div>
+
+    <div class="field">
+        <div class="ui left icon input">
+            <input formControlName="credential" type="password" placeholder="Credential">
+            <i class="key icon"></i>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="ui">
+            <textarea rows="2" class="form-control" formControlName="description" placeholder="Description"></textarea>
+        </div>
+    </div>
+</form>
+
+
+<!--
+<p>Form value: {{ endPointForm.value | json }}</p>
+<p>Form status: {{ endPointForm.status | json }}</p>
+-->
+
+
+
+

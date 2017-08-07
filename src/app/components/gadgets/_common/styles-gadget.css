@@ -1,0 +1,85 @@
+.gadget {
+    margin-bottom: 15px !important;
+    min-height: inherit !important;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    color: grey;
+}
+
+:host /deep/ div:not(.proppages) {
+    margin-left: auto;
+    margin-right:auto;
+    display: block !important
+}
+
+.ui.form .field > label {
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    font-size: 1.3em !important;
+    font-weight: 300;
+    color: grey;
+}
+
+#bt {
+    text-align: center !important
+}
+
+input {
+    padding: 5px;
+    border: none !important;
+    width: 75% !important;
+    font-weight: 300 !important;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    font-size: 1.3em !important;
+    outline: none !important;
+}
+
+.ct-title {
+    color: #808080 !important;
+    font-size: 1.5em !important;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    text-align: left !important;
+    font-weight: 500 !important;
+}
+
+.ui.top.left.floated.label, .ui.top.attached.label {
+    background-color: white;
+}
+
+hr {
+    font-weight: 300 !important;
+    height: 1px;
+    border-style: solid;
+    color: black;
+
+}
+
+.ui[class*="top attached"].label:before {
+    content: "";
+    position: absolute;
+    left: 2%;
+    bottom: 5px;
+    height: 1px;
+    width: 95%; /* or 100px */
+    border-bottom: 1px solid #d0d3d6;
+}
+
+.spacer {
+    height: 2em;
+}
+
+.ui.items>.item>.content>.description{
+    color: darkgray !important;
+}
+.suggestions>li{
+
+    background-color:white !important;
+
+}
+td {
+    font-family: 'Roboto', sans-serif;
+    color:grey;
+}
+
+th {
+    font-family: 'Roboto', sans-serif;
+    color:grey;
+}

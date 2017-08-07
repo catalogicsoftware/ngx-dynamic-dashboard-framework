@@ -9,7 +9,17 @@
 .idea/**/tasks.xml
 .idea/dictionaries
 
-Angular-4plus-Dashboard-Framework.iml
+# webpack stuff
+dist
+
+# node_modules
+node_modules
+
+# semantic
+semantic
+
+
+
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids

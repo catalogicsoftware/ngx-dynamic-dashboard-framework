@@ -1,0 +1,41 @@
+<div (mouseover)="showGadgetControls(true)"
+     (mouseleave)="showGadgetControls(false)" class="ui center aligned  raised segment gadget" dnd-draggable
+     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
+
+    <app-gadget-header
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleConfigMode()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()">
+    </app-gadget-header>
+
+    <div class="ui grey small statistic"  *ngIf="!inConfig">
+        <div class="value">
+            {{data.total}}&nbsp;&nbsp;<i class={{data.icon}}></i>
+        </div>
+        <div class="label">
+            <span style="color:grey">{{data.name}}</span>
+        </div>
+    </div>
+
+    <app-dynamic-form *ngIf="inConfig"
+                  [propertyPages]="propertyPages"
+                  [instanceId]="instanceId"
+                  (updatePropertiesEvent)="updateProperties($event)">
+    </app-dynamic-form>
+
+    <app-error-handler
+            [errorObject]="errorObject"
+            [errorExists]="errorExists">
+    </app-error-handler>
+
+</div>
+

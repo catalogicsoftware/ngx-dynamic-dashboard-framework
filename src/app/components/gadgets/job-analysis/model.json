@@ -1,0 +1,66 @@
+[
+  {
+    "name": "IBM",
+    "series": [
+      {
+        "name": "January",
+        "value": 3453
+      },
+      {
+        "name": "February",
+        "value": 3434434
+      },
+      {
+        "name": "March",
+        "value": 333335
+      },
+      {
+        "name": "April",
+        "value": 434
+      }
+    ]
+  },
+
+  {
+    "name": "NetApp",
+    "series": [
+      {
+        "name": "January",
+        "value": 78
+      },
+      {
+        "name": "February",
+        "value": 82700
+      },
+      {
+        "name": "March",
+        "value": 4333335
+      },
+      {
+        "name": "April",
+        "value": 8345
+      }
+    ]
+  },
+
+  {
+    "name": "Pure",
+    "series": [
+      {
+        "name": "January",
+        "value": 5043344
+      },
+      {
+        "name": "February",
+        "value": 5800
+      },{
+        "name": "March",
+        "value": 333335
+      },
+      {
+        "name": "April",
+        "value": 4343333
+      }
+    ]
+  }
+]

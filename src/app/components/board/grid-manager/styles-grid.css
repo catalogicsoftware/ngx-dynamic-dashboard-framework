@@ -1,0 +1,17 @@
+.ui.info.message {
+    background-color: #C8CBCE;
+    color: #ffffff
+}
+
+.ui.attached.info.message, .ui.info.message {
+    box-shadow: 0 0 0 0 px #c8cbce inset, 0 0 0 0 transparent
+}
+
+.short-row{
+    min-height:150px;
+}
+
+.tall-row{
+    min-height:370px;
+}
+

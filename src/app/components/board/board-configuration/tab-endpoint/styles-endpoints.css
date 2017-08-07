@@ -1,0 +1,37 @@
+
+td.selected {
+    border-radius: 6px;
+    background-color: #e4e4e4 !important;
+    color: #455a64;
+    font-weight: bold;
+
+}
+
+.ui.table {
+    border: none !important;
+    color: rgba(97, 97, 97, 0.68) !important;
+}
+
+.ui.form .field > label {
+    color: rgba(97, 97, 97, 0.68) !important;
+    line-height: 3em !important;
+}
+
+.ui.form select{
+    color: rgba(97, 97, 97, 0.68) !important;
+    height: 3em !important;
+}
+
+.ui.form input{
+
+    color: rgba(97, 97, 97, 0.68) !important;
+
+}
+.ui.table tr td{
+    border:none !important;
+}
+
+.ui.form textarea{
+
+    color: rgba(97, 97, 97, 0.68) !important;
+}

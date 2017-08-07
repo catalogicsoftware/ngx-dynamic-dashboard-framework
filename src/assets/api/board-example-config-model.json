@@ -1,0 +1,53 @@
+{
+  "links": {
+    "self": {
+      "rel": "self",
+      "href": "http://localhost:8090/api/store"
+    },
+    "up": {
+      "rel": "up",
+      "href": "http://localhost:8090/api"
+    }
+  },
+  "storeIds": [
+    {
+      "links": {
+        "self": {
+          "rel": "self",
+          "href": "http://localhost:8090/api/store/endpoint"
+        },
+        "up": {
+          "rel": "up",
+          "href": "http://localhost:8090/api/store"
+        }
+      },
+      "storeId": "endpoint"
+    },
+    {
+      "links": {
+        "self": {
+          "rel": "self",
+          "href": "http://localhost:8090/api/store/Jay"
+        },
+        "up": {
+          "rel": "up",
+          "href": "http://localhost:8090/api/store"
+        }
+      },
+      "storeId": "Jay"
+    },
+    {
+      "links": {
+        "self": {
+          "rel": "self",
+          "href": "http://localhost:8090/api/store/Dashboard"
+        },
+        "up": {
+          "rel": "up",
+          "href": "http://localhost:8090/api/store"
+        }
+      },
+      "storeId": "Dashboard"
+    }
+  ]
+}

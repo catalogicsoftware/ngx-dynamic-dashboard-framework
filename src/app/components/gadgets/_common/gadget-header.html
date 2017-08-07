@@ -1,0 +1,30 @@
+<div class="ui top attached label">
+
+    <button class="compact ui button right floated"
+            *ngIf="showControls" (click)="remove()">
+        <i class="trash icon" style="margin-right:0 !important"></i>
+    </button>
+    <button class="compact ui button right floated"
+            *ngIf="showControls  && showConfigurationControl" (click)="toggleConfigMode()">
+        <i class="setting  icon" style="margin-right:0 !important"></i>
+    </button>
+    <button class="compact ui button right floated"
+            *ngIf="showControls" (click)="help()">
+        <i class="info icon" style="margin-right:0 !important" ></i>
+    </button>
+
+    <app-gadget-operation-control *ngIf="showControls"
+                              [inRun]="inRun"
+                              [inConfig]="inConfig"
+                              [actionInitiated]="actionInitiated"
+                              [showOperationControls]="showOperationControls"
+                              [gadgetHasOperationControls]="gadgetHasOperationControls"
+                              (runEvent)="run()"
+                              (stopEvent)="stop()">
+
+    </app-gadget-operation-control>
+
+    <div class="ui top left floated label ct-title">{{title}}</div>
+</div>
+<div class="spacer"></div>
+    

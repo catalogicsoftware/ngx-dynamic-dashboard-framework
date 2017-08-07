@@ -1,0 +1,31 @@
+<div class="ui long modal" #helpmodal_tag>
+    <div class="header">
+        <h2>{{modalheader}}</h2>
+    </div>
+
+    <div style="overflow-y:auto; padding-left:100px; padding-right:100px; text-align: left !important; background-color:#f7f7f7" *ngIf="topic && topic.details && topic.heading">
+
+        <br><br>
+
+            <h3 style="font-weight:600 !important">{{topic.heading}}</h3>
+            <div *ngFor="let detail of topic.details" class="ui segment">
+                <h4 style="font-weight:500 !important">{{detail.category}}</h4>
+
+                <div class="ui divided items">
+                    <div class="item" *ngFor="let article of detail.articles">
+                        <div class="content">
+                            <h5>{{article.headline}}</h5>
+                            <div class="description">
+                                <p>{{article.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <br><br>
+    </div>
+    <div class="actions">
+        <div class="ui approve button">Close</div>
+    </div>
+</div>

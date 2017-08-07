@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: whitesmoke;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color:darkgray;
+}
+
+h1, h2{
+    color: #6e6e6e;
+}

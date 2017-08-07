@@ -1,0 +1,61 @@
+<div class="ui right aligned raised segment grid">
+
+    <div class="ui secondary pointing menu">
+        <a *ngFor="let board of dashboardList; let i = index" class="item"
+           [ngClass]="{'active':board.storeId == currentBoardId}"
+           (click)="gadgetGrid.loadBoard(board.storeId)" (click)="setCurrentTab(board.storeId)">
+            {{board.storeId}}
+        </a>
+    </div>
+
+    <div class="right floated six wide column">
+
+        <button class="ui circular blue plus icon button"
+                (click)="gadgetLibraryModal.showComponentLibraryModal('Gadget Library')">
+            <i class="plus icon"></i>
+        </button>
+        Add Gadget
+        &nbsp;
+        <button class="ui circular orange edit icon button"
+                (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
+            <i class="block layout icon"></i>
+        </button>
+        Edit Layout
+        &nbsp;
+        <button class="ui circular green edit icon button"
+                (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
+            <i class="setting icon"></i>
+        </button>
+        Configure
+        &nbsp;
+    </div>
+</div>
+
+<app-board-layout-manager-modal #boardLayoutModal
+                            (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
+
+</app-board-layout-manager-modal>
+
+<!-- the modal will emit an event and call the grid component to add the requested cell to the board -->
+<app-gadget-library-modal #gadgetLibraryModal
+                      (addGadgetEvent)="gadgetGrid.addGadget($event)">
+</app-gadget-library-modal>
+
+<!-- the grid component will create the requested gadget dynamically -->
+<app-grid-component #gadgetGrid
+                (boardUpdateEvent)="updateDashboardMenu($event)"
+>
+</app-grid-component>
+
+<app-board-configuration-modal #boardConfigModal
+                           (dashboardCreateEvent)="gadgetGrid.createBoard($event)"
+                           (dashboardEditEvent) ="gadgetGrid.editBoard($event)"
+                           (dashboardDeleteEvent) ="gadgetGrid.deleteBoard($event)"
+                           [dashboardList]="dashboardList">
+
+
+
+</app-board-configuration-modal>
+
+
+

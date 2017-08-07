@@ -1,0 +1,16 @@
+<div [@error]="errorExists" *ngIf="errorExists" class="ui bottom attached negative message">
+    <i class="close icon" (click)="closeMessage()"></i>
+    <div class="header">
+        {{errorObject.summary}}
+    </div>
+    <p>
+        {{errorObject.detail}}
+    </p>
+
+    <span class="error-heading"> Potential solutions</span>
+    <hr style="color:rgba(194,197,200,0.37)">
+    <div style="text-align: left !important" *ngFor="let solution of errorObject.solutions">
+        <br><span class="error-heading">article:&nbsp;</span> {{solution.link}}
+        <br><span class="error-heading">summary:&nbsp;</span> {{solution.summary}}
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "heading": "Trends",
+  "summary": "",
+  "details": [
+    {
+      "category": "IOPS",
+      "articles": [
+        {
+          "headline": "IOPS",
+          "description": "ECX enables automated seeding of your SQL Server AlwaysON availability group by leveraging Storage snapshot technology to minimize the data movement between primary and secondary replica.",
+          "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
+          "id": "id string",
+          "date": "09/10/2017"
+        }
+      ]
+    },
+    {
+      "category": "CPU",
+      "articles": [
+        {
+          "headline": "SAP HANA 2.0 support",
+          "description": "ECX 2.7 introduces CDM support for SAP HANA 2.0 SPS01. Single tenant configuration can now be automatically protected using storage snapshot.",
+          "benefit": "Protect your latest version of SAP HANA using ECX Copy Data Management",
+          "id": "id string",
+          "date": "09/10/2017"
+        },
+        {
+          "headline": "Recovery improvements",
+          "description": "ECX now enables Instant recovery of SAP HANA database to original location from the UI portal.",
+          "benefit": "Flexible recovery options",
+          "id": "id string",
+          "date": "09/10/2017"
+        }
+      ]
+    }
+  ]
+}

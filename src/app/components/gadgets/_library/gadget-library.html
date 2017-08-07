@@ -1,0 +1,42 @@
+<div class="ui long modal" #messagemodal_tag>
+    <div class="header">
+        <h2>{{modalheader}}</h2>
+    </div>
+
+    <div class="content" style="background-color:#f7f7f7">
+        <div class="ui grid">
+            <div class="six wide column">
+                <app-search></app-search>
+                <app-filter-list (tagSelectEvent)="filterTag.updateFilterList($event)"></app-filter-list>
+            </div>
+            <div class="ten wide column">
+                <h3>Gadget Results</h3>
+                <hr>
+                <br>
+
+                <app-filter-tag #filterTag
+                            (updateFilterListEvent)="adjustGadgetLibraryListWithFilter($event)"></app-filter-tag>
+
+                <div [@showHideAnimation] class="ui segment" style="background-color:white"
+                     *ngFor="let gadget of gadgetLibraryDataFiltered;">
+                    <div class="ui large middle aligned divided list">
+                        <div class="item">
+                            <div class="right floated content">
+                                <div class="ui small blue button" (click)="addGadget(gadget)">Add</div>
+                            </div>
+                            <img class="ui image" src="{{gadget.icon}}">
+                            <div class="content">
+                                <div class="header">{{gadget.name}} Gadget</div>
+                                {{gadget.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui approve button">Close</div>
+    </div>
+</div>
+      

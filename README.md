@@ -18,9 +18,8 @@ Additional Features:
 * Dynamic component strategy for creating gadget instances during runtime - https://angular.io/guide/dynamic-component-loader
 
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/ngADF-main.png)
-![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-add-gadget.png)
 
-![alt text](documentation/images/ngADF-main.png "Board")
+![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-add-gadget.png)
 
 # NgADF
 

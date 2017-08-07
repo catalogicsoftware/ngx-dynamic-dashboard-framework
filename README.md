@@ -1,4 +1,7 @@
 # Angular-4+-Dashboard-Framework
+
+> Note: This project is under heavy construction and is not intended for general production use yet. As such, we are not accepting bugs at the moment and documentation is quite lacking.
+
 This is an angular 4+ based dashboard framework that is inspired by JIRA's dashboard implementation and https://github.com/angular-dashboard-framework/angular-dashboard-framework
 
 The primary projects leveraged:

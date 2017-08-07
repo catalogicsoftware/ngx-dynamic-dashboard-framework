@@ -30,9 +30,9 @@
                     <td class="c-col">{{i + 1}}</td>
                     <td>{{board}}</td>
                     <td style="text-align:right">
-                        <button class="circular gray ui icon button" (click)="deleteBoard(board)">
-                            <i class="icon inverted delete"></i>
-                        </button>
+                        <a md-mini-fab routerLink="." (click)="deleteBoard(board)">
+                            <md-icon>clear</md-icon>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -44,9 +44,9 @@
                         <input [(ngModel)]="newDashboardItem" mdInput placeholder="Enter Dashboard Name">
                     </md-input-container>
 
-                    <a md-mini-fab routerLink="." (click)="createBoard(newDashboardItem)">
-                        <md-icon>add</md-icon>
-                    </a>
+                    <a md-mini-fab routerLink="." color='primary'(click)="createBoard(newDashboardItem)">
+                    <md-icon>add</md-icon>
+                </a>
                 </div>
 
             </div>

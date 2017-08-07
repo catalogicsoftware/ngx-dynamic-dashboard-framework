@@ -1,34 +1,39 @@
-    <div class="ui right aligned grid">
+<div class="ui right aligned grid">
     <div class="right aligned column">
-        <button *ngIf="currentState == 'save as' && endPointForm.valid" (click)="createEndPoint()"
-                class="ui circular copy icon button">
-            <i class="blue copy icon"></i>
-        </button>
-        <button *ngIf="currentState == 'update' && endPointForm.valid"
-                (click)="updateEndPoint()" class="ui  circular  save icon button">
-            <i class="green save icon"></i>
-        </button>
-        <button *ngIf="currentState == 'create' && endPointForm.valid"
-                (click)="createEndPoint()" class="ui  circular  save icon button">
-            <i class="green save icon"></i>
-        </button>
-        <button *ngIf="endPointForm.dirty && currentState != 'create'" (click)="resetEndPoint()"
-                class="ui circular  undo icon button">
-            <i class="black undo icon"></i>
-        </button>
 
-        <button (click)="newEndPoint()"
-                class="ui  circular plus icon button">
-            <i class="green plus icon"></i>
-        </button>
+        <span *ngIf="currentState == 'save as' && endPointForm.valid">
+         <a md-mini-fab routerLink="." color='primary' (click)="createEndPoint()"><md-icon>content_copy</md-icon></a>
+            &nbsp;save as&nbsp;
+        </span>
 
-        <button *ngIf="currentEndPoint.name !='' && currentState != 'create'" (click)="deleteEndPoint()"
-                class="ui circular  delete icon button">
-            <i class="red delete icon"></i>
-        </button>
+        <span *ngIf="currentState == 'update' && endPointForm.valid">
+            <a md-mini-fab routerLink="." color='primary' (click)="updateEndPoint()"><md-icon>save</md-icon></a>
+            &nbsp;save&nbsp;
+        </span>
+
+
+        <span *ngIf="currentState == 'create' && endPointForm.valid">
+            <a md-mini-fab routerLink="." color='primary' (click)="createEndPoint()"><md-icon>save</md-icon></a>
+            &nbsp;save&nbsp;
+        </span>
+
+        <span *ngIf="endPointForm.dirty && currentState != 'create'">
+            <a md-mini-fab routerLink="." color='primary' (click)="resetEndPoint()"><md-icon>undo</md-icon></a>
+            &nbsp;undo&nbsp;
+        </span>
+
+        <span>
+            <a md-mini-fab routerLink="." color='primary' (click)="newEndPoint()"><md-icon>add</md-icon></a>
+            &nbsp;create&nbsp;
+        </span>
+
+        <span *ngIf="currentEndPoint.name !='' && currentState != 'create'">
+            <a md-mini-fab routerLink="." (click)="deleteEndPoint()"> <md-icon>clear</md-icon></a>
+            &nbsp;remove&nbsp;
+        </span>
+
     </div>
 </div>
-
 
 <br>
 
@@ -78,11 +83,6 @@
     </div>
 </form>
 
-
-<!--
-<p>Form value: {{ endPointForm.value | json }}</p>
-<p>Form status: {{ endPointForm.status | json }}</p>
--->
 
 
 

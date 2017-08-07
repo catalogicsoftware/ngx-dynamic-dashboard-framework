@@ -50,7 +50,6 @@ import {SearchResultComponent} from './components/gadgets/_library/search-filter
 import {EdgeServiceListGadgetComponent} from './components/gadgets/edge-service-list/edge-service-list-gadget.component';
 import {EdgeService} from './components/gadgets/edge-service-list/service';
 import {CPUMService} from './components/gadgets/cpum/service';
-import { StompService } from 'ng2-stomp-service';
 import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxModule, MdInputModule} from '@angular/material';
 
 
@@ -127,8 +126,7 @@ import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxM
       DiskService,
       StatisticService,
       EdgeService,
-      CPUMService,
-      StompService
+      CPUMService
   ],
   bootstrap: [AppComponent]
 })

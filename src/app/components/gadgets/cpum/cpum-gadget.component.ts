@@ -4,7 +4,6 @@ import {RuntimeService} from '../../../services/runtime.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../board/board-configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {StompService} from 'ng2-stomp-service';
 import {isUndefined} from 'util';
 import {StompWebSocket} from './stompws';
 import {Observable} from 'rxjs/Observable';
@@ -34,14 +33,13 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     };
 
     webSocketSubscription: any;
-    socket: any ;
+    socket: any;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                private _changeDetectionRef: ChangeDetectorRef,
-                private _stomp: StompService) {
+                private _changeDetectionRef: ChangeDetectorRef) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
@@ -51,12 +49,13 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
     public preRun(): void {
         // from the following site: https://github.com/devsullo/ng2-STOMP-Over-WebSocket
+        /*
         this._stomp.configure({
             host: 'http://localhost:8080/cpu_monitor_websocket',
             debug: true,
             queue: {'init': true}
         });
-
+    */
     }
 
     public run() {
@@ -64,7 +63,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.errorExists = false;
         this.actionInitiated = true;
 
-        this.socket = new StompWebSocket('http://localhost:8080/cpu_monitor_websocket', '/topic/cpu-metrics' , '/app/collect');
+        this.socket = new StompWebSocket('http://localhost:8080/cpu_monitor_websocket', '/topic/cpu-metrics', '/app/collect');
 
         const timer = Observable.timer(5000);
         timer.subscribe(t => {
@@ -198,6 +197,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
     private unSubscribeToWebSocketObservable() {
 
+        /*
         try {
 
             if (!isUndefined(this._stomp.send)) {
@@ -219,6 +219,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
             // todo - this is problemantic when the WebSocket server is not running
         }
+        */
     }
 
 }

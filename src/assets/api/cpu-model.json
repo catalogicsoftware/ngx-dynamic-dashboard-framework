@@ -1,0 +1,43 @@
+[
+  {
+    "name": "CPU 1",
+    "series": [
+      {
+        "name": "used",
+        "value": 75
+      },
+      {
+        "name": "available",
+        "value": 100
+      }
+    ]
+  },
+  {
+    "name": "CPU 2",
+    "series": [
+      {
+        "name": "used",
+        "value": 23
+      },
+      {
+        "name": "available",
+        "value": 77
+      }
+    ]
+  },
+  {
+    "name": "CPU 3",
+    "series": [
+      {
+        "name": "used",
+        "value": 7
+      },
+      {
+        "name": "available",
+        "value": 93
+      }
+    ]
+  }
+]
+
+

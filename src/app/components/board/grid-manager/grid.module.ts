@@ -15,6 +15,7 @@ import {TrendService} from '../../gadgets/trend/service';
 import {TrendLineService} from '../../gadgets/trend-line/service';
 import {EdgeService} from '../../gadgets/edge-service-list/service';
 import {CPUMService} from '../../gadgets/cpum/service';
+import {CPUService} from '../../gadgets/cpu/service';
 
 
 
@@ -40,7 +41,8 @@ import {CPUMService} from '../../gadgets/cpum/service';
         TrendLineService,
         TrendService,
         EdgeService,
-        CPUMService
+        CPUMService,
+        CPUService
     ]
 })
 export class GridModule {

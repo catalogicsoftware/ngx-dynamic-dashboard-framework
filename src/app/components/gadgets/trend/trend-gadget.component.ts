@@ -21,7 +21,7 @@ export class TrendGadgetComponent extends GadgetBase {
     showXAxis = true;
     showYAxis = true;
     gradient = true;
-    showLegend = false;
+    showLegend = true;
     showXAxisLabel = true;
     showYAxisLabel = true;
     yAxisLabel = 'Trend Data';
@@ -46,10 +46,11 @@ export class TrendGadgetComponent extends GadgetBase {
             _endPointService,
             _changeDetectionRef);
 
-        this.run();
     }
 
     public preRun(): void {
+
+        this.run();
     }
 
     public run() {

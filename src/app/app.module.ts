@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {ConfigurationService} from './services/configuration.service';
 import {RuntimeService} from './services/runtime.service';
 import {EndPointService} from './components/board/board-configuration/tab-endpoint/endpoint.service';
@@ -51,7 +51,16 @@ import {EdgeServiceListGadgetComponent} from './components/gadgets/edge-service-
 import {EdgeService} from './components/gadgets/edge-service-list/service';
 import {CPUMService} from './components/gadgets/cpum/service';
 import {CPUService} from './components/gadgets/cpu/service';
-import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxModule, MdInputModule} from '@angular/material';
+import {
+    MdButtonModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdCheckboxModule,
+    MdInputModule
+} from '@angular/material';
+import {NotificationModule} from './components/board/notification/notification/notification.module';
+import {DynamicFormModule} from './components/property-manager/dynamic-form-module';
 
 
 @NgModule({
@@ -80,56 +89,56 @@ import {MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxM
         FormsModule,
         HttpModule,
         DndModule.forRoot(),
-        ReactiveFormsModule
-
+        ReactiveFormsModule,
+        NotificationModule,
+        DynamicFormModule
     ],
-  declarations: [
-    AppComponent,
-      BoardComponent,
-      EndPointComponent,
-      EndPointDetailComponent,
-      GadgetLibraryComponent,
-      BoardLayoutManagerComponent,
-      MemoryGadgetComponent,
-      CPUGadgetComponent,
-      ServiceListGadgetComponent,
-      PropertyListGadgetComponent,
-      DiskGadgetComponent,
-      TrendGadgetComponent,
-      DynamicFormComponent,
-      StatisticGadgetComponent,
-      DynamicFormPropertyComponent,
-      BoardConfigurationComponent,
-      GadgetHeaderComponent,
-      ErrorHandlerComponent,
-      NewsGadgetComponent,
-      JobAnalysisGadgetComponent,
-      SearchComponent,
-      FilterListComponent,
-      FilterTagComponent,
-      VisDrillDownComponent,
-      HelpModalComponent,
-      TrendLineGadgetComponent,
-      GadgetOperationComponent,
-      CapitalizeFirstPipe,
-      FacetComponent,
-      SearchResultComponent,
-      EdgeServiceListGadgetComponent,
-      CPUMGadgetComponent
-  ],
+    declarations: [
+        AppComponent,
+        BoardComponent,
+        EndPointComponent,
+        EndPointDetailComponent,
+        GadgetLibraryComponent,
+        BoardLayoutManagerComponent,
+        MemoryGadgetComponent,
+        CPUGadgetComponent,
+        ServiceListGadgetComponent,
+        PropertyListGadgetComponent,
+        DiskGadgetComponent,
+        TrendGadgetComponent,
+        StatisticGadgetComponent,
+        BoardConfigurationComponent,
+        GadgetHeaderComponent,
+        ErrorHandlerComponent,
+        NewsGadgetComponent,
+        JobAnalysisGadgetComponent,
+        SearchComponent,
+        FilterListComponent,
+        FilterTagComponent,
+        VisDrillDownComponent,
+        HelpModalComponent,
+        TrendLineGadgetComponent,
+        GadgetOperationComponent,
+        CapitalizeFirstPipe,
+        FacetComponent,
+        SearchResultComponent,
+        EdgeServiceListGadgetComponent,
+        CPUMGadgetComponent
+    ],
 
-  providers: [
-      EndPointService,
-      RuntimeService,
-      ConfigurationService,
-      GadgetPropertyService,
-      TrendService,
-      DiskService,
-      StatisticService,
-      EdgeService,
-      CPUMService,
-      CPUService
-  ],
-  bootstrap: [AppComponent]
+    providers: [
+        EndPointService,
+        RuntimeService,
+        ConfigurationService,
+        GadgetPropertyService,
+        TrendService,
+        DiskService,
+        StatisticService,
+        EdgeService,
+        CPUMService,
+        CPUService
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

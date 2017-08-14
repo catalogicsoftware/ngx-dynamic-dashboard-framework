@@ -1,25 +1,43 @@
 
 
-# Angular-4+-Dashboard-Framework
+# Angular 4 plus Dashboard Framework
 
 > Note: This project is under heavy construction and is not intended for general production use yet. As such, we are not accepting bugs at the moment and documentation is quite lacking.
 
 This is an angular 4+ based dashboard framework that is inspired by JIRA's dashboard implementation and https://github.com/angular-dashboard-framework/angular-dashboard-framework
 
 The primary projects leveraged:
-* angular 4+ - https://angularjs.org/
+* angular 4 plus - https://angularjs.org/
 * ngx-charts (angular based d3 charts) - https://github.com/swimlane/ngx-charts
 * Semantic-UI - https://semantic-ui.com/
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
 * angular material
 
-Additional Features:
+Features:
 * Leverages Angular's dynamic data driven forms approach for gadget property pages and properties - https://angular.io/guide/dynamic-form
 * Dynamic component strategy for creating gadget instances during runtime - https://angular.io/guide/dynamic-component-loader
+* Faceted gadget search approach leveraging tags
+* Support multiple board creation
+* Drag and Drop support
+* Web Socket support
+* Completely customizable and configurable
 
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/ngADF-main.png)
 
-![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/screenshot-add-gadget.png)
+
+![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/images/screenshot-add-gadget.png)
+
+
+## Add Gadget
+![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add.gif)
+
+## Add Board/Drag and Drop
+![Image of Add Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add-board.gif)
+
+## Facet Filter
+![Image of Filter Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/filter.gif)
+
+
 
 # NgADF
 

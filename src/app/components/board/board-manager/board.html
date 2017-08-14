@@ -8,21 +8,31 @@
         </a>
     </div>
 
-    <div class="right floated six wide column">
+    <div class="right floated eight wide column">
 
-        <a md-mini-fab routerLink="." color="primary" (click)="gadgetLibraryModal.showComponentLibraryModal('Gadget Library')">
+        <a md-mini-fab routerLink="." color="primary"
+           (click)="gadgetLibraryModal.showNotificationModal('Gadget Library')">
+            <md-icon>notifications</md-icon>
+        </a>
+        Notifications
+        &nbsp;
+
+        <a md-mini-fab routerLink="." color="primary"
+           (click)="gadgetLibraryModal.showComponentLibraryModal('Gadget Library')">
             <md-icon>add_circle_outline</md-icon>
         </a>
         Add Gadget
         &nbsp;
 
-        <a md-mini-fab routerLink="." color="primary" (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
+        <a md-mini-fab routerLink="." color="primary"
+           (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
             <md-icon>grid_on</md-icon>
         </a>
         Edit Layout
         &nbsp;
 
-        <a md-mini-fab routerLink="." color="primary" (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
+        <a md-mini-fab routerLink="." color="primary"
+           (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
             <md-icon>settings</md-icon>
         </a>
         Configure

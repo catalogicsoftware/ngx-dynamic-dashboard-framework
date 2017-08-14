@@ -32,6 +32,11 @@ export class BoardComponent implements OnInit {
             const me = this;
             if (data && data instanceof Array && data.length) {
                 this.dashboardList.length = 0;
+
+
+                // sort boards
+                data.sort((a: any, b: any) => a.id - b.id);
+
                 data.forEach(board => {
 
                     me.dashboardList.push(board.title);

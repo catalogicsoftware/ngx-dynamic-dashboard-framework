@@ -202,9 +202,7 @@ export const sampleBoardCollection = {
                 ]
             }
         ]
-    },
-
-        {
+    }, {
             'title': 'Board Sample 2',
             'structure': '4-4-4-4/8-4-4',
             'id': 8,
@@ -995,4 +993,4 @@ export const sampleBoardCollection = {
             ]
         }
     ]
-}
+};

@@ -275,6 +275,7 @@ export class GridComponent {
 
             this.setModel(res);
             this.getModel().title = name;
+            this.getModel().id = new Date().getTime();
 
             this.updateServicesAndGridWithModel();
             this.saveBoard('Initialization of a new board', true);

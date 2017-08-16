@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body{
-    background-color: whitesmoke;
-    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    color:darkgray;
+    background-color: whitesmoke !important;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+    color:darkgray !important;
 }
 
 h1, h2{
-    color: #6e6e6e;
+    color: #6e6e6e !important;
 }

@@ -1,3 +1,4 @@
+/*
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CPUGadgetComponent} from './cpu/cpu-gadget.component';
@@ -65,3 +66,5 @@ import {ServiceListGadgetComponent} from './service-list/service-list-gadget.com
 })
 export class GadgetModule {
 }
+
+*/

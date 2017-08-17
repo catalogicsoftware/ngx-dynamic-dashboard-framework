@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
-import {BoardComponent} from './components/board/board-manager/board.component';
+import {BoardComponent} from './board/board.component';
 
 
 export const routes: Routes = [

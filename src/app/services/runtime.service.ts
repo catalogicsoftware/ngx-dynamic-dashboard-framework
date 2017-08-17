@@ -6,7 +6,7 @@ import {Http, Headers, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import * as io from 'socket.io-client';
-import {ErrorHandler} from '../components/error/error-handler';
+import {ErrorHandler} from '../error/error-handler';
 
 
 @Injectable()

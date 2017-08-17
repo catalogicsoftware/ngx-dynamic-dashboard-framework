@@ -23,7 +23,6 @@ import {SearchComponent} from './gadgets/_library/search-filter/search-component
 import {JobAnalysisGadgetComponent} from './gadgets/job-analysis/job-analysis-gadget.component';
 import {NewsGadgetComponent} from './gadgets/news/news-gadget.component';
 import {GadgetHeaderComponent} from './gadgets/_common/gadget-header-component';
-import {BoardConfigurationComponent} from './configuration/tab-configuration/board-configuration-component';
 import {StatisticGadgetComponent} from './gadgets/statistic/statistic-gadget.component';
 import {TrendGadgetComponent} from './gadgets/trend/trend-gadget.component';
 import {DiskGadgetComponent} from './gadgets/disk/disk-gadget.component';
@@ -34,8 +33,6 @@ import {CPUMGadgetComponent} from './gadgets/cpum/cpum-gadget.component';
 import {MemoryGadgetComponent} from './gadgets/memory/memory-gadget.component';
 import {BoardLayoutManagerComponent} from './layout/layout-component';
 import {GadgetLibraryComponent} from './gadgets/_library/gadget-library-component';
-import {EndPointDetailComponent} from './configuration/tab-endpoint/endpointDetail.component';
-import {EndPointComponent} from './configuration/tab-endpoint/endpoint.component';
 import {BoardComponent} from './board/board.component';
 import {GridModule} from './board/grid/grid.module';
 import {CommonModule} from '@angular/common';
@@ -50,8 +47,6 @@ import {CPUMService} from './gadgets/cpum/service';
 import {CPUService} from './gadgets/cpu/service';
 import {
     MdButtonModule,
-    MdCardModule,
-    MdToolbarModule,
     MdIconModule,
     MdCheckboxModule,
     MdInputModule
@@ -59,6 +54,7 @@ import {
 import {NotificationModule} from './notification/notification.module';
 import {DynamicFormModule} from './property-manager/dynamic-form-module';
 import {ErrorHandlerModule} from './error/error.module';
+import {ConfigurationModule} from './configuration/configuration.module';
 
 
 @NgModule({
@@ -67,7 +63,7 @@ import {ErrorHandlerModule} from './error/error.module';
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        MdButtonModule, MdCardModule, MdToolbarModule, MdIconModule, MdCheckboxModule, MdInputModule,
+        MdButtonModule, MdIconModule, MdCheckboxModule, MdInputModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,
@@ -90,14 +86,13 @@ import {ErrorHandlerModule} from './error/error.module';
         ReactiveFormsModule,
         NotificationModule,
         DynamicFormModule,
-        ErrorHandlerModule
+        ErrorHandlerModule,
+        ConfigurationModule
 
     ],
     declarations: [
         AppComponent,
         BoardComponent,
-        EndPointComponent,
-        EndPointDetailComponent,
         GadgetLibraryComponent,
         BoardLayoutManagerComponent,
         MemoryGadgetComponent,
@@ -107,7 +102,6 @@ import {ErrorHandlerModule} from './error/error.module';
         DiskGadgetComponent,
         TrendGadgetComponent,
         StatisticGadgetComponent,
-        BoardConfigurationComponent,
         GadgetHeaderComponent,
         NewsGadgetComponent,
         JobAnalysisGadgetComponent,

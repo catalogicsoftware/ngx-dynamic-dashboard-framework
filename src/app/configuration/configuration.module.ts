@@ -6,7 +6,8 @@ import {EndPointService} from './tab-endpoint/endpoint.service';
 import {BoardConfigurationComponent} from './tab-configuration/board-configuration-component';
 import {DndModule} from 'ng2-dnd';
 import {MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule} from '@angular/material';
-/*
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -15,6 +16,8 @@ import {MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule} from '@an
         MdIconModule,
         MdCheckboxModule,
         MdInputModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [
         BoardConfigurationComponent,
@@ -33,4 +36,3 @@ import {MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule} from '@an
 })
 export class ConfigurationModule {
 }
-*/

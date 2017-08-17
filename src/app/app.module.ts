@@ -47,6 +47,7 @@ import {ErrorHandlerModule} from './error/error.module';
 import {ConfigurationModule} from './configuration/configuration.module';
 import {LayoutModule} from './layout/layout.module';
 import {AddGadgetModule} from './add-gadget/add-gadget.module';
+import {GadgetSharedModule} from './gadgets/_common/gadget-shared.module';
 
 
 @NgModule({
@@ -81,8 +82,8 @@ import {AddGadgetModule} from './add-gadget/add-gadget.module';
         ErrorHandlerModule,
         ConfigurationModule,
         LayoutModule,
-        AddGadgetModule
-
+        AddGadgetModule,
+        GadgetSharedModule
     ],
     declarations: [
         AppComponent,
@@ -94,13 +95,9 @@ import {AddGadgetModule} from './add-gadget/add-gadget.module';
         DiskGadgetComponent,
         TrendGadgetComponent,
         StatisticGadgetComponent,
-        GadgetHeaderComponent,
         NewsGadgetComponent,
         JobAnalysisGadgetComponent,
-        VisDrillDownComponent,
-        HelpModalComponent,
         TrendLineGadgetComponent,
-        GadgetOperationComponent,
         EdgeServiceListGadgetComponent,
         CPUMGadgetComponent
     ],

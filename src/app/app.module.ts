@@ -22,7 +22,6 @@ import {FilterListComponent} from './gadgets/_library/search-filter/filter-list-
 import {SearchComponent} from './gadgets/_library/search-filter/search-component';
 import {JobAnalysisGadgetComponent} from './gadgets/job-analysis/job-analysis-gadget.component';
 import {NewsGadgetComponent} from './gadgets/news/news-gadget.component';
-import {ErrorHandlerComponent} from './error/error-handler.component';
 import {GadgetHeaderComponent} from './gadgets/_common/gadget-header-component';
 import {BoardConfigurationComponent} from './configuration/tab-configuration/board-configuration-component';
 import {StatisticGadgetComponent} from './gadgets/statistic/statistic-gadget.component';
@@ -59,6 +58,7 @@ import {
 } from '@angular/material';
 import {NotificationModule} from './notification/notification.module';
 import {DynamicFormModule} from './property-manager/dynamic-form-module';
+import {ErrorHandlerModule} from './error/error.module';
 
 
 @NgModule({
@@ -89,7 +89,9 @@ import {DynamicFormModule} from './property-manager/dynamic-form-module';
         DndModule.forRoot(),
         ReactiveFormsModule,
         NotificationModule,
-        DynamicFormModule
+        DynamicFormModule,
+        ErrorHandlerModule
+
     ],
     declarations: [
         AppComponent,
@@ -107,7 +109,6 @@ import {DynamicFormModule} from './property-manager/dynamic-form-module';
         StatisticGadgetComponent,
         BoardConfigurationComponent,
         GadgetHeaderComponent,
-        ErrorHandlerComponent,
         NewsGadgetComponent,
         JobAnalysisGadgetComponent,
         SearchComponent,

@@ -25,7 +25,7 @@ declare var jQuery: any;
     selector: 'app-board-layout-manager-modal',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['./styles-board.css']
+    styleUrls: ['./styles.css']
 
 })
 export class BoardLayoutManagerComponent implements AfterViewInit {

@@ -48,13 +48,13 @@ import {CPUService} from './gadgets/cpu/service';
 import {
     MdButtonModule,
     MdIconModule,
-    MdCheckboxModule,
-    MdInputModule
+    MdCheckboxModule
 } from '@angular/material';
 import {NotificationModule} from './notification/notification.module';
 import {DynamicFormModule} from './property-manager/dynamic-form-module';
 import {ErrorHandlerModule} from './error/error.module';
 import {ConfigurationModule} from './configuration/configuration.module';
+import {LayoutModule} from './layout/layout.module';
 
 
 @NgModule({
@@ -63,7 +63,7 @@ import {ConfigurationModule} from './configuration/configuration.module';
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        MdButtonModule, MdIconModule, MdCheckboxModule, MdInputModule,
+        MdButtonModule, MdIconModule, MdCheckboxModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,
@@ -87,14 +87,14 @@ import {ConfigurationModule} from './configuration/configuration.module';
         NotificationModule,
         DynamicFormModule,
         ErrorHandlerModule,
-        ConfigurationModule
+        ConfigurationModule,
+        LayoutModule
 
     ],
     declarations: [
         AppComponent,
         BoardComponent,
         GadgetLibraryComponent,
-        BoardLayoutManagerComponent,
         MemoryGadgetComponent,
         CPUGadgetComponent,
         ServiceListGadgetComponent,

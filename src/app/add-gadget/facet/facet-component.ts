@@ -47,7 +47,7 @@ import {
         <br>
 
     `,
-    styleUrls: ['../styles-gadget-library.css'],
+    styleUrls: ['../styles.css'],
     animations: [
 
         trigger('accordion', [

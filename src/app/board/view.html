@@ -10,15 +10,14 @@
 
     <div class="right floated eight wide column">
 
-        <a md-mini-fab routerLink="." color="primary"
-           (click)="gadgetLibraryModal.showNotificationModal('Gadget Library')">
+        <a md-mini-fab routerLink="." color="primary">
             <md-icon>notifications</md-icon>
         </a>
         Notifications
         &nbsp;
 
         <a md-mini-fab routerLink="." color="primary"
-           (click)="gadgetLibraryModal.showComponentLibraryModal('Gadget Library')">
+           (click)="addGadgetModal.showComponentLibraryModal('Gadget Library')">
             <md-icon>add_circle_outline</md-icon>
         </a>
         Add Gadget
@@ -46,9 +45,9 @@
 </app-board-layout-manager-modal>
 
 <!-- the modal will emit an event and call the grid component to add the requested cell to the board -->
-<app-gadget-library-modal #gadgetLibraryModal
+<app-add-gadget-modal #addGadgetModal
                           (addGadgetEvent)="gadgetGrid.addGadget($event)">
-</app-gadget-library-modal>
+</app-add-gadget-modal>
 
 <!-- the grid component will create the requested gadget dynamically -->
 <app-grid-component #gadgetGrid

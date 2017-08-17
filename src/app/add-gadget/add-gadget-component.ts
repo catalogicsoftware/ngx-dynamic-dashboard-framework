@@ -12,7 +12,7 @@ import {
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
-import {GadgetLibraryService} from './gadget-library.service';
+import {GadgetLibraryService} from './service';
 
 declare var jQuery: any;
 
@@ -27,10 +27,10 @@ declare var jQuery: any;
  *      hideMessageModal - hide the message modal
  */
 @Component({
-    selector: 'app-gadget-library-modal',
+    selector: 'app-add-gadget-modal',
     moduleId: module.id,
-    templateUrl: './gadget-library.html',
-    styleUrls: ['./styles-gadget-library.css'],
+    templateUrl: './view.html',
+    styleUrls: ['./styles.css'],
     animations: [
         trigger(
             'showHideAnimation',
@@ -46,7 +46,7 @@ declare var jQuery: any;
     ],
 
 })
-export class GadgetLibraryComponent implements AfterViewInit {
+export class AddGadgetComponent implements AfterViewInit {
 
     @Output() addGadgetEvent: EventEmitter<any> = new EventEmitter();
 

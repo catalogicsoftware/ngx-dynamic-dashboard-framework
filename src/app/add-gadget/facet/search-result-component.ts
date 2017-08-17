@@ -25,7 +25,7 @@ import {Component, ElementRef} from '@angular/core';
         </div>
         -->
     `,
-    styleUrls: ['../../_common/styles-gadget.css']
+    styleUrls: ['../../gadgets/_common/styles-gadget.css']
 })
 export class SearchResultComponent {
 

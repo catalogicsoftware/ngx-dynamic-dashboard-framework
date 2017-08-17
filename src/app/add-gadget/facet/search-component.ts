@@ -26,7 +26,7 @@ import {Component, ElementRef} from '@angular/core';
             </ul>
         </div>
     `,
-    styleUrls: ['../styles-gadget-library.css']
+    styleUrls: ['../styles.css']
 })
 export class SearchComponent {
     public query = '';

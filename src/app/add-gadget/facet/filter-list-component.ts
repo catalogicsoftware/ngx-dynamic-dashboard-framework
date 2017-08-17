@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output} from '@angular/core';
-import {GadgetLibraryService} from '../gadget-library.service';
+import {GadgetLibraryService} from '../service';
 import {Facet, Tag} from './facet-search-model';
 /**
  * Created by jayhamilton on 6/27/17.
@@ -15,7 +15,7 @@ import {Facet, Tag} from './facet-search-model';
         
         </div>
     `,
-    styleUrls: ['../styles-gadget-library.css']
+    styleUrls: ['../styles.css']
 })
 export class FilterListComponent {
     @Output() tagSelectEvent: EventEmitter<any> = new EventEmitter();

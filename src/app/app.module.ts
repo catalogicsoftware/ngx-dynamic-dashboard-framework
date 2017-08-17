@@ -11,15 +11,15 @@ import {GadgetPropertyService} from './gadgets/_common/gadget-property.service';
 import {TrendService} from './gadgets/trend/service';
 import {DiskService} from './gadgets/disk/service';
 import {StatisticService} from './gadgets/statistic/service';
-import {FacetComponent} from './gadgets/_library/search-filter/facet-component';
-import {CapitalizeFirstPipe} from './gadgets/_library/search-filter/capitalize-first-character-pipe';
+import {FacetComponent} from './add-gadget/facet/facet-component';
+import {CapitalizeFirstPipe} from './add-gadget/facet/capitalize-first-character-pipe';
 import {GadgetOperationComponent} from './gadgets/_common/gadget-operation-control-component';
 import {TrendLineGadgetComponent} from './gadgets/trend-line/trend-line-gadget.component';
 import {HelpModalComponent} from './gadgets/_common/help-modal-component';
 import {VisDrillDownComponent} from './gadgets/_common/vis-drill-down-component';
-import {FilterTagComponent} from './gadgets/_library/search-filter/filter-tag-component';
-import {FilterListComponent} from './gadgets/_library/search-filter/filter-list-component';
-import {SearchComponent} from './gadgets/_library/search-filter/search-component';
+import {FilterTagComponent} from './add-gadget/facet/filter-tag-component';
+import {FilterListComponent} from './add-gadget/facet/filter-list-component';
+import {SearchComponent} from './add-gadget/facet/search-component';
 import {JobAnalysisGadgetComponent} from './gadgets/job-analysis/job-analysis-gadget.component';
 import {NewsGadgetComponent} from './gadgets/news/news-gadget.component';
 import {GadgetHeaderComponent} from './gadgets/_common/gadget-header-component';
@@ -31,8 +31,7 @@ import {ServiceListGadgetComponent} from './gadgets/service-list/service-list-ga
 import {CPUGadgetComponent} from './gadgets/cpu/cpu-gadget.component';
 import {CPUMGadgetComponent} from './gadgets/cpum/cpum-gadget.component';
 import {MemoryGadgetComponent} from './gadgets/memory/memory-gadget.component';
-import {BoardLayoutManagerComponent} from './layout/layout-component';
-import {GadgetLibraryComponent} from './gadgets/_library/gadget-library-component';
+import {AddGadgetComponent} from './add-gadget/add-gadget-component';
 import {BoardComponent} from './board/board.component';
 import {GridModule} from './board/grid/grid.module';
 import {CommonModule} from '@angular/common';
@@ -40,7 +39,7 @@ import {RoutingModule} from './routing.module';
 import {DndModule} from 'ng2-dnd';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SearchResultComponent} from './gadgets/_library/search-filter/search-result-component';
+import {SearchResultComponent} from './add-gadget/facet/search-result-component';
 import {EdgeServiceListGadgetComponent} from './gadgets/edge-service-list/edge-service-list-gadget.component';
 import {EdgeService} from './gadgets/edge-service-list/service';
 import {CPUMService} from './gadgets/cpum/service';
@@ -94,7 +93,7 @@ import {LayoutModule} from './layout/layout.module';
     declarations: [
         AppComponent,
         BoardComponent,
-        GadgetLibraryComponent,
+        AddGadgetComponent,
         MemoryGadgetComponent,
         CPUGadgetComponent,
         ServiceListGadgetComponent,

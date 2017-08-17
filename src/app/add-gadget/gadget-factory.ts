@@ -1,15 +1,15 @@
-import {CPUGadgetComponent} from '../cpu/cpu-gadget.component';
-import {MemoryGadgetComponent} from '../memory/memory-gadget.component';
-import {PropertyListGadgetComponent} from '../property-list/property-list-gadget.component';
-import {DiskGadgetComponent} from '../disk/disk-gadget.component';
-import {ServiceListGadgetComponent} from '../service-list/service-list-gadget.component';
-import {StatisticGadgetComponent} from '../statistic/statistic-gadget.component';
-import {TrendGadgetComponent} from '../trend/trend-gadget.component';
-import {NewsGadgetComponent} from '../news/news-gadget.component';
-import {JobAnalysisGadgetComponent} from '../job-analysis/job-analysis-gadget.component';
-import {TrendLineGadgetComponent} from '../trend-line/trend-line-gadget.component';
-import {EdgeServiceListGadgetComponent} from '../edge-service-list/edge-service-list-gadget.component';
-import {CPUMGadgetComponent} from '../cpum/cpum-gadget.component';
+import {CPUGadgetComponent} from '../gadgets/cpu/cpu-gadget.component';
+import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
+import {PropertyListGadgetComponent} from '../gadgets/property-list/property-list-gadget.component';
+import {DiskGadgetComponent} from '../gadgets/disk/disk-gadget.component';
+import {ServiceListGadgetComponent} from '../gadgets/service-list/service-list-gadget.component';
+import {StatisticGadgetComponent} from '../gadgets/statistic/statistic-gadget.component';
+import {TrendGadgetComponent} from '../gadgets/trend/trend-gadget.component';
+import {NewsGadgetComponent} from '../gadgets/news/news-gadget.component';
+import {JobAnalysisGadgetComponent} from '../gadgets/job-analysis/job-analysis-gadget.component';
+import {TrendLineGadgetComponent} from '../gadgets/trend-line/trend-line-gadget.component';
+import {EdgeServiceListGadgetComponent} from '../gadgets/edge-service-list/edge-service-list-gadget.component';
+import {CPUMGadgetComponent} from '../gadgets/cpum/cpum-gadget.component';
 /**
  * Created by jayhamilton on 6/30/17.
  */

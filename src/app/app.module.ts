@@ -39,21 +39,20 @@ import {RoutingModule} from './routing.module';
 import {DndModule} from 'ng2-dnd';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SearchResultComponent} from './add-gadget/facet/search-result-component';
 import {EdgeServiceListGadgetComponent} from './gadgets/edge-service-list/edge-service-list-gadget.component';
 import {EdgeService} from './gadgets/edge-service-list/service';
 import {CPUMService} from './gadgets/cpum/service';
 import {CPUService} from './gadgets/cpu/service';
 import {
     MdButtonModule,
-    MdIconModule,
-    MdCheckboxModule
+    MdIconModule
 } from '@angular/material';
 import {NotificationModule} from './notification/notification.module';
 import {DynamicFormModule} from './property-manager/dynamic-form-module';
 import {ErrorHandlerModule} from './error/error.module';
 import {ConfigurationModule} from './configuration/configuration.module';
 import {LayoutModule} from './layout/layout.module';
+import {FacetModule} from './add-gadget/facet/facet.module';
 
 
 @NgModule({
@@ -62,7 +61,7 @@ import {LayoutModule} from './layout/layout.module';
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        MdButtonModule, MdIconModule, MdCheckboxModule,
+        MdButtonModule, MdIconModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,
@@ -87,7 +86,8 @@ import {LayoutModule} from './layout/layout.module';
         DynamicFormModule,
         ErrorHandlerModule,
         ConfigurationModule,
-        LayoutModule
+        LayoutModule,
+        FacetModule
 
     ],
     declarations: [
@@ -104,16 +104,10 @@ import {LayoutModule} from './layout/layout.module';
         GadgetHeaderComponent,
         NewsGadgetComponent,
         JobAnalysisGadgetComponent,
-        SearchComponent,
-        FilterListComponent,
-        FilterTagComponent,
         VisDrillDownComponent,
         HelpModalComponent,
         TrendLineGadgetComponent,
         GadgetOperationComponent,
-        CapitalizeFirstPipe,
-        FacetComponent,
-        SearchResultComponent,
         EdgeServiceListGadgetComponent,
         CPUMGadgetComponent
     ],

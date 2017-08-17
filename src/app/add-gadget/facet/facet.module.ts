@@ -8,6 +8,7 @@ import {SearchResultComponent} from './search-result-component';
 import {CapitalizeFirstPipe} from './capitalize-first-character-pipe';
 import {MdCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {AddGadgetService} from '../service';
 
 @NgModule({
     imports: [
@@ -22,6 +23,9 @@ import {FormsModule} from '@angular/forms';
         SearchComponent,
         SearchResultComponent,
         CapitalizeFirstPipe
+    ],
+    providers: [
+        AddGadgetService
     ],
     exports: [
         FacetComponent,

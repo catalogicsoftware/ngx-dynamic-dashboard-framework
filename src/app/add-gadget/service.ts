@@ -6,7 +6,7 @@ import {Http} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
-export class GadgetLibraryService {
+export class AddGadgetService {
 
     constructor(private _http: Http) {}
 

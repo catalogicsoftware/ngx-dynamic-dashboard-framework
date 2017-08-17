@@ -11,15 +11,10 @@ import {GadgetPropertyService} from './gadgets/_common/gadget-property.service';
 import {TrendService} from './gadgets/trend/service';
 import {DiskService} from './gadgets/disk/service';
 import {StatisticService} from './gadgets/statistic/service';
-import {FacetComponent} from './add-gadget/facet/facet-component';
-import {CapitalizeFirstPipe} from './add-gadget/facet/capitalize-first-character-pipe';
 import {GadgetOperationComponent} from './gadgets/_common/gadget-operation-control-component';
 import {TrendLineGadgetComponent} from './gadgets/trend-line/trend-line-gadget.component';
 import {HelpModalComponent} from './gadgets/_common/help-modal-component';
 import {VisDrillDownComponent} from './gadgets/_common/vis-drill-down-component';
-import {FilterTagComponent} from './add-gadget/facet/filter-tag-component';
-import {FilterListComponent} from './add-gadget/facet/filter-list-component';
-import {SearchComponent} from './add-gadget/facet/search-component';
 import {JobAnalysisGadgetComponent} from './gadgets/job-analysis/job-analysis-gadget.component';
 import {NewsGadgetComponent} from './gadgets/news/news-gadget.component';
 import {GadgetHeaderComponent} from './gadgets/_common/gadget-header-component';
@@ -31,7 +26,6 @@ import {ServiceListGadgetComponent} from './gadgets/service-list/service-list-ga
 import {CPUGadgetComponent} from './gadgets/cpu/cpu-gadget.component';
 import {CPUMGadgetComponent} from './gadgets/cpum/cpum-gadget.component';
 import {MemoryGadgetComponent} from './gadgets/memory/memory-gadget.component';
-import {AddGadgetComponent} from './add-gadget/add-gadget-component';
 import {BoardComponent} from './board/board.component';
 import {GridModule} from './board/grid/grid.module';
 import {CommonModule} from '@angular/common';
@@ -52,7 +46,7 @@ import {DynamicFormModule} from './property-manager/dynamic-form-module';
 import {ErrorHandlerModule} from './error/error.module';
 import {ConfigurationModule} from './configuration/configuration.module';
 import {LayoutModule} from './layout/layout.module';
-import {FacetModule} from './add-gadget/facet/facet.module';
+import {AddGadgetModule} from './add-gadget/add-gadget.module';
 
 
 @NgModule({
@@ -87,13 +81,12 @@ import {FacetModule} from './add-gadget/facet/facet.module';
         ErrorHandlerModule,
         ConfigurationModule,
         LayoutModule,
-        FacetModule
+        AddGadgetModule
 
     ],
     declarations: [
         AppComponent,
         BoardComponent,
-        AddGadgetComponent,
         MemoryGadgetComponent,
         CPUGadgetComponent,
         ServiceListGadgetComponent,

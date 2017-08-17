@@ -7,7 +7,7 @@ import {CellComponent} from './cell.component';
 import {GadgetInstanceService} from './grid.service';
 import {ConfigurationService} from '../../services/configuration.service';
 import {HttpModule} from '@angular/http';
-import {GadgetLibraryService} from '../../add-gadget/service';
+import {AddGadgetService} from '../../add-gadget/service';
 import {DndModule} from 'ng2-dnd';
 import {NewsService} from '../../gadgets/news/service';
 import {JobAnalysisService} from '../../gadgets/job-analysis/service';
@@ -35,7 +35,7 @@ import {CPUService} from '../../gadgets/cpu/service';
     providers: [
         GadgetInstanceService,
         ConfigurationService,
-        GadgetLibraryService,
+        AddGadgetService,
         NewsService,
         JobAnalysisService,
         TrendLineService,

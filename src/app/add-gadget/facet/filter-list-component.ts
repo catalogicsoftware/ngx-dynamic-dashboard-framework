@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output} from '@angular/core';
-import {GadgetLibraryService} from '../service';
+import {AddGadgetService} from '../service';
 import {Facet, Tag} from './facet-search-model';
 /**
  * Created by jayhamilton on 6/27/17.
@@ -21,7 +21,7 @@ export class FilterListComponent {
     @Output() tagSelectEvent: EventEmitter<any> = new EventEmitter();
     facet_tags: Array<Facet> = [];
 
-    constructor(private _gadgetLibraryService: GadgetLibraryService) {
+    constructor(private _addGadgetServjce: AddGadgetService) {
 
         this.getTagsFromLibrary();
 
@@ -29,7 +29,7 @@ export class FilterListComponent {
 
     getTagsFromLibrary() {
 
-        this._gadgetLibraryService.getGadgetLibrary().subscribe(data => {
+        this._addGadgetServjce.getGadgetLibrary().subscribe(data => {
 
             const  me = this;
             data.forEach(function (item) {

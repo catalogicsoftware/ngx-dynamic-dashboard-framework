@@ -12,7 +12,7 @@ import {
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
-import {GadgetLibraryService} from './service';
+import {AddGadgetService} from './service';
 
 declare var jQuery: any;
 
@@ -62,7 +62,7 @@ export class AddGadgetComponent implements AfterViewInit {
 
     messageModal: any;
 
-    constructor(private _gadgetLibraryService: GadgetLibraryService) {
+    constructor(private _addGadgetService: AddGadgetService) {
 
         this.getGadgetsFromLibrary();
     }
@@ -138,7 +138,7 @@ export class AddGadgetComponent implements AfterViewInit {
 
     getGadgetsFromLibrary() {
 
-        this._gadgetLibraryService.getGadgetLibrary().subscribe(data => {
+        this._addGadgetService.getGadgetLibrary().subscribe(data => {
 
             this.gadgetLibraryData.length = 0;
             this.gadgetLibraryDataFiltered.length = 0;

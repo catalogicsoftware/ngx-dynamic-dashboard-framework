@@ -10,43 +10,35 @@ export const serviceList: {
     processId: string}[] = [
     {
         active: false,
-        applicationName: 'Virgo',
-        description: 'Main ECX Application container that manages all of the ECX functions.',
+        applicationName: 'Application Container',
+        description: 'This is a modular application container.',
         icon: 'images/donut.png',
-        pseudoName: 'ECX',
-        processId: ''
+        pseudoName: 'Virgo',
+        processId: '1'
     },
     {
         active: false,
-        applicationName: 'Eureka',
-        description: 'This is a microservice discovery service. Used for such items as VADP Proxy.',
+        applicationName: 'Microservice Discover Server',
+        description: 'This is a microservice discovery service.',
         icon: 'images/donut.png',
         pseudoName: 'Eureka',
-        processId: ''
+        processId: '2'
     },
     {
         active: false,
-        applicationName: 'PostGresql',
-        description: 'This is a database server used for job management and security.',
+        applicationName: 'Relational Database Management System',
+        description: 'This is a database server.',
         icon: 'images/donut.png',
-        pseudoName: 'SQL DB',
-        processId: ''
+        pseudoName: 'Postgres',
+        processId: '3'
     },
     {
         active: false,
-        applicationName: 'Mongo',
-        description: 'This is a database server used for ECX operation management.',
+        applicationName: 'NO Sql Database Server',
+        description: 'This is a no sql database server.',
         icon: 'images/donut.png',
-        pseudoName: 'Catalog DB',
-        processId: ''
-    },
-    {
-        active: false,
-        applicationName: 'Mongo',
-        description: 'This is a database server used for ECX configuration.',
-        icon: 'images/donut.png',
-        pseudoName: 'Configuration DB',
-        processId: ''
-    },
+        pseudoName: 'Mongo',
+        processId: '4'
+    }
 
 ];

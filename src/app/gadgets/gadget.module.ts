@@ -1,4 +1,3 @@
-/*
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CPUGadgetComponent} from './cpu/cpu-gadget.component';
@@ -20,12 +19,20 @@ import {TrendService} from './trend/service';
 import {PropertyListGadgetComponent} from './property-list/property-list-gadget.component';
 import {DynamicFormModule} from '../property-manager/dynamic-form-module';
 import {ServiceListGadgetComponent} from './service-list/service-list-gadget.component';
+import {DndModule} from 'ng2-dnd';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {GadgetSharedModule} from './_common/gadget-shared.module';
+import {ErrorHandlerModule} from '../error/error.module';
 
 
 @NgModule({
     imports: [
         CommonModule,
-        DynamicFormModule
+        GadgetSharedModule,
+        DndModule.forRoot(),
+        DynamicFormModule,
+        ErrorHandlerModule,
+        NgxChartsModule
     ],
     declarations: [
         CPUGadgetComponent,
@@ -42,12 +49,15 @@ import {ServiceListGadgetComponent} from './service-list/service-list-gadget.com
         PropertyListGadgetComponent,
         ServiceListGadgetComponent
     ],
-    providers: [ TrendService,
+
+    providers: [TrendService,
         DiskService,
         StatisticService,
         EdgeService,
         CPUMService,
-        CPUService],
+        CPUService
+    ],
+
     exports: [
         CPUGadgetComponent,
         CPUMGadgetComponent,
@@ -67,4 +77,3 @@ import {ServiceListGadgetComponent} from './service-list/service-list-gadget.com
 export class GadgetModule {
 }
 
-*/

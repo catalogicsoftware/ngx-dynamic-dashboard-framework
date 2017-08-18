@@ -17,7 +17,7 @@
             (stopEvent)="stop()">
     </app-gadget-header>
 
-    <div *ngIf="!inConfig" style="overflow-y:auto; padding-right:15px; max-height:800px; min-height: 275px; text-align: left !important; background-color:#f7f7f7" >
+    <div *ngIf="!inConfig" style="overflow-y:auto; padding-right:5px; padding-left:5px;max-height:800px; min-height: 275px; text-align: left !important; background-color:#f7f7f7" >
         <div *ngFor="let release of news" >
             <h3 style="font-weight:600 !important">{{release.heading}}</h3>
             <div *ngFor="let detail of release.details" class="ui segment">

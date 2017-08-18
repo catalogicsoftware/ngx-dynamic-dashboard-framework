@@ -1,6 +1,6 @@
 [
   {
-    "heading": "What's New",
+    "heading": "",
     "summary": "",
     "details": [
       {
@@ -43,69 +43,9 @@
             "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
             "id": "id string",
             "date": "09/10/2017"
-          },
-          {
-            "headline": "Recovery improvements",
-            "description": "Product now provides an option to change GUID of recovered Cache Instance.",
-            "benefit": "Flexible recovery options",
-            "id": "id string",
-            "date": "09/10/2017"
-          }
-        ]
-      },
-      {
-        "category": "General Enhancements",
-        "articles": [
-          {
-            "headline": "Auto cataloging",
-            "description": "Product now automatically inventories registered hosts and storage providers.",
-            "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
-            "id": "id string",
-            "date": "09/10/2017"
-          },
-          {
-            "headline": "Instant Restore option",
-            "description": "Product now offers an option to overwrite existing VMDK during Instant Disk restore..",
-            "benefit": "Flexible recovery options",
-            "id": "id string",
-            "date": "09/10/2017"
-          },
-          {
-            "headline": "SLA policy enhancements",
-            "description": "SLA policy schedule intervals can now be specified in minutes. A minimum value of 5 minutes can be specified for an SLA policy interval.",
-            "benefit": "Flexible recovery options",
-            "id": "id string",
-            "date": "09/10/2017"
-          }
-        ]
-      },
-      {
-        "category": "Reports",
-        "articles": [
-          {
-            "headline": "HA configuration support",
-            "description": "Product enables automated seeding of your Application A AlwaysON availability group by leveraging Storage snapshot technology to minimize the data movement between primary and secondary replica.",
-            "benefit": "Automatically and efficiently initialize AlwaysOn availability group.",
-            "id": "id string",
-            "date": "09/10/2017"
-          },
-          {
-            "headline": "New Reports",
-            "description": "Product introduces Instant Disk Restore Volumes report. The report lists the volumes that are created as part of IA disk restore..",
-            "benefit": "Flexible recovery options",
-            "id": "id string",
-            "date": "09/10/2017"
-          },
-          {
-            "headline": "Reporting Enhancements",
-            "description": "Enhanced Storage Capacity report to display managed capacity.",
-            "benefit": "Flexible recovery options",
-            "id": "id string",
-            "date": "09/10/2017"
           }
         ]
       }
-
     ]
   }
 ]

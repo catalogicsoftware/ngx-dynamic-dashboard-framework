@@ -21,18 +21,20 @@
     <div class="ui grid">
         <div class="row">
             <div *ngIf="!inConfig" style="max-height: 300px; max-width: 400px; min-height: 250px">
-                <ngx-charts-gauge *ngIf="!inConfig"
-                                  [view]="view"
-                                  [scheme]="colorScheme"
-                                  [results]="data"
-                                  [min]="0"
-                                  [max]="100"
-                                  [angleSpan]="360"
-                                  [startAngle]="0"
-                                  [units]="'Percent'"
-                                  [showAxis]="false"
-                                  (select)="drillDownPopUp.showDetail($event)">
-                </ngx-charts-gauge>
+
+                <ngx-charts-pie-chart *ngIf="!inConfig"
+                        [view]="view"
+                        [scheme]="colorScheme"
+                        [results]="data"
+                        [legend]="false"
+                        [explodeSlices]="false"
+                        [labels]="false"
+                        [doughnut]="true"
+                        [gradient]="false"
+                        [arcWidth]=".4"
+                        (select)="onSelect($event)">
+                </ngx-charts-pie-chart>
+
             </div>
         </div>
     </div>

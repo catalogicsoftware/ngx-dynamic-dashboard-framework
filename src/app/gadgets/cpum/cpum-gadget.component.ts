@@ -31,8 +31,6 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     colorScheme: any = {
         domain: ['#0AFF16', '#0d5481']
     };
-
-    webSocketSubscription: any;
     socket: any;
 
     constructor(protected _runtimeService: RuntimeService,
@@ -48,14 +46,6 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     }
 
     public preRun(): void {
-        // from the following site: https://github.com/devsullo/ng2-STOMP-Over-WebSocket
-        /*
-        this._stomp.configure({
-            host: 'http://localhost:8080/cpu_monitor_websocket',
-            debug: true,
-            queue: {'init': true}
-        });
-    */
     }
 
     public run() {
@@ -83,28 +73,6 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
                 // delay and wait a few more times
             }
         });
-
-
-        /*
-        // start connection
-        // todo handle errors
-        this._stomp.startConnect().then(() => {
-            this._stomp.done('init');
-            console.log('connected');
-
-            // subscribe
-            this.webSocketSubscription = this._stomp.subscribe('/topic/cpu-metrics', (data) => {
-                this.updateGraph(data.cpu_utilization);
-            });
-
-            // send data
-            this._stomp.send('/app/collect', {'requestParam': 'start'});
-
-            this.inRun = true;
-            this.actionInitiated = false;
-
-        });
-        */
     }
 
     public stop() {
@@ -113,8 +81,6 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.actionInitiated = true;
 
         this.socket.send({'requestParam': 'stop'});
-        // this.unSubscribeToWebSocketObservable();
-
         this.actionInitiated = false;
 
     }
@@ -191,35 +157,8 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
     public ngOnDestroy() {
 
-        this.unSubscribeToWebSocketObservable();
+        this.stop();
 
-    }
-
-    private unSubscribeToWebSocketObservable() {
-
-        /*
-        try {
-
-            if (!isUndefined(this._stomp.send)) {
-                // send data
-                this._stomp.send('/app/collect', {'requestParam': 'stop'});
-
-                // un-subscribe
-                this.webSocketSubscription.unsubscribe();
-
-                // disconnect
-                this._stomp.disconnect().then(() => {
-                    console.log('Connection closed');
-                });
-            }
-
-            this.actionInitiated = false;
-            this.inRun = false;
-        } catch (e) {
-
-            // todo - this is problemantic when the WebSocket server is not running
-        }
-        */
     }
 
 }

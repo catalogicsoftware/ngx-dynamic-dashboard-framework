@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {TrendLineService} from '../trend-line/service';
 import {Observable} from 'rxjs/Observable';
+
 @Injectable()
 export class DiskService {
 
@@ -27,12 +28,21 @@ export class DiskService {
 
     getMockData() {
         return new Observable(observer => {
-            Observable.timer(500, 15000).subscribe(t => {
+            Observable.timer(500, 5000).subscribe(t => {
 
-                const data = [{
+                const used = TrendLineService.getRandomArbitrary(0, 100);
+                const available = 100 - used;
+
+                const data = [
+                    {
                         'name': 'used',
-                        'value': TrendLineService.getRandomArbitrary(45, 52)
-                }];
+                        'value': used
+                    },
+                    {
+                        'name': 'available',
+                        'value': available
+                    }
+                ];
                 observer.next(data);
             });
         });

@@ -105,6 +105,10 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
         this.preRun();
     }
 
+    public initializeState(){
+
+    }
+
     public toggleConfigMode() {
 
         if (!this.inConfig) {

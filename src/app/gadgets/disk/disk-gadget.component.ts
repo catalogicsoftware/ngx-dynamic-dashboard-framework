@@ -12,7 +12,6 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {DiskService} from './service';
-import {TrendLineService} from '../trend-line/service';
 
 
 @Component({
@@ -57,10 +56,10 @@ export class DiskGadgetComponent extends GadgetBase {
     threshold: string;
 
     badColorScheme = {
-        domain: ['#a10910', '#C6FFC7', '#C7B42C']
+        domain: ['#a10910', '#DDDDDD']
     };
     goodColorScheme = {
-        domain: ['#2185D0', '#C6FFC7', '#C7B42C']
+        domain: ['#00c700', '#DDDDDD']
     };
 
     detailMenuOpen: string;
@@ -110,8 +109,8 @@ export class DiskGadgetComponent extends GadgetBase {
 
     public updateData(data: any[]) {
 
-        this._diskService.getMockData().subscribe(data => {
-                this.data = data;
+        this._diskService.getMockData().subscribe(_data => {
+                this.data = _data;
 
                 const thresholdVal = Number(this.threshold);
 

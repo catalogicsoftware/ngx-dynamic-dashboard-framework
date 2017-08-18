@@ -1,3 +1,38 @@
-<p>
-  notification-component works!
-</p>
+<div class="ui long modal" #notificationModalTag>
+    <div class="header">
+        <h2>{{modalHeader}}</h2>
+    </div>
+
+    <div class="content" style="background-color:#f7f7f7">
+
+        <div class="ui equal width fields grid container">
+
+            <div class="field six wide column">
+
+                <table class="ui selectable celled table">
+                    <tbody>
+                    <tr *ngFor="let item of notificationFilters" (click)="setSelectedNotificationFilter(item)">
+                        <td [ngClass]="{'selected': item.name == currentNotificationFilter.name}">
+                            <div style="float:left;text-align:left">{{item.name}}</div>
+                            <div style="float:right;text-align: right">{{item.count}}</div>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="field ten wide column">
+
+                <div *ngIf="currentNotificationFilter">
+
+                    <app-notification-detail></app-notification-detail>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="actions">
+        <div class="ui approve button">Close</div>
+    </div>
+</div>

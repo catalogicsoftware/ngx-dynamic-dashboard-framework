@@ -1,0 +1,26 @@
+
+td.selected {
+    border-radius: 4px;
+    background-color: #3f51b5 !important;
+    color: white;
+    font-weight: bold;
+}
+
+td{
+    line-height: 2;
+}
+
+.ui.table {
+    border: none !important;
+    color: rgba(97, 97, 97, 0.68) !important;
+}
+
+.ui.form .field > label {
+    color: rgba(97, 97, 97, 0.68) !important;
+    line-height: 3em !important;
+}
+
+.ui.table tr td{
+    border:none !important;
+}
+

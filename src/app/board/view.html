@@ -10,7 +10,8 @@
 
     <div class="right floated eight wide column">
 
-        <a md-mini-fab routerLink="." color="primary">
+        <a md-mini-fab routerLink="." color="primary"
+           (click)="notifcationModal.showNotificationModal('Notifications')">
             <md-icon>notifications</md-icon>
         </a>
         Notifications
@@ -46,7 +47,7 @@
 
 <!-- the modal will emit an event and call the grid component to add the requested cell to the board -->
 <app-add-gadget-modal #addGadgetModal
-                          (addGadgetEvent)="gadgetGrid.addGadget($event)">
+                      (addGadgetEvent)="gadgetGrid.addGadget($event)">
 </app-add-gadget-modal>
 
 <!-- the grid component will create the requested gadget dynamically -->
@@ -65,4 +66,4 @@
 </app-board-configuration-modal>
 
 
-
+<app-notification-modal #notifcationModal></app-notification-modal>

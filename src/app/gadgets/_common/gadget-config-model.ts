@@ -1,4 +1,4 @@
-import {PropertyBase} from '../../property-manager/property-base';
+import {PropertyBase} from '../../dynamic-form/property-base';
 
 /**
  * Created by jayhamilton on 6/15/17.

@@ -5,7 +5,7 @@ import {GadgetPropertyService} from './gadget-property.service';
 import {RuntimeService} from '../../services/runtime.service';
 import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {AfterViewInit, ChangeDetectorRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {DynamicFormComponent} from '../../property-manager/dynamic-form.component';
+import {DynamicFormComponent} from '../../dynamic-form/dynamic-form.component';
 /**
  * Created by jayhamilton on 6/22/17.
  */

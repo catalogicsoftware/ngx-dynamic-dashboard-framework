@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {DropdownProperty} from '../../property-manager/property-dropdown';
-import {PropertyBase} from '../../property-manager/property-base';
-import {TextboxProperty} from '../../property-manager/property-textbox';
-import {HiddenProperty} from '../../property-manager/property-hidden';
-import {CheckboxProperty} from '../../property-manager/property-checkbox';
-import {DynamicDropdownProperty} from '../../property-manager/property-dynamicdropdown';
-import {NumberProperty} from '../../property-manager/property-number';
+import {DropdownProperty} from '../../dynamic-form/property-dropdown';
+import {PropertyBase} from '../../dynamic-form/property-base';
+import {TextboxProperty} from '../../dynamic-form/property-textbox';
+import {HiddenProperty} from '../../dynamic-form/property-hidden';
+import {CheckboxProperty} from '../../dynamic-form/property-checkbox';
+import {DynamicDropdownProperty} from '../../dynamic-form/property-dynamicdropdown';
+import {NumberProperty} from '../../dynamic-form/property-number';
 
 @Injectable()
 export class GadgetPropertyService {

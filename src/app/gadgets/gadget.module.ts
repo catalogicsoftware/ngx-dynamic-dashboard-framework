@@ -17,7 +17,7 @@ import {StatisticService} from './statistic/service';
 import {DiskService} from './disk/service';
 import {TrendService} from './trend/service';
 import {PropertyListGadgetComponent} from './property-list/property-list-gadget.component';
-import {DynamicFormModule} from '../property-manager/dynamic-form-module';
+import {DynamicFormModule} from '../dynamic-form/dynamic-form-module';
 import {ServiceListGadgetComponent} from './service-list/service-list-gadget.component';
 import {DndModule} from 'ng2-dnd';
 import {NgxChartsModule} from '@swimlane/ngx-charts';

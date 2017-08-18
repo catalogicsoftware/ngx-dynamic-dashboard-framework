@@ -22,11 +22,11 @@ Features:
 * Web Socket support
 * Completely customizable and configurable
 
+## Sample Board 1
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb1.png)
 
+## Sample Board 2
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb2.png)
-
-![Image of Add Gadget Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/images/add-gadget.png)
 
 ## Add Gadget
 ![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add.gif)

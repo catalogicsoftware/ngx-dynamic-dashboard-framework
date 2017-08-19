@@ -9,14 +9,16 @@
 
             <div class="field six wide column">
 
+
+                <!--todo this should be two tables, one for the top filters and another for the component specific filters -->
                 <table class="ui selectable celled table">
                     <tbody>
-                    <tr *ngFor="let item of notificationFilters" (click)="setSelectedNotificationFilter(item)">
-                        <td [ngClass]="{'selected': item.name == currentNotificationFilter.name}">
+                    <tr *ngFor="let item of notificationFilters; let idx = index"
+                        (click)="setSelectedNotificationFilter(item)">
+                        <td [ngClass]="{'selected': item.name == currentNotificationFilter.name, 'components': idx==1}">
                             <div style="float:left;text-align:left">{{item.name}}</div>
                             <div style="float:right;text-align: right">{{item.count}}</div>
                         </td>
-
                     </tr>
                     </tbody>
                 </table>

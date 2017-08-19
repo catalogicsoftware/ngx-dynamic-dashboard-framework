@@ -1,4 +1,9 @@
 
+.components{
+    border-bottom: solid !important;
+    border-bottom-color: rgba(128, 128, 128, 0.69) !important;
+    border-bottom-width: thin !important;
+}
 td.selected {
     border-radius: 4px;
     background-color: #3f51b5 !important;
@@ -7,20 +12,11 @@ td.selected {
 }
 
 td{
-    line-height: 2;
-}
-
-.ui.table {
-    border: none !important;
-    color: rgba(97, 97, 97, 0.68) !important;
-}
-
-.ui.form .field > label {
-    color: rgba(97, 97, 97, 0.68) !important;
-    line-height: 3em !important;
+    line-height: 1.7;
 }
 
 .ui.table tr td{
-    border:none !important;
+    border:none;
 }
+
 

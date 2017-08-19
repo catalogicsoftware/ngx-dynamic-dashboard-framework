@@ -13,12 +13,13 @@
         <a md-mini-fab routerLink="." color="primary"
            (click)="notifcationModal.showNotificationModal('Notifications')">
             <md-icon>notifications</md-icon>
+            <div class="floating ui red label">4</div>
         </a>
         Notifications
         &nbsp;
 
         <a md-mini-fab routerLink="." color="primary"
-           (click)="addGadgetModal.showComponentLibraryModal('Gadget Library')">
+           (click)="addGadgetModal.showComponentLibraryModal('Add Gadget')">
             <md-icon>add_circle_outline</md-icon>
         </a>
         Add Gadget
@@ -52,8 +53,7 @@
 
 <!-- the grid component will create the requested gadget dynamically -->
 <app-grid-component #gadgetGrid
-                    (boardUpdateEvent)="updateDashboardMenu($event)"
->
+                    (boardUpdateEvent)="updateDashboardMenu($event)">
 </app-grid-component>
 
 <app-board-configuration-modal #boardConfigModal

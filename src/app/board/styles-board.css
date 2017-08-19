@@ -102,3 +102,7 @@ td.detail {
     align-items: center;
     justify-content: space-around;
 }
+
+.ui.floating.label{
+    top:-1.5em !important
+}

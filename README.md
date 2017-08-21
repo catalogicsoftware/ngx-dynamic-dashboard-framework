@@ -19,6 +19,7 @@ Features:
 * Faceted gadget search approach leveraging tags
 * Support multiple board creation
 * Drag and Drop support
+* Multiple Data Source/Endpoint management
 * Web Socket support
 * Completely customizable and configurable
 

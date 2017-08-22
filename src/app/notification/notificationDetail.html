@@ -1,19 +1,25 @@
 <table class="ui table">
     <thead>
     <tr>
-        <th colspan="4">
+        <th colspan="2">
             Notifications
+        </th>
+        <th colspan="2">
+            <div class="float right ui basic blue button">
+                Mark all as read <i class=" float right large blue check icon"></i>
+            </div>
         </th>
     </tr>
     </thead>
     <tr *ngFor="let notification of notifications">
-        <td>notification.icon</td>
+        <td><i class="large yellow warning icon"></i></td>
         <td>{{notification.description}}</td>
-        <td>notification.when</td>
-        <td>read or not</td>
+        <td>{{notification.when}};</td>
+        <td><i class="large blue check icon"></i></td>
     </tr>
 
 </table>
+
 
 
 

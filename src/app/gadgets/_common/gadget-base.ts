@@ -6,6 +6,7 @@ import {RuntimeService} from '../../services/runtime.service';
 import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {AfterViewInit, ChangeDetectorRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {DynamicFormComponent} from '../../dynamic-form/dynamic-form.component';
+
 /**
  * Created by jayhamilton on 6/22/17.
  */
@@ -81,6 +82,7 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
                 protected _endPointService: EndPointService,
                 protected changeDetectionRef: ChangeDetectorRef) {
     }
+
     public ngOnInit() {
 
         this.toggleConfigMode();
@@ -105,7 +107,7 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
         this.preRun();
     }
 
-    public initializeState(){
+    public initializeState() {
 
     }
 
@@ -140,12 +142,8 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
 
         this.inRun = false;
         this.actionInitiated = false;
-
-        // passes the error condition on to the user
         this.errorExists = true;
         this.errorObject = error;
-
-        this._runtimeService.clearSubscriptionDocCache();
 
     }
 
@@ -212,7 +210,7 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
         return 'Unknown';
     }
 
-    public  ngOnDestroy() {
+    public ngOnDestroy() {
 
     }
 }

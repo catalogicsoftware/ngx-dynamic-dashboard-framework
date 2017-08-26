@@ -5,10 +5,12 @@ export class ErrorObject {
     detail: string;
     summary: string;
     solutions: SolutionObject[];
-    constructor(detail: string, summary: string, solutions: SolutionObject[]) {
+    resource: string;
+    constructor(detail: string, summary: string, solutions: SolutionObject[], resource: string) {
         this.detail = detail;
         this.summary = summary;
         this.solutions = solutions;
+        this.resource = resource;
     }
 };
 

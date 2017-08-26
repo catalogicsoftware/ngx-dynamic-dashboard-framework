@@ -1,13 +1,19 @@
 import {ErrorObject, SolutionObject} from './error-model';
+
 /**
  * Created by jayhamilton on 7/5/17.
  */
 export class ErrorHandler {
 
-    static getErrorObject(errMsg: string) {
-
-        return new ErrorObject(errMsg, 'Some description', ErrorHandler.getSolutionList(errMsg));
-
+    static getErrorObject(errMsg: any) {
+        return new ErrorObject(
+            errMsg.statusText,
+            'Some description',
+            ErrorHandler.getSolutionList(
+                errMsg.status
+                + ' '
+                + errMsg.statusText),
+            errMsg.resource);
     }
 
     /**
@@ -31,6 +37,10 @@ export class ErrorHandler {
                 solutionList.push(new SolutionObject(
                     'Check to see if the host/service you are attempting to connect to is up.', 0, 'http://link1'));
                 break;
+            case 'ERR_NOT_FOUND':
+                solutionList.push(new SolutionObject(
+                    'Resource not found.', 0, 'http://link1'));
+                break;
             case 'ERR_CONNECTION_TIMEOUT':
                 solutionList.push(new SolutionObject(
                     'A timeout occurred. The default timeout on a connection is 60 seconds. ' +
@@ -46,7 +56,6 @@ export class ErrorHandler {
     }
 
     static getErrorType(errMsg: string): string {
-        console.debug(errMsg);
 
         if (errMsg.indexOf('trust') > -1) {
             return 'ERR_CERTIFICATE';
@@ -59,6 +68,9 @@ export class ErrorHandler {
         }
         if (errMsg.indexOf('timeout') > -1) {
             return 'ERR_CONNECTION_TIMEOUT';
+        }
+        if (errMsg.indexOf('404') > -1) {
+            return 'ERR_NOT_FOUND';
         }
         return ' ';
     }

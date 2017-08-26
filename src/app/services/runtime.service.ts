@@ -18,18 +18,19 @@ export class RuntimeService {
 
     static handleError(error: Response | any) {
 
-        console.error(error);
+        const errMsg: any = {
+            status: '-1',
+            statusText: '',
+            resource: ''
+        };
 
-        let errMsg: string;
         if (error instanceof Response) {
+            errMsg.status = error.status;
+            errMsg.statusText = error.statusText;
+            errMsg.resource = error.url;
 
-            const body = error.json() || '';
-            const err = body.error || JSON.stringify(body);
-            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
         } else {
-
-            errMsg = error.message ? error.message : error.toString();
-
+            errMsg.statusText = error.message ? error.message : error.toString();
         }
 
         return Observable.throw(ErrorHandler.getErrorObject(errMsg));
@@ -39,32 +40,13 @@ export class RuntimeService {
     constructor(private _http: Http) {
     }
 
-    postForECXSessionId(_credentials: any) {
-        const headers = new Headers();
-
-        this.credentials = _credentials;
-
-        /** todo
-         * centralize header management
-         */
-        headers.append('Content-Type', 'application/json');
-        headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Authorization', 'Basic ' + B64encode(this.credentials.user + ':' +
-                this.credentials.password));
-
-        return this._http.post(this.credentials.url, '', {headers: headers})
-            .map(response => response.json());
-
-    }
-
-    public setSessionId(sessionId: string) {
-        this.sessionid = sessionId;
-    }
-
-    public getSessionId() {
-        return this.sessionid;
-    }
-
+    /**
+     * @deprecated
+     * @param _credentials
+     * @param {string} urlHost
+     * @param {string} url
+     * @returns {any}
+     */
     postForXmonSessionStart(_credentials: any, urlHost: string, url: string) {
 
         const headers = new Headers();
@@ -96,10 +78,14 @@ export class RuntimeService {
 
     }
 
-    clearSubscriptionDocCache() {
-        this.subdoc = null;
-    }
-
+    /**
+     * @deprecated
+     * @param _subdoc
+     * @param {string} _sessionId
+     * @param {string} urlHost
+     * @param {string} url
+     * @returns {Observable<any | any>}
+     */
     subscribeToMetricWithSubdoc(_subdoc: any, _sessionId: string, urlHost: string, url: string) {
 
         /** todo
@@ -122,6 +108,13 @@ export class RuntimeService {
 
     }
 
+    /**
+     * @deprecated
+     * @param {string} monSid
+     * @param {string} roomNum
+     * @param {string} url
+     * @returns {Observable<any>}
+     */
     getData(monSid: string, roomNum: string, url: string) {
         const observable = new Observable(observer => {
 

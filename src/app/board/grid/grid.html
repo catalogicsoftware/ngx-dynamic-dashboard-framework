@@ -1,4 +1,4 @@
-<div class="ui centered stackable grid">
+<div class="ui centered stackable grid" style="margin-left: 5px; margin-right: 5px">
     <div *ngFor="let row of model.rows; let r = index" class="row" [ngClass]="{'short-row': row.columns.length > 3, 'tall-row': row.columns.length <= 3 }">
 
         <div *ngFor="let col of row.columns; let c = index" class="{{col.styleClass}} column" dnd-droppable

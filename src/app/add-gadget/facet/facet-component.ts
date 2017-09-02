@@ -18,7 +18,7 @@ import {
         <hr style='max-width: 100%; margin-left:0;'>
         <br>
         <div class='ui container grid'>
-            <div class='eight wide column'>
+            <div class='eight wide column' style="margin-left: 0 !important;padding-left: 0 !important;">
                 <h4>{{facet.name}}</h4>
             </div>
             <div class='eight wide column'>
@@ -35,11 +35,11 @@ import {
             <table class='ui very basic table' [@accordion2]='facetOpen'>
                 <tbody>
                 <tr *ngFor='let tag of facet.tags'>
-                    <td style='text-align: right'>
+                    <td style="width: 35px !important">
                         <md-checkbox (click)='tagSelect(tag.name)'></md-checkbox>
                         <!--<input type='checkbox' (click)='tagSelect(tag.name)'>-->
                     </td>
-                    <td style='color:grey'>{{tag.name}} &nbsp; &nbsp;( {{tag.count}} )</td>
+                    <td style='color:grey'>{{tag.name}} &nbsp;( {{tag.count}} )</td>
                 </tr>
                 </tbody>
             </table>

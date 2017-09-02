@@ -1,4 +1,4 @@
-<div class="ui right aligned segment grid">
+<div class="ui right aligned segment grid" style="margin-left: 20px; margin-right:20px">
 
     <div class="ui secondary pointing menu">
         <a *ngFor="let board of dashboardList; let i = index" class="item"
@@ -52,7 +52,7 @@
 </app-add-gadget-modal>
 
 <!-- the grid component will create the requested gadget dynamically -->
-<app-grid-component #gadgetGrid
+<app-grid-component  #gadgetGrid
                     (boardUpdateEvent)="updateDashboardMenu($event)">
 </app-grid-component>
 

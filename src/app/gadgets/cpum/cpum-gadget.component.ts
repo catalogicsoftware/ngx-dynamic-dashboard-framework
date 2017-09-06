@@ -4,9 +4,8 @@ import {RuntimeService} from '../../services/runtime.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {isUndefined} from 'util';
-import {StompWebSocket} from './stompws';
 import {Observable} from 'rxjs/Observable';
+import {ObservableWebSocketService} from '../../services/websocket-service';
 
 @Component({
     selector: 'app-dynamic-component',
@@ -31,18 +30,21 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     colorScheme: any = {
         domain: ['#0AFF16', '#0d5481']
     };
-    socket: any;
+    webSocket: any;
+    waitForConnectionDelay = 5000;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                private _changeDetectionRef: ChangeDetectorRef) {
+                private _changeDetectionRef: ChangeDetectorRef,
+                private _webSocketService: ObservableWebSocketService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+        );
     }
 
     public preRun(): void {
@@ -53,26 +55,27 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.errorExists = false;
         this.actionInitiated = true;
 
-        this.socket = new StompWebSocket('http://localhost:8080/cpu_monitor_websocket', '/topic/cpu-metrics', '/app/collect');
+        this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
 
-        const timer = Observable.timer(5000);
-        timer.subscribe(t => {
-            if (this.socket.isInitialized()) {
-                this.socket.send({'requestParam': 'start'});
+            const dataObject = JSON.parse(data);
 
-                this.socket.getSubject().subscribe(data => {
+            this.updateGraph(dataObject['utilPct']);
 
-                    this.updateGraph(data.cpu_utilization);
-
-                });
-
-                this.inRun = true;
-                this.actionInitiated = false;
-
-            } else {
-                // delay and wait a few more times
-            }
         });
+
+
+        const timer = Observable.timer(this.waitForConnectionDelay);
+
+        timer.subscribe(t => {
+
+            // todo test whether we are connected of not
+            this._webSocketService.sendMessage('start');
+
+            this.inRun = true;
+            this.actionInitiated = false;
+
+        });
+
     }
 
     public stop() {
@@ -80,7 +83,17 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.inRun = false;
         this.actionInitiated = true;
 
-        this.socket.send({'requestParam': 'stop'});
+        /**
+         * attempt to stop the collector
+         */
+        try {
+            this._webSocketService.sendMessage('stop');
+            this.webSocket.unsubscribe();
+        } catch (error) {
+            // handle
+        }
+
+
         this.actionInitiated = false;
 
     }

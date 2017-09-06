@@ -14,7 +14,6 @@ import {JobAnalysisService} from '../../gadgets/job-analysis/service';
 import {TrendService} from '../../gadgets/trend/service';
 import {TrendLineService} from '../../gadgets/trend-line/service';
 import {EdgeService} from '../../gadgets/edge-service-list/service';
-import {CPUMService} from '../../gadgets/cpum/service';
 import {CPUService} from '../../gadgets/cpu/service';
 
 
@@ -41,7 +40,6 @@ import {CPUService} from '../../gadgets/cpu/service';
         TrendLineService,
         TrendService,
         EdgeService,
-        CPUMService,
         CPUService
     ]
 })

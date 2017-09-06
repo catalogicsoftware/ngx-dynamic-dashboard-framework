@@ -25,6 +25,7 @@ import {PropertyListGadgetComponent} from '../gadgets/property-list/property-lis
 import {ServiceListGadgetComponent} from '../gadgets/service-list/service-list-gadget.component';
 import {CPUGadgetComponent} from '../gadgets/cpu/cpu-gadget.component';
 import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
+import {ObservableWebSocketService} from '../services/websocket-service';
 
 @NgModule({
     imports: [
@@ -54,7 +55,8 @@ import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
     providers: [ EndPointService,
         RuntimeService,
         ConfigurationService,
-        GadgetPropertyService
+        GadgetPropertyService,
+        ObservableWebSocketService
     ],
     declarations: [
         BoardComponent

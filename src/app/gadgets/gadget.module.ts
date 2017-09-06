@@ -11,7 +11,6 @@ import {TrendLineGadgetComponent} from './trend-line/trend-line-gadget.component
 import {NewsGadgetComponent} from './news/news-gadget.component';
 import {JobAnalysisGadgetComponent} from './job-analysis/job-analysis-gadget.component';
 import {CPUService} from './cpu/service';
-import {CPUMService} from './cpum/service';
 import {EdgeService} from './edge-service-list/service';
 import {StatisticService} from './statistic/service';
 import {DiskService} from './disk/service';
@@ -54,7 +53,6 @@ import {ErrorHandlerModule} from '../error/error.module';
         DiskService,
         StatisticService,
         EdgeService,
-        CPUMService,
         CPUService
     ],
 

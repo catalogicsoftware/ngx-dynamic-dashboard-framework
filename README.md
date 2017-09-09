@@ -39,11 +39,9 @@ Features:
 ![Image of Filter Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/filter.gif)
 
 
-
 # NgADF
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
-
 
 ## Setup
 
@@ -69,6 +67,17 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
+
+## Source Code Documentation
+
+This project uses the compodoc project : https://github.com/compodoc/compodoc
+
+Run `npm install -g @compodoc/compodoc` to install compodoc globally
+
+Run `compodoc -p tsconfig.json -n 'Angular 4 Plus Dashboard Framework'` to generate the documentation. It will be placed in the documentation folder
+
+Run `compodoc -s` to serve up the documentation site at http://localhost:8080
+
 
 ## Further help
 

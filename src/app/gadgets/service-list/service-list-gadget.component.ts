@@ -32,10 +32,6 @@ import {GadgetBase} from '../_common/gadget-base';
 })
 export class ServiceListGadgetComponent extends GadgetBase implements OnDestroy {
 
-    // runtime document subscription
-    subscriptionDocument: any;
-    webSocketConnection: any;
-
     // todo just realy on json
     serviceList: {
         active: boolean,
@@ -56,7 +52,7 @@ export class ServiceListGadgetComponent extends GadgetBase implements OnDestroy 
             _endPointService,
             _changeDetectionRef);
 
-        Object.assign(this, {serviceList});
+       this.run();
 
     }
 
@@ -65,86 +61,19 @@ export class ServiceListGadgetComponent extends GadgetBase implements OnDestroy 
 
     public run() {
         this.errorExists = false;
-        this.actionInitiated = true;
-        /*
-        this._procMonRuntimeService.postForXmonSessionStart({
-            url: this.endpointObject.address,
-            user: this.endpointObject.user,
-            password: this.endpointObject.credential
-        }, this.endpointObject.description,
-            this.endpointObject.address).subscribe(subscriptionDocument => {
+        this.actionInitiated = false;
+        this.inRun = true;
+        Object.assign(this, {serviceList});
 
-                this.subscriptionDocument = subscriptionDocument;
-                subscriptionDocument.session.event.metrics.ecx_processes.subscribe = true;
-
-                this._procMonRuntimeService.subscribeToMetricWithSubdoc(subscriptionDocument,
-                    subscriptionDocument.session.node.info.monsid,
-                    this.endpointObject.description,
-                    this.endpointObject.address).subscribe(subscriptionData => {
-
-                        this.webSocketConnection = this._procMonRuntimeService.getData(subscriptionDocument.session.node.info.monsid,
-                            subscriptionDocument.session.node.info.roomNum,
-                            this.endpointObject.address).subscribe(results => {
-
-                                // todo - check for {ok,ok}
-                                const me = this;
-                                this.actionInitiated = false;
-                                this.inRun = true;
-
-                                results.forEach(function (item) {
-                                    if (item.name.toString().includes('event.ecx_processes')) {
-                                        me.updateData(item.sample[0].data);
-                                    }
-                                });
-                            },
-                            error => this.handleError(error),
-                            () => console.debug('Connecting to web socket'));
-                    },
-                    error => this.handleError(error),
-                    () => console.debug('Connecting to websocket/room!'));
-            },
-            error => this.handleError(error),
-            () => console.debug('Connecting to server!'));
-        */
     }
 
     public stop() {
         this.errorExists = false;
         this.inRun = false;
-        this.actionInitiated = true;
-
-        this.subscriptionDocument.session.event.metrics.ecx_processes.subscribe = false;
-
-        this._procMonRuntimeService.subscribeToMetricWithSubdoc(
-            this.subscriptionDocument,
-            this.subscriptionDocument.session.node.info.monsid,
-            this.endpointObject.description,
-            this.endpointObject.address).subscribe(subscriptionData => {
-
-                this.unSubscribeToWebSocketObservable();
-
-                serviceList.forEach(function (service) {
-                    service.processId = '';
-                });
-
-            },
-            error => this.handleError(error),
-            () => console.log('Closing Process Subscription!'));
+        this.actionInitiated = false;
     }
 
     public updateData(data: any[]) {
-
-        data.forEach(function (item) {
-
-            serviceList.forEach(function (service) {
-
-                if (item.toString().includes(service.pseudoName)) {
-                    service.active = true;
-                    service.processId = item.toString().split(':')[0];
-
-                }
-            });
-        });
 
     }
 
@@ -186,18 +115,4 @@ export class ServiceListGadgetComponent extends GadgetBase implements OnDestroy 
 
     }
 
-    public ngOnDestroy() {
-
-        this.unSubscribeToWebSocketObservable();
-
-    }
-
-    private unSubscribeToWebSocketObservable() {
-
-        if (this.webSocketConnection) {
-            this.webSocketConnection.unsubscribe();
-        }
-        this.actionInitiated = false;
-
-    }
 }

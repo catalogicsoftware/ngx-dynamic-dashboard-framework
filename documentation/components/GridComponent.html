@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ng-adf documentation</title>
+        <title>Angular 4 Plus Dashboard Framework</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ng-adf documentation</a>
+            <a href="../" class="navbar-brand">Angular 4 Plus Dashboard Framework</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ng-adf documentation</a>
+                        <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                     </li>
             
                     <li class="divider"></li>
@@ -196,6 +196,9 @@
                                     <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                 </li>
                                 <li class="link">
@@ -268,6 +271,12 @@
                                     <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/Notification.html" >Notification</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                 </li>
                                 <li class="link">
@@ -278,9 +287,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Tag.html" >Tag</a>
@@ -304,9 +310,6 @@
                             >
                                 <li class="link">
                                     <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../injectables/CPUMService.html" >CPUMService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/CPUService.html" >CPUService</a>
@@ -337,6 +340,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -422,7 +428,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ng-adf documentation</a>
+                               <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -595,6 +601,9 @@
                                            <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                        </li>
                                        <li class="link">
@@ -667,6 +676,12 @@
                                            <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Notification.html" >Notification</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                        </li>
                                        <li class="link">
@@ -677,9 +692,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Tag.html" >Tag</a>
@@ -703,9 +715,6 @@
                    >
                                        <li class="link">
                                            <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../injectables/CPUMService.html" >CPUMService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/CPUService.html" >CPUService</a>
@@ -736,6 +745,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -2156,7 +2168,7 @@ export class GridComponent {
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;ui centered stackable grid&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;ui centered stackable grid&quot; style&#x3D;&quot;margin-left: 5px; margin-right: 5px&quot;&gt;
     &lt;div *ngFor&#x3D;&quot;let row of model.rows; let r &#x3D; index&quot; class&#x3D;&quot;row&quot; [ngClass]&#x3D;&quot;{&#x27;short-row&#x27;: row.columns.length &gt; 3, &#x27;tall-row&#x27;: row.columns.length &lt;&#x3D; 3 }&quot;&gt;
 
         &lt;div *ngFor&#x3D;&quot;let col of row.columns; let c &#x3D; index&quot; class&#x3D;&quot;{{col.styleClass}} column&quot; dnd-droppable
@@ -2203,8 +2215,8 @@ export class GridComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="ui centered stackable grid">    <div *ngFor="let row of model.rows; let r = index" class="row" [ngClass]="{\'short-row\': row.columns.length > 3, \'tall-row\': row.columns.length <= 3 }">        <div *ngFor="let col of row.columns; let c = index" class="{{col.styleClass}} column" dnd-droppable             [dropZones]="[\'c\' + c]" (onDropSuccess)="updateGadgetPositionInBoard($event, c, r, \'column\')">            <div *ngIf="!col.gadgets || col.gadgets.length== 0" class="ui center aligned massive info message"                 style="text-align:center" [ngClass]="{\'short-row\': row.columns.length > 3, \'tall-row\': row.columns.length <= 3 }">                <span style="font-size: .75em">Add Gadget!</span>            </div>            <app-grid-cell *ngFor="let cellGadget of col.gadgets" [gadgetInstanceId]="cellGadget.instanceId"                       [gadgetConfig]="cellGadget.config" [gadgetType]="cellGadget.componentType"></app-grid-cell>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AddGadgetComponent', 'selector': 'app-add-gadget-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': ''},{'name': 'BoardConfigurationComponent', 'selector': 'app-board-configuration-modal'},{'name': 'BoardLayoutManagerComponent', 'selector': 'app-board-layout-manager-modal'},{'name': 'CPUGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CPUMGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CellComponent', 'selector': 'app-grid-cell'},{'name': 'DiskGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'DynamicFormComponent', 'selector': 'app-dynamic-form'},{'name': 'DynamicFormPropertyComponent', 'selector': 'app-df-property'},{'name': 'EdgeServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'EndPointComponent', 'selector': 'app-endpoint'},{'name': 'EndPointDetailComponent', 'selector': 'app-endpoint-detail'},{'name': 'ErrorHandlerComponent', 'selector': 'app-error-handler'},{'name': 'FacetComponent', 'selector': 'app-facet'},{'name': 'FilterListComponent', 'selector': 'app-filter-list'},{'name': 'FilterTagComponent', 'selector': 'app-filter-tag'},{'name': 'GadgetHeaderComponent', 'selector': 'app-gadget-header'},{'name': 'GadgetOperationComponent', 'selector': 'app-gadget-operation-control'},{'name': 'GridComponent', 'selector': 'app-grid-component'},{'name': 'HelpModalComponent', 'selector': 'app-help-modal'},{'name': 'JobAnalysisGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'MemoryGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NewsGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NotificationComponent', 'selector': 'app-notification-component'},{'name': 'PropertyListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SearchResultComponent', 'selector': 'app-search-result'},{'name': 'ServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'StatisticGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendLineGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'VisDrillDownComponent', 'selector': 'app-vis-drill-down-modal'}];
+        var COMPONENT_TEMPLATE = '<div><div class="ui centered stackable grid" style="margin-left: 5px; margin-right: 5px">    <div *ngFor="let row of model.rows; let r = index" class="row" [ngClass]="{\'short-row\': row.columns.length > 3, \'tall-row\': row.columns.length <= 3 }">        <div *ngFor="let col of row.columns; let c = index" class="{{col.styleClass}} column" dnd-droppable             [dropZones]="[\'c\' + c]" (onDropSuccess)="updateGadgetPositionInBoard($event, c, r, \'column\')">            <div *ngIf="!col.gadgets || col.gadgets.length== 0" class="ui center aligned massive info message"                 style="text-align:center" [ngClass]="{\'short-row\': row.columns.length > 3, \'tall-row\': row.columns.length <= 3 }">                <span style="font-size: .75em">Add Gadget!</span>            </div>            <app-grid-cell *ngFor="let cellGadget of col.gadgets" [gadgetInstanceId]="cellGadget.instanceId"                       [gadgetConfig]="cellGadget.config" [gadgetType]="cellGadget.componentType"></app-grid-cell>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AddGadgetComponent', 'selector': 'app-add-gadget-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': ''},{'name': 'BoardConfigurationComponent', 'selector': 'app-board-configuration-modal'},{'name': 'BoardLayoutManagerComponent', 'selector': 'app-board-layout-manager-modal'},{'name': 'CPUGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CPUMGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CellComponent', 'selector': 'app-grid-cell'},{'name': 'DiskGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'DynamicFormComponent', 'selector': 'app-dynamic-form'},{'name': 'DynamicFormPropertyComponent', 'selector': 'app-df-property'},{'name': 'EdgeServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'EndPointComponent', 'selector': 'app-endpoint'},{'name': 'EndPointDetailComponent', 'selector': 'app-endpoint-detail'},{'name': 'ErrorHandlerComponent', 'selector': 'app-error-handler'},{'name': 'FacetComponent', 'selector': 'app-facet'},{'name': 'FilterListComponent', 'selector': 'app-filter-list'},{'name': 'FilterTagComponent', 'selector': 'app-filter-tag'},{'name': 'GadgetHeaderComponent', 'selector': 'app-gadget-header'},{'name': 'GadgetOperationComponent', 'selector': 'app-gadget-operation-control'},{'name': 'GridComponent', 'selector': 'app-grid-component'},{'name': 'HelpModalComponent', 'selector': 'app-help-modal'},{'name': 'JobAnalysisGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'MemoryGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NewsGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NotificationComponent', 'selector': 'app-notification-modal'},{'name': 'NotificationDetailComponent', 'selector': 'app-notification-detail'},{'name': 'PropertyListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SearchResultComponent', 'selector': 'app-search-result'},{'name': 'ServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'StatisticGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendLineGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'VisDrillDownComponent', 'selector': 'app-vis-drill-down-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GridComponent'};
 </script>

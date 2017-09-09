@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ng-adf documentation</title>
+        <title>Angular 4 Plus Dashboard Framework</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ng-adf documentation</a>
+            <a href="../" class="navbar-brand">Angular 4 Plus Dashboard Framework</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ng-adf documentation</a>
+                        <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                     </li>
             
                     <li class="divider"></li>
@@ -196,6 +196,9 @@
                                     <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                 </li>
                                 <li class="link">
@@ -268,6 +271,12 @@
                                     <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/Notification.html" >Notification</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                 </li>
                                 <li class="link">
@@ -278,9 +287,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Tag.html" >Tag</a>
@@ -304,9 +310,6 @@
                             >
                                 <li class="link">
                                     <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../injectables/CPUMService.html" >CPUMService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/CPUService.html" >CPUService</a>
@@ -337,6 +340,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -422,7 +428,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ng-adf documentation</a>
+                               <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -595,6 +601,9 @@
                                            <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                        </li>
                                        <li class="link">
@@ -667,6 +676,12 @@
                                            <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Notification.html" >Notification</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                        </li>
                                        <li class="link">
@@ -677,9 +692,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Tag.html" >Tag</a>
@@ -703,9 +715,6 @@
                    >
                                        <li class="link">
                                            <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../injectables/CPUMService.html" >CPUMService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/CPUService.html" >CPUService</a>
@@ -736,6 +745,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -859,12 +871,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(detail: string, summary: string, solutions: {})</code>
+                                    <code>constructor(detail: string, summary: string, solutions: {}, resource: string)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/error/error-model.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/error/error-model.ts:8</a></div>
                                         </td>
                                     </tr>
             
@@ -895,6 +907,26 @@
                                     <tr>
                                         <td class="col-md-4">
                                             <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/error/error-model.ts:5</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> resource</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>resource:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/error/error-model.ts:8</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -946,10 +978,12 @@
     detail: string;
     summary: string;
     solutions: SolutionObject[];
-    constructor(detail: string, summary: string, solutions: SolutionObject[]) {
+    resource: string;
+    constructor(detail: string, summary: string, solutions: SolutionObject[], resource: string) {
         this.detail &#x3D; detail;
         this.summary &#x3D; summary;
         this.solutions &#x3D; solutions;
+        this.resource &#x3D; resource;
     }
 };
 

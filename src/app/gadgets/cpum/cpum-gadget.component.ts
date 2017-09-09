@@ -31,7 +31,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         domain: ['#0AFF16', '#0d5481']
     };
     webSocket: any;
-    waitForConnectionDelay = 5000;
+    waitForConnectionDelay = 2000;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -83,16 +83,15 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.inRun = false;
         this.actionInitiated = true;
 
-        /**
-         * attempt to stop the collector
-         */
-        try {
-            this._webSocketService.sendMessage('stop');
-            this.webSocket.unsubscribe();
-        } catch (error) {
-            // handle
-        }
+         try {
 
+            this._webSocketService.sendMessage('stop');
+
+            this.webSocket.unsubscribe();
+
+        } catch (error) {
+            this.handleError(error);
+        }
 
         this.actionInitiated = false;
 

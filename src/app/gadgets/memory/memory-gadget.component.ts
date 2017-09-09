@@ -4,6 +4,8 @@ import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
+import {Observable} from 'rxjs/Observable';
+import {ObservableWebSocketService} from '../../services/websocket-service';
 
 @Component({
     selector: 'app-dynamic-component',
@@ -22,15 +24,15 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
 
     currentValue = '0';
     previousValue = '0';
-    subscriptionDocument: any;
-    webSocketConnection: any;
-
+    webSocket: any;
+    waitForConnectionDelay = 2000;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                private _changeDetectionRef: ChangeDetectorRef) {
+                private _changeDetectionRef: ChangeDetectorRef,
+                private _webSocketService: ObservableWebSocketService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
@@ -44,50 +46,39 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
 
     public run() {
 
-
         this.errorExists = false;
         this.actionInitiated = true;
 
-        this._runtimeService.postForXmonSessionStart({
-            url: this.endpointObject.address,
-            user: this.endpointObject.user,
-            password: this.endpointObject.credential
-        }, this.endpointObject.description, this.endpointObject.address).subscribe(subscriptionDocument => {
+        this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
 
-                this.subscriptionDocument = subscriptionDocument;
+            const dataObject = JSON.parse(data);
 
-                subscriptionDocument.session.node.metrics.mem_util.subscribe = true;
+            try {
 
-                this._runtimeService.subscribeToMetricWithSubdoc(subscriptionDocument,
-                    subscriptionDocument.session.node.info.monsid,
-                    this.endpointObject.description,
-                    this.endpointObject.address).subscribe(subscriptionData => {
+                let percent = dataObject.used / dataObject.total * 100;
 
-                        this.webSocketConnection = this._runtimeService.getData(subscriptionDocument.session.node.info.monsid,
-                            subscriptionDocument.session.node.info.roomNum,
-                            this.endpointObject.address).subscribe(results => {
+                percent = Math.round(percent);
 
-                                const me = this;
+                this.updateGraph(percent);
 
-                                this.actionInitiated = false;
-                                this.inRun = true;
+            } catch (error) {
+                this.handleError(error);
+            }
 
-                                if (results instanceof Array) {
-                                    results.forEach(function (item) {
-                                        if (item.name.toString().includes('node.mem_util')) {
-                                            me.updateData(item.sample[0].data);
-                                        }
-                                    });
-                                }
-                            },
-                            error => this.handleError(error),
-                            () => console.debug('Connecting to web socket'));
-                    },
-                    error => this.handleError(error),
-                    () => console.debug('Establishing socket session via post'));
-            },
-            error => this.handleError(error),
-            () => console.debug('Initial ECX Mon Connection Established'));
+        });
+
+
+        const timer = Observable.timer(this.waitForConnectionDelay);
+
+        timer.subscribe(t => {
+
+            // todo test whether we are connected of not
+            this._webSocketService.sendMessage('start');
+
+            this.inRun = true;
+            this.actionInitiated = false;
+
+        });
     }
 
     public stop() {
@@ -95,28 +86,33 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
         this.inRun = false;
         this.actionInitiated = true;
 
-        this.subscriptionDocument.session.node.metrics.mem_util.subscribe = false;
-        this._runtimeService.subscribeToMetricWithSubdoc(
-            this.subscriptionDocument,
-            this.subscriptionDocument.session.node.info.monsid,
-            this.endpointObject.description,
-            this.endpointObject.address).subscribe(subscriptionData => {
+         try {
 
-                this.unSubscribeToWebSocketObservable();
+             this._webSocketService.sendMessage('stop');
 
-            },
-            error => this.handleError(error),
-            () => console.debug('Closing Memory Subscription'));
+            this.webSocket.unsubscribe();
 
+        } catch (error) {
+
+            this.handleError(error);
+        }
+
+
+        this.actionInitiated = false;
     }
 
     public updateData(data: any[]) {
+
+
+    }
+
+    public updateGraph(value: number) {
 
         if (Number(this.currentValue) > Number(this.previousValue)) {
             this.previousValue = this.currentValue;
         }
 
-        this.currentValue = Number(data[0]) + '';
+        this.currentValue = value + '';
         this.showOperationControls = true;
 
     }
@@ -161,15 +157,8 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
 
     public ngOnDestroy() {
 
-        this.unSubscribeToWebSocketObservable();
-    }
-
-    private unSubscribeToWebSocketObservable() {
-
-        if (this.webSocketConnection) {
-            this.webSocketConnection.unsubscribe();
-        }
-        this.actionInitiated = false;
+        this.stop();
 
     }
+
 }

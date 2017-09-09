@@ -18,16 +18,9 @@
       "category": "Disk2",
       "articles": [
         {
-          "headline": "SAP HANA 2.0 support",
+          "headline": "IOPS",
           "description": "ECX 2.7 introduces CDM support for SAP HANA 2.0 SPS01. Single tenant configuration can now be automatically protected using storage snapshot.",
           "benefit": "Protect your latest version of SAP HANA using ECX Copy Data Management",
-          "id": "id string",
-          "date": "09/10/2017"
-        },
-        {
-          "headline": "Recovery improvements",
-          "description": "ECX now enables Instant recovery of SAP HANA database to original location from the UI portal.",
-          "benefit": "Flexible recovery options",
           "id": "id string",
           "date": "09/10/2017"
         }

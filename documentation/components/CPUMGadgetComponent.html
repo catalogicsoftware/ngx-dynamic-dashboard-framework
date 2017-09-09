@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ng-adf documentation</title>
+        <title>Angular 4 Plus Dashboard Framework</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ng-adf documentation</a>
+            <a href="../" class="navbar-brand">Angular 4 Plus Dashboard Framework</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ng-adf documentation</a>
+                        <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                     </li>
             
                     <li class="divider"></li>
@@ -196,6 +196,9 @@
                                     <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                 </li>
                                 <li class="link">
@@ -268,6 +271,12 @@
                                     <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/Notification.html" >Notification</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                 </li>
                                 <li class="link">
@@ -278,9 +287,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Tag.html" >Tag</a>
@@ -304,9 +310,6 @@
                             >
                                 <li class="link">
                                     <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../injectables/CPUMService.html" >CPUMService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/CPUService.html" >CPUService</a>
@@ -337,6 +340,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -422,7 +428,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ng-adf documentation</a>
+                               <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -595,6 +601,9 @@
                                            <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                        </li>
                                        <li class="link">
@@ -667,6 +676,12 @@
                                            <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Notification.html" >Notification</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                        </li>
                                        <li class="link">
@@ -677,9 +692,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Tag.html" >Tag</a>
@@ -703,9 +715,6 @@
                    >
                                        <li class="link">
                                            <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../injectables/CPUMService.html" >CPUMService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/CPUService.html" >CPUService</a>
@@ -736,6 +745,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -913,7 +925,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_runtimeService: any, _gadgetInstanceService: any, _propertyService: any, _endPointService: any, _changeDetectionRef: any)</code>
+                            <code>constructor(_runtimeService: any, _gadgetInstanceService: any, _propertyService: any, _endPointService: any, _changeDetectionRef: any, _webSocketService: any)</code>
                         </td>
                     </tr>
                             <tr>
@@ -948,7 +960,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:50</a></div>
                                 </td>
                             </tr>
     
@@ -980,7 +992,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:53</a></div>
                                 </td>
                             </tr>
     
@@ -1012,7 +1024,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:78</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:81</a></div>
                                 </td>
                             </tr>
     
@@ -1044,7 +1056,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:101</a></div>
                                 </td>
                             </tr>
     
@@ -1076,7 +1088,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:110</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:123</a></div>
                                 </td>
                             </tr>
     
@@ -1108,7 +1120,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:114</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:127</a></div>
                                 </td>
                             </tr>
     
@@ -1140,7 +1152,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:158</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:171</a></div>
                                 </td>
                             </tr>
     
@@ -1177,7 +1189,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:30</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1202,7 +1214,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:22</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1227,7 +1239,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:23</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1252,7 +1264,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:20</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1277,7 +1289,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:24</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1302,7 +1314,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:21</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1327,7 +1339,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:25</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1347,27 +1359,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:30</a></div>
-                                </td>
-                            </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> socket</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>socket:     <code>any</code>
-    </bcode>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:29</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1387,7 +1379,52 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:28</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> waitForConnectionDelay</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>waitForConnectionDelay:     <code>number</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>2000</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:34</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> webSocket</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>webSocket:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:33</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1412,7 +1449,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:27</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1437,7 +1474,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/gadgets/cpum/cpum-gadget.component.ts:26</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1453,9 +1490,8 @@ import {RuntimeService} from &#x27;../../services/runtime.service&#x27;;
 import {GadgetPropertyService} from &#x27;../_common/gadget-property.service&#x27;;
 import {EndPointService} from &#x27;../../configuration/tab-endpoint/endpoint.service&#x27;;
 import {GadgetBase} from &#x27;../_common/gadget-base&#x27;;
-import {isUndefined} from &#x27;util&#x27;;
-import {StompWebSocket} from &#x27;./stompws&#x27;;
 import {Observable} from &#x27;rxjs/Observable&#x27;;
+import {ObservableWebSocketService} from &#x27;../../services/websocket-service&#x27;;
 
 @Component({
     selector: &#x27;app-dynamic-component&#x27;,
@@ -1480,18 +1516,21 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     colorScheme: any &#x3D; {
         domain: [&#x27;#0AFF16&#x27;, &#x27;#0d5481&#x27;]
     };
-    socket: any;
+    webSocket: any;
+    waitForConnectionDelay &#x3D; 2000;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                private _changeDetectionRef: ChangeDetectorRef) {
+                private _changeDetectionRef: ChangeDetectorRef,
+                private _webSocketService: ObservableWebSocketService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+        );
     }
 
     public preRun(): void {
@@ -1502,26 +1541,27 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.errorExists &#x3D; false;
         this.actionInitiated &#x3D; true;
 
-        this.socket &#x3D; new StompWebSocket(&#x27;http://localhost:8080/cpu_monitor_websocket&#x27;, &#x27;/topic/cpu-metrics&#x27;, &#x27;/app/collect&#x27;);
+        this.webSocket &#x3D; this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data &#x3D;&gt; {
 
-        const timer &#x3D; Observable.timer(5000);
-        timer.subscribe(t &#x3D;&gt; {
-            if (this.socket.isInitialized()) {
-                this.socket.send({&#x27;requestParam&#x27;: &#x27;start&#x27;});
+            const dataObject &#x3D; JSON.parse(data);
 
-                this.socket.getSubject().subscribe(data &#x3D;&gt; {
+            this.updateGraph(dataObject[&#x27;utilPct&#x27;]);
 
-                    this.updateGraph(data.cpu_utilization);
-
-                });
-
-                this.inRun &#x3D; true;
-                this.actionInitiated &#x3D; false;
-
-            } else {
-                // delay and wait a few more times
-            }
         });
+
+
+        const timer &#x3D; Observable.timer(this.waitForConnectionDelay);
+
+        timer.subscribe(t &#x3D;&gt; {
+
+            // todo test whether we are connected of not
+            this._webSocketService.sendMessage(&#x27;start&#x27;);
+
+            this.inRun &#x3D; true;
+            this.actionInitiated &#x3D; false;
+
+        });
+
     }
 
     public stop() {
@@ -1529,7 +1569,17 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.inRun &#x3D; false;
         this.actionInitiated &#x3D; true;
 
-        this.socket.send({&#x27;requestParam&#x27;: &#x27;stop&#x27;});
+        /**
+         * attempt to stop the collector
+         */
+        try {
+            this._webSocketService.sendMessage(&#x27;stop&#x27;);
+            this.webSocket.unsubscribe();
+        } catch (error) {
+            this.handleError(error);
+        }
+
+
         this.actionInitiated &#x3D; false;
 
     }
@@ -1704,7 +1754,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div (mouseover)="showGadgetControls(true)"     (mouseleave)="showGadgetControls(false)"     class="ui  center aligned segment gadget" dnd-draggable     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="[\'c0\',\'c1\',\'c2\',\'c3\',\'r0\',\'r1\']">    <a class="ui left corner label">        <i class="circle icon" [ngClass]="{\'green\':inRun, \'yellow\':!inRun}"></i>    </a>    <app-gadget-header            [title]="title"            [inRun]="inRun"            [inConfig]="inConfig"            [actionInitiated]="actionInitiated"            [showOperationControls]="showOperationControls"            [gadgetHasOperationControls]="gadgetHasOperationControls"            [showConfigurationControl]="showConfigurationControl"            [showControls]="showControls"            (toggleConfigModeEvent)="toggleConfigMode()"            (removeEvent)="remove()"            (runEvent)="run()"            (stopEvent)="stop()">    </app-gadget-header>    <div class="ui grid">        <div class="row">            <div *ngIf="!inConfig" style="min-height: 275px">                <ngx-charts-bar-vertical-normalized                        [view]="view"                        [scheme]="colorScheme"                        [results]="single"                        [gradient]="gradient"                        [xAxis]="showXAxis"                        [yAxis]="showYAxis"                        [legend]="showLegend"                        [showXAxisLabel]="showXAxisLabel"                        [showYAxisLabel]="showYAxisLabel"                        [xAxisLabel]="xAxisLabel"                        [yAxisLabel]="yAxisLabel"                        [barPadding]=30                        (select)="drillDownPopUp.showDetail($event)">                </ngx-charts-bar-vertical-normalized>            </div>        </div>    </div>    <app-dynamic-form *ngIf="inConfig"                  [propertyPages]="propertyPages"                  [instanceId]="instanceId"                  (updatePropertiesEvent)="updateProperties($event)">    </app-dynamic-form>    <app-error-handler            [errorObject]="errorObject"            [errorExists]="errorExists">    </app-error-handler>    <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal></div></div>'
-    var COMPONENTS = [{'name': 'AddGadgetComponent', 'selector': 'app-add-gadget-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': ''},{'name': 'BoardConfigurationComponent', 'selector': 'app-board-configuration-modal'},{'name': 'BoardLayoutManagerComponent', 'selector': 'app-board-layout-manager-modal'},{'name': 'CPUGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CPUMGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CellComponent', 'selector': 'app-grid-cell'},{'name': 'DiskGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'DynamicFormComponent', 'selector': 'app-dynamic-form'},{'name': 'DynamicFormPropertyComponent', 'selector': 'app-df-property'},{'name': 'EdgeServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'EndPointComponent', 'selector': 'app-endpoint'},{'name': 'EndPointDetailComponent', 'selector': 'app-endpoint-detail'},{'name': 'ErrorHandlerComponent', 'selector': 'app-error-handler'},{'name': 'FacetComponent', 'selector': 'app-facet'},{'name': 'FilterListComponent', 'selector': 'app-filter-list'},{'name': 'FilterTagComponent', 'selector': 'app-filter-tag'},{'name': 'GadgetHeaderComponent', 'selector': 'app-gadget-header'},{'name': 'GadgetOperationComponent', 'selector': 'app-gadget-operation-control'},{'name': 'GridComponent', 'selector': 'app-grid-component'},{'name': 'HelpModalComponent', 'selector': 'app-help-modal'},{'name': 'JobAnalysisGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'MemoryGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NewsGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NotificationComponent', 'selector': 'app-notification-component'},{'name': 'PropertyListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SearchResultComponent', 'selector': 'app-search-result'},{'name': 'ServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'StatisticGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendLineGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'VisDrillDownComponent', 'selector': 'app-vis-drill-down-modal'}];
+    var COMPONENTS = [{'name': 'AddGadgetComponent', 'selector': 'app-add-gadget-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': ''},{'name': 'BoardConfigurationComponent', 'selector': 'app-board-configuration-modal'},{'name': 'BoardLayoutManagerComponent', 'selector': 'app-board-layout-manager-modal'},{'name': 'CPUGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CPUMGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CellComponent', 'selector': 'app-grid-cell'},{'name': 'DiskGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'DynamicFormComponent', 'selector': 'app-dynamic-form'},{'name': 'DynamicFormPropertyComponent', 'selector': 'app-df-property'},{'name': 'EdgeServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'EndPointComponent', 'selector': 'app-endpoint'},{'name': 'EndPointDetailComponent', 'selector': 'app-endpoint-detail'},{'name': 'ErrorHandlerComponent', 'selector': 'app-error-handler'},{'name': 'FacetComponent', 'selector': 'app-facet'},{'name': 'FilterListComponent', 'selector': 'app-filter-list'},{'name': 'FilterTagComponent', 'selector': 'app-filter-tag'},{'name': 'GadgetHeaderComponent', 'selector': 'app-gadget-header'},{'name': 'GadgetOperationComponent', 'selector': 'app-gadget-operation-control'},{'name': 'GridComponent', 'selector': 'app-grid-component'},{'name': 'HelpModalComponent', 'selector': 'app-help-modal'},{'name': 'JobAnalysisGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'MemoryGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NewsGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NotificationComponent', 'selector': 'app-notification-modal'},{'name': 'NotificationDetailComponent', 'selector': 'app-notification-detail'},{'name': 'PropertyListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SearchResultComponent', 'selector': 'app-search-result'},{'name': 'ServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'StatisticGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendLineGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'VisDrillDownComponent', 'selector': 'app-vis-drill-down-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CPUMGadgetComponent'};
 </script>

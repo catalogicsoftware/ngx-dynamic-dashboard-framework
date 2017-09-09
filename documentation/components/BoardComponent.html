@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ng-adf documentation</title>
+        <title>Angular 4 Plus Dashboard Framework</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ng-adf documentation</a>
+            <a href="../" class="navbar-brand">Angular 4 Plus Dashboard Framework</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ng-adf documentation</a>
+                        <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                     </li>
             
                     <li class="divider"></li>
@@ -196,6 +196,9 @@
                                     <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                 </li>
                                 <li class="link">
@@ -268,6 +271,12 @@
                                     <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/Notification.html" >Notification</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                 </li>
                                 <li class="link">
@@ -278,9 +287,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Tag.html" >Tag</a>
@@ -304,9 +310,6 @@
                             >
                                 <li class="link">
                                     <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../injectables/CPUMService.html" >CPUMService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/CPUService.html" >CPUService</a>
@@ -337,6 +340,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -422,7 +428,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ng-adf documentation</a>
+                               <a href="../index.html">Angular 4 Plus Dashboard Framework</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -595,6 +601,9 @@
                                            <a href="../components/NotificationComponent.html" >NotificationComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/NotificationDetailComponent.html" >NotificationDetailComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/PropertyListGadgetComponent.html" >PropertyListGadgetComponent</a>
                                        </li>
                                        <li class="link">
@@ -667,6 +676,12 @@
                                            <a href="../classes/HiddenProperty.html" >HiddenProperty</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/NgADFPage.html" >NgADFPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Notification.html" >Notification</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/NumberProperty.html" >NumberProperty</a>
                                        </li>
                                        <li class="link">
@@ -677,9 +692,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/SolutionObject.html" >SolutionObject</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../classes/StompWebSocket.html" >StompWebSocket</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Tag.html" >Tag</a>
@@ -703,9 +715,6 @@
                    >
                                        <li class="link">
                                            <a href="../injectables/AddGadgetService.html" >AddGadgetService</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../injectables/CPUMService.html" >CPUMService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/CPUService.html" >CPUService</a>
@@ -736,6 +745,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/NotificationService.html" >NotificationService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/ObservableWebSocketService.html" >ObservableWebSocketService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/PropertyControlService.html" >PropertyControlService</a>
@@ -1140,7 +1152,7 @@ export class BoardComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade" id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;ui right aligned segment grid&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;ui right aligned segment grid&quot; style&#x3D;&quot;margin-left: 20px; margin-right:20px&quot;&gt;
 
     &lt;div class&#x3D;&quot;ui secondary pointing menu&quot;&gt;
         &lt;a *ngFor&#x3D;&quot;let board of dashboardList; let i &#x3D; index&quot; class&#x3D;&quot;item&quot;
@@ -1152,14 +1164,16 @@ export class BoardComponent implements OnInit {
 
     &lt;div class&#x3D;&quot;right floated eight wide column&quot;&gt;
 
-        &lt;a md-mini-fab routerLink&#x3D;&quot;.&quot; color&#x3D;&quot;primary&quot;&gt;
+        &lt;a md-mini-fab routerLink&#x3D;&quot;.&quot; color&#x3D;&quot;primary&quot;
+           (click)&#x3D;&quot;notifcationModal.showNotificationModal(&#x27;Notifications&#x27;)&quot;&gt;
             &lt;md-icon&gt;notifications&lt;/md-icon&gt;
+            &lt;div class&#x3D;&quot;floating ui red label&quot;&gt;&lt;span style&#x3D;&quot;font-size: 1.2em; font-weight: normal&quot;&gt;4&lt;/span&gt;&lt;/div&gt;
         &lt;/a&gt;
         Notifications
         &amp;nbsp;
 
         &lt;a md-mini-fab routerLink&#x3D;&quot;.&quot; color&#x3D;&quot;primary&quot;
-           (click)&#x3D;&quot;addGadgetModal.showComponentLibraryModal(&#x27;Gadget Library&#x27;)&quot;&gt;
+           (click)&#x3D;&quot;addGadgetModal.showComponentLibraryModal(&#x27;Add Gadget&#x27;)&quot;&gt;
             &lt;md-icon&gt;add_circle_outline&lt;/md-icon&gt;
         &lt;/a&gt;
         Add Gadget
@@ -1188,13 +1202,12 @@ export class BoardComponent implements OnInit {
 
 &lt;!-- the modal will emit an event and call the grid component to add the requested cell to the board --&gt;
 &lt;app-add-gadget-modal #addGadgetModal
-                          (addGadgetEvent)&#x3D;&quot;gadgetGrid.addGadget($event)&quot;&gt;
+                      (addGadgetEvent)&#x3D;&quot;gadgetGrid.addGadget($event)&quot;&gt;
 &lt;/app-add-gadget-modal&gt;
 
 &lt;!-- the grid component will create the requested gadget dynamically --&gt;
-&lt;app-grid-component #gadgetGrid
-                    (boardUpdateEvent)&#x3D;&quot;updateDashboardMenu($event)&quot;
-&gt;
+&lt;app-grid-component  #gadgetGrid
+                    (boardUpdateEvent)&#x3D;&quot;updateDashboardMenu($event)&quot;&gt;
 &lt;/app-grid-component&gt;
 
 &lt;app-board-configuration-modal #boardConfigModal
@@ -1207,7 +1220,7 @@ export class BoardComponent implements OnInit {
 &lt;/app-board-configuration-modal&gt;
 
 
-
+&lt;app-notification-modal #notifcationModal&gt;&lt;/app-notification-modal&gt;
 </code></pre>
     </div>
 
@@ -1234,8 +1247,8 @@ export class BoardComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="ui right aligned segment grid">    <div class="ui secondary pointing menu">        <a *ngFor="let board of dashboardList; let i = index" class="item"           [ngClass]="{\'active\':board == selectedBoard}"           (click)="gadgetGrid.loadBoard(board)" (click)="selectBoard(board)">            {{board}}        </a>    </div>    <div class="right floated eight wide column">        <a md-mini-fab routerLink="." color="primary">            <md-icon>notifications</md-icon>        </a>        Notifications        &nbsp;        <a md-mini-fab routerLink="." color="primary"           (click)="addGadgetModal.showComponentLibraryModal(\'Gadget Library\')">            <md-icon>add_circle_outline</md-icon>        </a>        Add Gadget        &nbsp;        <a md-mini-fab routerLink="." color="primary"           (click)="boardLayoutModal.showBoardLayoutsModal(\'Board Layout\',\'test\')">            <md-icon>grid_on</md-icon>        </a>        Edit Layout        &nbsp;        <a md-mini-fab routerLink="." color="primary"           (click)="boardConfigModal.showBoardConfigurationModal(\'Configuration\')">            <md-icon>settings</md-icon>        </a>        Configure        &nbsp;    </div></div><app-board-layout-manager-modal #boardLayoutModal                                (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)"></app-board-layout-manager-modal><!-- the modal will emit an event and call the grid component to add the requested cell to the board --><app-add-gadget-modal #addGadgetModal                          (addGadgetEvent)="gadgetGrid.addGadget($event)"></app-add-gadget-modal><!-- the grid component will create the requested gadget dynamically --><app-grid-component #gadgetGrid                    (boardUpdateEvent)="updateDashboardMenu($event)"></app-grid-component><app-board-configuration-modal #boardConfigModal                               (dashboardCreateEvent)="gadgetGrid.createBoard($event)"                               (dashboardEditEvent)="gadgetGrid.editBoard($event)"                               (dashboardDeleteEvent)="gadgetGrid.deleteBoard($event)"                               [dashboardList]="dashboardList"></app-board-configuration-modal></div>'
-    var COMPONENTS = [{'name': 'AddGadgetComponent', 'selector': 'app-add-gadget-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': ''},{'name': 'BoardConfigurationComponent', 'selector': 'app-board-configuration-modal'},{'name': 'BoardLayoutManagerComponent', 'selector': 'app-board-layout-manager-modal'},{'name': 'CPUGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CPUMGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CellComponent', 'selector': 'app-grid-cell'},{'name': 'DiskGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'DynamicFormComponent', 'selector': 'app-dynamic-form'},{'name': 'DynamicFormPropertyComponent', 'selector': 'app-df-property'},{'name': 'EdgeServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'EndPointComponent', 'selector': 'app-endpoint'},{'name': 'EndPointDetailComponent', 'selector': 'app-endpoint-detail'},{'name': 'ErrorHandlerComponent', 'selector': 'app-error-handler'},{'name': 'FacetComponent', 'selector': 'app-facet'},{'name': 'FilterListComponent', 'selector': 'app-filter-list'},{'name': 'FilterTagComponent', 'selector': 'app-filter-tag'},{'name': 'GadgetHeaderComponent', 'selector': 'app-gadget-header'},{'name': 'GadgetOperationComponent', 'selector': 'app-gadget-operation-control'},{'name': 'GridComponent', 'selector': 'app-grid-component'},{'name': 'HelpModalComponent', 'selector': 'app-help-modal'},{'name': 'JobAnalysisGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'MemoryGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NewsGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NotificationComponent', 'selector': 'app-notification-component'},{'name': 'PropertyListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SearchResultComponent', 'selector': 'app-search-result'},{'name': 'ServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'StatisticGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendLineGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'VisDrillDownComponent', 'selector': 'app-vis-drill-down-modal'}];
+        var COMPONENT_TEMPLATE = '<div><div class="ui right aligned segment grid" style="margin-left: 20px; margin-right:20px">    <div class="ui secondary pointing menu">        <a *ngFor="let board of dashboardList; let i = index" class="item"           [ngClass]="{\'active\':board == selectedBoard}"           (click)="gadgetGrid.loadBoard(board)" (click)="selectBoard(board)">            {{board}}        </a>    </div>    <div class="right floated eight wide column">        <a md-mini-fab routerLink="." color="primary"           (click)="notifcationModal.showNotificationModal(\'Notifications\')">            <md-icon>notifications</md-icon>            <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>        </a>        Notifications        &nbsp;        <a md-mini-fab routerLink="." color="primary"           (click)="addGadgetModal.showComponentLibraryModal(\'Add Gadget\')">            <md-icon>add_circle_outline</md-icon>        </a>        Add Gadget        &nbsp;        <a md-mini-fab routerLink="." color="primary"           (click)="boardLayoutModal.showBoardLayoutsModal(\'Board Layout\',\'test\')">            <md-icon>grid_on</md-icon>        </a>        Edit Layout        &nbsp;        <a md-mini-fab routerLink="." color="primary"           (click)="boardConfigModal.showBoardConfigurationModal(\'Configuration\')">            <md-icon>settings</md-icon>        </a>        Configure        &nbsp;    </div></div><app-board-layout-manager-modal #boardLayoutModal                                (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)"></app-board-layout-manager-modal><!-- the modal will emit an event and call the grid component to add the requested cell to the board --><app-add-gadget-modal #addGadgetModal                      (addGadgetEvent)="gadgetGrid.addGadget($event)"></app-add-gadget-modal><!-- the grid component will create the requested gadget dynamically --><app-grid-component  #gadgetGrid                    (boardUpdateEvent)="updateDashboardMenu($event)"></app-grid-component><app-board-configuration-modal #boardConfigModal                               (dashboardCreateEvent)="gadgetGrid.createBoard($event)"                               (dashboardEditEvent)="gadgetGrid.editBoard($event)"                               (dashboardDeleteEvent)="gadgetGrid.deleteBoard($event)"                               [dashboardList]="dashboardList"></app-board-configuration-modal><app-notification-modal #notifcationModal></app-notification-modal></div>'
+    var COMPONENTS = [{'name': 'AddGadgetComponent', 'selector': 'app-add-gadget-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': ''},{'name': 'BoardConfigurationComponent', 'selector': 'app-board-configuration-modal'},{'name': 'BoardLayoutManagerComponent', 'selector': 'app-board-layout-manager-modal'},{'name': 'CPUGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CPUMGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'CellComponent', 'selector': 'app-grid-cell'},{'name': 'DiskGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'DynamicFormComponent', 'selector': 'app-dynamic-form'},{'name': 'DynamicFormPropertyComponent', 'selector': 'app-df-property'},{'name': 'EdgeServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'EndPointComponent', 'selector': 'app-endpoint'},{'name': 'EndPointDetailComponent', 'selector': 'app-endpoint-detail'},{'name': 'ErrorHandlerComponent', 'selector': 'app-error-handler'},{'name': 'FacetComponent', 'selector': 'app-facet'},{'name': 'FilterListComponent', 'selector': 'app-filter-list'},{'name': 'FilterTagComponent', 'selector': 'app-filter-tag'},{'name': 'GadgetHeaderComponent', 'selector': 'app-gadget-header'},{'name': 'GadgetOperationComponent', 'selector': 'app-gadget-operation-control'},{'name': 'GridComponent', 'selector': 'app-grid-component'},{'name': 'HelpModalComponent', 'selector': 'app-help-modal'},{'name': 'JobAnalysisGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'MemoryGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NewsGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'NotificationComponent', 'selector': 'app-notification-modal'},{'name': 'NotificationDetailComponent', 'selector': 'app-notification-detail'},{'name': 'PropertyListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SearchResultComponent', 'selector': 'app-search-result'},{'name': 'ServiceListGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'StatisticGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'TrendLineGadgetComponent', 'selector': 'app-dynamic-component'},{'name': 'VisDrillDownComponent', 'selector': 'app-vis-drill-down-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BoardComponent'};
 </script>

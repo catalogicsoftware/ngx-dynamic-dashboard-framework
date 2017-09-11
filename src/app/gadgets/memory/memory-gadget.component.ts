@@ -65,7 +65,13 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
                 this.handleError(error);
             }
 
-        });
+        },
+            error => {
+
+                console.log(error);
+
+                this.handleError(error);
+            });
 
 
         const timer = Observable.timer(this.waitForConnectionDelay);

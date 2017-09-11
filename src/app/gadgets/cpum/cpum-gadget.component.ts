@@ -6,6 +6,8 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetBase} from '../_common/gadget-base';
 import {Observable} from 'rxjs/Observable';
 import {ObservableWebSocketService} from '../../services/websocket-service';
+import {ErrorObject} from "../../error/error-model";
+import {ErrorHandler} from "../../error/error-handler";
 
 @Component({
     selector: 'app-dynamic-component',
@@ -57,13 +59,45 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
         this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
 
-            const dataObject = JSON.parse(data);
+                const dataObject = JSON.parse(data);
 
-            this.updateGraph(dataObject['utilPct']);
+                this.updateGraph(dataObject['utilPct']);
 
-        });
+            },
+            error => {
+                /**
+                 * todo improve this error handling
+                 * @type {{status: string; statusText: string; resource: string}}
+                 */
+                const errMsg = {
+                    status: error.code + '',
+                    statusText: ErrorHandler.getWebSocketErrorReason(error),
+                    resource: this.getEndPoint().address
+                };
+                this.handleError(ErrorHandler.getErrorObject(errMsg));
+            },
+            () => {
 
+                if (this.inRun) {
 
+                    /**
+                     * todo improve this error handling
+                     * @type {{status: string; statusText: string; resource: string}}
+                     */
+                    const errMsg = {
+                        status: 'disconnected',
+                        statusText: 'Service was interrupted while the gadget was running!',
+                        resource: this.getEndPoint().address
+                    };
+                    this.handleError(ErrorHandler.getErrorObject(errMsg));
+                }
+            }
+        );
+
+        /**
+         * todo remove dependency on timer
+         * @type {Observable<number>}
+         */
         const timer = Observable.timer(this.waitForConnectionDelay);
 
         timer.subscribe(t => {
@@ -75,7 +109,6 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
             this.actionInitiated = false;
 
         });
-
     }
 
     public stop() {
@@ -83,11 +116,13 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
         this.inRun = false;
         this.actionInitiated = true;
 
-         try {
+        try {
 
             this._webSocketService.sendMessage('stop');
 
             this.webSocket.unsubscribe();
+
+            this.updateGraph(0);
 
         } catch (error) {
             this.handleError(error);

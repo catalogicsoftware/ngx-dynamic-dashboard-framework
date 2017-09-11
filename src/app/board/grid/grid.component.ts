@@ -226,7 +226,12 @@ export class GridComponent {
         this._configurationService.getBoards().subscribe(board => {
 
             if (board && board instanceof Array && board.length) {
-                this.loadBoard(board[0].title);
+
+                const sortedBoard = board.sort(function(a, b){
+                    return a.id - b.id;
+                });
+
+                this.loadBoard(sortedBoard[0].title);
             } else {
 
                 this.loadDefaultBoard();

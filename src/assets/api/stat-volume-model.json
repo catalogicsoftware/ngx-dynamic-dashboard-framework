@@ -3,5 +3,6 @@
   "total":252,
   "protected":70,
   "percentProtected":30,
-  "icon":"disk outline icon"
+  "icon":"disk outline icon",
+  "color":"purple"
 }

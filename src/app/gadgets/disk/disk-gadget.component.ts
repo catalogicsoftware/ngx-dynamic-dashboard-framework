@@ -61,6 +61,8 @@ export class DiskGadgetComponent extends GadgetBase {
     goodColorScheme = {
         domain: ['#00c700', '#DDDDDD']
     };
+    used;
+    avail;
 
     detailMenuOpen: string;
 
@@ -120,6 +122,9 @@ export class DiskGadgetComponent extends GadgetBase {
                     this.colorScheme = this.badColorScheme;
                 }
 
+                this.used = this.data[0].value;
+                this.avail = this.data[1].value;
+
             },
             error => this.handleError(error));
     }
@@ -166,7 +171,6 @@ export class DiskGadgetComponent extends GadgetBase {
         this._diskService.getHelpTopic().subscribe(data => {
 
             this.topic = data;
-            console.log(data);
 
         });
     }

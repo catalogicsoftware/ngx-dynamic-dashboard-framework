@@ -3,5 +3,6 @@
   "total":565,
   "protected":200,
   "percentProtected":40,
-  "icon":"desktop icon"
+  "icon":"desktop icon",
+  "color":"green"
 }

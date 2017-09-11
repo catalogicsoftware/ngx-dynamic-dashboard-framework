@@ -1,4 +1,3 @@
-
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
@@ -10,12 +9,6 @@ export class ObservableWebSocketService {
 
     createObservableWebSocket(url: string): Observable<any> {
 
-        /**
-         *
-         * @type {WebSocket}
-         *
-         * TODO handle websocket errors
-         */
         this.ws = new WebSocket(url);
 
         return new Observable(observer => {
@@ -24,6 +17,7 @@ export class ObservableWebSocketService {
             this.ws.onerror = (event) => observer.error(event);
             this.ws.onclose = (event) => observer.complete();
         });
+
     }
 
     sendMessage(message: string) {

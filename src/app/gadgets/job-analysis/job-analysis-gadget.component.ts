@@ -6,7 +6,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetBase} from '../_common/gadget-base';
 import {JobAnalysisService} from './service';
 import {DomSanitizer} from '@angular/platform-browser';
-import {MdIconRegistry} from '@angular/material';
+import {MatIconRegistry} from '@angular/material';
 
 declare var d3: any;
 
@@ -28,7 +28,7 @@ export class JobAnalysisGadgetComponent extends GadgetBase {
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
                 protected _jobAnalysisService: JobAnalysisService,
-                iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+                iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,

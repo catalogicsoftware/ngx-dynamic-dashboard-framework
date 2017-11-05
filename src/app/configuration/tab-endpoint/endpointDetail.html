@@ -2,33 +2,33 @@
     <div class="right aligned column">
 
         <span *ngIf="currentState == 'save as' && endPointForm.valid">
-         <a md-mini-fab routerLink="." color='primary' (click)="createEndPoint()"><md-icon>content_copy</md-icon></a>
+         <a mat-mini-fab routerLink="." color='primary' (click)="createEndPoint()"><mat-icon>content_copy</mat-icon></a>
             &nbsp;save as&nbsp;
         </span>
 
         <span *ngIf="currentState == 'update' && endPointForm.valid">
-            <a md-mini-fab routerLink="." color='primary' (click)="updateEndPoint()"><md-icon>save</md-icon></a>
+            <a mat-mini-fab routerLink="." color='primary' (click)="updateEndPoint()"><mat-icon>save</mat-icon></a>
             &nbsp;save&nbsp;
         </span>
 
 
         <span *ngIf="currentState == 'create' && endPointForm.valid">
-            <a md-mini-fab routerLink="." color='primary' (click)="createEndPoint()"><md-icon>save</md-icon></a>
+            <a mat-mini-fab routerLink="." color='primary' (click)="createEndPoint()"><mat-icon>save</mat-icon></a>
             &nbsp;save&nbsp;
         </span>
 
         <span *ngIf="endPointForm.dirty && currentState != 'create'">
-            <a md-mini-fab routerLink="." color='primary' (click)="resetEndPoint()"><md-icon>undo</md-icon></a>
+            <a mat-mini-fab routerLink="." color='primary' (click)="resetEndPoint()"><mat-icon>undo</mat-icon></a>
             &nbsp;undo&nbsp;
         </span>
 
         <span>
-            <a md-mini-fab routerLink="." color='primary' (click)="newEndPoint()"><md-icon>add</md-icon></a>
+            <a mat-mini-fab routerLink="." color='primary' (click)="newEndPoint()"><mat-icon>add</mat-icon></a>
             &nbsp;create&nbsp;
         </span>
 
         <span *ngIf="currentEndPoint.name !='' && currentState != 'create'">
-            <a md-mini-fab routerLink="." (click)="deleteEndPoint()"> <md-icon>clear</md-icon></a>
+            <a mat-mini-fab routerLink="." (click)="deleteEndPoint()"> <mat-icon>clear</mat-icon></a>
             &nbsp;remove&nbsp;
         </span>
 

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MdButtonModule, MdIconModule} from '@angular/material';
+import {MatButtonModule, MatIconModule} from '@angular/material';
 import {DndModule} from 'ng2-dnd';
 import {GadgetModule} from '../gadgets/gadget.module';
 import {GridModule} from './grid/grid.module';
@@ -50,7 +50,7 @@ import {ObservableWebSocketService} from '../services/websocket-service';
         ]),
         GadgetModule,
         DndModule.forRoot(),
-        MdButtonModule, MdIconModule,
+        MatButtonModule, MatIconModule,
     ],
     providers: [ EndPointService,
         RuntimeService,

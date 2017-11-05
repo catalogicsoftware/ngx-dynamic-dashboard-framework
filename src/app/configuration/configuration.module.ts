@@ -5,17 +5,17 @@ import {EndPointDetailComponent} from './tab-endpoint/endpointDetail.component';
 import {EndPointService} from './tab-endpoint/endpoint.service';
 import {BoardConfigurationComponent} from './tab-configuration/board-configuration-component';
 import {DndModule} from 'ng2-dnd';
-import {MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
         DndModule.forRoot(),
-        MdButtonModule,
-        MdIconModule,
-        MdCheckboxModule,
-        MdInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCheckboxModule,
+        MatInputModule,
         FormsModule,
         ReactiveFormsModule
     ],

@@ -36,7 +36,7 @@ import {
                 <tbody>
                 <tr *ngFor='let tag of facet.tags'>
                     <td style="width: 35px !important">
-                        <md-checkbox (click)='tagSelect(tag.name)'></md-checkbox>
+                        <mat-checkbox (click)='tagSelect(tag.name)'></mat-checkbox>
                         <!--<input type='checkbox' (click)='tagSelect(tag.name)'>-->
                     </td>
                     <td style='color:grey'>{{tag.name}} &nbsp;( {{tag.count}} )</td>

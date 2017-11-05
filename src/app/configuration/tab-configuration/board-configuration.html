@@ -30,8 +30,8 @@
                     <td class="c-col">{{i + 1}}</td>
                     <td>{{board}}</td>
                     <td style="text-align:right">
-                        <a md-mini-fab routerLink="." (click)="deleteBoard(board)">
-                            <md-icon>clear</md-icon>
+                        <a mat-mini-fab routerLink="." (click)="deleteBoard(board)">
+                            <mat-icon>clear</mat-icon>
                         </a>
                     </td>
                 </tr>
@@ -40,12 +40,12 @@
             <div class="ui basic segment">
 
                 <div class="grid-row">
-                    <md-input-container class="example-full-width">
-                        <input [(ngModel)]="newDashboardItem" mdInput placeholder="Enter Dashboard Name">
-                    </md-input-container>
+                    <mat-input-container class="example-full-width">
+                        <input [(ngModel)]="newDashboardItem" matInput placeholder="Enter Dashboard Name">
+                    </mat-input-container>
 
-                    <a md-mini-fab routerLink="." color='primary'(click)="createBoard(newDashboardItem)">
-                    <md-icon>add</md-icon>
+                    <a mat-mini-fab routerLink="." color='primary'(click)="createBoard(newDashboardItem)">
+                    <mat-icon>add</mat-icon>
                 </a>
                 </div>
 

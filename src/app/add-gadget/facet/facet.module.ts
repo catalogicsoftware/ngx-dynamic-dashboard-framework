@@ -6,7 +6,7 @@ import {FilterTagComponent} from './filter-tag-component';
 import {SearchComponent} from './search-component';
 import {SearchResultComponent} from './search-result-component';
 import {CapitalizeFirstPipe} from './capitalize-first-character-pipe';
-import {MdCheckboxModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {AddGadgetService} from '../service';
 
@@ -14,7 +14,7 @@ import {AddGadgetService} from '../service';
     imports: [
         CommonModule,
         FormsModule,
-        MdCheckboxModule
+        MatCheckboxModule
     ],
     declarations: [
         FacetComponent,

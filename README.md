@@ -1,13 +1,13 @@
 
 
-# Angular 4 plus Dashboard Framework
+# NGX Dynamic Dashboard Framework
 
 > Note: This project is under heavy construction and is not intended for general production use yet. As such, we are not accepting bugs at the moment and documentation is quite lacking.
 
 This is an angular 4+ based dashboard framework that is inspired by JIRA's dashboard implementation and https://github.com/angular-dashboard-framework/angular-dashboard-framework
 
 The primary projects leveraged:
-* angular 4 plus - https://angularjs.org/
+* ngx  - https://angularjs.org/
 * ngx-charts (angular based d3 charts) - https://github.com/swimlane/ngx-charts
 * Semantic-UI - https://semantic-ui.com/
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
@@ -74,7 +74,7 @@ This project uses the compodoc project : https://github.com/compodoc/compodoc
 
 Run `npm install -g @compodoc/compodoc` to install compodoc globally
 
-Run `compodoc -p tsconfig.json -n 'Angular 4 Plus Dashboard Framework'` to generate the documentation. It will be placed in the documentation folder
+Run `compodoc -p tsconfig.json -n 'NGX Dynamic Dashboard Framework'` to generate the documentation. It will be placed in the documentation folder
 
 Run `compodoc -s` to serve up the documentation site at http://localhost:8080
 

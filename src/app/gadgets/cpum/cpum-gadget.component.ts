@@ -149,7 +149,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
                 const value = cpuData['utilPct'];
 
-                const series: any[] = [];
+                const series: Array<Series> = [];
 
                 series.push(new Series('used', value));
                 series.push(new Series('available', 100 - value));

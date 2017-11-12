@@ -28,8 +28,8 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     showGridLines = true;
     showXAxisLabel = true;
     showYAxisLabel = false;
-    xAxisLabel = 'Percent Utilization';
-    yAxisLabel = 'Available CPUs';
+    xAxisLabel = 'Available CPUs';
+    yAxisLabel = 'Percent Utilization';
     view: any[];
     chartData: any[] = [];
     colorScheme: any = {

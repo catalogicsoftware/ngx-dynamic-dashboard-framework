@@ -55,12 +55,67 @@
             {
               "controlType": "checkbox",
               "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
+              "key": "xAxis",
+              "label": "Show X Axis",
               "value": true,
               "required": true,
               "order": 3
+            },
+            {
+              "controlType": "checkbox",
+              "type": "checkbox",
+              "key": "yAxis",
+              "label": "Show Y Axis",
+              "value": true,
+              "required": true,
+              "order": 4
+            },
+            {
+              "controlType": "checkbox",
+              "type": "checkbox",
+              "key": "legend",
+              "label": "Show Legend",
+              "value": true,
+              "required": true,
+              "order": 5
+            },
+            {
+              "controlType": "checkbox",
+              "type": "checkbox",
+              "key": "gradient",
+              "label": "Use Gradient",
+              "value": true,
+              "required": true,
+              "order": 6
+            },
+            {
+              "controlType": "checkbox",
+              "type": "checkbox",
+              "key": "showGridLines",
+              "label": "Show Grid Lines",
+              "value": true,
+              "required": true,
+              "order": 7
+            },
+            {
+              "controlType": "checkbox",
+              "type": "checkbox",
+              "key": "showXAxisLabel",
+              "label": "Show X Axis Label",
+              "value": true,
+              "required": true,
+              "order": 8
+            },
+            {
+              "controlType": "checkbox",
+              "type": "checkbox",
+              "key": "showYAxisLabel",
+              "label": "Show Y Axis Label",
+              "value": true,
+              "required": true,
+              "order": 9
             }
+
           ]
         }
       ]

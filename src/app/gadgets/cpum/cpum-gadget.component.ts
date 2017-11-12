@@ -21,14 +21,15 @@ import {Series} from '../_common/base-chart-models/series.model';
 export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit {
 
     // chart options
-    showXAxis = true;
-    showYAxis = true;
     gradient = true;
-    showLegend = false;
+    legend = false;
+    xAxis = true;
+    yAxis = true;
+    showGridLines = true;
     showXAxisLabel = true;
     showYAxisLabel = false;
-    yAxisLabel = 'Available CPUs';
     xAxisLabel = 'Percent Utilization';
+    yAxisLabel = 'Available CPUs';
     view: any[];
     chartData: any[] = [];
     colorScheme: any = {
@@ -203,13 +204,15 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
             }
         });
 
+
         this.title = updatedPropsObject.title;
-        this.showXAxis = updatedPropsObject.chart_properties;
-        this.showYAxis = updatedPropsObject.chart_properties;
-        this.gradient = updatedPropsObject.chart_properties;
-        this.showLegend = updatedPropsObject.chart_properties;
-        this.showXAxisLabel = updatedPropsObject.chart_properties;
-        this.showYAxisLabel = updatedPropsObject.chart_properties;
+        this.gradient = updatedPropsObject.gradient;
+        this.legend = updatedPropsObject.legend;
+        this.xAxis = updatedPropsObject.xAxis;
+        this.yAxis = updatedPropsObject.yAxis;
+        this.showGridLines = updatedPropsObject.showGridLines;
+        this.showXAxisLabel = updatedPropsObject.showXAxisLabel;
+        this.showYAxisLabel = updatedPropsObject.showYAxisLabel;
 
         this.setEndPoint(updatedPropsObject.endpoint);
 

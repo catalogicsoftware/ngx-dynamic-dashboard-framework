@@ -6,8 +6,10 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetBase} from '../_common/gadget-base';
 import {Observable} from 'rxjs/Observable';
 import {ObservableWebSocketService} from '../../services/websocket-service';
-import {ErrorObject} from "../../error/error-model";
-import {ErrorHandler} from "../../error/error-handler";
+import {ErrorObject} from '../../error/error-model';
+import {ErrorHandler} from '../../error/error-handler';
+import {CPUChartMetric} from './cpu.model';
+import {Series} from '../_common/base-chart-models/series.model';
 
 @Component({
     selector: 'app-dynamic-component',
@@ -28,7 +30,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
     yAxisLabel = 'Available CPUs';
     xAxisLabel = 'Percent Utilization';
     view: any[];
-    single: any[] = [];
+    chartData: any[] = [];
     colorScheme: any = {
         domain: ['#0AFF16', '#0d5481']
     };
@@ -59,9 +61,10 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
         this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
 
+
                 const dataObject = JSON.parse(data);
 
-                this.updateGraph(dataObject['utilPct']);
+                this.updateGraph(dataObject);
 
             },
             error => {
@@ -122,7 +125,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
             this.webSocket.unsubscribe();
 
-            this.updateGraph(0);
+            this.updateGraph(null);
 
         } catch (error) {
             this.handleError(error);
@@ -132,27 +135,39 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
     }
 
-    public updateGraph(value: number) {
+    public updateGraph(cpus: Array<any>) {
 
-        const series: any[] = [];
-        const single: any = [];
-        series.push({
-            'name': 'used',
-            'value': value
-        });
-        series.push({
-            'name': 'available',
-            'value': 100 - value
-        });
+        /** todo
+         * i18n
+         */
+        const chartData: any = [];
+        let id = 0;
 
-        single.push({
-            'name': 'CPU',
-            'series': series
-        });
+        if (cpus) {
+            cpus.forEach(cpuData => {
 
-        Object.assign(this, {single});
+                const value = cpuData['utilPct'];
+
+                const series: any[] = [];
+
+                series.push(new Series('used', value));
+                series.push(new Series('available', 100 - value));
+
+                /** todo
+                 * determine how to get access to the data from the chart for drill down purposes
+                 * @type {CPUChartMetric}
+                 */
+                const cpuChartMetric = new CPUChartMetric(cpuData, 'CPU ' + id++, series);
+
+                chartData.push(cpuChartMetric);
+
+            });
+        }
+
+        Object.assign(this, {chartData});
 
     }
+
 
     public updateData(data: any[]) {
 

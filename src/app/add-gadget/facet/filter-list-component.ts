@@ -32,7 +32,7 @@ export class FilterListComponent {
         this._addGadgetServjce.getGadgetLibrary().subscribe(data => {
 
             const  me = this;
-            data.forEach(function (item) {
+            data.library.forEach(function (item) {
 
                 me.formatAndUpdateTagList(item.tags);
 

@@ -1,0 +1,3 @@
+interface GadgetLibraryResponse {
+    library: any[];
+}

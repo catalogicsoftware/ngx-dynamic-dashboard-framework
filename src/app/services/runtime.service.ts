@@ -2,7 +2,6 @@
  * Created by jayhamilton on 1/18/17.
  */
 import {Injectable} from '@angular/core';
-import {Headers, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {ErrorHandler} from '../error/error-handler';

@@ -1,15 +1,14 @@
-import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
+import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class JobAnalysisService {
 
-    constructor(private _http: Http) {
+    constructor(private _http: HttpClient) {
     }
 
     get() {
-        return this._http.request('../../plugins/procmon/components/gadgets/trend/model.json')
-            .map(res => res.json())
+        return this._http.get('../../plugins/procmon/components/gadgets/trend/model.json')
             .catch(RuntimeService.handleError);
     }
 }

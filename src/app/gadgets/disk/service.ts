@@ -1,28 +1,27 @@
 /**
  * Created by jayhamilton on 6/24/17.
  */
-import {Http} from '@angular/http';
+
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {TrendLineService} from '../trend-line/service';
 import {Observable} from 'rxjs/Observable';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class DiskService {
 
-    constructor(private _http: Http) {
+    constructor(private _http: HttpClient) {
     }
 
     get() {
-        return this._http.request('/assets/api/disk-model.json')
-            .map(res => res.json())
+        return this._http.get('/assets/api/disk-model.json')
             .catch(RuntimeService.handleError);
     }
 
     getHelpTopic() {
 
-        return this._http.request('/assets/api/disk-help-model.json')
-            .map(res => res.json())
+        return this._http.get('/assets/api/disk-help-model.json')
             .catch(RuntimeService.handleError);
     }
 

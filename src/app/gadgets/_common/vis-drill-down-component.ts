@@ -9,7 +9,6 @@ import {
     style, state, trigger, animate, transition
 } from '@angular/animations';
 
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 

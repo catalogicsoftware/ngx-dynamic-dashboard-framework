@@ -1,12 +1,12 @@
-import {Http} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {Observable} from 'rxjs/Observable';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class EdgeService {
 
-    constructor(private _http: Http) {
+    constructor(private _http: HttpClient) {
     }
 
     getSelectedProxy() {
@@ -18,7 +18,6 @@ export class EdgeService {
         return new Observable(observer => {
             Observable.timer(500, 5000).subscribe(t => {
                 this._http.get(url)
-                    .map(res => res.json())
                     .catch(RuntimeService.handleError).subscribe(data => {
 
                     observer.next(data);
@@ -30,25 +29,21 @@ export class EdgeService {
     getTaskCount(uri: string) {
         console.log('Getting task count for: ' + uri);
         return this._http.get(uri + '/task')
-            .map(res => res.json())
             .catch(RuntimeService.handleError);
     }
 
     seedProxiesWithWork() {
         return this._http.post('http://localhost:9090/run', null , null)
-            .map(res => res.json())
             .catch(RuntimeService.handleError);
     }
 
     runJob(uri: string) {
         return this._http.post(uri + '/run', null , null)
-            .map(res => res.json())
             .catch(RuntimeService.handleError);
     }
 
     getGraphInfo() {
-        return this._http.request('/assets/api/disk-model.json')
-            .map(res => res.json())
+        return this._http.get('/assets/api/disk-model.json')
             .catch(RuntimeService.handleError);
     }
 }

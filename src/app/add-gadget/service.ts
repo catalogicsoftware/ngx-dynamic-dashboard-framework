@@ -2,17 +2,15 @@
  * Created by jayhamilton on 2/7/17.
  */
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
-import 'rxjs/Rx';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class AddGadgetService {
 
-    constructor(private _http: Http) {}
+    constructor(private _http: HttpClient) {}
 
     getGadgetLibrary() {
-        return this._http.request('/assets/api/gadget-library-model.json')
-            .map(res => res.json());
+        return this._http.get<GadgetLibraryResponse>('/assets/api/gadget-library-model.json');
     }
 
 }

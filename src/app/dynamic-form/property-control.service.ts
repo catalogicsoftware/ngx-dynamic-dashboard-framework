@@ -4,8 +4,6 @@
 import {Injectable} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {PropertyBase} from './property-base';
-
 @Injectable()
 export class PropertyControlService {
 

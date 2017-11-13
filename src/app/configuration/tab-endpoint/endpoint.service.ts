@@ -2,10 +2,11 @@
  * Created by jayhamilton on 2/7/17.
  */
 import {Injectable, Output} from '@angular/core';
-import {Http, Headers} from '@angular/http';
+
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
-import {EndPoint} from "./endpoint.model";
+import {EndPoint} from './endpoint.model';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 @Injectable()
@@ -15,7 +16,7 @@ export class EndPointService {
     private subject: Subject<any> = new Subject<any>();
     demo = true;
 
-    constructor(private _http: Http) {
+    constructor(private _http: HttpClient) {
     }
 
     getEndPoints() {
@@ -51,7 +52,7 @@ export class EndPointService {
             }
         } else {
 
-            return this._http.get(this.localStore + '/endpoint').map(res => res.json());
+            return this._http.get(this.localStore + '/endpoint');
         }
     }
 
@@ -71,8 +72,9 @@ export class EndPointService {
 
             });
         } else {
-            const headers = new Headers();
-            headers.append('Content-Type', 'application/json');
+            const headers = new HttpHeaders();
+
+            headers.set('Content-Type', 'application/json');
             if (Object.keys(endpoint).length === 0 && endpoint.constructor === Object) {
                 return Observable.empty();
             }

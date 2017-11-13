@@ -4,12 +4,14 @@ import {AddGadgetComponent} from './add-gadget-component';
 import {AddGadgetService} from './service';
 import {FacetModule} from './facet/facet.module';
 import {MatButtonModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     imports: [
         CommonModule,
         FacetModule,
-        MatButtonModule
+        MatButtonModule,
+        HttpClientModule
     ],
     declarations: [
         AddGadgetComponent

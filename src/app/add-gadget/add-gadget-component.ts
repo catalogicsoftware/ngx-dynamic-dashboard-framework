@@ -144,7 +144,7 @@ export class AddGadgetComponent implements AfterViewInit {
             this.gadgetLibraryDataFiltered.length = 0;
 
             const me = this;
-            data.forEach(function (item) {
+            data.library.forEach(function (item) {
                 me.gadgetLibraryData.push(item);
                 me.gadgetLibraryDataFiltered.push(item);
             });

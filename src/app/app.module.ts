@@ -6,7 +6,7 @@ import {RoutingModule} from './routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BoardModule} from './board/board.module';
 import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from '@angular/http';
+
 
 
 @NgModule({
@@ -16,7 +16,6 @@ import {HttpModule} from '@angular/http';
         RoutingModule,
         FormsModule,
         HttpClientModule,
-        HttpModule,
         BoardModule
 
     ],

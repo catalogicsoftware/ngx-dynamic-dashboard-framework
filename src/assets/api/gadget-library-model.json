@@ -1,887 +1,893 @@
-[
-  {
-    "componentType": "CPUMGadgetComponent",
-    "name": "CPUM Chart",
-    "description": "Monitors CPU utilization.",
-    "icon": "assets/images/cpu.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Performance",
-        "name": "real-time"
-      },{
-        "facet":"Chart",
-        "name":"bar"
-      }
-    ],
-    "config": {
-      "propertyPages": [
+{
+  "library": [
+    {
+      "componentType": "CPUMGadgetComponent",
+      "name": "CPUM Chart",
+      "description": "Monitors CPU utilization.",
+      "icon": "assets/images/cpu.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "EXP CPU Monitor utilization",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 999,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "Performance",
+          "name": "real-time"
         },
         {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "xAxis",
-              "label": "Show X Axis",
-              "value": true,
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "yAxis",
-              "label": "Show Y Axis",
-              "value": true,
-              "required": true,
-              "order": 4
-            },
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "legend",
-              "label": "Show Legend",
-              "value": true,
-              "required": true,
-              "order": 5
-            },
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "gradient",
-              "label": "Use Gradient",
-              "value": true,
-              "required": true,
-              "order": 6
-            },
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "showGridLines",
-              "label": "Show Grid Lines",
-              "value": true,
-              "required": true,
-              "order": 7
-            },
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "showXAxisLabel",
-              "label": "Show X Axis Label",
-              "value": true,
-              "required": true,
-              "order": 8
-            },
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "showYAxisLabel",
-              "label": "Show Y Axis Label",
-              "value": true,
-              "required": true,
-              "order": 9
-            }
-
-          ]
+          "facet": "Chart",
+          "name": "bar"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "EdgeServiceListGadgetComponent",
-    "name": "Edge Service Status",
-    "description": "Monitors edge service status",
-    "icon": "assets/images/edge-service.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"List",
-        "name": "health"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "EXP CPU Monitor utilization",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 999,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "xAxis",
+                "label": "Show X Axis",
+                "value": true,
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "yAxis",
+                "label": "Show Y Axis",
+                "value": true,
+                "required": true,
+                "order": 4
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "legend",
+                "label": "Show Legend",
+                "value": true,
+                "required": true,
+                "order": 5
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "gradient",
+                "label": "Use Gradient",
+                "value": true,
+                "required": true,
+                "order": 6
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showGridLines",
+                "label": "Show Grid Lines",
+                "value": true,
+                "required": true,
+                "order": 7
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showXAxisLabel",
+                "label": "Show X Axis Label",
+                "value": true,
+                "required": true,
+                "order": 8
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showYAxisLabel",
+                "label": "Show Y Axis Label",
+                "value": true,
+                "required": true,
+                "order": 9
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "EdgeServiceListGadgetComponent",
+      "name": "Edge Service Status",
+      "description": "Monitors edge service status",
+      "icon": "assets/images/edge-service.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "Carlosappliance",
-              "required": true,
-              "order": 2
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Proxy service status",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 999,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "List",
+          "name": "health"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "Carlosappliance",
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Proxy service status",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 999,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "List",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "componentType": "TrendGadgetComponent",
+      "name": "Trend",
+      "description": "General trends.",
+      "icon": "assets/images/trend.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Performance",
+          "name": "trend"
         },
         {
-          "displayName": "List",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
+          "facet": "Chart",
+          "name": "area"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "TrendGadgetComponent",
-    "name": "Trend",
-    "description": "General trends.",
-    "icon": "assets/images/trend.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Performance",
-        "name": "trend"
-      },{
-        "facet":"Chart",
-        "name":"area"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Trend",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "TrendLineGadgetComponent",
+      "name": "Realtime Performance",
+      "description": "Monitors IOPs and network bandwidth.",
+      "icon": "assets/images/trend-line.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 2
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Trend",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "Performance",
+          "name": "trend"
         },
         {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
+          "facet": "Chart",
+          "name": "line"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "TrendLineGadgetComponent",
-    "name": "Realtime Performance",
-    "description": "Monitors IOPs and network bandwidth.",
-    "icon": "assets/images/trend-line.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Performance",
-        "name": "trend"
-      },{
-        "facet":"Chart",
-        "name":"line"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Performance",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "CPUGadgetComponent",
+      "name": "CPU Chart",
+      "description": "Monitors CPU utilization.",
+      "icon": "assets/images/cpu.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 2
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Performance",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "Performance",
+          "name": "real-time"
         },
         {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
+          "facet": "Chart",
+          "name": "bar"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "CPUGadgetComponent",
-    "name": "CPU Chart",
-    "description": "Monitors CPU utilization.",
-    "icon": "assets/images/cpu.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Performance",
-        "name": "real-time"
-      },{
-        "facet":"Chart",
-        "name":"bar"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "CPU utilization",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 999,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "MemoryGadgetComponent",
+      "name": "Memory Chart",
+      "description": "Monitors memory utilization",
+      "icon": "assets/images/memory.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "CPU utilization",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 999,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "Performance",
+          "name": "real-time"
         },
         {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
+          "facet": "Chart",
+          "name": "gauge"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "MemoryGadgetComponent",
-    "name": "Memory Chart",
-    "description": "Monitors memory utilization",
-    "icon": "assets/images/memory.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Performance",
-        "name": "real-time"
-      },{
-        "facet":"Chart",
-        "name":"gauge"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Memory Utilization",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "ServiceListGadgetComponent",
+      "name": "Service Status",
+      "description": "Monitors service status",
+      "icon": "assets/images/service.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 2
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Memory Utilization",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "List",
+          "name": "health"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Service Status",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 999,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "List",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "componentType": "PropertyListGadgetComponent",
+      "name": "Tuning Parameters",
+      "description": "System related tuning parameters.",
+      "icon": "assets/images/property.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "List",
+          "name": "tuning"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Tuning",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 999,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "CPU Utilization",
+                "required": true,
+                "order": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "componentType": "DiskGadgetComponent",
+      "name": "Disk Utilization",
+      "description": "Disk consumption information.",
+      "icon": "assets/images/donut.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Chart",
+          "name": "pie"
         },
         {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
+          "facet": "Performance",
+          "name": "storage"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "ServiceListGadgetComponent",
-    "name": "Service Status",
-    "description": "Monitors service status",
-    "icon": "assets/images/service.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"List",
-        "name": "health"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 4
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Disk Consumption",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "number",
+                "key": "threshold",
+                "label": "Consumed Threshold",
+                "value": 50,
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "dropdown",
+                "key": "diskid",
+                "label": "Disk Id",
+                "value": "",
+                "required": true,
+                "order": 2,
+                "options": [
+                  {
+                    "key": "2344112gdfgdfg",
+                    "value": "2344112gdfgdfg"
+                  },
+                  {
+                    "key": "g3g3egegre",
+                    "value": "g3g3egegre"
+                  },
+                  {
+                    "key": "8435f34",
+                    "value": "8435f34"
+                  }
+                ]
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Thresholds",
+            "groupId": "threshold",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "number",
+                "key": "frequency",
+                "label": "Frequency",
+                "value": 30,
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "number",
+                "key": "retentionH",
+                "label": "Retention High",
+                "value": 30,
+                "required": true,
+                "order": 4
+              },
+              {
+                "controlType": "number",
+                "key": "retentionL",
+                "label": "Retention Low",
+                "value": 180,
+                "required": true,
+                "order": 4
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "StatisticGadgetComponent",
+      "name": "Statistic",
+      "description": "General statistic.",
+      "icon": "assets/images/statistic.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 2
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Service Status",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 999,
-              "required": true,
-              "order": -1
-            }
-          ]
+          "facet": "Statistic",
+          "name": "counter"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dropdown",
+                "key": "resource",
+                "label": "Resource",
+                "value": "vm",
+                "required": true,
+                "order": 2,
+                "options": [
+                  {
+                    "key": "vm",
+                    "value": "vm"
+                  },
+                  {
+                    "key": "database",
+                    "value": "database"
+                  },
+                  {
+                    "key": "volume",
+                    "value": "volume"
+                  },
+                  {
+                    "key": "job",
+                    "value": "job"
+                  }
+                ]
+              },
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Statistic",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": false,
+                "order": -1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "componentType": "NewsGadgetComponent",
+      "name": "News",
+      "description": "What's new",
+      "icon": "assets/images/news.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Informational",
+          "name": "news"
         },
         {
-          "displayName": "List",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
+          "facet": "List",
+          "name": "news"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "PropertyListGadgetComponent",
-    "name": "Tuning Parameters",
-    "description": "System related tuning parameters.",
-    "icon": "assets/images/property.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"List",
-        "name": "tuning"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "News URL",
+                "value": "news",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "News",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
+    },
+    {
+      "componentType": "JobAnalysisGadgetComponent",
+      "name": "Job Analyzer",
+      "description": "Performs operation analysis.",
+      "icon": "assets/images/job-analysis.png",
+      "instanceId": -1,
+      "tags": [
         {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Tuning",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 999,
-              "required": true,
-              "order": -1
-            }
-          ]
-        },
-        {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "CPU Utilization",
-              "required": true,
-              "order": 1
-            }
-          ]
+          "facet": "Informational",
+          "name": "job"
         }
-      ]
-    }
-  },
-  {
-    "componentType": "DiskGadgetComponent",
-    "name": "Disk Utilization",
-    "description": "Disk consumption information.",
-    "icon": "assets/images/donut.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Chart",
-        "name": "pie"
-      },{
-        "facet":"Performance",
-        "name":"storage"
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "Application URL",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "Device URL",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Job Anaylyzer",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "config": {
-      "propertyPages": [
-        {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 4
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Disk Consumption",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "number",
-              "key": "threshold",
-              "label": "Consumed Threshold",
-              "value": 50,
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "dropdown",
-              "key": "diskid",
-              "label": "Disk Id",
-              "value": "",
-              "required": true,
-              "order": 2,
-              "options": [
-                {
-                  "key": "2344112gdfgdfg",
-                  "value": "2344112gdfgdfg"
-                },
-                {
-                  "key": "g3g3egegre",
-                  "value": "g3g3egegre"
-                },
-                {
-                  "key": "8435f34",
-                  "value": "8435f34"
-                }
-
-              ]
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": true,
-              "order": -1
-            }
-          ]
-        },
-        {
-          "displayName": "Thresholds",
-          "groupId": "threshold",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "number",
-              "key": "frequency",
-              "label": "Frequency",
-              "value": 30,
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "number",
-              "key": "retentionH",
-              "label": "Retention High",
-              "value": 30,
-              "required": true,
-              "order": 4
-            },
-            {
-              "controlType": "number",
-              "key": "retentionL",
-              "label": "Retention Low",
-              "value": 180,
-              "required": true,
-              "order": 4
-            }
-          ]
-        },
-        {
-          "displayName": "Chart",
-          "groupId": "chart",
-          "position": 11,
-          "properties": [
-            {
-              "controlType": "checkbox",
-              "type": "checkbox",
-              "key": "chart_properties",
-              "label": "Show chart details",
-              "value": true,
-              "required": true,
-              "order": 3
-            }
-          ]
-        }
-      ]
     }
-  },
-  {
-    "componentType": "StatisticGadgetComponent",
-    "name": "Statistic",
-    "description": "General statistic.",
-    "icon": "assets/images/statistic.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Statistic",
-        "name": "counter"
-      }
-    ],
-    "config": {
-      "propertyPages": [
-        {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dropdown",
-              "key": "resource",
-              "label": "Resource",
-              "value": "vm",
-              "required": true,
-              "order": 2,
-              "options": [
-                {
-                  "key": "vm",
-                  "value": "vm"
-                },
-                {
-                  "key": "database",
-                  "value": "database"
-                },
-                {
-                  "key": "volume",
-                  "value": "volume"
-                },
-                {
-                  "key": "job",
-                  "value": "job"
-                }
-              ]
-            },
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "API Endpoints",
-              "value": "",
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Statistic",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": false,
-              "order": -1
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "componentType": "NewsGadgetComponent",
-    "name": "News",
-    "description": "What's new",
-    "icon": "assets/images/news.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Informational",
-        "name": "news"
-      },{
-        "facet":"List",
-        "name":"news"
-      }
-    ],
-    "config": {
-      "propertyPages": [
-        {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "News URL",
-              "value": "news",
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "News",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": true,
-              "order": -1
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "componentType": "JobAnalysisGadgetComponent",
-    "name": "Job Analyzer",
-    "description": "Performs operation analysis.",
-    "icon": "assets/images/job-analysis.png",
-    "instanceId": -1,
-    "tags": [
-      {
-        "facet":"Informational",
-        "name": "job"
-      }
-    ],
-    "config": {
-      "propertyPages": [
-        {
-          "displayName": "Run",
-          "groupId": "run",
-          "position": 10,
-          "properties": [
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "Application URL",
-              "value": "",
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "dynamicdropdown",
-              "key": "endpoint",
-              "label": "Device URL",
-              "value": "",
-              "required": true,
-              "order": 3
-            },
-            {
-              "controlType": "textbox",
-              "key": "title",
-              "label": "Title",
-              "value": "Job Anaylyzer",
-              "required": true,
-              "order": 1
-            },
-            {
-              "controlType": "hidden",
-              "key": "instanceId",
-              "label": "",
-              "value": 2,
-              "required": true,
-              "order": -1
-            }
-          ]
-        }
-      ]
-    }
-  }
-
-]
+  ]
+}
 

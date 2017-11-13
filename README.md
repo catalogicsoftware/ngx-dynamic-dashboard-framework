@@ -4,7 +4,7 @@
 
 > Note: This project is under heavy construction and is not intended for general production use yet. As such, we are not accepting bugs at the moment and documentation is quite lacking.
 
-This is an angular 4+ based dashboard framework that is inspired by JIRA's dashboard implementation and https://github.com/angular-dashboard-framework/angular-dashboard-framework
+This is an angular (ngx) based dashboard framework that is inspired by JIRA's dashboard implementation and https://github.com/angular-dashboard-framework/angular-dashboard-framework
 
 The primary projects leveraged:
 * ngx  - https://angularjs.org/
@@ -41,7 +41,7 @@ Features:
 
 # NgADF
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ## Setup
 

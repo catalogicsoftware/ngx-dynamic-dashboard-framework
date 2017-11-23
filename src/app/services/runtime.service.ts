@@ -5,13 +5,13 @@ import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {ErrorHandler} from '../error/error-handler';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 
 @Injectable()
 export class RuntimeService {
 
-    static handleError(error: Response | any) {
+    static handleError(err: HttpErrorResponse | any) {
 
         const errMsg: any = {
             status: '-1',
@@ -19,14 +19,20 @@ export class RuntimeService {
             resource: ''
         };
 
-        if (error instanceof Response) {
-            errMsg.status = error.status;
-            errMsg.statusText = error.statusText;
-            errMsg.resource = error.url;
+
+        if (err.error instanceof Error) {
+            errMsg.statusText = err.error.message;
+            console.log('Client error');
 
         } else {
-            errMsg.statusText = error.message ? error.message : error.toString();
+            errMsg.status = err.status;
+            errMsg.statusText = 'A backend error occurred';
+            errMsg.resource = err.url;
+            console.log('Backend error');
+
+
         }
+        console.log(err);
 
         return Observable.throw(ErrorHandler.getErrorObject(errMsg));
 
@@ -36,7 +42,8 @@ export class RuntimeService {
     }
 
     testURLResponse(url: string) {
-        return this._http.get(url, {responseType: 'text'});
+        return this._http.get(url, {responseType: 'text'})
+            .catch(RuntimeService.handleError);
 
     }
 }

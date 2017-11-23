@@ -18,7 +18,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     colorScheme: any = {
         domain: ['#0AFF16', '#0d5481']
     };
-    testURL ='';
+    testURL = '';
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -47,23 +47,18 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         const val = performance.now();
 
         this._procMonRuntimeService.testURLResponse(this.testURL).subscribe(
-
             data => {
 
-            this.inRun = false;
-            const val2 = performance.now();
-            single = this.single = [{
-                'name': 'Response Time (milliseconds)',
-                'value': (val2 - val)
-            }];
-
-            Object.assign(this, single);
-        },
-            error => {
-                this.handleError(error);
-                console.log('Something went wrong!');
                 this.inRun = false;
-            });
+                const val2 = performance.now();
+                single = this.single = [{
+                    'name': 'Response Time (milliseconds)',
+                    'value': (val2 - val)
+                }];
+
+                Object.assign(this, single);
+            },
+            error => this.handleError(error));
     }
 
     public stop() {
@@ -104,7 +99,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
 
         this.title = updatedPropsObject.title;
-        this.setEndPoint(updatedPropsObject.endpoint);
         this.showOperationControls = true;
     }
 

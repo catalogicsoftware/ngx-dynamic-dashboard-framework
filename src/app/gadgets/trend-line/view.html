@@ -60,6 +60,10 @@
 
     <app-help-modal #helpModal [topic]="topic"></app-help-modal>
 
+    <div class="ui bottom attached" *ngIf="actionInitiated">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
 
 </div>
 

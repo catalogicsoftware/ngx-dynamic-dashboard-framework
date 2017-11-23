@@ -22,6 +22,7 @@
             (stopEvent)="stop()">
     </app-gadget-header>
 
+
     <div class="ui grid">
         <div class="row">
             <div *ngIf="!inConfig" style="min-height: 275px">
@@ -57,6 +58,10 @@
     </app-error-handler>
 
     <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
+
+    <div class="ui bottom attached" *ngIf="actionInitiated">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
 
 </div>
 

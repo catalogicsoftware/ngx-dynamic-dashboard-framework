@@ -20,14 +20,12 @@
 
 
     <div class="ui centered grid" *ngIf="!inConfig">
-        <div class="row" *ngIf="inRun">
-            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </div>
+
         <div class="row">
             <mat-input-container class="example-full-width">
                 <input matInput [(ngModel)]="testURL" placeholder="Enter Endpoint To Test">
             </mat-input-container>
-            <div style="min-height: 225px">
+            <div style="min-height: 200px">
                 <ngx-charts-number-card
                         [view]="view"
                         [scheme]="colorScheme"
@@ -49,5 +47,9 @@
     </app-error-handler>
 
     <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
+
+    <div class="ui bottom attached" *ngIf="inRun">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
 
 </div>

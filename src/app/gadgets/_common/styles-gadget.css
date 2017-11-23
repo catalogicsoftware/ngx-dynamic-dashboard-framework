@@ -83,3 +83,6 @@ th {
     font-family: 'Roboto', sans-serif;
     color:grey;
 }
+.example-full-width {
+    width: 100%;
+}

@@ -35,5 +35,9 @@ export class RuntimeService {
     constructor(private _http: HttpClient) {
     }
 
+    testURLResponse(url: string) {
+        return this._http.get(url, {responseType: 'text'});
+
+    }
 }
 

@@ -26,6 +26,7 @@ import {ServiceListGadgetComponent} from '../gadgets/service-list/service-list-g
 import {CPUGadgetComponent} from '../gadgets/cpu/cpu-gadget.component';
 import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
 import {ObservableWebSocketService} from '../services/websocket-service';
+import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import {ObservableWebSocketService} from '../services/websocket-service';
             JobAnalysisGadgetComponent,
             TrendLineGadgetComponent,
             EdgeServiceListGadgetComponent,
-            CPUMGadgetComponent
+            CPUMGadgetComponent,
+            ResponseTimeGadgetComponent
         ]),
         GadgetModule,
         DndModule.forRoot(),

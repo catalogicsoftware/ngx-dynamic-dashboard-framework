@@ -23,6 +23,10 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {GadgetSharedModule} from './_common/gadget-shared.module';
 import {ErrorHandlerModule} from '../error/error.module';
 
+import {ResponseTimeGadgetComponent} from './response-time/response-time-gadget.component';
+import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatProgressBarModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
     imports: [
@@ -31,7 +35,13 @@ import {ErrorHandlerModule} from '../error/error.module';
         DndModule.forRoot(),
         DynamicFormModule,
         ErrorHandlerModule,
-        NgxChartsModule
+        NgxChartsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCheckboxModule,
+        MatInputModule,
+        MatProgressBarModule,
+        FormsModule
     ],
     declarations: [
         CPUGadgetComponent,
@@ -46,7 +56,8 @@ import {ErrorHandlerModule} from '../error/error.module';
         JobAnalysisGadgetComponent,
         StatisticGadgetComponent,
         PropertyListGadgetComponent,
-        ServiceListGadgetComponent
+        ServiceListGadgetComponent,
+        ResponseTimeGadgetComponent
     ],
 
     providers: [TrendService,

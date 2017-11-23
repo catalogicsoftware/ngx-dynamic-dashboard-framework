@@ -1,42 +1,53 @@
+<div (mouseover)="showGadgetControls(true)"
+     (mouseleave)="showGadgetControls(false)" class="ui left aligned segment gadget" dnd-draggable [dragEnabled]="true"
+     [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
 
-    <div (mouseover)="showGadgetControls(true)"
-         (mouseleave)="showGadgetControls(false)"  class="ui left aligned segment gadget" dnd-draggable [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
-        <app-gadget-header
-                [title]="title"
-                [inRun]="inRun"
-                [inConfig]="inConfig"
-                [actionInitiated]="actionInitiated"
-                [showOperationControls]="showOperationControls"
-                [gadgetHasOperationControls]="gadgetHasOperationControls"
-                [showConfigurationControl]="showConfigurationControl"
-                [showControls]="showControls"
-                (toggleConfigModeEvent)="toggleConfigMode()"
-                (removeEvent)="remove()"
-                (runEvent)="run()"
-                (stopEvent)="stop()">
-        </app-gadget-header>
 
-        <div class="ui mini form" style="min-height: 275px">
-            <div class="fields">
-                <div class="sixteen wide field">
-                    <label>Job Manager Task Executor Pool Size</label>
-                    <input placeholder="Adjust how many jobs should run at the same time" type="number" value="5000">
-                </div>
-            </div>
-            <div class="fields">
-                <div class="sixteen wide field">
-                    <label>Job Manager Threads Per Node</label>
-                    <input placeholder="Increase the amount of memory the system uses" type="number" value="500">
-                </div>
-            </div>
-            <div class="fields">
-                <div class="sixteen wide field">
-                    <label>Job Manager Threads Per Job</label>
-                    <input placeholder="Adjust how many jobs should run at the same time" type="number" value="500">
-                </div>
-            </div>
+    <app-gadget-header
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleConfigMode()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()">
+    </app-gadget-header>
+
+
+    <div class="ui centered grid" *ngIf="!inConfig">
+        <div class="row" *ngIf="inRun">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </div>
-        <div style="clear:both; text-align: center">
-            <i class="link big orange circular refresh icon"></i>
+        <div class="row">
+            <mat-input-container class="example-full-width">
+                <input matInput [(ngModel)]="testURL" placeholder="Enter Endpoint To Test">
+            </mat-input-container>
+            <div style="min-height: 225px">
+                <ngx-charts-number-card
+                        [view]="view"
+                        [scheme]="colorScheme"
+                        [results]="single"
+                        (select)="onSelect($event)">
+                </ngx-charts-number-card>
+            </div>
         </div>
     </div>
+    <app-dynamic-form *ngIf="inConfig"
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
+    </app-dynamic-form>
+
+    <app-error-handler
+            [errorObject]="errorObject"
+            [errorExists]="errorExists">
+    </app-error-handler>
+
+    <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
+
+</div>

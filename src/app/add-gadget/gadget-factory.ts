@@ -10,6 +10,7 @@ import {JobAnalysisGadgetComponent} from '../gadgets/job-analysis/job-analysis-g
 import {TrendLineGadgetComponent} from '../gadgets/trend-line/trend-line-gadget.component';
 import {EdgeServiceListGadgetComponent} from '../gadgets/edge-service-list/edge-service-list-gadget.component';
 import {CPUMGadgetComponent} from '../gadgets/cpum/cpum-gadget.component';
+import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
 /**
  * Created by jayhamilton on 6/30/17.
  */
@@ -51,6 +52,8 @@ export class GadgetFactory {
                 return EdgeServiceListGadgetComponent;
             case 'CPUMGadgetComponent':
                 return CPUMGadgetComponent;
+            case 'ResponseTimeGadgetComponent':
+                return ResponseTimeGadgetComponent;
             default:
                 return null;
 

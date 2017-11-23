@@ -50,10 +50,50 @@
             ]
           },
           {
+            "displayName": "Threshold",
+            "groupId": "alert",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "number",
+                "key": "cpuErrorThreshold",
+                "label": "Utilization Error Threshold (%)",
+                "value": 90,
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "number",
+                "key": "cpuWarningThreshold",
+                "label": "Utilization Warning Threshold (%)",
+                "value": 75,
+                "required": true,
+                "order": 2
+              },
+              {
+                "controlType": "number",
+                "key": "cpuThresholdTime",
+                "label": "Maximum Exceed Threshold Time (minutes)",
+                "value": 10,
+                "required": true,
+                "order": 3
+              }
+            ]
+          },
+          {
             "displayName": "Chart",
             "groupId": "chart",
             "position": 11,
             "properties": [
+              {
+                "controlType": "textbox",
+                "type": "textbox",
+                "key": "orientation",
+                "label": "Orientation",
+                "value": "horizontal",
+                "required": true,
+                "order": 2
+              },
               {
                 "controlType": "checkbox",
                 "type": "checkbox",
@@ -116,6 +156,46 @@
                 "value": true,
                 "required": true,
                 "order": 9
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "componentType": "ResponseTimeGadgetComponent",
+      "name": "Response Time",
+      "description": "Test Response Time Of Endpoints.",
+      "icon": "assets/images/response.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Informational",
+          "name": "response-time"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Response Time",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
               }
             ]
           }
@@ -888,6 +968,7 @@
         ]
       }
     }
+
   ]
 }
 

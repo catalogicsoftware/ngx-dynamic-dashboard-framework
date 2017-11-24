@@ -1,4 +1,4 @@
-import {Component, ElementRef} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output} from '@angular/core';
 
 /**
  * Created by jayhamilton on 2/26/17.
@@ -19,27 +19,28 @@ import {Component, ElementRef} from '@angular/core';
             </div>
         </div>
         <div class='suggestions' *ngIf='filteredList.length > 0'>
-            <ul style='list-style-type:none' *ngFor='let item of filteredList'>
-                <li>
+
+            <ul style='list-style-type:none; background: white; border-radius: 7px;'>
+                <li style='padding:5px' *ngFor='let item of filteredList'>
                     <a (click)='select(item)'>{{item}}</a>
                 </li>
             </ul>
         </div>
+
     `,
     styleUrls: ['../styles.css']
 })
 export class SearchComponent {
+
+    @Input() searchList: string[];
+    @Output() selectionEvent = new EventEmitter<string>();
+
+
     public query = '';
-    public searchList = [];
     public filteredList = [];
     public elementRef;
 
     constructor(myElement: ElementRef) {
-
-
-        this.searchList.push('astring 1');
-        this.searchList.push('bstring 1');
-        this.searchList.push('cstring 1');
 
 
         this.elementRef = myElement;
@@ -59,5 +60,6 @@ export class SearchComponent {
     select(item) {
         this.query = item;
         this.filteredList = [];
+        this.selectionEvent.emit(item);
     }
 }

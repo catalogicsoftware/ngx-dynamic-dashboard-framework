@@ -52,6 +52,8 @@ export class AddGadgetComponent implements AfterViewInit {
 
     gadgetLibraryData: any[] = [];
     gadgetLibraryDataFiltered: any[] = [];
+    gadgetLibraryTitleList: string[] = []; // Allows the typeahead search box present gadget names to the user as they type
+
     color = 'white';
 
     modalicon: string;
@@ -72,6 +74,7 @@ export class AddGadgetComponent implements AfterViewInit {
         this.hideMessageModal();
 
     }
+
 
     popMessageModal(icon: string, header: string, message: string, durationms: number) {
         this.showMessageModal(icon, header, message);
@@ -109,9 +112,6 @@ export class AddGadgetComponent implements AfterViewInit {
 
     adjustGadgetLibraryListWithFilter(filterList) {
 
-        console.log('FILTER LIST');
-        console.log(filterList);
-
         this.gadgetLibraryDataFiltered = this.gadgetLibraryData.filter(gadget => {
 
             let tagFound = false;
@@ -133,6 +133,21 @@ export class AddGadgetComponent implements AfterViewInit {
             }
         });
 
+    }
+
+    adjustGadgetLibraryListWithSearch(searchString: string) {
+
+
+        this.gadgetLibraryDataFiltered = this.gadgetLibraryData.filter(gadget => {
+
+
+            if (gadget.name.localeCompare(searchString) === 0) {
+
+                return true;
+            }
+
+        });
+
 
     }
 
@@ -147,6 +162,7 @@ export class AddGadgetComponent implements AfterViewInit {
             data.library.forEach(function (item) {
                 me.gadgetLibraryData.push(item);
                 me.gadgetLibraryDataFiltered.push(item);
+                me.gadgetLibraryTitleList.push(item.name);
             });
         });
 

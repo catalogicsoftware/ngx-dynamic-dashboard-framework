@@ -59,6 +59,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
         this.errorExists = false;
         this.actionInitiated = true;
+        this.inConfig = false;
 
         this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
 
@@ -111,6 +112,7 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
             this.inRun = true;
             this.actionInitiated = false;
+
 
         });
     }

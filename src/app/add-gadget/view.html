@@ -6,8 +6,11 @@
     <div class="content" style="background-color:#f7f7f7">
         <div class="ui grid">
             <div class="six wide column">
-                <app-search></app-search>
-                <app-filter-list (tagSelectEvent)="filterTag.updateFilterList($event)"></app-filter-list>
+                <app-search
+                        [searchList]="gadgetLibraryTitleList"
+                        (selectionEvent)="adjustGadgetLibraryListWithSearch($event)"
+                ></app-search>
+                <app-filter-list #filterComponent (tagSelectEvent)="filterTag.updateFilterList($event)"></app-filter-list>
             </div>
             <div class="ten wide column">
                 <h3>Gadget Results</h3>

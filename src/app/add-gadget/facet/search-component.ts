@@ -14,7 +14,7 @@ import {Component, ElementRef, EventEmitter, Input, Output} from '@angular/core'
         <br>
         <div class='ui category search'>
             <div class='ui icon input'>
-                <input class='prompt' type='text' placeholder='Search...' [(ngModel)]=query (keyup)=filter()>
+                <input class='prompt' type='text' placeholder='Begin typing a gadget name' [(ngModel)]=query (keyup)=filter()>
                 <i class='search icon'></i>
             </div>
         </div>
@@ -55,6 +55,8 @@ export class SearchComponent {
         } else {
             this.filteredList = [];
         }
+
+        this.selectionEvent.emit(this.query);
     }
 
     select(item) {

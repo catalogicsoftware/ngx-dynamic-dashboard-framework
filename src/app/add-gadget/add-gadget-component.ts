@@ -140,10 +140,14 @@ export class AddGadgetComponent implements AfterViewInit {
 
         this.gadgetLibraryDataFiltered = this.gadgetLibraryData.filter(gadget => {
 
-
-            if (gadget.name.localeCompare(searchString) === 0) {
-
+            if (searchString.localeCompare('') === 0) {
                 return true;
+            } else {
+
+                if (gadget.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1) {
+
+                    return true;
+                }
             }
 
         });

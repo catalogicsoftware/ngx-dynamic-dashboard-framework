@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="ui grid">
+        <div class="six wide column">
+            <h3>Search Results For</h3>
+            <hr>
+            <br>
+            <app-typeahead-input
+                    [searchList]="objectTitleList"
+                    [placeHolderText]="placeHolderText"
+                    (selectionEvent)="objectListComponentRef.filterListBySearchString($event)">
+            </app-typeahead-input>
+            <app-filter-list #filterComponent
+                             (tagSelectEvent)="filterTag.updateFilterList($event)">
+
+            </app-filter-list>
+        </div>
+        <div class="ten wide column">
+            <h3>Results</h3>
+            <hr>
+            <br>
+            <app-filter-tag #filterTag
+                            (updateFilterListEvent)="objectListComponentRef.filterListByTags($event)">
+
+            </app-filter-tag>
+            <app-object-list #objectListComponentRef
+                             [objectList]="objectList"
+                             (actionEventRaised)="emitActionEvent($event)">
+            </app-object-list>
+
+        </div>
+    </div>
+</div>

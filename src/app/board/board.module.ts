@@ -27,6 +27,7 @@ import {CPUGadgetComponent} from '../gadgets/cpu/cpu-gadget.component';
 import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
 import {ObservableWebSocketService} from '../services/websocket-service';
 import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
+import {TypeAheadInputModule} from '../datalist/typeahead-input/typeahead-input.module';
 
 @NgModule({
     imports: [
@@ -35,6 +36,7 @@ import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-tim
         AddGadgetModule,
         LayoutModule,
         ConfigurationModule,
+        TypeAheadInputModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,

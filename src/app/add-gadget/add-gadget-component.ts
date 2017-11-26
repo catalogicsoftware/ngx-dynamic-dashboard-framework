@@ -50,9 +50,9 @@ export class AddGadgetComponent implements AfterViewInit {
 
     @Output() addGadgetEvent: EventEmitter<any> = new EventEmitter();
 
-    gadgetLibraryData: any[] = [];
-    gadgetLibraryDataFiltered: any[] = [];
-    gadgetLibraryTitleList: string[] = []; // Allows the typeahead search box present gadget names to the user as they type
+    gadgetObjectList: any[] = [];
+    gadgetObjectTitleList: string[] = [];
+    placeHolderText = 'Begin typing gadget name';
 
     color = 'white';
 
@@ -66,11 +66,11 @@ export class AddGadgetComponent implements AfterViewInit {
 
     constructor(private _addGadgetService: AddGadgetService) {
 
-        this.getGadgetsFromLibrary();
+        this.getObjectList();
     }
 
-    addGadget(gadget: any) {
-        this.addGadgetEvent.emit(gadget);
+    actionHandler(action: ActionInterface) {
+        this.addGadgetEvent.emit(action.item);
         this.hideMessageModal();
 
     }
@@ -110,63 +110,14 @@ export class AddGadgetComponent implements AfterViewInit {
         this.messageModal = jQuery(this.messagemodalRef.nativeElement);
     }
 
-    adjustGadgetLibraryListWithFilter(filterList) {
-
-        this.gadgetLibraryDataFiltered = this.gadgetLibraryData.filter(gadget => {
-
-            let tagFound = false;
-
-            if (!filterList.length) {
-                return true;
-            } else {
-                gadget.tags.forEach(tag => {
-
-                    filterList.forEach(filter => {
-
-                        if (tag.name.toLocaleLowerCase() === filter.toLocaleLowerCase()) {
-                            tagFound = true;
-                        }
-                    });
-                });
-
-                return tagFound;
-            }
-        });
-
-    }
-
-    adjustGadgetLibraryListWithSearch(searchString: string) {
-
-
-        this.gadgetLibraryDataFiltered = this.gadgetLibraryData.filter(gadget => {
-
-            if (searchString.localeCompare('') === 0) {
-                return true;
-            } else {
-
-                if (gadget.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1) {
-
-                    return true;
-                }
-            }
-
-        });
-
-
-    }
-
-    getGadgetsFromLibrary() {
+    getObjectList() {
 
         this._addGadgetService.getGadgetLibrary().subscribe(data => {
-
-            this.gadgetLibraryData.length = 0;
-            this.gadgetLibraryDataFiltered.length = 0;
-
+            this.gadgetObjectList.length = 0;
             const me = this;
             data.library.forEach(function (item) {
-                me.gadgetLibraryData.push(item);
-                me.gadgetLibraryDataFiltered.push(item);
-                me.gadgetLibraryTitleList.push(item.name);
+                me.gadgetObjectList.push(item);
+                me.gadgetObjectTitleList.push(item.name);
             });
         });
 

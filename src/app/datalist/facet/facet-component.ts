@@ -1,4 +1,4 @@
-import {Facet} from './facet-search-model';
+import {Facet} from './facet-model';
 import {
     Component, EventEmitter, Input, OnInit, Output
 } from '@angular/core';
@@ -47,7 +47,7 @@ import {
         <br>
 
     `,
-    styleUrls: ['../styles.css'],
+    styleUrls: ['./styles.css'],
     animations: [
 
         trigger('accordion', [

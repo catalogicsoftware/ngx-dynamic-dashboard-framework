@@ -160,7 +160,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "ResponseTimeGadgetComponent",
@@ -200,7 +203,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "EdgeServiceListGadgetComponent",
@@ -264,7 +270,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "TrendGadgetComponent",
@@ -332,7 +341,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "TrendLineGadgetComponent",
@@ -400,7 +412,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "CPUGadgetComponent",
@@ -468,7 +483,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "MemoryGadgetComponent",
@@ -536,7 +554,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "ServiceListGadgetComponent",
@@ -600,7 +621,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "PropertyListGadgetComponent",
@@ -655,7 +679,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "DiskGadgetComponent",
@@ -784,7 +811,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "StatisticGadgetComponent",
@@ -858,7 +888,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "NewsGadgetComponent",
@@ -910,7 +943,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     },
     {
       "componentType": "JobAnalysisGadgetComponent",
@@ -966,7 +1002,10 @@
             ]
           }
         ]
-      }
+      },
+      "actions":[{
+        "name": "Add"
+      }]
     }
 
   ]

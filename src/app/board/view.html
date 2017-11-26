@@ -38,6 +38,12 @@
         </a>
         Configure
         &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+
+        <app-typeahead-input
+        [placeHolderText]="placeHolderText"></app-typeahead-input>
     </div>
 </div>
 
@@ -52,7 +58,7 @@
 </app-add-gadget-modal>
 
 <!-- the grid component will create the requested gadget dynamically -->
-<app-grid-component  #gadgetGrid
+<app-grid-component #gadgetGrid
                     (boardUpdateEvent)="updateDashboardMenu($event)">
 </app-grid-component>
 

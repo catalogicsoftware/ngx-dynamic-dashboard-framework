@@ -17,6 +17,7 @@ export class BoardComponent implements OnInit {
 
     dashboardList: any[] = [];
     selectedBoard = '';
+    placeHolderText = 'Begin typing in a gadget name';
 
     constructor(private _configurationService: ConfigurationService) {
     }

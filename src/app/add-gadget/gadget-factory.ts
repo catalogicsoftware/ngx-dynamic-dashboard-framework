@@ -11,6 +11,7 @@ import {TrendLineGadgetComponent} from '../gadgets/trend-line/trend-line-gadget.
 import {EdgeServiceListGadgetComponent} from '../gadgets/edge-service-list/edge-service-list-gadget.component';
 import {CPUMGadgetComponent} from '../gadgets/cpum/cpum-gadget.component';
 import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
+import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 /**
  * Created by jayhamilton on 6/30/17.
  */
@@ -54,6 +55,8 @@ export class GadgetFactory {
                 return CPUMGadgetComponent;
             case 'ResponseTimeGadgetComponent':
                 return ResponseTimeGadgetComponent;
+            case 'StorageObjectListComponent':
+                return StorageObjectListComponent;
             default:
                 return null;
 

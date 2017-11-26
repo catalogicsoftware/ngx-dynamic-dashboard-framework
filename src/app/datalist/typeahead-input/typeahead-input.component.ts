@@ -6,33 +6,13 @@ import {Component, ElementRef, EventEmitter, Input, Output} from '@angular/core'
 
 @Component({
     moduleId: module.id,
-    selector: 'app-search',
-    template: `
-
-        <h3>Search Results For</h3>
-        <hr>
-        <br>
-        <div class='ui category search'>
-            <div class='ui icon input'>
-                <input class='prompt' type='text' placeholder='Begin typing a gadget name' [(ngModel)]=query (keyup)=filter()>
-                <i class='search icon'></i>
-            </div>
-        </div>
-        <div class='suggestions' *ngIf='filteredList.length > 0'>
-
-            <ul style='list-style-type:none; background: white; border-radius: 7px;'>
-                <li style='padding:5px' *ngFor='let item of filteredList'>
-                    <a (click)='select(item)'>{{item}}</a>
-                </li>
-            </ul>
-        </div>
-
-    `,
-    styleUrls: ['../styles.css']
+    selector: 'app-typeahead-input',
+    templateUrl: './view.html',
 })
-export class SearchComponent {
+export class TypeAheadInputComponent {
 
     @Input() searchList: string[];
+    @Input()  placeHolderText;
     @Output() selectionEvent = new EventEmitter<string>();
 
 
@@ -41,8 +21,6 @@ export class SearchComponent {
     public elementRef;
 
     constructor(myElement: ElementRef) {
-
-
         this.elementRef = myElement;
 
     }

@@ -1,0 +1,15 @@
+<!--<input class='prompt' type='text' placeholder='Begin typing a gadget name' [(ngModel)]=query (keyup)=filter()>-->
+<mat-input-container class="example-full-width">
+    <input  matInput placeholder={{placeHolderText}} [(ngModel)]='query' (keyup)=filter() >
+</mat-input-container>
+
+<i class='search icon'></i>
+
+<div class='suggestions' *ngIf='filteredList.length > 0'>
+
+    <ul style='list-style-type:none; background: white; border-radius: 7px;'>
+        <li style='padding:5px' *ngFor='let item of filteredList'>
+            <a (click)='select(item)'>{{item}}</a>
+        </li>
+    </ul>
+</div>

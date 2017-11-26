@@ -26,6 +26,7 @@ import {ErrorHandlerModule} from '../error/error.module';
 import {ResponseTimeGadgetComponent} from './response-time/response-time-gadget.component';
 import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatProgressBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {StorageObjectListComponent} from './storage-object-list/storage-object-list.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {FormsModule} from '@angular/forms';
         StatisticGadgetComponent,
         PropertyListGadgetComponent,
         ServiceListGadgetComponent,
-        ResponseTimeGadgetComponent
+        ResponseTimeGadgetComponent,
+        StorageObjectListComponent
     ],
 
     providers: [TrendService,
@@ -80,7 +82,9 @@ import {FormsModule} from '@angular/forms';
         JobAnalysisGadgetComponent,
         StatisticGadgetComponent,
         PropertyListGadgetComponent,
-        ServiceListGadgetComponent
+        ServiceListGadgetComponent,
+        ResponseTimeGadgetComponent,
+        StorageObjectListComponent
     ]
 })
 export class GadgetModule {

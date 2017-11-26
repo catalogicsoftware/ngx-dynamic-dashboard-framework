@@ -1,0 +1,10 @@
+.storage{
+    overflow-y:hidden;
+    overflow-x:hidden;
+    padding-right:5px;
+    padding-left:5px;
+    max-height:700px;
+    min-height: 275px;
+    text-align: left !important;
+    background-color:#f7f7f7
+}

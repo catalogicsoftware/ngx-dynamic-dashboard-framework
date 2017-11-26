@@ -53,6 +53,8 @@ export class AddGadgetComponent implements AfterViewInit {
     gadgetObjectList: any[] = [];
     gadgetObjectTitleList: string[] = [];
     placeHolderText = 'Begin typing gadget name';
+    layoutColumnOneWidth = 'six';
+    layoutColumnTwoWidth = 'ten';
 
     color = 'white';
 

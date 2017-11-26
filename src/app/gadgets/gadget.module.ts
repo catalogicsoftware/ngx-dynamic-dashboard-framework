@@ -27,6 +27,8 @@ import {ResponseTimeGadgetComponent} from './response-time/response-time-gadget.
 import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatProgressBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {StorageObjectListComponent} from './storage-object-list/storage-object-list.component';
+import {StorageService} from './storage-object-list/service';
+import {DataListModule} from '../datalist/data-list.module';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import {StorageObjectListComponent} from './storage-object-list/storage-object-l
         MatCheckboxModule,
         MatInputModule,
         MatProgressBarModule,
-        FormsModule
+        FormsModule,
+        DataListModule
     ],
     declarations: [
         CPUGadgetComponent,
@@ -66,7 +69,8 @@ import {StorageObjectListComponent} from './storage-object-list/storage-object-l
         DiskService,
         StatisticService,
         EdgeService,
-        CPUService
+        CPUService,
+        StorageService
     ],
 
     exports: [

@@ -17,8 +17,17 @@
                 </div>
                 <img class="ui image" src="{{item.icon}}">
                 <div class="content">
-                    <div class="header">{{item.name}} Object</div>
-                    {{item.description}}
+
+                    <ng-template #defaultTemplate>
+                        <div class="header">{{item.name}}</div>
+                        {{item.description}}
+                    </ng-template>
+
+                    <ng-container *ngTemplateOutlet="customTemplate ? customTemplate: defaultTemplate">
+
+                    </ng-container>
+
+
                 </div>
             </div>
         </div>

@@ -1,21 +1,80 @@
 {
   "library": [
     {
+      "componentType": "StorageObjectListComponent",
+      "name": "Storage Information",
+      "description": "Provides a storage view.",
+      "icon": "assets/images/volume.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Informational",
+          "name": "storage"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "Application URL",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "Device URL",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Volume Analysis",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "actions":[{
+        "name": "Add"
+      }]
+    },
+    {
       "componentType": "CPUMGadgetComponent",
       "name": "CPUM Chart",
       "description": "Monitors CPU utilization.",
       "icon": "assets/images/cpu.png",
       "instanceId": -1,
       "tags": [
-        {
-          "facet": "Performance",
-          "name": "real-time"
-        },
-        {
-          "facet": "Chart",
-          "name": "bar"
-        }
-      ],
+      {
+        "facet": "Performance",
+        "name": "real-time"
+      },
+      {
+        "facet": "Chart",
+        "name": "bar"
+      }
+    ],
       "config": {
         "propertyPages": [
           {

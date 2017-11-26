@@ -28,6 +28,7 @@ import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
 import {ObservableWebSocketService} from '../services/websocket-service';
 import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
 import {TypeAheadInputModule} from '../datalist/typeahead-input/typeahead-input.module';
+import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 
 @NgModule({
     imports: [
@@ -50,7 +51,8 @@ import {TypeAheadInputModule} from '../datalist/typeahead-input/typeahead-input.
             TrendLineGadgetComponent,
             EdgeServiceListGadgetComponent,
             CPUMGadgetComponent,
-            ResponseTimeGadgetComponent
+            ResponseTimeGadgetComponent,
+            StorageObjectListComponent
         ]),
         GadgetModule,
         DndModule.forRoot(),

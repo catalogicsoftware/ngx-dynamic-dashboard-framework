@@ -1,0 +1,753 @@
+{
+  "volumes": [
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1356808419",
+      "poolId": "510143747",
+      "policyId": "Policy_200",
+      "protocolType": "NFS",
+      "total": 699,
+      "allocated": 559,
+      "available": 140,
+      "fileCount": 73743181,
+      "vmCount": 20,
+      "snapshotCount": 94,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "50336434",
+      "poolId": "510143747",
+      "policyId": "Policy_272",
+      "protocolType": "CIFS",
+      "total": 131,
+      "allocated": 104,
+      "available": 27,
+      "fileCount": 140916696,
+      "vmCount": 65,
+      "snapshotCount": 164,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1400372106",
+      "poolId": "510143747",
+      "policyId": "Policy_525",
+      "protocolType": "MIXED",
+      "total": 554,
+      "allocated": 443,
+      "available": 111,
+      "fileCount": 674658385,
+      "vmCount": 27,
+      "snapshotCount": 133,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "438801716",
+      "poolId": "510143747",
+      "policyId": "Policy_961",
+      "protocolType": "NFS",
+      "total": 1688,
+      "allocated": 1350,
+      "available": 338,
+      "fileCount": 509518383,
+      "vmCount": 100,
+      "snapshotCount": 51,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "179172896",
+      "poolId": "510143747",
+      "policyId": "Policy_673",
+      "protocolType": "CIFS",
+      "total": 188,
+      "allocated": 150,
+      "available": 38,
+      "fileCount": 1423354710,
+      "vmCount": 41,
+      "snapshotCount": 170,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1863489116",
+      "poolId": "510143747",
+      "policyId": "Policy_494",
+      "protocolType": "MIXED",
+      "total": 1478,
+      "allocated": 1182,
+      "available": 296,
+      "fileCount": 2055981538,
+      "vmCount": 24,
+      "snapshotCount": 218,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "679542288",
+      "poolId": "510143747",
+      "policyId": "Policy_141",
+      "protocolType": "NFS",
+      "total": 1576,
+      "allocated": 1260,
+      "available": 316,
+      "fileCount": 484598180,
+      "vmCount": 91,
+      "snapshotCount": 91,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1448008057",
+      "poolId": "510143747",
+      "policyId": "Policy_865",
+      "protocolType": "CIFS",
+      "total": 187,
+      "allocated": 149,
+      "available": 38,
+      "fileCount": 1455150084,
+      "vmCount": 69,
+      "snapshotCount": 29,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "107331726",
+      "poolId": "510143747",
+      "policyId": "Policy_506",
+      "protocolType": "MIXED",
+      "total": 1060,
+      "allocated": 848,
+      "available": 212,
+      "fileCount": 888401401,
+      "vmCount": 96,
+      "snapshotCount": 121,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1696309046",
+      "poolId": "684805883",
+      "policyId": "Policy_807",
+      "protocolType": "NFS",
+      "total": 490,
+      "allocated": 392,
+      "available": 98,
+      "fileCount": 981393962,
+      "vmCount": 82,
+      "snapshotCount": 175,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "467763111",
+      "poolId": "684805883",
+      "policyId": "Policy_434",
+      "protocolType": "CIFS",
+      "total": 464,
+      "allocated": 371,
+      "available": 93,
+      "fileCount": 1683837460,
+      "vmCount": 40,
+      "snapshotCount": 41,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "892564621",
+      "poolId": "684805883",
+      "policyId": "Policy_383",
+      "protocolType": "MIXED",
+      "total": 1981,
+      "allocated": 1584,
+      "available": 397,
+      "fileCount": 705071166,
+      "vmCount": 61,
+      "snapshotCount": 241,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1805386240",
+      "poolId": "684805883",
+      "policyId": "Policy_644",
+      "protocolType": "NFS",
+      "total": 823,
+      "allocated": 658,
+      "available": 165,
+      "fileCount": 1184142679,
+      "vmCount": 77,
+      "snapshotCount": 42,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "744675109",
+      "poolId": "2072746734",
+      "policyId": "Policy_927",
+      "protocolType": "NFS",
+      "total": 2022,
+      "allocated": 1617,
+      "available": 405,
+      "fileCount": 1047060306,
+      "vmCount": 19,
+      "snapshotCount": 145,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1984542573",
+      "poolId": "2072746734",
+      "policyId": "Policy_940",
+      "protocolType": "CIFS",
+      "total": 386,
+      "allocated": 308,
+      "available": 78,
+      "fileCount": 1535796442,
+      "vmCount": 19,
+      "snapshotCount": 111,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1594459696",
+      "poolId": "2072746734",
+      "policyId": "Policy_812",
+      "protocolType": "MIXED",
+      "total": 1303,
+      "allocated": 1042,
+      "available": 261,
+      "fileCount": 1423752387,
+      "vmCount": 51,
+      "snapshotCount": 92,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1119961550",
+      "poolId": "2072746734",
+      "policyId": "Policy_211",
+      "protocolType": "NFS",
+      "total": 656,
+      "allocated": 524,
+      "available": 132,
+      "fileCount": 1425203788,
+      "vmCount": 31,
+      "snapshotCount": 188,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1888422731",
+      "poolId": "2072746734",
+      "policyId": "Policy_239",
+      "protocolType": "CIFS",
+      "total": 791,
+      "allocated": 632,
+      "available": 159,
+      "fileCount": 917272960,
+      "vmCount": 74,
+      "snapshotCount": 10,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "1639523587",
+      "poolId": "2072746734",
+      "policyId": "Policy_391",
+      "protocolType": "MIXED",
+      "total": 1197,
+      "allocated": 957,
+      "available": 240,
+      "fileCount": 1765944241,
+      "vmCount": 20,
+      "snapshotCount": 166,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "396800785",
+      "poolId": "1367767837",
+      "policyId": "Policy_177",
+      "protocolType": "NFS",
+      "total": 1350,
+      "allocated": 1080,
+      "available": 270,
+      "fileCount": 940273680,
+      "vmCount": 60,
+      "snapshotCount": 66,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "2082371931",
+      "poolId": "1367767837",
+      "policyId": "Policy_53",
+      "protocolType": "CIFS",
+      "total": 2016,
+      "allocated": 1612,
+      "available": 404,
+      "fileCount": 1899545025,
+      "vmCount": 94,
+      "snapshotCount": 36,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    },
+    {
+      "type": "ZFSVOLUME",
+      "timestamp": 1511668600434,
+      "volumeId": "387140983",
+      "poolId": "1367767837",
+      "policyId": "Policy_142",
+      "protocolType": "MIXED",
+      "total": 1318,
+      "allocated": 1054,
+      "available": 264,
+      "fileCount": 128550758,
+      "vmCount": 69,
+      "snapshotCount": 202,
+      "compressionRatio": 2.5,
+      "dedupeEfficiency": 25,
+      "name": "ZFSVOLUME",
+      "description": "ZFS Volume Description.",
+      "icon": "assets/images/volume.png",
+      "tags": [
+        {
+          "facet": "Protocol",
+          "name": "nfs"
+        },
+        {
+          "facet": "Range",
+          "name": "allocated"
+        }
+      ],
+      "actions": [
+        {
+          "name": "view policy"
+        }
+      ]
+    }
+  ]
+}
+

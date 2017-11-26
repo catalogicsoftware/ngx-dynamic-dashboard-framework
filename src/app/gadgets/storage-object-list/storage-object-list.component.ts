@@ -1,22 +1,30 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, TemplateRef} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {NewsService} from './service';
+import {StorageService} from './service';
 
 @Component({
     selector: 'app-dynamic-component',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['../_common/styles-gadget.css']
+    styleUrls: ['./style.css']
 })
 export class StorageObjectListComponent extends GadgetBase {
 
     // runtime document subscription
     news: any;
     resource: string;
+    objectList: any[] = [];
+    objectTitleList: string[] = [];
+    placeHolderText = 'Enter volume search string';
+    layoutColumnOneWidth = 'four';
+    layoutColumnTwoWidth = 'twelve';
+    customTemplate: TemplateRef<any>;
+
+
 
     gadgetHasOperationControls = false;
 
@@ -25,7 +33,7 @@ export class StorageObjectListComponent extends GadgetBase {
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
-                protected _newsService: NewsService) {
+                protected _storageService: StorageService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
@@ -57,8 +65,11 @@ export class StorageObjectListComponent extends GadgetBase {
 
     public updateData(data: any[]) {
 
-        this._newsService.get().subscribe(news => {
-                this.news = news;
+        this._storageService.get().subscribe(item => {
+                item.volumes.forEach( _data => {
+                    this.objectList.push(_data);
+                    this.objectTitleList.push(_data.name);
+                });
             },
             error => this.handleError(error));
     }

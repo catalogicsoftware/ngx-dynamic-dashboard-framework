@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
 
 @Component({
     selector: 'app-data-list',
@@ -13,6 +13,9 @@ export class DataListComponent {
     @Input() objectList: any[];
     @Input() objectTitleList: string[];
     @Input() placeHolderText: string;
+    @Input() layoutColumnOneWidth: string;
+    @Input() layoutColumnTwoWidth: string;
+    @Input() customTemplate: TemplateRef<any>;
     @Output() actionEventRaised: EventEmitter<ActionInterface> = new EventEmitter();
 
     emitActionEvent(action: ActionInterface) {

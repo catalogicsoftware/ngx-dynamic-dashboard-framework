@@ -2,7 +2,7 @@
  * Created by jayhamilton on 1/24/17.
  */
 import {
-    Component, Output, EventEmitter, Input
+    Component, Output, EventEmitter, Input, TemplateRef
 } from '@angular/core';
 
 import {
@@ -32,6 +32,7 @@ import {
 export class ObjectListComponent {
 
     @Input() objectList: any[];
+    @Input() customTemplate: TemplateRef<any>;
     @Output() actionEventRaised: EventEmitter<ActionInterface> = new EventEmitter();
 
     color = 'white';

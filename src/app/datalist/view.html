@@ -1,6 +1,6 @@
 <div class="content">
     <div class="ui grid">
-        <div class="six wide column">
+        <div class="{{layoutColumnOneWidth}} wide column">
             <h3>Search Results For</h3>
             <hr>
             <br>
@@ -14,7 +14,7 @@
 
             </app-filter-list>
         </div>
-        <div class="ten wide column">
+        <div class="{{layoutColumnTwoWidth}} wide column">
             <h3>Results</h3>
             <hr>
             <br>
@@ -24,6 +24,7 @@
             </app-filter-tag>
             <app-object-list #objectListComponentRef
                              [objectList]="objectList"
+                             [customTemplate]="customTemplate"
                              (actionEventRaised)="emitActionEvent($event)">
             </app-object-list>
 

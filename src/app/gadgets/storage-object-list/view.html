@@ -1,6 +1,7 @@
-<div  (mouseover)="showGadgetControls(true)"
+<div (mouseover)="showGadgetControls(true)"
      (mouseleave)="showGadgetControls(false)" class="ui center aligned segment gadget" dnd-draggable
-     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']" style="background-color: #f7f7f7">
+     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']"
+     style="background-color: #f7f7f7">
 
     <app-gadget-header
             [title]="title"
@@ -17,32 +18,30 @@
             (stopEvent)="stop()">
     </app-gadget-header>
 
-    <div *ngIf="!inConfig" style="overflow-y:auto; padding-right:5px; padding-left:5px;max-height:800px; min-height: 275px; text-align: left !important; background-color:#f7f7f7" >
-        <div *ngFor="let release of news" >
-            <h3>{{release.heading}}</h3>
-            <div *ngFor="let detail of release.details" class="ui segment">
-                <h4 style="font-weight:500 !important">{{detail.category}}</h4>
+    <div *ngIf="!inConfig" class="storage">
+        <app-data-list
 
-                <div class="ui divided items">
-                    <div class="item" *ngFor="let article of detail.articles">
-                        <div class="content">
-                            <span style="font-size: .9em !important; color:#9e9e9e">{{article.date}}</span>
-                            <br>
-                            <span><i class="blue circle icon"></i>{{article.headline}}</span>
-                            <div class="description">
-                                <p>{{article.description}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                [objectTitleList]="objectTitleList"
+                [objectList]="objectList"
+                [placeHolderText]="placeHolderText"
+                [layoutColumnOneWidth]="layoutColumnOneWidth"
+                [layoutColumnTwoWidth]="layoutColumnTwoWidth"
+                [customTemplate]="customTemplate"
+
+        ></app-data-list>
+
+
+        <ng-template #customTemplate>
+            {{item.name}}
+        </ng-template>
+
+
     </div>
 
     <app-dynamic-form *ngIf="inConfig"
-                  [propertyPages]="propertyPages"
-                  [instanceId]="instanceId"
-                  (updatePropertiesEvent)="updateProperties($event)">
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
     </app-dynamic-form>
 
     <app-error-handler

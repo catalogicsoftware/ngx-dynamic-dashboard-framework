@@ -7,7 +7,7 @@
             <app-typeahead-input
                     [searchList]="objectTitleList"
                     [placeHolderText]="placeHolderText"
-                    (selectionEvent)="objectListComponentRef.filterListBySearchString($event)">
+                    (selectionEvent)="filterListBySearchString($event)">
             </app-typeahead-input>
             <app-filter-list #filterComponent
                              (tagSelectEvent)="filterTag.updateFilterList($event)">
@@ -19,15 +19,13 @@
             <hr>
             <br>
             <app-filter-tag #filterTag
-                            (updateFilterListEvent)="objectListComponentRef.filterListByTags($event)">
+                            (updateFilterListEvent)="filterListByTags($event)">
 
             </app-filter-tag>
-            <app-object-list #objectListComponentRef
-                             [objectList]="objectList"
-                             [customTemplate]="customTemplate"
-                             (actionEventRaised)="emitActionEvent($event)">
-            </app-object-list>
 
+            <div class="list-content">
+                <ng-template ngFor [ngForOf]="objectList" [ngForTemplate]="template"></ng-template>
+            </div>
         </div>
     </div>
 </div>

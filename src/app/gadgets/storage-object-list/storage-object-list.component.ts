@@ -5,12 +5,26 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {StorageService} from './service';
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: 'app-dynamic-component',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['./style.css']
+    styleUrls: ['./style.css'],
+    animations: [
+        trigger(
+            'showHideAnimation',
+            [
+                transition(':enter', [   // :enter is alias to 'void => *'
+                    style({opacity: 0}),
+                    animate(750, style({opacity: 1}))
+                ]),
+                transition(':leave', [   // :leave is alias to '* => void'
+                    animate(750, style({opacity: 0}))
+                ])
+            ])
+    ]
 })
 export class StorageObjectListComponent extends GadgetBase {
 
@@ -22,8 +36,6 @@ export class StorageObjectListComponent extends GadgetBase {
     placeHolderText = 'Enter volume search string';
     layoutColumnOneWidth = 'four';
     layoutColumnTwoWidth = 'twelve';
-    customTemplate: TemplateRef<any>;
-
 
 
     gadgetHasOperationControls = false;
@@ -66,7 +78,7 @@ export class StorageObjectListComponent extends GadgetBase {
     public updateData(data: any[]) {
 
         this._storageService.get().subscribe(item => {
-                item.volumes.forEach( _data => {
+                item.volumes.forEach(_data => {
                     this.objectList.push(_data);
                     this.objectTitleList.push(_data.name);
                 });
@@ -107,6 +119,11 @@ export class StorageObjectListComponent extends GadgetBase {
         this.title = updatedPropsObject.title;
         this.setEndPoint(updatedPropsObject.endpoint);
         this.updateData(null);
+    }
+
+    actionHandler(actionItem, actionName) {
+
+
     }
 
 }

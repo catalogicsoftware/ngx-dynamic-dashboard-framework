@@ -10,9 +10,40 @@
             [placeHolderText]="placeHolderText"
             [layoutColumnOneWidth]="layoutColumnOneWidth"
             [layoutColumnTwoWidth]="layoutColumnTwoWidth"
-            (actionEventRaised)="actionHandler($event)">
+            >
 
-    </app-data-list>
+            <ng-template  let-item="$implicit">
+
+                <div [@showHideAnimation] class="ui segment" style="background-color:white;">
+                    <div class="ui large middle aligned divided list">
+                        <div class="item">
+                            <div class="right floated content">
+                                <!-- todo : if there are more than one action display a button with
+                                vertical ellipse and implement onHover to show all action buttons
+                                -->
+                                <a *ngIf="item.actions.length == 1"
+                                   mat-raised-button
+                                   routerLink="."
+                                   (click)="actionHandler(item, item.actions[0].name)" color="primary">
+                                    {{item.actions[0].name}}
+                                </a>
+                            </div>
+                            <img class="ui image" src="{{item.icon}}">
+                            <div class="content">
+                                <div class="header">{{item.name}}</div>
+                                {{item.description}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui bottom attached">
+                        <button *ngFor="let tag of item.tags" class="ui basic gray compact button">{{tag.name}}
+                        </button>
+                    </div>
+                </div>
+
+            </ng-template>
+
+        </app-data-list>
 
     <div class="actions">
         <div class="ui approve button">Close</div>

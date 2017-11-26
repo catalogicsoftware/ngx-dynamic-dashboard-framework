@@ -25,15 +25,75 @@
                 [objectList]="objectList"
                 [placeHolderText]="placeHolderText"
                 [layoutColumnOneWidth]="layoutColumnOneWidth"
-                [layoutColumnTwoWidth]="layoutColumnTwoWidth"
-                [customTemplate]="customTemplate"
+                [layoutColumnTwoWidth]="layoutColumnTwoWidth">
 
-        ></app-data-list>
+            <ng-template let-item="$implicit">
 
+                <div [@showHideAnimation] class="ui segment" style="background-color:white;">
+                    <div class="ui large middle aligned divided list">
+                        <div class="item">
+                            <div class="right floated content">
+                                <!-- todo : if there are more than one action display a button with
+                                vertical ellipse and implement onHover to show all action buttons
+                                -->
+                                <a *ngIf="item.actions.length == 1"
+                                   mat-raised-button
+                                   routerLink="."
+                                   (click)="actionHandler(item, item.actions[0].name)" color="primary">
+                                    {{item.actions[0].name}}
+                                </a>
+                            </div>
+                            <div class="ui stackable grid">
+                                <div class="two wide column">
+                                    <img class="ui image" src="{{item.icon}}">
+                                </div>
+                                <div class="two wide column">
 
-        <ng-template #customTemplate>
-            {{item.name}}
-        </ng-template>
+                                </div>
+
+                                <div class="four wide column">
+                                    <div class="ui green indicating progress" data-value="25" data-total="200">
+                                        <div class="bar">
+                                            <div class="progress"></div>
+                                        </div>
+                                        <div class="label"> <span style="color:grey">Used Storage</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="two wide column">
+                                    <div class="ui grey mini statistic">
+
+                                        <div class="value">
+                                            <i class="grey server icon"></i>&nbsp;&nbsp;{{item.vmCount}}
+                                        </div>
+                                        <div class="grey label">
+                                            <span style="color:grey"> VM Count </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="two wide column">
+                                    <div class="ui grey mini statistic">
+
+                                        <div class="value">
+                                            <i class="grey file outline icon"></i>&nbsp;&nbsp;{{item.fileCount}}
+                                        </div>
+                                        <div class="label">
+                                            <span style="color:grey"> File Count </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui bottom attached">
+                        <button *ngFor="let tag of item.tags" class="ui basic gray compact button">{{tag.name}}
+                        </button>
+                    </div>
+                </div>
+
+            </ng-template>
+
+        </app-data-list>
 
 
     </div>

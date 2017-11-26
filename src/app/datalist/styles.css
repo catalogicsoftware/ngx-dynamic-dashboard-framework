@@ -13,3 +13,9 @@ hr {
     border: 0;
 
 }
+.list-content{
+    max-height: 700px;
+    overflow-y: scroll;
+    margin-top: 20px;
+    padding-right: 10px
+}

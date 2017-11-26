@@ -43,7 +43,7 @@ declare var jQuery: any;
                     animate(750, style({opacity: 0}))
                 ])
             ])
-    ],
+    ]
 
 })
 export class AddGadgetComponent implements AfterViewInit {
@@ -71,8 +71,8 @@ export class AddGadgetComponent implements AfterViewInit {
         this.getObjectList();
     }
 
-    actionHandler(action: ActionInterface) {
-        this.addGadgetEvent.emit(action.item);
+    actionHandler(actionItem, actionName) {
+        this.addGadgetEvent.emit(actionItem);
         this.hideMessageModal();
 
     }

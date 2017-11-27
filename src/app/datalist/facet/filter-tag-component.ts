@@ -11,8 +11,8 @@ import {
     selector: 'app-filter-tag',
     template: `
         <div class='ui basic segment' style='background-color:white; min-height: 4.5em; border-radius:5px'>
-            <div class='ui tag labels'>
-                <a class='ui label' [@showHideAnimation] *ngFor='let tag of filterList'>
+            <div class='ui large circular labels'>
+               <a class='ui label' [@showHideAnimation] *ngFor='let tag of filterList'>
                     {{tag}}
                 </a>
             </div>

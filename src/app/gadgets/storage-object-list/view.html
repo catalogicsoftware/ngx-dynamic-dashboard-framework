@@ -29,59 +29,77 @@
 
             <ng-template let-item="$implicit">
 
-                <div [@showHideAnimation] class="ui segment" style="background-color:white;">
+                <div [@showHideAnimation] class="ui padded segment" style="background-color:white;">
                     <div class="ui large middle aligned divided list">
                         <div class="item">
+
                             <div class="right floated content">
-                                <!-- todo : if there are more than one action display a button with
-                                vertical ellipse and implement onHover to show all action buttons
-                                -->
                                 <a *ngIf="item.actions.length == 1"
-                                   mat-raised-button
+
                                    routerLink="."
-                                   (click)="actionHandler(item, item.actions[0].name)" color="primary">
-                                    {{item.actions[0].name}}
+                                   (click)="actionHandler(item, item.actions[0].name)">
+                                    <span style="color:darkgrey; font-size:2em">...</span>
                                 </a>
+
                             </div>
-                            <div class="ui stackable grid">
+
+                            <div class="ui stackable centered grid">
                                 <div class="two wide column">
                                     <img class="ui image" src="{{item.icon}}">
                                 </div>
-                                <div class="two wide column">
+                                <div class="three wide column">
 
-                                </div>
-
-                                <div class="four wide column">
-                                    <div class="ui green indicating progress" data-value="25" data-total="200">
-                                        <div class="bar">
-                                            <div class="progress"></div>
+                                    <div class="row">
+                                        <div class="ui green indicating progress" data-value="25" data-total="200">
+                                            <div class="bar">
+                                                <div class="progress"></div>
+                                            </div>
+                                            <div class="label"><span style="color:grey">Used Storage</span></div>
                                         </div>
-                                        <div class="label"> <span style="color:grey">Used Storage</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="ui green indicating progress" data-value="25" data-total="200">
+                                            <div class="bar">
+                                                <div class="progress"></div>
+                                            </div>
+                                            <div class="label"><span style="color:grey">Used Storage</span></div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="two wide column">
-                                    <div class="ui grey mini statistic">
+                                <div class="three wide column">
+                                    <div class="ui grey tiny statistic">
 
                                         <div class="value">
-                                            <i class="grey server icon"></i>&nbsp;&nbsp;{{item.vmCount}}
+                                            <i class="blue server icon"></i><br>{{item.vmCount}}
                                         </div>
                                         <div class="grey label">
-                                            <span style="color:grey"> VM Count </span>
+                                            <span style="color:grey">VMs</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="two wide column">
-                                    <div class="ui grey mini statistic">
+                                <div class="three wide column">
+                                    <div class="ui grey tiny statistic">
 
                                         <div class="value">
-                                            <i class="grey file outline icon"></i>&nbsp;&nbsp;{{item.fileCount}}
+                                            <i class="purple camera outline icon"></i><br>{{item.snapshotCount}}
                                         </div>
                                         <div class="label">
-                                            <span style="color:grey"> File Count </span>
+                                            <span style="color:grey">Snapshots</span>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="four wide column">
+                                    <div class="ui grey tiny statistic">
+
+                                        <div class="value">
+                                            <i class="orange file outline icon"></i><br>{{item.fileCount}}
+                                        </div>
+                                        <div class="label">
+                                            <span style="color:grey">Files</span>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

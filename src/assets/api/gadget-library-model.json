@@ -22,15 +22,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "Application URL",
-                "value": "",
-                "required": true,
-                "order": 3
-              },
-              {
-                "controlType": "dynamicdropdown",
-                "key": "endpoint",
-                "label": "Device URL",
+                "label": "API Endpoints",
                 "value": "",
                 "required": true,
                 "order": 3

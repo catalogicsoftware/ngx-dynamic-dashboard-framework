@@ -10,6 +10,7 @@
                     (selectionEvent)="filterListBySearchString($event)">
             </app-typeahead-input>
             <app-filter-list #filterComponent
+                             [facet_tags]="facetTags"
                              (tagSelectEvent)="filterTag.updateFilterList($event)">
 
             </app-filter-list>

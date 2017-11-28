@@ -13,6 +13,8 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {AddGadgetService} from './service';
+import {Facet} from '../datalist/facet/facet-model';
+import {FacetTagProcessor} from '../datalist/facet/facet-tag-processor';
 
 declare var jQuery: any;
 
@@ -55,6 +57,7 @@ export class AddGadgetComponent implements AfterViewInit {
     placeHolderText = 'Begin typing gadget name';
     layoutColumnOneWidth = 'six';
     layoutColumnTwoWidth = 'ten';
+    facetTags: Array<Facet>;
 
     color = 'white';
 
@@ -121,6 +124,8 @@ export class AddGadgetComponent implements AfterViewInit {
                 me.gadgetObjectList.push(item);
                 me.gadgetObjectTitleList.push(item.name);
             });
+            const facetTagProcess = new FacetTagProcessor(this.gadgetObjectList);
+            this.facetTags = facetTagProcess.getFacetTags();
         });
 
     }

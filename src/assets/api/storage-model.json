@@ -55,7 +55,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",
@@ -89,7 +89,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "mixed"
         },
         {
           "facet": "Range",
@@ -157,7 +157,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",
@@ -191,7 +191,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "mixed"
         },
         {
           "facet": "Range",
@@ -259,7 +259,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",
@@ -293,7 +293,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "mixed"
         },
         {
           "facet": "Range",
@@ -361,7 +361,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",
@@ -395,7 +395,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "mixed"
         },
         {
           "facet": "Range",
@@ -497,7 +497,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",
@@ -531,7 +531,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "mixed"
         },
         {
           "facet": "Range",
@@ -599,7 +599,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",
@@ -633,7 +633,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "mixed"
         },
         {
           "facet": "Range",
@@ -701,7 +701,7 @@
       "tags": [
         {
           "facet": "Protocol",
-          "name": "nfs"
+          "name": "cifs"
         },
         {
           "facet": "Range",

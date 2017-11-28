@@ -1,11 +1,13 @@
-import {ChangeDetectorRef, Component, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {StorageService} from './service';
-import {animate, style, transition, trigger} from "@angular/animations";
+import {animate, style, transition, trigger} from '@angular/animations';
+import {Facet} from '../../datalist/facet/facet-model';
+import {FacetTagProcessor} from '../../datalist/facet/facet-tag-processor';
 
 @Component({
     selector: 'app-dynamic-component',
@@ -32,6 +34,7 @@ export class StorageObjectListComponent extends GadgetBase {
     news: any;
     resource: string;
     objectList: any[] = [];
+    facetTags: Array<Facet>;
     objectTitleList: string[] = [];
     placeHolderText = 'Enter volume search string';
     layoutColumnOneWidth = 'four';
@@ -82,6 +85,8 @@ export class StorageObjectListComponent extends GadgetBase {
                     this.objectList.push(_data);
                     this.objectTitleList.push(_data.name);
                 });
+                const facetTagProcess = new FacetTagProcessor(this.objectList);
+                this.facetTags = facetTagProcess.getFacetTags();
             },
             error => this.handleError(error));
     }

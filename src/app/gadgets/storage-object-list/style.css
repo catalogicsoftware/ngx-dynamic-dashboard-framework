@@ -8,3 +8,13 @@
     text-align: left !important;
     background-color:#f7f7f7
 }
+
+.chartLabel{
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    background-color: white;
+    font-size: 1em;
+    font-weight: 700;
+    color: grey;
+    text-transform: uppercase;
+    text-align: center;
+}

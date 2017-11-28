@@ -23,6 +23,7 @@
 
                 [objectTitleList]="objectTitleList"
                 [objectList]="objectList"
+                [facetTags]="facetTags"
                 [placeHolderText]="placeHolderText"
                 [layoutColumnOneWidth]="layoutColumnOneWidth"
                 [layoutColumnTwoWidth]="layoutColumnTwoWidth">
@@ -44,8 +45,10 @@
                             </div>
 
                             <div class="ui stackable centered grid">
-                                <div class="two wide column">
-                                    <img class="ui image" src="{{item.icon}}">
+                                <div class="three wide column">
+                                    <div class="chartLabel">Volume</div>
+                                    <img class="ui centered image" src="{{item.icon}}">
+                                    {{item.volumeId}}
                                 </div>
                                 <div class="three wide column">
 
@@ -54,7 +57,7 @@
                                             <div class="bar">
                                                 <div class="progress"></div>
                                             </div>
-                                            <div class="label"><span style="color:grey">Used Storage</span></div>
+                                            <div class="chartLabel">Used Storage</div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -62,12 +65,12 @@
                                             <div class="bar">
                                                 <div class="progress"></div>
                                             </div>
-                                            <div class="label"><span style="color:grey">Used Storage</span></div>
+                                            <div class="chartLabel">Used Storage</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="three wide column">
-                                    <div class="ui grey tiny statistic">
+                                    <div class="ui grey mini statistic">
 
                                         <div class="value">
                                             <i class="blue server icon"></i><br>{{item.vmCount}}
@@ -78,7 +81,7 @@
                                     </div>
                                 </div>
                                 <div class="three wide column">
-                                    <div class="ui grey tiny statistic">
+                                    <div class="ui grey mini statistic">
 
                                         <div class="value">
                                             <i class="purple camera outline icon"></i><br>{{item.snapshotCount}}
@@ -88,8 +91,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="four wide column">
-                                    <div class="ui grey tiny statistic">
+                                <div class="three wide column">
+                                    <div class="ui grey mini statistic">
 
                                         <div class="value">
                                             <i class="orange file outline icon"></i><br>{{item.fileCount}}

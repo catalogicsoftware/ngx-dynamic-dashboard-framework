@@ -1,5 +1,6 @@
 import {Component, ContentChild, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Facet} from "./facet/facet-model";
 
 @Component({
     selector: 'app-data-list',
@@ -14,6 +15,8 @@ export class DataListComponent {
     @Input() placeHolderText: string;
     @Input() layoutColumnOneWidth: string;
     @Input() layoutColumnTwoWidth: string;
+    @Input() facetTags: Array<Facet>;
+
     @ContentChild(TemplateRef) template: TemplateRef<any>;
 
 

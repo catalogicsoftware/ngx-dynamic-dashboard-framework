@@ -3,6 +3,9 @@
      [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']"
      style="background-color: #f7f7f7">
 
+    <a class="ui left corner label">
+        <i class="heart icon" [ngClass]="{'green':inRun, 'yellow':!inRun}"></i>
+    </a>
     <app-gadget-header
             [title]="title"
             [inRun]="inRun"
@@ -33,7 +36,6 @@
                 <div [@showHideAnimation] class="ui padded segment" style="background-color:white;">
                     <div class="ui large middle aligned divided list">
                         <div class="item">
-
                             <div class="right floated content">
                                 <a *ngIf="item.actions.length == 1"
 
@@ -43,79 +45,81 @@
                                 </a>
 
                             </div>
-
-                            <div class="ui stackable centered grid">
-                                <div class="three wide column">
-                                    <div class="chartLabel">Volume</div>
-                                    <img class="ui centered image" src="{{item.icon}}">
-                                    {{item.volumeId}}
-                                </div>
-                                <div class="three wide column">
-
-                                    <div class="row">
-                                        <div class="ui green indicating progress" data-value="25" data-total="200">
-                                            <div class="bar">
-                                                <div class="progress"></div>
-                                            </div>
-                                            <div class="chartLabel">Used Storage</div>
+                            <div class="left floated content">
+                                <div class="ui stackable centered grid">
+                                    <div class="column">
+                                        <div class="row">
+                                            <div class="chartLabel">VOLUME</div>
+                                            <img class="ui centered image" src="{{item.icon}}">
+                                            {{item.volumeId}}
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="ui green indicating progress" data-value="25" data-total="200">
-                                            <div class="bar">
-                                                <div class="progress"></div>
-                                            </div>
-                                            <div class="chartLabel">Used Storage</div>
+                                        <div class="row">
+                                            <br>
+                                            <button *ngFor="let tag of item.tags" class="ui basic gray compact button">
+                                                {{tag.name}}
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="three wide column">
-                                    <div class="ui grey mini statistic">
-
-                                        <div class="value">
-                                            <i class="blue server icon"></i><br>{{item.vmCount}}
-                                        </div>
-                                        <div class="grey label">
-                                            <span style="color:grey">VMs</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="three wide column">
-                                    <div class="ui grey mini statistic">
-
-                                        <div class="value">
-                                            <i class="purple camera outline icon"></i><br>{{item.snapshotCount}}
-                                        </div>
-                                        <div class="label">
-                                            <span style="color:grey">Snapshots</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="three wide column">
-                                    <div class="ui grey mini statistic">
-
-                                        <div class="value">
-                                            <i class="orange file outline icon"></i><br>{{item.fileCount}}
-                                        </div>
-                                        <div class="label">
-                                            <span style="color:grey">Files</span>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
+                            <div class="ui stackable sixteen wide grid">
+                                <div class="row">
+                                    <div class="one wide column"></div>
+                                    <div class="seven wide column">
+                                        <div class="ui green indicating progress" data-value="25" data-total="200">
+                                            <div class="bar">
+                                                <div class="progress"></div>
+                                            </div>
+                                            <div class="chartLabel">Used Storage</div>
+                                        </div>
+                                    </div>
+                                    <div class="seven wide column">
+                                        <div class="row">
+                                            <div class="ui grey mini statistic">
+
+                                                <div class="value">
+                                                    <i class="purple camera outline icon"></i>&nbsp;&nbsp;&nbsp;{{item.snapshotCount}}
+                                                </div>
+                                                <div class="label">
+                                                    <span style="color:grey">Snapshots</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="one wide column"></div>
+                                    <div class="seven wide column">
+                                        <div class="ui grey mini statistic">
+
+                                            <div class="value">
+                                                <i class="blue server icon"></i>&nbsp;&nbsp;&nbsp;{{item.vmCount}}
+                                            </div>
+                                            <div class="label">
+                                                <span style="color:grey">Virtual Machines</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="seven wide column">
+                                        <div class="ui grey mini statistic">
+
+                                            <div class="value">
+                                                <i class="orange file outline icon"></i>&nbsp;&nbsp;&nbsp;{{item.fileCount}}
+                                            </div>
+                                            <div class="label">
+                                                <span style="color:grey">Files</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="ui bottom attached">
-                        <button *ngFor="let tag of item.tags" class="ui basic gray compact button">{{tag.name}}
-                        </button>
-                    </div>
                 </div>
-
             </ng-template>
 
         </app-data-list>
-
 
     </div>
 

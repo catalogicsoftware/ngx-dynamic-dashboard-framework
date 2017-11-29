@@ -3,7 +3,7 @@
 # NGX Dynamic Dashboard Framework
 
 ## Natural Language Processing (NLP) integration
-![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/gifs/nlp.png)
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/gifs/nlp.gif)
 
 ## Sample Board 1
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb1.png)

@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {ErrorHandler} from '../error/error-handler';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 
 
 @Injectable()
@@ -46,5 +46,30 @@ export class RuntimeService {
             .catch(RuntimeService.handleError);
 
     }
+
+    callWitAI(aiStatement: string) {
+
+        let p = new HttpParams();
+
+        if (!localStorage.getItem('Wit.aiToken')) {
+
+            alert('Artificial Intelligence token has not been set. Set the Wit.ai token in the Configuration/AI Config tab!');
+        }
+
+        p = p.append('v', '20171128');
+        p = p.append('q', aiStatement);
+        p = p.append('access_token', localStorage.getItem('Wit.aiToken'));
+
+        return this._http.jsonp('https://api.wit.ai/message?' + p.toString(),
+            'callback'
+        ).catch(RuntimeService.handleError);
+    }
+
+    callback(data) {
+        // console.log(data);
+
+    }
+
+
 }
 

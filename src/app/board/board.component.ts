@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
 
-
 /**a
  * Board component
  *
@@ -15,9 +14,12 @@ import {ConfigurationService} from '../services/configuration.service';
 })
 export class BoardComponent implements OnInit {
 
+
     dashboardList: any[] = [];
     selectedBoard = '';
-    placeHolderText = 'Begin typing in a gadget name';
+    placeHolderText = 'Ask the board to do something!';
+    searchList: Array<string> = [];
+
 
     constructor(private _configurationService: ConfigurationService) {
     }
@@ -56,9 +58,7 @@ export class BoardComponent implements OnInit {
         });
     }
 
-
     selectBoard(selectedBoard: string) {
         this.selectedBoard = selectedBoard;
     }
-
 }

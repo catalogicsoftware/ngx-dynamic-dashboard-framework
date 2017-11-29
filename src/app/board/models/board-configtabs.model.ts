@@ -6,5 +6,9 @@ export const tabsModel: ({ groupId: string; displayName: string } | { groupId: s
     {
         groupId: 'apiendpoint_config',
         displayName: 'API Endpoint Registration'
+    },
+    {
+        groupId: 'ai_config',
+        displayName: 'AI Configuration'
     }
 ];

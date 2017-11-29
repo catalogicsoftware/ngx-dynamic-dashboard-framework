@@ -2,6 +2,7 @@ import {Component, Output, EventEmitter} from '@angular/core';
 import {GadgetInstanceService} from './grid.service';
 import {ConfigurationService} from '../../services/configuration.service';
 import {GadgetConfigModel} from '../../gadgets/_common/gadget-config-model';
+import {AddGadgetService} from '../../add-gadget/service';
 
 
 @Component({
@@ -20,6 +21,13 @@ export class GridComponent {
     dropZone2: any = null;
     dropZone3: any = null;
 
+    gadgetLibrary: any[] = [];
+
+    /** todo
+     * Temporary objects for experimenting with AI
+     * @type
+     */
+
     gridInsertionPosition = {
         x: 0,
         y: 0
@@ -33,15 +41,69 @@ export class GridComponent {
      */
 
     constructor(private _gadgetInstanceService: GadgetInstanceService,
-                private _configurationService: ConfigurationService) {
+                private _configurationService: ConfigurationService,
+                private _gadgetLibraryService: AddGadgetService) {
 
         this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
             this.saveBoard('Gadget Removed From Board: ' + message, false)
         });
 
         this.initializeBoard();
+        this.getGadgetLibrary();
 
     }
+
+    /**
+     *
+     * This is experimental code that deals with AI
+     */
+    getGadgetLibrary() {
+
+        this._gadgetLibraryService.getGadgetLibrary().subscribe(data => {
+            this.gadgetLibrary.length = 0;
+            const me = this;
+            data.library.forEach(function (item) {
+                me.gadgetLibrary.push(item);
+            });
+        });
+    }
+
+    getGadgetFromLibrary(gadgetType: string) {
+
+        let gadgetObject = null;
+        this.gadgetLibrary.forEach(gadget => {
+
+
+            if (gadgetType.localeCompare(gadget['componentType']) === 0) {
+
+                gadgetObject = gadget;
+            }
+        });
+        return gadgetObject;
+    }
+
+    addGadgetUsingArtificialIntelligence(intentEntityFromArtificialIntelligence) {
+
+        // determine gadget and call addGadget
+        console.log(intentEntityFromArtificialIntelligence);
+        if (intentEntityFromArtificialIntelligence.entities) {
+            if (intentEntityFromArtificialIntelligence.entities.intent && intentEntityFromArtificialIntelligence.entities.intent.length) {
+                const operation = intentEntityFromArtificialIntelligence.entities.intent[0].value;
+                switch (operation) {
+                    case 'get_storage':
+                        this.addGadget(this.getGadgetFromLibrary('StorageObjectListComponent'));
+                        break;
+                    case 'get_cpu':
+                        this.addGadget(this.getGadgetFromLibrary('CPUGadgetComponent'));
+                        break;
+                }
+            }
+        }
+    }
+
+    /**
+     * This is the end of the experimental AI code.
+     */
 
     updateGadgetPositionInBoard($event, columnNumber, rowNumber, type) {
 
@@ -55,9 +117,9 @@ export class GridComponent {
 
                 if (column.gadgets) {
 
-                    column.gadgets.forEach(gadget => {
+                    column.gadgets.forEach(_gadget => {
 
-                        if (gadget.instanceId === $event.dragData) {
+                        if (_gadget.instanceId === $event.dragData) {
 
                             const gadget = column.gadgets.splice(gadgetpos, 1);
 
@@ -119,6 +181,7 @@ export class GridComponent {
         this.saveBoard('Adding Gadget To The Board', false);
 
     }
+
 
     public updateBoardLayout(structure) {
 
@@ -189,7 +252,7 @@ export class GridComponent {
 
     private fillGridStructure(_model, columns: any[], counter: number) {
 
-        let me = this;
+        const me = this;
         _model.rows.forEach(function (row) {
             row.columns.forEach(function (column) {
                 if (!column.gadgets) {
@@ -227,7 +290,7 @@ export class GridComponent {
 
             if (board && board instanceof Array && board.length) {
 
-                const sortedBoard = board.sort(function(a, b){
+                const sortedBoard = board.sort(function (a, b) {
                     return a.id - b.id;
                 });
 
@@ -358,5 +421,6 @@ export class GridComponent {
     public getModel() {
         return this.model;
     }
+
 
 }

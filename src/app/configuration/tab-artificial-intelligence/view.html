@@ -1,0 +1,24 @@
+<div class="ui equal width fields grid container">
+
+    <div class="field four wide column">
+    </div>
+    <div class="field eight wide column">
+
+        <mat-input-container class="example-full-width">
+            <input  matInput type="password" placeholder='Enter the access token string from Wit.ai' [(ngModel)]='token' >
+        </mat-input-container>
+        <a
+                mat-raised-button
+                routerLink="."
+                (click)="save()" color="primary">
+            Save
+        </a>
+    </div>
+    <div class="field four wide column">
+
+
+    </div>
+
+</div>
+
+

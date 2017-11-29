@@ -2,6 +2,9 @@
 
 # NGX Dynamic Dashboard Framework
 
+## Natural Language Processing (NLP) integration
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/nlp.png)
+
 ## Sample Board 1
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb1.png)
 
@@ -32,6 +35,7 @@ The primary projects leveraged:
 * Semantic-UI - https://semantic-ui.com/
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
 * angular material
+* Wit.ai - Natural Language Processing site
 
 Features:
 * Leverages Angular's dynamic data driven forms approach for gadget property pages and properties - https://angular.io/guide/dynamic-form

@@ -7,6 +7,7 @@ import {BoardConfigurationComponent} from './tab-configuration/board-configurati
 import {DndModule} from 'ng2-dnd';
 import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AIConfigComponent} from './tab-artificial-intelligence/ai-config.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     declarations: [
         BoardConfigurationComponent,
         EndPointComponent,
-        EndPointDetailComponent
+        EndPointDetailComponent,
+        AIConfigComponent
     ],
     providers: [
 

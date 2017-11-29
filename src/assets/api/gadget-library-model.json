@@ -23,7 +23,7 @@
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
                 "label": "API Endpoints",
-                "value": "",
+                "value": "vSnap",
                 "required": true,
                 "order": 3
               },
@@ -31,7 +31,7 @@
                 "controlType": "textbox",
                 "key": "title",
                 "label": "Title",
-                "value": "Volume Analysis",
+                "value": "Storage - Volume Analysis",
                 "required": true,
                 "order": 1
               },

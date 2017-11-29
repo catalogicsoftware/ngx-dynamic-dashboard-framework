@@ -8,7 +8,18 @@
         </a>
     </div>
 
-    <div class="right floated ten wide column">
+    <div class="right floated four wide column">
+
+        <app-typeahead-input
+                [searchList]="searchList"
+                [placeHolderText]="placeHolderText"
+                (ArtificialIntelligenceEventEmitter)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)">
+        </app-typeahead-input>
+
+    </div>
+
+    <div class="right floated seven wide column">
+
 
         <a mat-mini-fab routerLink="." color="primary"
            (click)="notifcationModal.showNotificationModal('Notifications')">
@@ -37,13 +48,6 @@
             <mat-icon>settings</mat-icon>
         </a>
         Configure
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-
-        <app-typeahead-input
-        [placeHolderText]="placeHolderText"></app-typeahead-input>
     </div>
 </div>
 

@@ -4,13 +4,15 @@ import {NgModule} from '@angular/core';
 import {TypeAheadInputComponent} from './typeahead-input.component';
 
 import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatInputModule} from '@angular/material';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule
 
     ],
     declarations: [

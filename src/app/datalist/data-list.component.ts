@@ -1,6 +1,6 @@
 import {Component, ContentChild, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {Facet} from "./facet/facet-model";
+import {Facet} from "../facet/facet-model";
 
 @Component({
     selector: 'app-data-list',

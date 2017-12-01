@@ -18,7 +18,7 @@ import {
             </div>
         </div>
     `,
-    styleUrls: ['../../gadgets/_common/styles-gadget.css'],
+    styleUrls: ['../gadgets/_common/styles-gadget.css'],
     animations: [
         trigger(
             'showHideAnimation',

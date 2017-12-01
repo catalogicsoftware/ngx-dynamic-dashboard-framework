@@ -21,7 +21,7 @@
       "styles": [
         "styles.css",
         "../node_modules/semantic-ui/dist/semantic.min.css",
-        "../node_modules/ng2-dnd/style.css"
+        "../node_modules/ng2-dnd/bundles/style.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

@@ -45,7 +45,7 @@ export class GridComponent {
                 private _gadgetLibraryService: AddGadgetService) {
 
         this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
-            this.saveBoard('Gadget Removed From Board: ' + message, false)
+            this.saveBoard('Gadget Removed From Board: ' + message, false);
         });
 
         this.initializeBoard();
@@ -82,21 +82,21 @@ export class GridComponent {
         return gadgetObject;
     }
 
-    addGadgetUsingArtificialIntelligence(intentEntityFromArtificialIntelligence) {
+    addGadgetUsingArtificialIntelligence(aiObject: any) {
 
-        // determine gadget and call addGadget
-        console.log(intentEntityFromArtificialIntelligence);
-        if (intentEntityFromArtificialIntelligence.entities) {
-            if (intentEntityFromArtificialIntelligence.entities.intent && intentEntityFromArtificialIntelligence.entities.intent.length) {
-                const operation = intentEntityFromArtificialIntelligence.entities.intent[0].value;
-                switch (operation) {
-                    case 'get_storage':
-                        this.addGadget(this.getGadgetFromLibrary('StorageObjectListComponent'));
-                        break;
-                    case 'get_cpu':
-                        this.addGadget(this.getGadgetFromLibrary('CPUGadgetComponent'));
-                        break;
-                }
+        console.log('In add gadget component');
+        console.log(aiObject);
+        /** todo
+         * make confidence code configurable
+         */
+        if (aiObject && aiObject.operation) {
+            switch (aiObject.operation) {
+                case 'get_storage':
+                    this.addGadget(this.getGadgetFromLibrary('StorageObjectListComponent'));
+                    break;
+                case 'get_cpu':
+                    this.addGadget(this.getGadgetFromLibrary('CPUGadgetComponent'));
+                    break;
             }
         }
     }

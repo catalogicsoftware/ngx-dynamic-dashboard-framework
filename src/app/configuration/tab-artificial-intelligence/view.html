@@ -1,22 +1,76 @@
-<div class="ui equal width fields grid container">
+<div class="ui equal width fields centered grid container">
 
-    <div class="field four wide column">
+    <div class="row">
+        <div class="field four wide column">
+        </div>
+        <div class="field eight wide column">
+            <mat-form-field>
+                <mat-select placeholder="Select an AI engine" (selectionChange)="selectChange($event)" [value]="selectedAIEngineValue">
+                    <mat-option *ngFor="let ai_engine of ai_engines" [value]="ai_engine.value">
+                        {{ ai_engine.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="field four wide column">
+        </div>
     </div>
-    <div class="field eight wide column">
 
-        <mat-input-container class="example-full-width">
-            <input  matInput type="password" placeholder='Enter the access token string from Wit.ai' [(ngModel)]='token' >
-        </mat-input-container>
-        <a
-                mat-raised-button
-                routerLink="."
-                (click)="save()" color="primary">
-            Save
-        </a>
+
+    <div *ngIf="selectedAIEngineValue === '' || selectedAIEngineValue === 'witai'">
+        <div class="row">
+            <div class="field four wide column">
+            </div>
+            <div class="field eight wide column">
+
+                <h3>Wit.ai Access Token</h3>
+                <mat-input-container class="example-full-width">
+                    <input matInput type="password" placeholder='Enter the access token string from Wit.ai'
+                           [(ngModel)]='token'>
+                </mat-input-container>
+                <a
+                        mat-raised-button
+                        routerLink="."
+                        (click)="save()" color="primary">
+                    Save
+                </a>
+            </div>
+            <div class="field four wide column">
+            </div>
+        </div>
     </div>
-    <div class="field four wide column">
+    <div *ngIf="selectedAIEngineValue === 'watson'">
+        <div class="row">
+            <div class="field four wide column">
+            </div>
+            <div class="field eight wide column">
 
+                <h3>IBM Watson User</h3>
+                <mat-input-container class="example-full-width">
+                    <input matInput type="text" placeholder='Enter the IBM Watson User Id'
+                           [(ngModel)]='ibmwatsonuid'>
+                </mat-input-container>
+                <h3>IBM Watson Password</h3>
+                <mat-input-container class="example-full-width">
+                    <input matInput type="password" placeholder='Enter the IBM Watson Password'
+                           [(ngModel)]='ibmwatsonpwd'>
+                </mat-input-container>
 
+                <h3>IBM Watson Classifier ID</h3>
+                <mat-input-container class="example-full-width">
+                    <input matInput type="text" placeholder='Enter the IBM Watson Classifier Id'
+                           [(ngModel)]='ibmwatsoncid'>
+                </mat-input-container>
+                <a
+                        mat-raised-button
+                        routerLink="."
+                        (click)="save()" color="primary">
+                    Save
+                </a>
+            </div>
+            <div class="field four wide column">
+            </div>
+        </div>
     </div>
 
 </div>

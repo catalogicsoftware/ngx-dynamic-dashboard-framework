@@ -6,8 +6,8 @@ import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {StorageService} from './service';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {Facet} from '../../datalist/facet/facet-model';
-import {FacetTagProcessor} from '../../datalist/facet/facet-tag-processor';
+import {Facet} from '../../facet/facet-model';
+import {FacetTagProcessor} from '../../facet/facet-tag-processor';
 
 @Component({
     selector: 'app-dynamic-component',

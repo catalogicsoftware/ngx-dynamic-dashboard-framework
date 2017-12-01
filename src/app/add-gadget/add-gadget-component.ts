@@ -13,8 +13,8 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {AddGadgetService} from './service';
-import {Facet} from '../datalist/facet/facet-model';
-import {FacetTagProcessor} from '../datalist/facet/facet-tag-processor';
+import {Facet} from '../facet/facet-model';
+import {FacetTagProcessor} from '../facet/facet-tag-processor';
 
 declare var jQuery: any;
 

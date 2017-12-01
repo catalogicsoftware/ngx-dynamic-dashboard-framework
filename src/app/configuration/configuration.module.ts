@@ -5,7 +5,9 @@ import {EndPointDetailComponent} from './tab-endpoint/endpointDetail.component';
 import {EndPointService} from './tab-endpoint/endpoint.service';
 import {BoardConfigurationComponent} from './tab-configuration/board-configuration-component';
 import {DndModule} from 'ng2-dnd';
-import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule} from '@angular/material';
+import {
+    MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatOptionModule, MatSelectModule
+} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AIConfigComponent} from './tab-artificial-intelligence/ai-config.component';
 
@@ -17,6 +19,8 @@ import {AIConfigComponent} from './tab-artificial-intelligence/ai-config.compone
         MatIconModule,
         MatCheckboxModule,
         MatInputModule,
+        MatSelectModule,
+        MatOptionModule,
         FormsModule,
         ReactiveFormsModule
     ],

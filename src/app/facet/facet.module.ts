@@ -6,7 +6,7 @@ import {FilterTagComponent} from './filter-tag-component';
 import {CapitalizeFirstPipe} from './capitalize-first-character-pipe';
 import {MatCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {AddGadgetService} from '../../add-gadget/service';
+import {AddGadgetService} from '../add-gadget/service';
 
 @NgModule({
     imports: [

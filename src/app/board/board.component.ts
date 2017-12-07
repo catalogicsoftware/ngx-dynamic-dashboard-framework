@@ -19,19 +19,18 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
             state('out', style({
                 opacity: '0'
             })),
-            transition('in => out', animate('100ms ease-in-out')),
-            transition('out => in', animate('600ms ease-in-out'))
+            transition('in => out', animate('50ms ease-in-out')),
+            transition('out => in', animate('100ms ease-in-out'))
         ]),
         trigger('accordion2', [
             state('in', style({
                 height: '*'
             })),
             state('out', style({
-                opacity: '0',
                 height: '0px'
             })),
-            transition('in => out', animate('500ms ease-in-out')),
-            transition('out => in', animate('100ms ease-in-out'))
+            transition('in => out', animate('100ms ease-in-out')),
+            transition('out => in', animate('50ms ease-in-out'))
         ])
     ]
 

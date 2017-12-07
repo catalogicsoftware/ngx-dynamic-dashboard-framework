@@ -1,9 +1,9 @@
 <div class="ui centered grid segment" style="margin-left: 20px; margin-right:20px; min-height: 40px">
     <div [@accordion2]="detailMenuOpen" class="four wide column">
         <app-typeahead-input [@accordion]="detailMenuOpen"
-                [searchList]="searchList"
-                [placeHolderText]="placeHolderText"
-                (ArtificialIntelligenceEventEmitter)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)">
+                             [searchList]="searchList"
+                             [placeHolderText]="placeHolderText"
+                             (ArtificialIntelligenceEventEmitter)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)">
         </app-typeahead-input>
 
     </div>
@@ -38,14 +38,14 @@
            (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
             <mat-icon>grid_on</mat-icon>
         </a>
-            <span [@accordion]="detailMenuOpen">Layout
+        <span [@accordion]="detailMenuOpen">Layout
             &nbsp;</span>
 
-        <a [@accordion]="detailMenuOpen"  mat-mini-fab routerLink="." color="primary"
+        <a [@accordion]="detailMenuOpen" mat-mini-fab routerLink="." color="primary"
            (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
             <mat-icon>settings</mat-icon>
         </a>
-             <span [@accordion]="detailMenuOpen">Configure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span [@accordion]="detailMenuOpen">Configure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
 
     <div class="ui bottom right attached label" style="background-color: white"><i

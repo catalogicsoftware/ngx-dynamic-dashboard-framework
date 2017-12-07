@@ -11,6 +11,8 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/c
 @Injectable()
 export class RuntimeService {
 
+    // watsonMicroserviceURL = 'http://localhost:8080/classify';
+    watsonMicroserviceURL = '/classify';
     static handleError(err: HttpErrorResponse | any) {
 
         const errMsg: any = {
@@ -105,6 +107,7 @@ export class RuntimeService {
      * @returns {Observable<any>}
      */
 
+
     callWatsonAI(aiStatement: string) {
         console.log('running Watson');
 
@@ -119,7 +122,7 @@ export class RuntimeService {
         p = p.append('data', aiStatement);
 
 
-        return this._http.get('http://localhost:8080/classify', {
+        return this._http.get(this.watsonMicroserviceURL, {
             params: p
         }).catch(RuntimeService.handleError);
 

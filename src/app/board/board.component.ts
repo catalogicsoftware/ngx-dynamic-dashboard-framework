@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 /**a
  * Board component
@@ -8,7 +9,31 @@ import {ConfigurationService} from '../services/configuration.service';
 @Component({
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['./styles-board.css']
+    styleUrls: ['./styles-board.css'],
+    animations: [
+
+        trigger('accordion', [
+            state('in', style({
+                opacity: '1'
+            })),
+            state('out', style({
+                opacity: '0'
+            })),
+            transition('in => out', animate('100ms ease-in-out')),
+            transition('out => in', animate('600ms ease-in-out'))
+        ]),
+        trigger('accordion2', [
+            state('in', style({
+                height: '*'
+            })),
+            state('out', style({
+                opacity: '0',
+                height: '0px'
+            })),
+            transition('in => out', animate('500ms ease-in-out')),
+            transition('out => in', animate('100ms ease-in-out'))
+        ])
+    ]
 
 
 })
@@ -19,6 +44,8 @@ export class BoardComponent implements OnInit {
     selectedBoard = '';
     placeHolderText = 'Ask the board to do something!';
     searchList: Array<string> = [];
+
+    detailMenuOpen = 'out';
 
 
     constructor(private _configurationService: ConfigurationService) {
@@ -60,5 +87,11 @@ export class BoardComponent implements OnInit {
 
     selectBoard(selectedBoard: string) {
         this.selectedBoard = selectedBoard;
+    }
+
+    toggleAcordion(): void {
+
+        this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';
+
     }
 }

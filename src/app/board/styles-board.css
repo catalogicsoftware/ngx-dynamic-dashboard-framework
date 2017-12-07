@@ -1,8 +1,14 @@
 .ui.menu{
     margin-bottom: .1em !important;
+    font-size: .7em;
+}
+.ui.grid>.column:not(.row){
+    padding-bottom: unset;
 }
 
-
+.ui.label>.icon{
+    margin: 0;
+}
 .ui.secondary.pointing.menu .active.item {
     color:  #3f51b5 !important;
     font-weight: 500 !important;

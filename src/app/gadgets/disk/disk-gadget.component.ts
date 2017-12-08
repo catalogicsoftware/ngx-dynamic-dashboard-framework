@@ -95,18 +95,12 @@ export class DiskGadgetComponent extends GadgetBase {
 
     public run() {
         this.data = [];
-        this.errorExists = false;
-        this.actionInitiated = true;
-        this.actionInitiated = false;
-        this.inRun = true;
+        this.initializeRunState(true)
         this.updateData(null);
     }
 
     public stop() {
-        this.errorExists = false;
-        this.actionInitiated = true;
-        this.actionInitiated = false;
-        this.inRun = false;
+        this.setStopState(false);
     }
 
     public updateData(data: any[]) {

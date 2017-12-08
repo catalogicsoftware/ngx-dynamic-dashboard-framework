@@ -35,9 +35,11 @@ export class PropertyListGadgetComponent extends GadgetBase implements OnDestroy
     }
 
     public run() {
+        this.initializeRunState(true);
     }
 
     public stop() {
+        this.setStopState(false);
     }
 
     public updateData(data: any[]) {

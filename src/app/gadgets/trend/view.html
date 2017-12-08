@@ -1,13 +1,12 @@
-<div (mouseover)="showGadgetControls(true)"
-     (mouseleave)="showGadgetControls(false)"
-     class="ui center aligned segment gadget" dnd-draggable
+<div class="ui center aligned segment gadget" dnd-draggable
      [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
 
     <a class="ui left corner label">
         <i class="circle icon" [ngClass]="{'green':inRun, 'yellow':!inRun}"></i>
     </a>
 
-    <app-gadget-header
+    <app-gadget-header (mouseover)="showGadgetControls(true)"
+                       (mouseleave)="showGadgetControls(false)"
             [title]="title"
             [inRun]="inRun"
             [inConfig]="inConfig"

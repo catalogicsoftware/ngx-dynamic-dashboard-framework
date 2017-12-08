@@ -60,17 +60,13 @@ export class ServiceListGadgetComponent extends GadgetBase implements OnDestroy 
     }
 
     public run() {
-        this.errorExists = false;
-        this.actionInitiated = false;
-        this.inRun = true;
+        this.initializeRunState( true);
         Object.assign(this, {serviceList});
 
     }
 
     public stop() {
-        this.errorExists = false;
-        this.inRun = false;
-        this.actionInitiated = false;
+        this.setStopState(false);
     }
 
     public updateData(data: any[]) {

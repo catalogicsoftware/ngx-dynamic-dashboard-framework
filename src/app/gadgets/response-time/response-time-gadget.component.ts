@@ -38,8 +38,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     }
 
     public run() {
-
-        this.inRun = true;
+        this.initializeRunState(true);
 
         let single = [];
         Object.assign(this, {single});
@@ -62,6 +61,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     }
 
     public stop() {
+        this.setStopState(false);
     }
 
     public updateData(data: any[]) {

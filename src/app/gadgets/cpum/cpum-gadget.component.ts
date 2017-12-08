@@ -57,12 +57,9 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
 
     public run() {
 
-        this.errorExists = false;
-        this.actionInitiated = true;
-        this.inConfig = false;
+        this.initializeRunState(false);
 
         this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
-
 
                 const dataObject = JSON.parse(data);
 
@@ -110,17 +107,14 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
             // todo test whether we are connected of not
             this._webSocketService.sendMessage('start');
 
-            this.inRun = true;
-            this.actionInitiated = false;
+            this.setInRunState();
 
 
         });
     }
 
     public stop() {
-        this.errorExists = false;
-        this.inRun = false;
-        this.actionInitiated = true;
+        this.setStopState(true);
 
         try {
 

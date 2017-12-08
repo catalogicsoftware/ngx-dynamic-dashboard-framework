@@ -46,26 +46,23 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
 
     public run() {
 
-        this.errorExists = false;
-        this.actionInitiated = true;
+        this.initializeRunState(false);
 
         this.webSocket = this._webSocketService.createObservableWebSocket(this.getEndPoint().address).subscribe(data => {
 
-            const dataObject = JSON.parse(data);
+                const dataObject = JSON.parse(data);
 
-            try {
+                try {
 
-                let percent = dataObject.used / dataObject.total * 100;
+                    let percent = dataObject.used / dataObject.total * 100;
+                    percent = Math.round(percent);
+                    this.updateGraph(percent);
 
-                percent = Math.round(percent);
+                } catch (error) {
+                    this.handleError(error);
+                }
 
-                this.updateGraph(percent);
-
-            } catch (error) {
-                this.handleError(error);
-            }
-
-        },
+            },
             error => {
 
                 console.log(error);
@@ -80,22 +77,17 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
 
             // todo test whether we are connected of not
             this._webSocketService.sendMessage('start');
-
-            this.inRun = true;
-            this.actionInitiated = false;
+            this.setInRunState();
 
         });
     }
 
     public stop() {
-        this.errorExists = false;
-        this.inRun = false;
-        this.actionInitiated = true;
+        this.setStopState(true);
 
-         try {
+        try {
 
-             this._webSocketService.sendMessage('stop');
-
+            this._webSocketService.sendMessage('stop');
             this.webSocket.unsubscribe();
 
         } catch (error) {

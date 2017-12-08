@@ -47,11 +47,12 @@ export class JobAnalysisGadgetComponent extends GadgetBase {
     }
 
     public run() {
+        this.initializeRunState(true);
 
     }
 
     public stop() {
-
+        this.setStopState(false);
     }
 
     public updateData(data: any[]) {

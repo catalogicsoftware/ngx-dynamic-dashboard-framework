@@ -147,6 +147,32 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
 
     }
 
+    public initializeRunState(forceRunState: boolean) {
+
+        this.errorExists = false;
+        this.actionInitiated = true;
+        this.inConfig = false;
+        if (forceRunState) {
+            this.setInRunState();
+        }
+    }
+
+    public setInRunState() {
+
+        this.inRun = true;
+        this.actionInitiated = false;
+    }
+
+    public setStopState(longRunningStopAction: boolean) {
+        /**
+         *  If the gadget indicates longRunningStopAction then the gadget has to set this value to
+         *  false once the operation is complete
+         */
+        this.actionInitiated = longRunningStopAction;
+        this.inRun = false;
+        this.errorExists = false;
+    }
+
     public remove() {
         this._gadgetInstanceService.removeInstance(this.instanceId);
     }

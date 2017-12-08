@@ -78,21 +78,13 @@ export class TrendLineGadgetComponent extends GadgetBase {
     }
 
     public run() {
-        this.errorExists = false;
-        this.actionInitiated = true;
-        this.actionInitiated = false;
-        this.inRun = true;
-
+        this.initializeRunState(true);
         this.updateData();
 
     }
 
     public stop() {
-        this.errorExists = false;
-        this.actionInitiated = true;
-        this.actionInitiated = false;
-        this.inRun = false;
-
+        this.setStopState(false);
         this._trendLineService.stop(this.eventTimerSubscription);
     }
 

@@ -110,13 +110,12 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
     }
 
     public run() {
-        this.errorExists = false;
-        this.actionInitiated = true;
+        this.initializeRunState(false);
+
         const me = this;
         this.remoteService = this._edgeService.getMicroServices(this.getEndPoint().address).subscribe(results => {
                 const edgeServiceList = [];
-                this.actionInitiated = false;
-                this.inRun = true;
+                this.setInRunState();
 
                 if (results instanceof Array) {
                     results.forEach(function (item) {
@@ -194,9 +193,7 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
     }
 
     public stop() {
-        this.errorExists = false;
-        this.inRun = false;
-        this.actionInitiated = true;
+        this.setStopState(true);
 
         if (this.remoteService) {
             this.remoteService.unsubscribe();

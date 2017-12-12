@@ -1,60 +1,52 @@
-<div class="ui centered grid segment" style="margin-left: 20px; margin-right:20px; min-height: 40px">
-    <div [@accordion2]="detailMenuOpen" class="four wide column">
-        <app-typeahead-input [@accordion]="detailMenuOpen"
-                             [searchList]="searchList"
-                             [placeHolderText]="placeHolderText"
-                             (ArtificialIntelligenceEventEmitter)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)">
-        </app-typeahead-input>
+<div [@accordion2]="detailMenuOpen"  class="ui menu">
 
+
+    <app-typeahead-input [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
+                         [searchList]="searchList"
+                         [placeHolderText]="placeHolderText"
+                         (ArtificialIntelligenceEventEmitter)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)">
+    </app-typeahead-input>
+
+
+    <div [@accordion]="detailMenuOpen" class="ui secondary pointing menu board">
+        <a *ngFor="let board of dashboardList; let i = index" class="item"
+           [ngClass]="{'active':board == selectedBoard}"
+           (click)="gadgetGrid.loadBoard(board)" (click)="selectBoard(board)">
+            {{board}}
+        </a>
     </div>
-    <div [@accordion2]="detailMenuOpen" class="four wide column">
-        <div [@accordion]="detailMenuOpen" class="ui centered secondary pointing menu">
-            <a *ngFor="let board of dashboardList; let i = index" class="item"
-               [ngClass]="{'active':board == selectedBoard}"
-               (click)="gadgetGrid.loadBoard(board)" (click)="selectBoard(board)">
-                {{board}}
-            </a>
-        </div>
-    </div>
 
-    <div [@accordion2]="detailMenuOpen" class="eight wide right aligned column">
 
-        <a [@accordion]="detailMenuOpen" mat-mini-fab routerLink="." color="primary"
+    <div class="right menu">
+
+        <a [@accordion]="detailMenuOpen" class="item"
            (click)="notifcationModal.showNotificationModal('Notifications')">
-            <mat-icon>notifications</mat-icon>
+            <i class="large grey alarm icon"></i>
             <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>
         </a>
-        <span [@accordion]="detailMenuOpen">Alerts
-            &nbsp;</span>
-
-        <a [@accordion]="detailMenuOpen" mat-mini-fab routerLink="." color="primary"
+        <a [@accordion]="detailMenuOpen" class="item"
            (click)="addGadgetModal.showComponentLibraryModal('Add Gadget')">
-            <mat-icon>add_circle_outline</mat-icon>
+            <i class="large grey plus icon"></i>
         </a>
-        <span [@accordion]="detailMenuOpen">Add
-            &nbsp;</span>
 
-        <a [@accordion]="detailMenuOpen" mat-mini-fab routerLink="." color="primary"
+        <a [@accordion]="detailMenuOpen" class="item"
            (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
-            <mat-icon>grid_on</mat-icon>
+            <i class="large grey grid layout icon"></i>
         </a>
-        <span [@accordion]="detailMenuOpen">Layout
-            &nbsp;</span>
 
-        <a [@accordion]="detailMenuOpen" mat-mini-fab routerLink="." color="primary"
+        <a [@accordion]="detailMenuOpen" class="item"
            (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
-            <mat-icon>settings</mat-icon>
+            <i class="large grey setting icon"></i>
         </a>
-        <span [@accordion]="detailMenuOpen">Configure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+        <a class="item"><i
+                class="large grey chevron icon" (click)="toggleAcordion()"
+                [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
+        </a>
     </div>
 
-    <div class="ui bottom right attached label" style="background-color: white"><i
-            class="large chevron icon" (click)="toggleAcordion()"
-            [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"
-            style="color:lightgrey"></i></div>
 </div>
-
-
+<br>
 <app-board-layout-manager-modal #boardLayoutModal
                                 (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
 

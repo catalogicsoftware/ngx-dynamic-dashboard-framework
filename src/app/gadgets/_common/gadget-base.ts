@@ -170,7 +170,7 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
          */
         this.actionInitiated = longRunningStopAction;
         this.inRun = false;
-        this.errorExists = false;
+
     }
 
     public remove() {

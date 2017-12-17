@@ -8,17 +8,20 @@
 ## Sample Board 1
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb1.png)
 
-## Add Gadget
+## Add Board and Gadget 
 ![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add.gif)
 
-## Sample Respose Time Gadget
+## Sample Response Time Gadget
 ![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/responsetime.gif)
+
+## Sample Realtime Web Socket Based Gadget
+![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/websocket-realitme.gif)
 
 ## Sample Board 2
 ![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb2.png)
 
-## Add Board/Drag and Drop
-![Image of Add Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add-board.gif)
+## Drag and Drop
+![Image of Add Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/drag-drop.gif)
 
 ## Facet Filter
 ![Image of Filter Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/filter.gif)

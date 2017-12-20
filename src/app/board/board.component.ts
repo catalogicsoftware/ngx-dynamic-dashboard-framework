@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+declare var jQuery: any;
+
 
 /**a
  * Board component
@@ -46,6 +48,8 @@ export class BoardComponent implements OnInit {
 
     detailMenuOpen = 'out';
 
+    @ViewChild('sidebar_tag') sideBarRef: ElementRef;
+    sideBar: any;
 
     constructor(private _configurationService: ConfigurationService) {
     }
@@ -92,5 +96,12 @@ export class BoardComponent implements OnInit {
 
         this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';
 
+    }
+
+    toggleSideBar() {
+        this.sideBar = jQuery(this.sideBarRef.nativeElement);
+
+        this.sideBar.sidebar('setting', 'transition', 'overlay');
+        this.sideBar.sidebar('toggle');
     }
 }

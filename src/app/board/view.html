@@ -1,4 +1,4 @@
-<div [@accordion2]="detailMenuOpen"  class="ui menu">
+<div [@accordion2]="detailMenuOpen" class="ui menu">
 
 
     <app-typeahead-input [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
@@ -19,8 +19,10 @@
 
     <div class="right menu">
 
+        <!-- <a [@accordion]="detailMenuOpen" class="item"
+            (click)="notifcationModal.showNotificationModal('Notifications')"> -->
         <a [@accordion]="detailMenuOpen" class="item"
-           (click)="notifcationModal.showNotificationModal('Notifications')">
+           (click)="toggleSideBar()">
             <i class="large grey alarm icon"></i>
             <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>
         </a>
@@ -72,4 +74,8 @@
 </app-board-configuration-modal>
 
 
-<app-notification-modal #notifcationModal></app-notification-modal>
+<div class="ui sidebar inverted right vertical menu" #sidebar_tag>
+
+    <app-notification-modal #notifcationModal></app-notification-modal>
+
+</div>

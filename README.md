@@ -1,5 +1,4 @@
 
-
 # NGX Dynamic Dashboard Framework
 
 ## Natural Language Processing (NLP) integration

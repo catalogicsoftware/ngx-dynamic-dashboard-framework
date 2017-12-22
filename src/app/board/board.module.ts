@@ -29,6 +29,7 @@ import {ObservableWebSocketService} from '../services/websocket-service';
 import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
+import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 
 @NgModule({
     imports: [
@@ -52,7 +53,9 @@ import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage
             EdgeServiceListGadgetComponent,
             CPUMGadgetComponent,
             ResponseTimeGadgetComponent,
-            StorageObjectListComponent
+            StorageObjectListComponent,
+            DonutGadgetComponent
+
         ]),
         GadgetModule,
         DndModule.forRoot(),

@@ -29,6 +29,10 @@ import {FormsModule} from '@angular/forms';
 import {StorageObjectListComponent} from './storage-object-list/storage-object-list.component';
 import {StorageService} from './storage-object-list/service';
 import {DataListModule} from '../datalist/data-list.module';
+import {DonutGadgetComponent} from './donut/donut-gadget.component';
+import {DonutService} from './donut/service';
+import {APITokenService} from '../api-token/api-token.service';
+
 
 
 @NgModule({
@@ -62,7 +66,8 @@ import {DataListModule} from '../datalist/data-list.module';
         PropertyListGadgetComponent,
         ServiceListGadgetComponent,
         ResponseTimeGadgetComponent,
-        StorageObjectListComponent
+        StorageObjectListComponent,
+        DonutGadgetComponent
     ],
 
     providers: [TrendService,
@@ -70,7 +75,9 @@ import {DataListModule} from '../datalist/data-list.module';
         StatisticService,
         EdgeService,
         CPUService,
-        StorageService
+        StorageService,
+        DonutService,
+        APITokenService
     ],
 
     exports: [
@@ -88,7 +95,8 @@ import {DataListModule} from '../datalist/data-list.module';
         PropertyListGadgetComponent,
         ServiceListGadgetComponent,
         ResponseTimeGadgetComponent,
-        StorageObjectListComponent
+        StorageObjectListComponent,
+        DonutGadgetComponent
     ]
 })
 export class GadgetModule {

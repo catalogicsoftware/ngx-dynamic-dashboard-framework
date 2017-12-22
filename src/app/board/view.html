@@ -19,10 +19,8 @@
 
     <div class="right menu">
 
-        <!-- <a [@accordion]="detailMenuOpen" class="item"
-            (click)="notifcationModal.showNotificationModal('Notifications')"> -->
         <a [@accordion]="detailMenuOpen" class="item"
-           (click)="toggleSideBar()">
+           (click)="toggleNotificationSideBar()">
             <i class="large grey alarm icon"></i>
             <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>
         </a>
@@ -32,7 +30,7 @@
         </a>
 
         <a [@accordion]="detailMenuOpen" class="item"
-           (click)="boardLayoutModal.showBoardLayoutsModal('Board Layout','test')">
+           (click)="toggleLayoutSideBar()">
             <i class="large grey grid layout icon"></i>
         </a>
 
@@ -49,10 +47,6 @@
 
 </div>
 <br>
-<app-board-layout-manager-modal #boardLayoutModal
-                                (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
-
-</app-board-layout-manager-modal>
 
 <!-- the modal will emit an event and call the grid component to add the requested cell to the board -->
 <app-add-gadget-modal #addGadgetModal
@@ -74,8 +68,13 @@
 </app-board-configuration-modal>
 
 
-<div class="ui sidebar inverted right vertical menu" #sidebar_tag>
+<!-- side bar content -->
+<div class="ui sidebar inverted right vertical menu" #notificationSideBar_tag>
+    <app-notification-modal></app-notification-modal>
+</div>
 
-    <app-notification-modal #notifcationModal></app-notification-modal>
-
+<div class="ui sidebar inverted right vertical menu" #layoutSideBar_tag>
+    <app-board-layout-manager-modal
+                                    (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
+    </app-board-layout-manager-modal>
 </div>

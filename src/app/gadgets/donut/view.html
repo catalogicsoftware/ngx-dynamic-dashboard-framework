@@ -24,7 +24,7 @@
     <div class="ui grid">
         <div class="row">
             <!--<div>{{avail}} {{used}}</div> -->
-            <div *ngIf="!inConfig" style="max-height: 300px; max-width: 400px; min-height: 250px">
+            <div *ngIf="!inConfig" style="min-height: 270px">
 
                 <ngx-charts-pie-chart *ngIf="!inConfig"
                         [view]="view"
@@ -35,8 +35,9 @@
                         [labels]="false"
                         [doughnut]="true"
                         [gradient]="false"
+                        [legendTitle]="legendTitle"
                         [arcWidth]=".4"
-                        (select)="drillDownPopUp.showDetail($event)">
+                        (select)="drillDownPopUp.showDrillDownDetail($event, vms)">
                 </ngx-charts-pie-chart>
 
             </div>
@@ -60,54 +61,7 @@
 
     <br>
     <div style="display: block !important;"  [@accordion]="detailMenuOpen">
-
-        <table class="ui two column table" [@accordion2]="detailMenuOpen">
-            <thead>
-            <tr>
-                <th>Device ID</th>
-                <th>Type</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>safiow4lkf8adfkadfadf</td>
-                <td>ISCSI</td>
-            </tr>
-            </tbody>
-        </table>
-        <table class="ui two column table" [@accordion2]="detailMenuOpen">
-            <thead>
-            <tr>
-                <th>Allocated</th>
-                <th>Available</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>123123 TB</td>
-                <td>323232342 TB</td>
-
-            </tr>
-            </tbody>
-        </table>
-        <table class="ui three column table" [@accordion2]="detailMenuOpen">
-            <thead>
-            <tr>
-                <th>Read</th>
-                <th>Write</th>
-                <th>Latency</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>100 ms</td>
-                <td>10 ms</td>
-                <td>10 ms</td>
-            </tr>
-            </tbody>
-        </table>
-        <br>
+       <h2>Detail Content</h2>
     </div>
 
 

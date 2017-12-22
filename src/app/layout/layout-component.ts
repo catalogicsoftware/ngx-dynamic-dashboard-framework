@@ -2,14 +2,13 @@
  * Created by jayhamilton on 1/24/17.
  */
 import {
-    ViewChild, ElementRef, AfterViewInit, Component, Output, EventEmitter
+    AfterViewInit, Component, Output, EventEmitter
 } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {boardLayouts} from './model';
 
-declare var jQuery: any;
 
 /**
  * Message Modal - clasable modal with message
@@ -34,12 +33,11 @@ export class BoardLayoutManagerComponent implements AfterViewInit {
 
     boardLayouts: any[];
 
-    modalicon: string;
-    modalheader: string;
-    modalmessage: string;
+
+    modalHeader = 'Layout';
+
     currentBoardLayout = 4;
 
-    @ViewChild('messagemodala_tag') messagemodalaRef: ElementRef;
     messageModal: any;
 
     constructor() {
@@ -57,47 +55,15 @@ export class BoardLayoutManagerComponent implements AfterViewInit {
             }
         }
 
-        this.hideMessageModal();
+        // this.hideMessageModal();
     }
 
-    popMessageModal(icon: string, header: string, message: string, durationms: number) {
-        this.showMessageModal(icon, header, message);
-        Observable.interval(durationms).take(1).subscribe(
-            () => {
-                this.hideMessageModal();
-            }
-        );
-    }
 
-    showMessageModal(icon: string, header: string, message: string) {
-        this.modalicon = icon;
-        this.modalheader = header;
-        this.modalmessage = message;
-        this.messageModal.modal('show');
-
-    }
-
-    showBoardLayoutsModal(header: string, selectedStructure: string) {
-        this.modalheader = header;
-        this.messageModal.modal('show');
-    }
-
-    hideMessageModal() {
-        this.modalicon = '';
-        this.modalheader = '';
-        this.modalmessage = '';
-        this.messageModal.modal('hide');
-    }
-
-    ngAfterViewInit() {
-        this.messageModal = jQuery(this.messagemodalaRef.nativeElement);
-    }
+    ngAfterViewInit() {}
 
     initializeLayouts() {
 
-
         Object.assign(this, {boardLayouts});
-
     }
 
     setChecked(selectedStructure: string) {

@@ -33,7 +33,11 @@ export class EndPointService {
                         'test user',
                         'testCredential',
                         'password',
-                        'description');
+                        'description',
+                        'token API',
+                        'token API Header',
+                        'token API Property'
+                    );
                     base.endPoint.push(testEndPoint);
                     localStorage.setItem('endpoint', JSON.stringify(base));
                     observer.next(base);

@@ -2,3 +2,7 @@
 .full-width {
     width: 100%;
 }
+
+/deep/ .mat-form-field-underline{
+    height: 0 !important;
+}

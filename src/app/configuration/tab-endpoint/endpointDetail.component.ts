@@ -36,7 +36,10 @@ export class EndPointDetailComponent implements OnChanges {
             user: this.currentEndPoint.user,
             credentialType: this.currentEndPoint.credentialType,
             credential: this.currentEndPoint.credential,
-            description: this.currentEndPoint.description
+            description: this.currentEndPoint.description,
+            tokenAPI: this.currentEndPoint.tokenAPI,
+            tokenAPIProperty: this.currentEndPoint.tokenAPIProperty,
+            tokenAPIHeader: this.currentEndPoint.tokenAPIHeader
         });
     }
 
@@ -85,6 +88,9 @@ export class EndPointDetailComponent implements OnChanges {
             user: ['', Validators.required],
             credentialType: ['', Validators.required],
             credential: ['', Validators.required],
+            tokenAPI: ['', Validators.required],
+            tokenAPIProperty: ['', Validators.required],
+            tokenAPIHeader: ['', Validators.required],
             description: ''
         });
 
@@ -98,7 +104,10 @@ export class EndPointDetailComponent implements OnChanges {
             this.endPointForm.value.user,
             this.endPointForm.value.credential,
             this.endPointForm.value.credentialType,
-            this.endPointForm.value.description
+            this.endPointForm.value.description,
+            this.endPointForm.value.tokenAPI,
+            this.endPointForm.value.tokenAPIProperty,
+            this.endPointForm.value.tokenAPIHeader
         );
 
         this.createEvent.emit(ep);
@@ -113,6 +122,9 @@ export class EndPointDetailComponent implements OnChanges {
         this.currentEndPoint.credential = this.endPointForm.value.credential;
         this.currentEndPoint.credentialType = this.endPointForm.value.credentialType;
         this.currentEndPoint.description = this.endPointForm.value.description;
+        this.currentEndPoint.tokenAPI = this.endPointForm.value.tokenAPI;
+        this.currentEndPoint.tokenAPIProperty = this.endPointForm.value.tokenAPIProperty;
+        this.currentEndPoint.tokenAPIHeader = this.endPointForm.value.tokenAPIHeader;
 
         this.updateEvent.emit(this.currentEndPoint);
         this.currentState = 'reset';

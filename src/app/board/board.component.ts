@@ -35,8 +35,6 @@ declare var jQuery: any;
             transition('out => in', animate('50ms ease-in-out'))
         ])
     ]
-
-
 })
 export class BoardComponent implements OnInit {
 
@@ -48,8 +46,10 @@ export class BoardComponent implements OnInit {
 
     detailMenuOpen = 'out';
 
-    @ViewChild('sidebar_tag') sideBarRef: ElementRef;
-    sideBar: any;
+    @ViewChild('notificationSideBar_tag') notificationSideBarRef: ElementRef;
+    @ViewChild('layoutSideBar_tag') layoutSideBarRef: ElementRef;
+    notificationSideBar: any;
+    layoutSideBar: any;
 
     constructor(private _configurationService: ConfigurationService) {
     }
@@ -97,11 +97,14 @@ export class BoardComponent implements OnInit {
         this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';
 
     }
-
-    toggleSideBar() {
-        this.sideBar = jQuery(this.sideBarRef.nativeElement);
-
-        this.sideBar.sidebar('setting', 'transition', 'overlay');
-        this.sideBar.sidebar('toggle');
+    toggleLayoutSideBar() {
+        this.layoutSideBar = jQuery(this.layoutSideBarRef.nativeElement);
+        this.layoutSideBar.sidebar('setting', 'transition', 'overlay');
+        this.layoutSideBar.sidebar('toggle');
+    }
+    toggleNotificationSideBar() {
+        this.notificationSideBar = jQuery(this.notificationSideBarRef.nativeElement);
+        this.notificationSideBar.sidebar('setting', 'transition', 'overlay');
+        this.notificationSideBar.sidebar('toggle');
     }
 }

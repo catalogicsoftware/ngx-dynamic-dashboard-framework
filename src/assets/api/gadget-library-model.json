@@ -868,6 +868,165 @@
       }]
     },
     {
+      "componentType": "DonutGadgetComponent",
+      "name": "Smart Protection",
+      "description": "Ai based protection.",
+      "icon": "assets/images/smart-protect.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Chart",
+          "name": "pie"
+        },
+        {
+          "facet": "Performance",
+          "name": "storage"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 4
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Smart Protection",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "number",
+                "key": "threshold",
+                "label": "Consumed Threshold",
+                "value": 50,
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Counts",
+            "groupId": "counts",
+            "position": 10,
+            "properties": [
+
+              {
+                "controlType": "textbox",
+                "key": "base",
+                "label": "Base API",
+                "value": "",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "textbox",
+                "key": "object",
+                "label": "Object API",
+                "value": "",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "textbox",
+                "key": "total",
+                "label": "Total API",
+                "value": "",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "textbox",
+                "key": "good",
+                "label": "Total Good Count API",
+                "value": "",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "textbox",
+                "key": "bad",
+                "label": "Total Bad Count API",
+                "value": "",
+                "required": true,
+                "order": 1
+              }
+
+            ]
+          },
+          {
+            "displayName": "Thresholds",
+            "groupId": "threshold",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "number",
+                "key": "frequency",
+                "label": "Frequency",
+                "value": 30,
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "number",
+                "key": "retentionH",
+                "label": "Retention High",
+                "value": 30,
+                "required": true,
+                "order": 4
+              },
+              {
+                "controlType": "number",
+                "key": "retentionL",
+                "label": "Retention Low",
+                "value": 180,
+                "required": true,
+                "order": 4
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
+      },
+      "actions":[{
+        "name": "Add"
+      }]
+    },
+    {
       "componentType": "StatisticGadgetComponent",
       "name": "Statistic",
       "description": "General statistic.",

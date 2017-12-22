@@ -11,6 +11,7 @@ import {
 
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
+import {Facet} from '../../facet/facet-model';
 
 
 declare var jQuery: any;
@@ -60,13 +61,34 @@ export class VisDrillDownComponent implements AfterViewInit {
     modalicon: string;
     modalheader: string;
     modalconfig: string;
-
+    vms: any[];
+    objectList: any[] = [];
+    objectTitleList: string[] = [];
+    placeHolderText = 'Begin typing vm name';
+    layoutColumnOneWidth = 'six';
+    layoutColumnTwoWidth = 'ten';
+    facetTags: Array<Facet> = [];
+    goldCount = 0;
+    silverCount = 0;
+    bronzeCount = 0;
     @ViewChild('vismodal_tag') vismodalaRef: ElementRef;
     configModal: any;
 
 
     constructor() {
 
+    }
+
+    addGoldCount() {
+        this.goldCount++;
+    }
+
+    addSilverCount() {
+        this.silverCount++;
+    }
+
+    addBronzeCount() {
+        this.bronzeCount++;
     }
 
 
@@ -92,13 +114,19 @@ export class VisDrillDownComponent implements AfterViewInit {
         this.configModal.modal('hide');
     }
 
+    showDrillDownDetail($event, dataObject) {
+
+        const data: string = JSON.stringify($event, null, 4);
+        this.showMessageModal(null, 'Detail', data);
+        this.vms = dataObject;
+
+    }
+
     showDetail($event) {
 
-        console.log($event);
         const data: string = JSON.stringify($event, null, 4);
-
-        console.log(data);
         this.showMessageModal(null, 'Detail', data);
+
 
     }
 

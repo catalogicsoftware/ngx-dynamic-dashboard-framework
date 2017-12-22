@@ -6,14 +6,29 @@ export class EndPoint {
     public credentialType: string;
     public credential: string;
     public description: string;
+    public tokenAPI: string;
+    public tokenAPIProperty: string;
+    public tokenAPIHeader: string;
 
-    constructor(name: string, address: string, user: string, credential: string, credentialType: string, description: string) {
+    constructor(name: string,
+                address: string,
+                user: string,
+                credential: string,
+                credentialType: string,
+                description: string,
+                tokenAPI: string,
+                tokenAPIProperty: string,
+                tokenAPIHeader: string) {
+
         this.name = name;
         this.address = address;
         this.user = user;
         this.credential = credential;
         this.credentialType = credentialType;
         this.description = description;
+        this.tokenAPI = tokenAPI;
+        this.tokenAPIProperty = tokenAPIProperty;
+        this.tokenAPIHeader = tokenAPIHeader;
         this.id = 0;
     }
 

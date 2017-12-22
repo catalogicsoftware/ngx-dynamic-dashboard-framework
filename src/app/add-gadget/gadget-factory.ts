@@ -12,6 +12,7 @@ import {EdgeServiceListGadgetComponent} from '../gadgets/edge-service-list/edge-
 import {CPUMGadgetComponent} from '../gadgets/cpum/cpum-gadget.component';
 import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
+import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 /**
  * Created by jayhamilton on 6/30/17.
  */
@@ -29,6 +30,8 @@ export class GadgetFactory {
 
         switch (gadgetType) {
 
+            case 'DonutGadgetComponent':
+                return DonutGadgetComponent;
             case 'CPUGadgetComponent':
                 return CPUGadgetComponent;
             case 'MemoryGadgetComponent':

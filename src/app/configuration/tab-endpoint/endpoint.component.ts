@@ -17,7 +17,7 @@ export class EndPointComponent {
 
     endPoints: EndPoint[];
 
-    currentEndPoint: EndPoint = new EndPoint('', '', '', '', '', '');
+    currentEndPoint: EndPoint = new EndPoint('', '', '', '', '', '', '', '', '');
 
     constructor(private _endPointService: EndPointService) {
 
@@ -61,10 +61,10 @@ export class EndPointComponent {
         this.endPoints.forEach(item => {
 
             if (item.name === endPoint.name) {
-               const index = this.endPoints.indexOf(item);
-               if ( index > -1 ) {
-                   this.endPoints.splice(index, 1);
-               }
+                const index = this.endPoints.indexOf(item);
+                if (index > -1) {
+                    this.endPoints.splice(index, 1);
+                }
             }
         });
 
@@ -78,6 +78,8 @@ export class EndPointComponent {
             this.currentEndPoint.description = '';
             this.currentEndPoint.credential = '';
             this.currentEndPoint.credentialType = '';
+            this.currentEndPoint.tokenAPI = '';
+            this.currentEndPoint.tokenAPIProperty = '';
             this.currentEndPoint.user = '';
         }
     }

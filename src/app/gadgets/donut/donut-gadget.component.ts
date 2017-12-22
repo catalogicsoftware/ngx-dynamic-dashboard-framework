@@ -11,7 +11,8 @@ import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {DiskService} from './service';
+import {DonutService} from './service';
+import {APITokenService} from '../../api-token/api-token.service';
 
 
 @Component({
@@ -45,26 +46,29 @@ import {DiskService} from './service';
         ])
     ]
 })
-export class DiskGadgetComponent extends GadgetBase {
+export class DonutGadgetComponent extends GadgetBase {
 
     topic: any;
-
     showOperationControls = false;
-
     data: any;
-
     threshold: string;
 
+    legendTitle = 'Protection';
     badColorScheme = {
         domain: ['#a10910', '#DDDDDD']
     };
     goodColorScheme = {
         domain: ['#00c700', '#DDDDDD']
     };
-    used;
-    avail;
-
+    vms: any;
     detailMenuOpen: string;
+
+    objectLabelVal1 = 'Protected';
+    objectLabelVal2 = 'UnProtected';
+    objectCount: string;
+    objectCountAPI: string;
+    objectSuccessCount: string;
+    objectSuccessCountAPI: string;
 
     colorScheme = this.goodColorScheme;
 
@@ -73,12 +77,29 @@ export class DiskGadgetComponent extends GadgetBase {
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
-                protected _diskService: DiskService) {
+                protected _donutService: DonutService,
+                protected  _apiTokenService: APITokenService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
             _changeDetectionRef);
+
+
+        if (this.endpointObject && this.endpointObject.address) {
+            /**
+             * todo - this should really be done in pre run. However, there is  currently an issue where Pre-Run is called twice
+             * so this needs to be refactored.
+             */
+            this._apiTokenService.getAPITokenForCredentials({
+                'url': this.endpointObject.address + this.endpointObject.tokenAPI,
+                'user': this.endpointObject.user,
+                'password': this.endpointObject.credential
+            }).subscribe(data => {
+                this._apiTokenService.setAPIToken(data[this.endpointObject.tokenAPIProperty]);
+                console.log('Donut Endpoint tokenKey: ' + data[this.endpointObject.tokenAPIProperty]);
+            });
+        }
 
         this.run();
         this.setTopic();
@@ -89,7 +110,6 @@ export class DiskGadgetComponent extends GadgetBase {
 
         this.threshold = this.getPropFromPropertyPages('threshold');
         this.detailMenuOpen = 'out';
-
     }
 
 
@@ -105,7 +125,9 @@ export class DiskGadgetComponent extends GadgetBase {
 
     public updateData(data: any[]) {
 
-        this._diskService.getMockData().subscribe(_data => {
+        const me = this;
+
+        this._donutService.getMockData(this.objectLabelVal1, this.objectLabelVal2).subscribe(_data => {
                 this.data = _data;
 
                 const thresholdVal = Number(this.threshold);
@@ -115,12 +137,38 @@ export class DiskGadgetComponent extends GadgetBase {
                 } else {
                     this.colorScheme = this.badColorScheme;
                 }
-
-                this.used = this.data[0].value;
-                this.avail = this.data[1].value;
-
             },
             error => this.handleError(error));
+
+        if (this.endpointObject && this.endpointObject.address) {
+            this._donutService.getSuccessCategoryObjectCount(
+                this._apiTokenService.getAPIToken(),
+                this.endpointObject.tokenAPIHeader,
+                this.endpointObject.address,
+                this.objectSuccessCountAPI
+            ).subscribe(successData => {
+
+                /**
+                 * todo
+                 */
+                me.objectSuccessCount = successData['total'];
+
+            });
+
+            this._donutService.getTotalObjectCount(
+                this._apiTokenService.getAPIToken(),
+                this.endpointObject.tokenAPIHeader,
+                this.endpointObject.address,
+                this.objectCountAPI
+            ).subscribe(totalData => {
+
+                /**
+                 *
+                 * todo
+                 */
+                me.objectCount = totalData['total'];
+            });
+        }
     }
 
     public updateProperties(updatedProperties: any) {
@@ -161,13 +209,15 @@ export class DiskGadgetComponent extends GadgetBase {
 
 
     }
+
     setTopic() {
-        this._diskService.getHelpTopic().subscribe(data => {
+        this._donutService.getHelpTopic().subscribe(data => {
 
             this.topic = data;
 
         });
     }
+
     toggleAcordion(): void {
 
         this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';

@@ -52,10 +52,10 @@ export class DonutService {
         let headers = new HttpHeaders();
 
         headers = headers.append('Content-Type', 'application/json');
-        headers = headers.append('apiHeader', apiToken);
+        headers = headers.append(apiHeader, apiToken);
 
         /**
-         * todo
+         * todo - this is specific to a certain implementation
          */
         const body = {
             'op': [
@@ -80,7 +80,7 @@ export class DonutService {
         headers = headers.append(apiHeader, apiToken);
 
         /**
-         * todo
+         * todo  - this is specific to a certain implementation
          */
         const body = {
             'op': [
@@ -100,7 +100,7 @@ export class DonutService {
         let params = new HttpParams();
 
         /**
-         * todo
+         * todo - this is specific to a certain implementation
          */
         params = params.append('sort', '[{"property": "name", "direction": "ASC"}]');
         params = params.append('from', 'hlo');

@@ -961,14 +961,6 @@
                 "value": "",
                 "required": true,
                 "order": 1
-              },
-              {
-                "controlType": "textbox",
-                "key": "bad",
-                "label": "Total Bad Count API",
-                "value": "",
-                "required": true,
-                "order": 1
               }
 
             ]

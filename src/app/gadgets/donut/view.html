@@ -37,7 +37,7 @@
                         [gradient]="false"
                         [legendTitle]="legendTitle"
                         [arcWidth]=".4"
-                        (select)="drillDownPopUp.showDrillDownDetail($event, vms)">
+                        (select)="drillDownPopUp.showDrillDownDetail($event)">
                 </ngx-charts-pie-chart>
 
             </div>
@@ -55,7 +55,7 @@
             [errorExists]="errorExists">
     </app-error-handler>
 
-    <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
+    <app-drill-down-modal #drillDownPopUp></app-drill-down-modal>
 
     <app-help-modal #helpModal [topic]="topic"></app-help-modal>
 
@@ -67,7 +67,7 @@
 
 
     <div *ngIf="!inConfig" class="ui bottom right attached label" style="background-color: white"><i
-            class="large chevron icon" (click)="toggleAcordion()" [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"
+            class="large chevron icon" (click)="toggleAccordion()" [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"
             style="color:lightgrey"></i></div>
 
 

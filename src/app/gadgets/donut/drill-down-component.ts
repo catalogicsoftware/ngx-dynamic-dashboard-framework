@@ -12,6 +12,7 @@ import {
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {Facet} from '../../facet/facet-model';
+import {DonutService} from './service';
 
 
 declare var jQuery: any;
@@ -27,9 +28,9 @@ declare var jQuery: any;
  *      hideMessageModal - hide the message modal
  */
 @Component({
-    selector: 'app-vis-drill-down-modal',
+    selector: 'app-drill-down-modal',
     moduleId: module.id,
-    templateUrl: './vis-drill-down.html',
+    templateUrl: './drill-down.html',
     animations: [
 
         trigger('contentSwitch', [
@@ -56,12 +57,14 @@ declare var jQuery: any;
 
 
 })
-export class VisDrillDownComponent implements AfterViewInit {
+export class DrillDownComponent implements AfterViewInit {
 
     modalicon: string;
     modalheader: string;
     modalconfig: string;
-    vms: any[];
+
+    objects: any[];
+
     objectList: any[] = [];
     objectTitleList: string[] = [];
     placeHolderText = 'Begin typing vm name';
@@ -69,11 +72,11 @@ export class VisDrillDownComponent implements AfterViewInit {
     layoutColumnTwoWidth = 'ten';
     facetTags: Array<Facet> = [];
 
-    @ViewChild('vismodal_tag') vismodalaRef: ElementRef;
+
+    @ViewChild('drillmodal_tag') modalaRef: ElementRef;
     configModal: any;
 
-
-    constructor() {
+    constructor(private _donutService: DonutService) {
 
     }
 
@@ -95,15 +98,50 @@ export class VisDrillDownComponent implements AfterViewInit {
 
 
     ngAfterViewInit() {
-        this.configModal = jQuery(this.vismodalaRef.nativeElement);
+        this.configModal = jQuery(this.modalaRef.nativeElement);
         this.configModal.modal('hide');
     }
 
     showDrillDownDetail($event) {
+        const chartSelection = $event['name'].toString().toLocaleLowerCase();
+        const chartSelectionVal = $event['value'];
 
-        const data: string = JSON.stringify($event, null, 4);
-        this.showMessageModal(null, 'Detail', data);
+        const me = this;
 
+        switch (chartSelection) {
+
+            // get objects protected
+            case 'passed': {
+
+                this._donutService.getPassObjects().subscribe(data => {
+
+                    console.log(data);
+                });
+            }
+                break;
+            // get VMs that are part of SLAs
+            case'staged': {
+
+                this._donutService.getWarnObjects().subscribe(data => {
+
+                    console.log(data);
+
+                });
+            }
+                break;
+            // get objects unprotected
+            case 'todo': {
+                this._donutService.getTodoObjects().subscribe(data => {
+
+                    console.log(data);
+                });
+            }
+                break;
+
+        }
+
+        this.showMessageModal(null, 'Detail', null);
+        this.objects = null;
 
     }
 

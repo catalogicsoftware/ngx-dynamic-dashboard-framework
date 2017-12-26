@@ -11,6 +11,18 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 @Injectable()
 export class DonutService {
 
+    private apiToken: string;
+    private apiTokenHeader: string;
+    private apiBaseAddress: string;
+    private headers: HttpHeaders;
+
+    private aggregateSuffix = '?action=aggregate';
+    private objectQuerySuffix = '?pageStartIndex=0&pageSize=100&embed=(children(properties))';
+
+    private passAPI: string;
+    private warnAPI: string;
+    private toDoAPI: string;
+
     constructor(private _http: HttpClient) {
     }
 
@@ -47,12 +59,16 @@ export class DonutService {
         });
     }
 
-    getSuccessCategoryObjectCount(apiToken: string, apiHeader: string, apiBase: string, api: string) {
+    poll() {
+        return new Observable(observer => {
+            Observable.timer(500, 10000).subscribe(t => {
+                observer.next();
+            });
+        });
+    }
 
-        let headers = new HttpHeaders();
 
-        headers = headers.append('Content-Type', 'application/json');
-        headers = headers.append(apiHeader, apiToken);
+    getPassCount() {
 
         /**
          * todo - this is specific to a certain implementation
@@ -68,16 +84,15 @@ export class DonutService {
                 ['protectionInfo.storageProfileName']
         };
 
-        return this._http.post(apiBase + api, body, {headers: headers});
+        return this._http.post(this.apiBaseAddress + this.passAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
     }
 
+    getPassObjects() {
 
-    getTotalObjectCount(apiToken: string, apiHeader: string, apiBase: string, api: string) {
+        return this._http.get(this.apiBaseAddress + this.passAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
+    }
 
-        let headers = new HttpHeaders();
-
-        headers = headers.append('Content-Type', 'application/json');
-        headers = headers.append(apiHeader, apiToken);
+    getWarnCount() {
 
         /**
          * todo  - this is specific to a certain implementation
@@ -91,11 +106,35 @@ export class DonutService {
                 }]
         };
 
-        return this._http.post(apiBase + api, body, {headers: headers});
+        return this._http.post(this.apiBaseAddress + this.warnAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
 
     }
 
-    getObjectsToBeProcessed(apiToken: string, apiHeader: string, apiBase: string, api: string,  objectId: number, pageSize: number) {
+    getWarnObjects() {
+
+        return this._http.get(this.apiBaseAddress + this.warnAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
+
+    }
+
+    getToDoCount() {
+
+        /**
+         * todo  - this is specific to a certain implementation
+         */
+        const body = {
+            'op': [
+                {
+                    'operation': 'count',
+                    'fieldname': 'pk',
+                    'outputname': 'count'
+                }]
+        };
+
+        return this._http.post(this.apiBaseAddress + this.toDoAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+
+    }
+
+    getTodoObjects() {
 
         let params = new HttpParams();
 
@@ -104,20 +143,39 @@ export class DonutService {
          */
         params = params.append('sort', '[{"property": "name", "direction": "ASC"}]');
         params = params.append('from', 'hlo');
-        params = params.append('pageSize', pageSize + '');
+        params = params.append('pageSize', 100 + '');
 
-
-        let headers = new HttpHeaders();
-
-        headers = headers.append('Content-Type', 'application/json');
-        headers = headers.append(apiHeader, apiToken);
-
-        return this._http.get(apiBase + api,
+        return this._http.get(this.apiBaseAddress + this.toDoAPI,
             {
-                headers: headers,
+                headers: this.headers,
                 params: params
             });
 
+    }
+
+    processObjects(objects: Array<any>) {
+
+        // pass objects to process API
+
+    }
+
+    setAPIBaseDetails(apiToken: string, apiTokenHeader: string, apiBaseAddress: string, apiBasePath: string) {
+
+        this.apiToken = apiToken;
+        this.apiTokenHeader = apiTokenHeader;
+        this.apiBaseAddress = apiBaseAddress + apiBasePath;
+
+        this.headers = new HttpHeaders();
+
+        this.headers = this.headers.append('Content-Type', 'application/json');
+        this.headers = this.headers.append(this.apiTokenHeader, this.apiToken);
+
+    }
+
+    setAPIs(passAPI: string, warnAPI: string, todoAPI: string) {
+        this.passAPI = passAPI;
+        this.warnAPI = warnAPI;
+        this.toDoAPI = todoAPI;
     }
 
 }

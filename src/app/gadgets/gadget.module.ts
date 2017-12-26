@@ -32,6 +32,7 @@ import {DataListModule} from '../datalist/data-list.module';
 import {DonutGadgetComponent} from './donut/donut-gadget.component';
 import {DonutService} from './donut/service';
 import {APITokenService} from '../api-token/api-token.service';
+import {DrillDownComponent} from './donut/drill-down-component';
 
 
 
@@ -67,7 +68,8 @@ import {APITokenService} from '../api-token/api-token.service';
         ServiceListGadgetComponent,
         ResponseTimeGadgetComponent,
         StorageObjectListComponent,
-        DonutGadgetComponent
+        DonutGadgetComponent,
+        DrillDownComponent
     ],
 
     providers: [TrendService,

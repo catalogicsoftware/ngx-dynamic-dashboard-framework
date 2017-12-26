@@ -1,5 +1,5 @@
 import {
-    ChangeDetectorRef, Component
+    ChangeDetectorRef, Component, OnDestroy
 } from '@angular/core';
 
 import {
@@ -46,27 +46,42 @@ import {APITokenService} from '../../api-token/api-token.service';
         ])
     ]
 })
-export class DonutGadgetComponent extends GadgetBase {
+export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
 
     topic: any;
     data = {};
 
-    legendTitle = 'Protection';
+    showOperationControls = true;
+
     badColorScheme = {
-        domain: ['#a10910', '#DDDDDD']
+        domain: ['#a10910', '#ffff00', '#DDDDDD']
     };
     goodColorScheme = {
-        domain: ['#00c700', '#DDDDDD']
+        domain: ['#00c700', '#ffff00', '#DDDDDD']
     };
     vms: any;
 
     detailMenuOpen: string;
     threshold: string;
-    objectLabelVal1 = 'Protected';
-    objectLabelVal2 = 'UnProtected';
-    objectCountAPI: string;
-    objectSuccessCountAPI: string;
-    apiBase: string;
+
+    // chart counts and labels
+    passCount = 0;
+    warnCount = 0;
+    todoCount = 100;
+
+    passChartLabel = 'Passed';
+    warnChartLabel = 'Staged';
+    todoChartLabel = 'ToDo';
+
+
+    // API paths
+    apiBasePath: string;
+    passAPI: string;
+    warnAPI: string;
+    todoAPI: string;
+
+
+    donutServiceSubscription: any;
 
     colorScheme = this.goodColorScheme;
 
@@ -91,19 +106,29 @@ export class DonutGadgetComponent extends GadgetBase {
 
         this.setTopic();
         this.setProperties();
+        this.setChartData();
 
     }
 
     public run() {
+
         this.initializeRunState(false);
+
+        // process objects - take non successful objects and submit them to api for processing
+
         this.updateData(null);
     }
 
     public stop() {
+
+        if (this.donutServiceSubscription) {
+            this.donutServiceSubscription.unsubscribe();
+        }
         this.setStopState(false);
+
     }
 
-    private setSessionId() {
+    private setAPIToken() {
 
         console.log('Attempting to get get API token');
 
@@ -120,12 +145,21 @@ export class DonutGadgetComponent extends GadgetBase {
                 'password': this.endpointObject.credential
             }).subscribe(data => {
                     this._apiTokenService.setAPIToken(data[this.endpointObject.tokenAPIProperty]);
+
+                    this._donutService.setAPIBaseDetails(
+                        data[this.endpointObject.tokenAPIProperty],
+                        this.endpointObject.tokenAPIHeader,
+                        this.endpointObject.address,
+                        this.apiBasePath);
+
+
+
                     console.log('Donut Endpoint tokenKey: ' + data[this.endpointObject.tokenAPIProperty]);
                 },
                 error => {
 
                     // handle error condition
-                    console.error('PRERUN - Error getting API token!!!')
+                    console.error('PRERUN - Error getting API token!!!');
                     console.error(error);
 
                 });
@@ -135,68 +169,19 @@ export class DonutGadgetComponent extends GadgetBase {
         }
     }
 
-    private getData() {
-
-        console.log('Attempting to get live data');
-
-        this.setInRunState();
-
-        if (this._apiTokenService.getAPIToken()) {
-
-            console.log('Attempting to get success data');
-            this._donutService.getSuccessCategoryObjectCount(
-                this._apiTokenService.getAPIToken(),
-                this.endpointObject.tokenAPIHeader,
-                this.endpointObject.address,
-                this.apiBase + this.objectSuccessCountAPI
-            ).subscribe(successData => {
-
-                    console.log('Success count returned!!!');
-                    console.log(successData);
-                    /**
-                     * todo
-                     */
-                    // me.objectSuccessCount = successData['total'];
-
-                },
-                error => {
-                    console.error('Error getting successful count!');
-                    console.error(error);
-                });
-
-
-            console.log('Attempting to get total data');
-
-            this._donutService.getTotalObjectCount(
-                this._apiTokenService.getAPIToken(),
-                this.endpointObject.tokenAPIHeader,
-                this.endpointObject.address,
-                this.apiBase + this.objectCountAPI
-            ).subscribe(totalData => {
-                console.log('Total count returned!!!');
-                console.log(totalData);
-                /**
-                 *
-                 * todo
-                 */
-                // me.objectCount = totalData['total'];
-            }, error => {
-                console.error('Error getting object count!');
-                console.error(error);
-            });
-        } else {
-
-            console.log('API Token not defined');
-
-            this.setSessionId();
-        }
-    }
 
     public updateData(data: any[]) {
 
         console.log('GETTING MOCK DATA');
+        this.setInRunState();
 
-        this._donutService.getMockData(this.objectLabelVal1, this.objectLabelVal2).subscribe(_data => {
+
+        /**
+         * todo - add an option to run this method in simulation mode
+         */
+
+        /*
+            this._donutService.getMockData(this.objectLabelVal1, this.objectLabelVal2).subscribe(_data => {
 
                 this.data = _data;
 
@@ -212,6 +197,50 @@ export class DonutGadgetComponent extends GadgetBase {
 
                 // get real data
                 this.getData();
+            },
+            error => this.handleError(error));
+
+        */
+
+        this.donutServiceSubscription = this._donutService.poll().subscribe(_data => {
+
+                console.log('Attempting to get live data');
+
+                const me = this;
+
+                if (this._apiTokenService.getAPIToken()) {
+
+                    console.log('Attempting to get success count!');
+
+                    this._donutService.getPassCount().subscribe(passCount => {
+
+                            me.passCount = passCount['results'][0]['count'];
+
+                            console.log('Attempting to get to do count!');
+
+                            this._donutService.getToDoCount().subscribe(todoCount => {
+
+                                me.todoCount = todoCount['results'][0]['count'];
+                                me.setChartData();
+
+                            }, error => {
+                                console.error('Error getting to do count!');
+                                me.handleError(error);
+                            });
+
+                        },
+                        error => {
+                            console.error('Error getting pass count!');
+                            me.handleError(error);
+                        });
+
+
+                } else {
+
+                    console.log('API Token not defined');
+
+                    this.setAPIToken();
+                }
             },
             error => this.handleError(error));
     }
@@ -253,12 +282,21 @@ export class DonutGadgetComponent extends GadgetBase {
             }
         });
 
-        this.apiBase = updatedPropsObject.base;
-        this.objectCountAPI = updatedPropsObject.total;
-        this.objectSuccessCountAPI = updatedPropsObject.good;
+        this.apiBasePath = updatedPropsObject.apiBasePath;
+        this.passAPI = updatedPropsObject.passAPI;
+        this.warnAPI = updatedPropsObject.warnAPI;
+        this.todoAPI = updatedPropsObject.todoAPI;
+
+
         this.threshold = updatedPropsObject.threshold;
         this.title = updatedPropsObject.title;
+
         this.setEndPoint(updatedPropsObject.endpoint);
+        this.setAPIInService();
+
+
+        this.showOperationControls = true;
+
 
     }
 
@@ -275,17 +313,57 @@ export class DonutGadgetComponent extends GadgetBase {
     public setProperties() {
 
         this.threshold = this.getPropFromPropertyPages('threshold');
-        this.apiBase = this.getPropFromPropertyPages('base');
-        this.objectCountAPI = this.getPropFromPropertyPages('total');
-        this.objectSuccessCountAPI = this.getPropFromPropertyPages('good');
+        this.apiBasePath = this.getPropFromPropertyPages('apiBasePath');
+        this.passAPI = this.getPropFromPropertyPages('passAPI');
+        this.warnAPI = this.getPropFromPropertyPages('warnAPI');
+        this.todoAPI = this.getPropFromPropertyPages('todoAPI');
         this.title = this.getPropFromPropertyPages('title');
         this.detailMenuOpen = 'out';
+        this.setAPIInService();
+    }
+
+    private setChartData() {
+
+        this.data = [
+            {
+                'name': this.passChartLabel,
+                'value': this.passCount
+            },
+            {
+                'name': this.warnChartLabel,
+                'value': this.warnCount
+            },
+            {
+                'name': this.todoChartLabel,
+                'value': this.todoCount - (this.passCount + this.warnCount)
+            }
+        ];
+
+        if (this.data[0].value < this.threshold) {
+            this.colorScheme = this.goodColorScheme;
+        } else {
+            this.colorScheme = this.badColorScheme;
+        }
+    }
+
+    setAPIInService() {
+
+        this._donutService.setAPIs(
+            this.passAPI,
+            this.warnAPI,
+            this.todoAPI);
 
     }
 
-    toggleAcordion(): void {
+    toggleAccordion(): void {
 
         this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';
+
+    }
+
+    public ngOnDestroy() {
+
+        this.stop();
 
     }
 }

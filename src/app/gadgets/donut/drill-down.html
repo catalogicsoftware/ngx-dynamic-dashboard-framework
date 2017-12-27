@@ -19,9 +19,7 @@
                 <h3>Results</h3>
                 <hr>
                 <br>
-
-
-                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden">
+                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden"dnd-draggable [dragEnabled]="true">
                     <table class="ui small celled striped table">
                         <thead>
                         <tr>
@@ -30,7 +28,7 @@
                         </thead>
                         <tbody>
                         <tr *ngFor="let object of objects">
-                            <td dnd-draggable [dragEnabled]="true" dragData={{object.name}}>{{object.name}}</td>
+                            <td dnd-draggable [dragEnabled]="false" dragData={{object.name}}>{{object.name}}</td>
                         </tr>
                     </table>
                 </div>
@@ -42,30 +40,58 @@
                 <br>
                 <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden">
 
-                    <table class="ui small celled striped table">
-                        <thead>
-                        <tr>
-                            <th>SLA Name</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td dnd-droppable (onDropSuccess)="updateDropZone1($event)">gold ({{dropZone1Count}})</td>
-                        </tr>
-                        <tr>
-                            <td dnd-droppable (onDropSuccess)="updateDropZone2($event)">silver ({{dropZone2Count}})</td>
-                        </tr>
-                        <tr>
-                            <td dnd-droppable (onDropSuccess)="updateDropZone3($event)">bronze ({{dropZone3Count}})</td>
-                        </tr>
-                    </table>
+                    <div dnd-droppable
+                         (onDropSuccess)="updateDropZone1($event)">
+                        <table class="ui small celled striped table">
+                            <thead>
+                            <tr>
+                                <th>Gold SLA</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align: center"> ({{dropZone1Count}})</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div dnd-droppable
+                         (onDropSuccess)="updateDropZone2($event)">
+                        <table class="ui small celled striped table">
+                            <thead>
+                            <tr>
+                                <th>Silver SLA</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align: center">({{dropZone2Count}})</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div dnd-droppable
+                         (onDropSuccess)="updateDropZone3($event)">
+                        <table class="ui small celled striped table">
+                            <thead>
+                            <tr>
+                                <th>Bronze SLA</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align: center">({{dropZone3Count}})</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
         </div>
-
     </div>
-
 
     <div class="actions">
         <div class="ui approve button">Close</div>

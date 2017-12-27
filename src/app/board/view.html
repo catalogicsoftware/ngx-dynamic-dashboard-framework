@@ -1,4 +1,4 @@
-<div [@accordion2]="detailMenuOpen" class="ui menu">
+<div [@accordion2]="detailMenuOpen" class="ui menu sticky" #stickymenu_tag>
 
 
     <app-typeahead-input [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
@@ -54,7 +54,7 @@
 </app-add-gadget-modal>
 
 <!-- the grid component will create the requested gadget dynamically -->
-<app-grid-component #gadgetGrid
+<app-grid-component  #gadgetGrid
                     (boardUpdateEvent)="updateDashboardMenu($event)">
 </app-grid-component>
 

@@ -1,6 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+
 declare var jQuery: any;
 
 
@@ -48,14 +49,19 @@ export class BoardComponent implements OnInit {
 
     @ViewChild('notificationSideBar_tag') notificationSideBarRef: ElementRef;
     @ViewChild('layoutSideBar_tag') layoutSideBarRef: ElementRef;
+    @ViewChild('stickymenu_tag') stickyMenuRef: ElementRef;
+
     notificationSideBar: any;
     layoutSideBar: any;
+    stickyMenu: any;
 
     constructor(private _configurationService: ConfigurationService) {
     }
 
     ngOnInit() {
         this.updateDashboardMenu('');
+        this.stickyMenu = jQuery(this.stickyMenuRef.nativeElement);
+        this.stickyMenu.sticky();
     }
 
     updateDashboardMenu(selectedBoard: string) {
@@ -97,11 +103,13 @@ export class BoardComponent implements OnInit {
         this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';
 
     }
+
     toggleLayoutSideBar() {
         this.layoutSideBar = jQuery(this.layoutSideBarRef.nativeElement);
         this.layoutSideBar.sidebar('setting', 'transition', 'overlay');
         this.layoutSideBar.sidebar('toggle');
     }
+
     toggleNotificationSideBar() {
         this.notificationSideBar = jQuery(this.notificationSideBarRef.nativeElement);
         this.notificationSideBar.sidebar('setting', 'transition', 'overlay');

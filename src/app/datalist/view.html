@@ -1,9 +1,6 @@
 <div class="content">
     <div class="ui grid">
         <div class="{{layoutColumnOneWidth}} wide column">
-            <h3>Search Results For</h3>
-            <hr>
-            <br>
             <app-typeahead-input
                     [searchList]="objectTitleList"
                     [placeHolderText]="placeHolderText"
@@ -16,8 +13,7 @@
             </app-filter-list>
         </div>
         <div class="{{layoutColumnTwoWidth}} wide column">
-            <h3>Results</h3>
-            <hr>
+            <h3>{{listHeader}}</h3>
             <br>
             <app-filter-tag #filterTag
                             (updateFilterListEvent)="filterListByTags($event)">

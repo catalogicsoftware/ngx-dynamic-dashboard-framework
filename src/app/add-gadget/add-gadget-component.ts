@@ -57,6 +57,7 @@ export class AddGadgetComponent implements AfterViewInit {
     placeHolderText = 'Begin typing gadget name';
     layoutColumnOneWidth = 'six';
     layoutColumnTwoWidth = 'ten';
+    listHeader= 'Gadgets';
     facetTags: Array<Facet>;
 
     color = 'white';

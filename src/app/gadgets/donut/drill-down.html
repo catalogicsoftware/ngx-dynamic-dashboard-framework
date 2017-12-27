@@ -9,17 +9,24 @@
         {{modalconfig}}
 
         <div class="ui grid">
+
+            <!-- SEARCH/FILTER -->
             <div class="five wide column">
-                <h3>Search Results For</h3>
-                <hr>
-                <br>
-                <input>
+                <app-typeahead-input
+                        [searchList]="objectTitleList"
+                        [placeHolderText]="placeHolderText">
+                </app-typeahead-input>
+                <app-filter-list #filterComponent
+                                 [facet_tags]="facetTags">
+
+                </app-filter-list>
+
             </div>
+            <!-- RESULTS - todo consider refactoring this to use the datalist module/component -->
             <div class="five wide column">
-                <h3>Results</h3>
-                <hr>
-                <br>
-                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden"dnd-draggable [dragEnabled]="true">
+                <h3>VMs</h3>
+
+                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden" dnd-draggable [dragEnabled]="true">
                     <table class="ui small celled striped table">
                         <thead>
                         <tr>
@@ -34,10 +41,11 @@
                 </div>
 
             </div>
+
+            <!-- ACTION - todo the following list should be dynamic drop zones that are scrollable-->
             <div class="five wide column">
                 <h3>SLAs</h3>
-                <hr>
-                <br>
+
                 <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden">
 
                     <div dnd-droppable

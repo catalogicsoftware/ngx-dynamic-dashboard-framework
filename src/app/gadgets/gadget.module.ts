@@ -33,6 +33,8 @@ import {DonutGadgetComponent} from './donut/donut-gadget.component';
 import {DonutService} from './donut/service';
 import {APITokenService} from '../api-token/api-token.service';
 import {DrillDownComponent} from './donut/drill-down-component';
+import {FacetModule} from "../facet/facet.module";
+import {TypeAheadInputModule} from "../typeahead-input/typeahead-input.module";
 
 
 
@@ -50,6 +52,8 @@ import {DrillDownComponent} from './donut/drill-down-component';
         MatInputModule,
         MatProgressBarModule,
         FormsModule,
+        FacetModule,
+        TypeAheadInputModule,
         DataListModule
     ],
     declarations: [

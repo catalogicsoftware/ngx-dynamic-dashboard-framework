@@ -68,6 +68,7 @@ export class DrillDownComponent implements AfterViewInit {
     objectList: any[] = [];
     objectTitleList: string[] = [];
     placeHolderText = 'Begin typing vm name';
+
     layoutColumnOneWidth = 'six';
     layoutColumnTwoWidth = 'ten';
     facetTags: Array<Facet> = [];

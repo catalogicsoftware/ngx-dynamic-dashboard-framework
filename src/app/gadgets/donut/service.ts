@@ -85,12 +85,20 @@ export class DonutService {
                 ['protectionInfo.storageProfileName']
         };
 
-        return this._http.post(this.apiBaseAddress + this.apiBasePath + this.passAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+        return this._http.post(this.apiBaseAddress
+            + this.apiBasePath
+            + this.passAPI.trim()
+            + this.aggregateSuffix,
+            body, {headers: this.headers});
     }
 
     getPassObjects() {
 
-        return this._http.get(this.apiBaseAddress + this.apiBasePath + this.passAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
+        return this._http.get(this.apiBaseAddress
+            + this.apiBasePath
+            + this.passAPI.trim()
+            + this.objectQuerySuffix,
+            {headers: this.headers});
     }
 
     getWarnCount() {
@@ -107,13 +115,20 @@ export class DonutService {
                 }]
         };
 
-        return this._http.post(this.apiBaseAddress + this.apiBasePath + this.warnAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+        return this._http.post(this.apiBaseAddress
+            + this.apiBasePath + this.warnAPI.trim()
+            + this.aggregateSuffix, body,
+            {headers: this.headers});
 
     }
 
     getWarnObjects() {
 
-        return this._http.get(this.apiBaseAddress + this.apiBasePath + this.warnAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
+        return this._http.get(this.apiBaseAddress
+            + this.apiBasePath
+            + this.warnAPI.trim()
+            + this.objectQuerySuffix,
+            {headers: this.headers});
 
     }
 
@@ -131,7 +146,11 @@ export class DonutService {
                 }]
         };
 
-        return this._http.post(this.apiBaseAddress + this.apiBasePath + this.toDoAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+        return this._http.post(this.apiBaseAddress
+            + this.apiBasePath
+            + this.toDoAPI.trim()
+            + this.aggregateSuffix,
+            body, {headers: this.headers});
 
     }
 

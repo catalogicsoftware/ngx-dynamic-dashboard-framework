@@ -14,6 +14,7 @@ export class DataListComponent {
     @Input() placeHolderText: string;
     @Input() layoutColumnOneWidth: string;
     @Input() layoutColumnTwoWidth: string;
+    @Input() listHeader: string;
     @Input() facetTags: Array<Facet>;
 
     @ContentChild(TemplateRef) template: TemplateRef<any>;

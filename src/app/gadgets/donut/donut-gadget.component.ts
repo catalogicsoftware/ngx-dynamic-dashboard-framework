@@ -67,7 +67,7 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
     // chart counts and labels
     passCount = 0;
     warnCount = 0;
-    todoCount = 100;
+    todoCount = 1;
 
     passChartLabel = 'Passed';
     warnChartLabel = 'Staged';
@@ -144,17 +144,19 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
                 'user': this.endpointObject.user,
                 'password': this.endpointObject.credential
             }).subscribe(data => {
-                    this._apiTokenService.setAPIToken(data[this.endpointObject.tokenAPIProperty]);
+
+                    const apiToken = data[this.endpointObject.tokenAPIProperty]
+
+                    this._apiTokenService.setAPIToken(apiToken);
 
                     this._donutService.setAPIBaseDetails(
-                        data[this.endpointObject.tokenAPIProperty],
+                        apiToken,
                         this.endpointObject.tokenAPIHeader,
                         this.endpointObject.address,
                         this.apiBasePath);
 
 
-
-                    console.log('Donut Endpoint tokenKey: ' + data[this.endpointObject.tokenAPIProperty]);
+                    console.log('Donut Endpoint tokenKey: ' + apiToken);
                 },
                 error => {
 
@@ -173,8 +175,6 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
     public updateData(data: any[]) {
 
         console.log('GETTING MOCK DATA');
-        this.setInRunState();
-
 
         /**
          * todo - add an option to run this method in simulation mode
@@ -208,7 +208,7 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
 
                 const me = this;
 
-                if (this._apiTokenService.getAPIToken()) {
+                if (this._apiTokenService.getAPIToken()) { // todo - handle token expiration
 
                     console.log('Attempting to get success count!');
 
@@ -222,6 +222,8 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
 
                                 me.todoCount = todoCount['results'][0]['count'];
                                 me.setChartData();
+
+                                this.setInRunState();
 
                             }, error => {
                                 console.error('Error getting to do count!');

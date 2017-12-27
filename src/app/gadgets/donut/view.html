@@ -65,11 +65,13 @@
     </div>
 
 
-
     <div *ngIf="!inConfig" class="ui bottom right attached label" style="background-color: white"><i
             class="large chevron icon" (click)="toggleAccordion()" [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"
             style="color:lightgrey"></i></div>
 
 
+    <div class="ui bottom attached" *ngIf="actionInitiated" style="width:86%">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
 </div>
 

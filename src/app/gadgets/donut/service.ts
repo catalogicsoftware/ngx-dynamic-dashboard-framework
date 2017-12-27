@@ -14,6 +14,7 @@ export class DonutService {
     private apiToken: string;
     private apiTokenHeader: string;
     private apiBaseAddress: string;
+    private apiBasePath: string;
     private headers: HttpHeaders;
 
     private aggregateSuffix = '?action=aggregate';
@@ -84,12 +85,12 @@ export class DonutService {
                 ['protectionInfo.storageProfileName']
         };
 
-        return this._http.post(this.apiBaseAddress + this.passAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+        return this._http.post(this.apiBaseAddress + this.apiBasePath + this.passAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
     }
 
     getPassObjects() {
 
-        return this._http.get(this.apiBaseAddress + this.passAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
+        return this._http.get(this.apiBaseAddress + this.apiBasePath + this.passAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
     }
 
     getWarnCount() {
@@ -106,13 +107,13 @@ export class DonutService {
                 }]
         };
 
-        return this._http.post(this.apiBaseAddress + this.warnAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+        return this._http.post(this.apiBaseAddress + this.apiBasePath + this.warnAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
 
     }
 
     getWarnObjects() {
 
-        return this._http.get(this.apiBaseAddress + this.warnAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
+        return this._http.get(this.apiBaseAddress + this.apiBasePath + this.warnAPI.trim() + this.objectQuerySuffix, {headers: this.headers});
 
     }
 
@@ -130,11 +131,13 @@ export class DonutService {
                 }]
         };
 
-        return this._http.post(this.apiBaseAddress + this.toDoAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
+        return this._http.post(this.apiBaseAddress + this.apiBasePath + this.toDoAPI.trim() + this.aggregateSuffix, body, {headers: this.headers});
 
     }
 
     getTodoObjects() {
+
+        const todoAPI = '/api/hypervisor/1004/vm';
 
         let params = new HttpParams();
 
@@ -145,7 +148,7 @@ export class DonutService {
         params = params.append('from', 'hlo');
         params = params.append('pageSize', 100 + '');
 
-        return this._http.get(this.apiBaseAddress + this.toDoAPI,
+        return this._http.get(this.apiBaseAddress + todoAPI,
             {
                 headers: this.headers,
                 params: params
@@ -163,7 +166,8 @@ export class DonutService {
 
         this.apiToken = apiToken;
         this.apiTokenHeader = apiTokenHeader;
-        this.apiBaseAddress = apiBaseAddress + apiBasePath;
+        this.apiBaseAddress = apiBaseAddress;
+        this.apiBasePath = apiBasePath;
 
         this.headers = new HttpHeaders();
 

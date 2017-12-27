@@ -72,6 +72,10 @@ export class DrillDownComponent implements AfterViewInit {
     layoutColumnTwoWidth = 'ten';
     facetTags: Array<Facet> = [];
 
+    dropZone1Count = 0;
+    dropZone2Count = 0;
+    dropZone3Count = 0;
+
 
     @ViewChild('drillmodal_tag') modalaRef: ElementRef;
     configModal: any;
@@ -103,10 +107,18 @@ export class DrillDownComponent implements AfterViewInit {
     }
 
     showDrillDownDetail($event) {
-        const chartSelection = $event['name'].toString().toLocaleLowerCase();
-        const chartSelectionVal = $event['value'];
+        let chartSelection = null;
+        let chartSelectionVal = null;
 
-        const me = this;
+        if (typeof $event === 'string') {
+
+            chartSelection = $event.toLocaleLowerCase();
+
+        } else {
+
+            chartSelection = $event['name'].toString().toLocaleLowerCase();
+            chartSelectionVal = $event['value'];
+        }
 
         switch (chartSelection) {
 
@@ -134,11 +146,12 @@ export class DrillDownComponent implements AfterViewInit {
                 this._donutService.getTodoObjects().subscribe(data => {
 
                     console.log(data);
+                    this.objects = data['vms'];
                 });
             }
                 break;
-
         }
+
 
         this.showMessageModal(null, 'Detail', null);
         this.objects = null;
@@ -151,6 +164,21 @@ export class DrillDownComponent implements AfterViewInit {
         this.showMessageModal(null, 'Detail', data);
 
 
+    }
+
+    updateDropZone1(object: any) {
+        console.log(object);
+        this.dropZone1Count++;
+    }
+
+    updateDropZone2(object: any) {
+        console.log(object);
+        this.dropZone2Count++;
+    }
+
+    updateDropZone3(object: any) {
+        console.log(object);
+        this.dropZone3Count++;
     }
 
 }

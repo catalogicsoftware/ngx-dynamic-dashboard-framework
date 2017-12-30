@@ -8,12 +8,13 @@
 
         {{modalconfig}}
 
+
         <div class="ui grid">
 
             <!-- SEARCH/FILTER -->
             <div class="five wide column">
                 <app-typeahead-input
-                        [searchList]="objectTitleList"
+                        [searchList]="objecNameList"
                         [placeHolderText]="placeHolderText">
                 </app-typeahead-input>
                 <app-filter-list #filterComponent
@@ -26,7 +27,7 @@
             <div class="five wide column">
                 <h3>VMs</h3>
 
-                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden" dnd-draggable [dragEnabled]="true">
+                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden" dragData="all" dnd-draggable [dragEnabled]="true">
                     <table class="ui small celled striped table">
                         <thead>
                         <tr>
@@ -42,6 +43,7 @@
 
             </div>
 
+
             <!-- ACTION - todo the following list should be dynamic drop zones that are scrollable-->
             <div class="five wide column">
                 <h3>SLAs</h3>
@@ -53,7 +55,7 @@
                         <table class="ui small celled striped table">
                             <thead>
                             <tr>
-                                <th>Gold SLA</th>
+                                <th>Gold</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -69,7 +71,7 @@
                         <table class="ui small celled striped table">
                             <thead>
                             <tr>
-                                <th>Silver SLA</th>
+                                <th>Silver</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -85,7 +87,7 @@
                         <table class="ui small celled striped table">
                             <thead>
                             <tr>
-                                <th>Bronze SLA</th>
+                                <th>Bronze</th>
                             </tr>
                             </thead>
                             <tbody>

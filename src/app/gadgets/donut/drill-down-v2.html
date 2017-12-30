@@ -1,0 +1,100 @@
+<div class="ui long modal" #drillmodal_tag>
+    <div class="header">
+        <h2>{{modalheader}}</h2>
+    </div>
+
+
+    <div class="content">
+
+        {{modalconfig}}
+
+
+        <div class="ui grid">
+
+            <div class="eleven wide column">
+
+                <app-data-list
+
+                        [objectList]="objects"
+                        [objectTitleList]="objecNameList"
+                        [placeHolderText]="placeHolderText"
+                        [layoutColumnOneWidth]="layoutColumnOneWidth"
+                        [layoutColumnTwoWidth]="layoutColumnTwoWidth"
+                        [listHeader]="listHeader"
+                        [facetTags]="facetTags">
+
+                    <ng-template let-item="$implicit">
+
+                        <div class="ui segment" style="background-color:white;"
+                             dnd-draggable [dragEnabled]="true" dragData={{item.name}}>
+                            {{item.name}}
+                        </div>
+
+                    </ng-template>
+
+                </app-data-list>
+            </div>
+            <div class="five wide column">
+
+                <h3>SLAs</h3>
+
+                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden">
+
+                    <div dnd-droppable
+                         (onDropSuccess)="updateDropZone1($event)">
+                        <table class="ui small celled striped table">
+                            <thead>
+                            <tr>
+                                <th>Gold</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align: center"> ({{dropZone1Count}})</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div dnd-droppable
+                         (onDropSuccess)="updateDropZone2($event)">
+                        <table class="ui small celled striped table">
+                            <thead>
+                            <tr>
+                                <th>Silver</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align: center">({{dropZone2Count}})</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div dnd-droppable
+                         (onDropSuccess)="updateDropZone3($event)">
+                        <table class="ui small celled striped table">
+                            <thead>
+                            <tr>
+                                <th>Bronze</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align: center">({{dropZone3Count}})</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="actions">
+            <div class="ui approve button">Close</div>
+        </div>
+    </div>
+</div>

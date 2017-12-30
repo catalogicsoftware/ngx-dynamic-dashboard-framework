@@ -145,7 +145,7 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
                 'password': this.endpointObject.credential
             }).subscribe(data => {
 
-                    const apiToken = data[this.endpointObject.tokenAPIProperty]
+                    const apiToken = data[this.endpointObject.tokenAPIProperty];
 
                     this._apiTokenService.setAPIToken(apiToken);
 
@@ -233,6 +233,7 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
                         },
                         error => {
                             console.error('Error getting pass count!');
+                            console.log(error);
                             me.handleError(error);
                         });
 

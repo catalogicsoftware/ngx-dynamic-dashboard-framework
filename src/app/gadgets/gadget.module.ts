@@ -24,7 +24,10 @@ import {GadgetSharedModule} from './_common/gadget-shared.module';
 import {ErrorHandlerModule} from '../error/error.module';
 
 import {ResponseTimeGadgetComponent} from './response-time/response-time-gadget.component';
-import {MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatProgressBarModule} from '@angular/material';
+import {
+    MatButtonModule, MatCheckboxModule, MatExpansionModule, MatIconModule, MatInputModule,
+    MatProgressBarModule
+} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {StorageObjectListComponent} from './storage-object-list/storage-object-list.component';
 import {StorageService} from './storage-object-list/service';
@@ -33,8 +36,8 @@ import {DonutGadgetComponent} from './donut/donut-gadget.component';
 import {DonutService} from './donut/service';
 import {APITokenService} from '../api-token/api-token.service';
 import {DrillDownComponent} from './donut/drill-down-component';
-import {FacetModule} from "../facet/facet.module";
-import {TypeAheadInputModule} from "../typeahead-input/typeahead-input.module";
+import {FacetModule} from '../facet/facet.module';
+import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 
 
 
@@ -51,6 +54,7 @@ import {TypeAheadInputModule} from "../typeahead-input/typeahead-input.module";
         MatCheckboxModule,
         MatInputModule,
         MatProgressBarModule,
+        MatExpansionModule,
         FormsModule,
         FacetModule,
         TypeAheadInputModule,

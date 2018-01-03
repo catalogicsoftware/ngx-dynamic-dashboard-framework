@@ -72,10 +72,13 @@ export class DrillDownComponent implements AfterViewInit {
     layoutColumnOneWidth = 'six';
     layoutColumnTwoWidth = 'ten';
     facetTags: Array<Facet> = [];
+    listHeader = 'Virtual Machines';
 
     dropZone1Count = 0;
     dropZone2Count = 0;
     dropZone3Count = 0;
+
+    pass = false;
 
 
     @ViewChild('drillmodal_tag') modalaRef: ElementRef;
@@ -131,6 +134,15 @@ export class DrillDownComponent implements AfterViewInit {
                 this._donutService.getPassObjects().subscribe(data => {
 
                     console.log(data);
+                    me.pass = true;
+                    this.objects = data['children'];
+
+                    if (this.objects) {
+                        // prepare the typeahead component
+                        this.objects.forEach(object => {
+                            this.objecNameList.push(object.name);
+                        });
+                    }
                     me.setFacets();
                 });
             }
@@ -139,7 +151,7 @@ export class DrillDownComponent implements AfterViewInit {
             case'staged': {
 
                 this._donutService.getWarnObjects().subscribe(data => {
-
+                    me.pass = false;
                     console.log(data);
                     me.setFacets();
 
@@ -151,6 +163,7 @@ export class DrillDownComponent implements AfterViewInit {
                 this._donutService.getTodoObjects().subscribe(data => {
 
                     console.log(data);
+                    me.pass = false;
                     this.objects = data['vms'];
 
                     if (this.objects) {

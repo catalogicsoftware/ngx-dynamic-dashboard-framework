@@ -13,6 +13,7 @@
 
             <div class="eleven wide column">
 
+                <H3>VMs</H3>
                 <app-data-list
 
                         [objectList]="objects"
@@ -25,16 +26,25 @@
 
                     <ng-template let-item="$implicit">
 
-                        <div class="ui segment" style="background-color:white;"
-                             dnd-draggable [dragEnabled]="true" dragData={{item.name}}>
-                            {{item.name}}
-                        </div>
+
+                        <mat-expansion-panel  dnd-draggable [dragEnabled]="true" dragData={{item.name}}>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    {{item.name}}
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+
+                           <p>Expansion data </p>
+
+                        </mat-expansion-panel>
 
                     </ng-template>
 
                 </app-data-list>
             </div>
-            <div class="five wide column">
+            <div class="five wide column" *ngIf="!pass">
 
                 <h3>SLAs</h3>
 

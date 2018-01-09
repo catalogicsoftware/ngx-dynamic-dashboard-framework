@@ -70,7 +70,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--aot` flag for ahead of time compilation. Please note that after upgrading to Angular 5 the `--prod` does not work and throws an out of memory error. See https://github.com/angular/angular-cli/issues/5618
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--aot --prod` flag for ahead of time compilation and production mode. 
 
 The title of that issue suggests an issue with AOT but in my testing `--prod` seems to be the problem. 
 

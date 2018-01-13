@@ -1,0 +1,11 @@
+<div class="wrapper">
+
+    <div class="toast" *ngFor="let message of messages">
+
+        <div [@showHide]  *ngIf ="message.dismissed == false" class="ui info message">
+            <i class="close icon" (click)="dismiss(message.id)"></i>
+            {{message.content}}
+        </div>
+
+    </div>
+</div>

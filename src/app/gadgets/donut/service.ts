@@ -147,8 +147,7 @@ export class DonutService {
         };
 
         return this._http.post(this.apiBaseAddress
-            + this.apiBasePath
-            + this.toDoAPI.trim()
+            + '/api/endeavour/catalog/hypervisor/vm'
             + this.aggregateSuffix,
             body, {headers: this.headers});
 
@@ -156,7 +155,7 @@ export class DonutService {
 
     getTodoObjects() {
 
-        const todoAPI = '/api/hypervisor/1004/vm';
+        const todoAPI = '/api/hypervisor/1001/vm';
 
         let params = new HttpParams();
 

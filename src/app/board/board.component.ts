@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {ToastModule} from '../toast/toast.module';
+import {ToastService} from '../toast/toast.service';
 
 declare var jQuery: any;
 
@@ -55,7 +57,7 @@ export class BoardComponent implements OnInit {
     layoutSideBar: any;
     stickyMenu: any;
 
-    constructor(private _configurationService: ConfigurationService) {
+    constructor(private _configurationService: ConfigurationService, private _toastService: ToastService) {
     }
 
     ngOnInit() {

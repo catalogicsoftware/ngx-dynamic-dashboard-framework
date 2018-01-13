@@ -30,6 +30,7 @@ import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-tim
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
+import {ToastModule} from '../toast/toast.module';
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
         LayoutModule,
         ConfigurationModule,
         TypeAheadInputModule,
+        ToastModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,

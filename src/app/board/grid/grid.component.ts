@@ -3,6 +3,7 @@ import {GadgetInstanceService} from './grid.service';
 import {ConfigurationService} from '../../services/configuration.service';
 import {GadgetConfigModel} from '../../gadgets/_common/gadget-config-model';
 import {AddGadgetService} from '../../add-gadget/service';
+import {ToastService} from '../../toast/toast.service';
 
 
 @Component({
@@ -42,7 +43,8 @@ export class GridComponent {
 
     constructor(private _gadgetInstanceService: GadgetInstanceService,
                 private _configurationService: ConfigurationService,
-                private _gadgetLibraryService: AddGadgetService) {
+                private _gadgetLibraryService: AddGadgetService,
+                private _toastService: ToastService) {
 
         this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
             this.saveBoard('Gadget Removed From Board: ' + message, false);
@@ -364,6 +366,7 @@ export class GridComponent {
 
         this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
+                this._toastService.sendMessage( this.getModel().title + ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
                     this.boardUpdateEvent.emit(this.getModel().title);

@@ -214,14 +214,18 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
 
                     this._donutService.getPassCount().subscribe(passCount => {
 
-                            me.passCount = passCount['results'][0]['count'];
+                            if (passCount['results'].length) {
+                                me.passCount = passCount['results'][0]['count'];
 
-                            console.log('Attempting to get to do count!');
-
+                                console.log('Attempting to get to do count!');
+                            }
                             this._donutService.getToDoCount().subscribe(todoCount => {
 
-                                me.todoCount = todoCount['results'][0]['count'];
-                                me.setChartData();
+                                if (todoCount['results'].length) {
+
+                                    me.todoCount = todoCount['results'][0]['count'];
+                                    me.setChartData();
+                                }
 
                                 this.setInRunState();
 

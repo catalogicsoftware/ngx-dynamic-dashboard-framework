@@ -1,0 +1,13 @@
+.wrapper{
+    position:absolute;
+    top:50px;
+    right: 10px;
+    width: 300px;
+}
+
+.toast{
+
+    padding: 5px;
+    margin: 5px;
+    width: 300px;
+}

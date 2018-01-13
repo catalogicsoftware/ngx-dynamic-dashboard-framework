@@ -17,8 +17,6 @@ import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
         HttpClientModule,
         BoardModule,
         HttpClientJsonpModule
-
-
     ],
     declarations: [
         AppComponent,

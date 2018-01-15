@@ -187,6 +187,10 @@ export class GridComponent {
 
     public updateBoardLayout(structure) {
 
+        if (structure.id === this.getModel().id) {
+            return;
+        }
+
         const _model = Object.assign({}, this.getModel());
 
         const columns: any[] = this.readColumnsFromOriginalModel(_model);
@@ -194,7 +198,7 @@ export class GridComponent {
         // reset the original model's rows and columns based on the new structure
         _model.rows.length = 0;
 
-        Object.assign(_model.rows  , structure.rows);
+        Object.assign(_model.rows, structure.rows);
         _model.structure = structure.structure;
         _model.id = structure.id;
 
@@ -254,16 +258,10 @@ export class GridComponent {
 
     private fillGridStructure(destinationModelStructure, originalColumns: any[], counter: number) {
 
-        console.log('Original Column length: ' + originalColumns.length);
-        console.log('Current index being processed: ' + counter);
-        console.log('Destination structure');
-        console.log(destinationModelStructure);
-
         const me = this;
 
         destinationModelStructure.rows.forEach(function (row) {
             row.columns.forEach(function (destinationColumn) {
-                console.log('Processing column ' + counter);
                 if (!destinationColumn.gadgets) {
                     destinationColumn.gadgets = [];
                 }
@@ -274,9 +272,7 @@ export class GridComponent {
             });
         });
 
-        if (counter === 0) {
-            counter = 100;
-        }
+        console.log('Fill grid structure counter value returned: ' + counter);
 
         return counter;
 

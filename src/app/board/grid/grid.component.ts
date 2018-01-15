@@ -194,7 +194,7 @@ export class GridComponent {
         // reset the original model's rows and columns based on the new structure
         _model.rows.length = 0;
 
-        _model.rows = structure.rows;
+        Object.assign(_model.rows  , structure.rows);
         _model.structure = structure.structure;
         _model.id = structure.id;
 
@@ -252,20 +252,32 @@ export class GridComponent {
 
     }
 
-    private fillGridStructure(_model, columns: any[], counter: number) {
+    private fillGridStructure(destinationModelStructure, originalColumns: any[], counter: number) {
+
+        console.log('Original Column length: ' + originalColumns.length);
+        console.log('Current index being processed: ' + counter);
+        console.log('Destination structure');
+        console.log(destinationModelStructure);
 
         const me = this;
-        _model.rows.forEach(function (row) {
-            row.columns.forEach(function (column) {
-                if (!column.gadgets) {
-                    column.gadgets = [];
+
+        destinationModelStructure.rows.forEach(function (row) {
+            row.columns.forEach(function (destinationColumn) {
+                console.log('Processing column ' + counter);
+                if (!destinationColumn.gadgets) {
+                    destinationColumn.gadgets = [];
                 }
-                if (columns[counter]) {
-                    me.copyGadgets(columns[counter], column);
+                if (originalColumns[counter]) {
+                    me.copyGadgets(originalColumns[counter], destinationColumn);
                     counter++;
                 }
             });
         });
+
+        if (counter === 0) {
+            counter = 100;
+        }
+
         return counter;
 
     }
@@ -366,7 +378,7 @@ export class GridComponent {
 
         this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
-                this._toastService.sendMessage( this.getModel().title + ' has been updated!', '');
+                this._toastService.sendMessage(this.getModel().title + ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
                     this.boardUpdateEvent.emit(this.getModel().title);

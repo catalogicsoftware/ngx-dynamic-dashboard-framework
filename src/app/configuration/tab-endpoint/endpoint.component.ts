@@ -4,6 +4,7 @@
 import {Component} from '@angular/core';
 import {EndPoint} from './endpoint.model';
 import {EndPointService} from './endpoint.service';
+import {ToastService} from '../../toast/toast.service';
 
 @Component({
     selector: 'app-endpoint',
@@ -17,7 +18,8 @@ export class EndPointComponent {
 
     endPoints: EndPoint[];
 
-    currentEndPoint: EndPoint = new EndPoint('', '', '', '', '', '', '', '', '');
+    currentEndPoint: EndPoint = new EndPoint('', '', '', '', '', '',
+        '', '', '');
 
     constructor(private _endPointService: EndPointService) {
 
@@ -52,6 +54,8 @@ export class EndPointComponent {
 
     updateEndPoint(endPoint: EndPoint) {
 
+        this.deleteEndPoint(endPoint);
+        this.createEndPoint(endPoint);
 
     }
 

@@ -5,6 +5,7 @@ import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 import {credentialScheme, EndPoint} from './endpoint.model';
+import {ToastService} from '../../toast/toast.service';
 
 @Component({
     selector: 'app-endpoint-detail',

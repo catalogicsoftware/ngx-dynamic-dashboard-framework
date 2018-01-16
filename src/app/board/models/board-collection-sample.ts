@@ -3,6 +3,7 @@ export const sampleBoardCollection = {
         'title': 'Board Sample 1',
         'structure': '4-12',
         'id': 4,
+        'boardInstanceId': 1,
         'rows': [
             {
                 'columns': [
@@ -206,6 +207,7 @@ export const sampleBoardCollection = {
             'title': 'Board Sample 2',
             'structure': '4-4-4-4/8-4-4',
             'id': 8,
+            'boardInstanceId': 2,
             'rows': [
                 {
                     'columns': [

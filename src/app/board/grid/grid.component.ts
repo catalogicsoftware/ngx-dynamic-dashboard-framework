@@ -353,7 +353,7 @@ export class GridComponent {
 
             this.setModel(res);
             this.getModel().title = name;
-            this.getModel().id = new Date().getTime();
+            this.getModel().boardInstanceId = new Date().getTime();
 
             this.updateServicesAndGridWithModel();
             this.saveBoard('Initialization of a new board', true);
@@ -374,7 +374,7 @@ export class GridComponent {
 
         this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
-                this._toastService.sendMessage(this.getModel().title + ' has been updated!', '');
+                this._toastService.sendMessage(this.getModel().title + ':' + this.getModel().boardInstanceId +  ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
                     this.boardUpdateEvent.emit(this.getModel().title);

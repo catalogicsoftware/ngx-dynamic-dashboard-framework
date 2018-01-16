@@ -6,6 +6,7 @@ export const boardLayouts = [
 
     {
         id: 1,
+        boardInstanceId: 0,
         title: 'single',
         checked: false,
         structure: '16',
@@ -19,6 +20,7 @@ export const boardLayouts = [
     },
     {
         id: 2,
+        boardId: 0,
         title: 'narrow-right',
         checked: false,
         structure: '10-6',
@@ -36,6 +38,7 @@ export const boardLayouts = [
     },
     {
         id: 3,
+        boardInstanceId: 0,
         title: 'wide-center',
         checked: false,
         structure: '4-8-4',
@@ -57,6 +60,7 @@ export const boardLayouts = [
     },
     {
         id: 4,
+        boardInstanceId: 0,
         title: 'narrow-left',
         checked: false,
         structure: '4-12',
@@ -74,6 +78,7 @@ export const boardLayouts = [
     },
     {
         id: 5,
+        boardInstanceId: 0,
         title: 'two-even',
         checked: true,
         structure: '8-8',
@@ -91,6 +96,7 @@ export const boardLayouts = [
     },
     {
         id: 6,
+        boardInstanceId: 0,
         title: 'three-even',
         checked: false,
         structure: '5-5-5',
@@ -113,6 +119,7 @@ export const boardLayouts = [
     },
     {
         id: 7,
+        boardInstanceId: 0,
         title: 'wide-top',
         checked: false,
         structure: '16/8-8',
@@ -138,6 +145,7 @@ export const boardLayouts = [
     },
     {
         id: 8,
+        boardInstanceId: 0,
         title: 'ngadmin',
         checked: false,
         structure: '4-4-4-4/8-4-4',
@@ -168,6 +176,28 @@ export const boardLayouts = [
                     },
                     {
                         styleClass: 'four wide'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 9,
+        boardInstanceId: 0,
+        title: 'google-layout',
+        checked: false,
+        structure: '3-6-3',
+        rows: [
+            {
+                columns: [
+                    {
+                        styleClass: 'three wide'
+                    },
+                    {
+                        styleClass: 'six wide'
+                    },
+                    {
+                        styleClass: 'three wide'
                     }
                 ]
             }

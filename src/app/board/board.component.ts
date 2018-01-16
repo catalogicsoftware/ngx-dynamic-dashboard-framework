@@ -76,7 +76,7 @@ export class BoardComponent implements OnInit {
 
 
                 // sort boards
-                data.sort((a: any, b: any) => a.id - b.id);
+                data.sort((a: any, b: any) => a.boardInstanceId - b.boardInstanceId);
 
                 data.forEach(board => {
 

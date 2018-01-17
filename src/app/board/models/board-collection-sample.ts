@@ -1,14 +1,14 @@
 export const sampleBoardCollection = {
     'board': [{
         'title': 'Board Sample 1',
-        'structure': '4-12',
-        'id': 4,
+        'structure': '3-6-3',
+        'id': 9,
         'boardInstanceId': 1,
         'rows': [
             {
                 'columns': [
                     {
-                        'styleClass': 'four wide',
+                        'styleClass': 'three wide',
                         'gadgets': [
                             {
                                 'componentType': 'NewsGadgetComponent',
@@ -64,7 +64,7 @@ export const sampleBoardCollection = {
                         ]
                     },
                     {
-                        'styleClass': 'twelve wide',
+                        'styleClass': 'six wide',
                         'gadgets': [
                             {
                                 'componentType': 'CPUGadgetComponent',
@@ -198,6 +198,11 @@ export const sampleBoardCollection = {
                                     ]
                                 }
                             }
+                        ]
+                    },
+                    {
+                        'styleClass': 'three wide',
+                        'gadgets': [
                         ]
                     }
                 ]

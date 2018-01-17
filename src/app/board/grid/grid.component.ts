@@ -301,7 +301,7 @@ export class GridComponent {
             if (board && board instanceof Array && board.length) {
 
                 const sortedBoard = board.sort(function (a, b) {
-                    return a.id - b.id;
+                    return a.boardInstanceId - b.boardInstanceId;
                 });
 
                 this.loadBoard(sortedBoard[0].title);

@@ -57,7 +57,9 @@ export class BoardComponent implements OnInit {
     layoutSideBar: any;
     stickyMenu: any;
 
-    constructor(private _configurationService: ConfigurationService, private _toastService: ToastService) {
+    layoutId = 0;
+
+    constructor(private _configurationService: ConfigurationService) {
     }
 
     ngOnInit() {
@@ -110,6 +112,7 @@ export class BoardComponent implements OnInit {
         this.layoutSideBar = jQuery(this.layoutSideBarRef.nativeElement);
         this.layoutSideBar.sidebar('setting', 'transition', 'overlay');
         this.layoutSideBar.sidebar('toggle');
+        this.layoutId = this._configurationService.currentModel.id;
     }
 
     toggleNotificationSideBar() {

@@ -6,7 +6,7 @@
 <ul>
     <li style='list-style: none'
      *ngFor="let layout of boardLayouts; let i = index">
-    <img src="/assets/images/{{layout.title}}.png"
+    <img [ngClass]="{'layout-selected': layoutId == layout.id }" src="/assets/images/{{layout.title}}.png"
          (click)="selectBoardLayout(layout.id)">
 
     </li>

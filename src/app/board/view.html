@@ -74,7 +74,7 @@
 </div>
 
 <div class="ui sidebar inverted right vertical menu" #layoutSideBar_tag>
-    <app-board-layout-manager-modal
+    <app-board-layout-manager-modal [layoutId]="layoutId"
                                     (boardLayoutChangeEvent)="gadgetGrid.updateBoardLayout($event)">
     </app-board-layout-manager-modal>
 </div>

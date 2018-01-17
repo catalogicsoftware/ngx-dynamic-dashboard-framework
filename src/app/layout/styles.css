@@ -1,10 +1,9 @@
-.ui.menu{
+.ui.menu {
     margin-bottom: .1em !important;
 }
 
-
 .ui.secondary.pointing.menu .active.item {
-    color:  #3f51b5 !important;
+    color: #3f51b5 !important;
     font-weight: 500 !important;
     border-color: #3f51b5 !important;
     border-width: medium !important;
@@ -78,7 +77,6 @@ td.detail {
     color: #788ca0 !important;
 }
 
-
 .ui.table {
     color: rgba(97, 97, 97, 0.68) !important
 }
@@ -101,4 +99,9 @@ td.detail {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.layout-selected {
+    border-top: medium lawngreen solid;
+    padding-top:5px;
 }

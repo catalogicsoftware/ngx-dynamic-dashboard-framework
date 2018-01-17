@@ -2,12 +2,13 @@
  * Created by jayhamilton on 1/24/17.
  */
 import {
-    AfterViewInit, Component, Output, EventEmitter
+    AfterViewInit, Component, Output, EventEmitter, Input
 } from '@angular/core';
 
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {boardLayouts} from './model';
+import {ConfigurationService} from '../services/configuration.service';
 
 
 /**
@@ -29,14 +30,12 @@ import {boardLayouts} from './model';
 })
 export class BoardLayoutManagerComponent implements AfterViewInit {
 
+    @Input() layoutId;
     @Output() boardLayoutChangeEvent: EventEmitter<any> = new EventEmitter();
 
     boardLayouts: any[];
 
-
     modalHeader = 'Layout';
-
-    currentBoardLayout = 4;
 
     messageModal: any;
 
@@ -46,34 +45,24 @@ export class BoardLayoutManagerComponent implements AfterViewInit {
 
     selectBoardLayout(layoutId: number) {
 
-        this.currentBoardLayout = layoutId;
         for (let x = 0; x < this.boardLayouts.length; x++) {
 
             if (this.boardLayouts[x].id === layoutId) {
                 this.boardLayoutChangeEvent.emit(this.boardLayouts[x]);
+                this.layoutId = layoutId;
                 break;
             }
         }
-
-        // this.hideMessageModal();
     }
 
+    ngAfterViewInit() {
 
-    ngAfterViewInit() {}
+    }
 
     initializeLayouts() {
 
         Object.assign(this, {boardLayouts});
+
     }
 
-    setChecked(selectedStructure: string) {
-
-        this.boardLayouts.forEach(function (_selectedStructure) {
-            if (selectedStructure.toString().includes(_selectedStructure.structure)) {
-                _selectedStructure.checked = true;
-            } else {
-                _selectedStructure.checked = false;
-            }
-        });
-    }
 }

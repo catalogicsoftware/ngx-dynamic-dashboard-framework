@@ -1,5 +1,5 @@
 import {Component, ElementRef, EventEmitter, Input, Output} from '@angular/core';
-import {RuntimeService} from "../services/runtime.service";
+import {RuntimeService} from '../services/runtime.service';
 
 /**
  * Created by jayhamilton on 2/26/17.
@@ -15,6 +15,7 @@ export class TypeAheadInputComponent {
 
     @Input() searchList: string[];
     @Input() placeHolderText;
+    @Input() typeAheadIsInMenu: boolean;
     @Output() selectionEvent = new EventEmitter<string>();
     @Output() ArtificialIntelligenceEventEmitter: EventEmitter<any> = new EventEmitter<any>();
 
@@ -96,7 +97,7 @@ export class TypeAheadInputComponent {
         let confidence = 0;
 
         if (aiObject && aiObject.classes) {
-            if (aiObject.classes && aiObject.classes.length)  {
+            if (aiObject.classes && aiObject.classes.length) {
                 operation = aiObject.classes[0].name;
                 confidence = aiObject.classes[0].confidence;
             }

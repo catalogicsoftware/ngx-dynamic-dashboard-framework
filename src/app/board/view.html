@@ -1,14 +1,15 @@
-<div [@accordion2]="detailMenuOpen" class="ui menu sticky" #stickymenu_tag>
+<div [@accordion2]="detailMenuOpen" class="ui inverted menu sticky" #stickymenu_tag>
 
 
     <app-typeahead-input [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
                          [searchList]="searchList"
                          [placeHolderText]="placeHolderText"
+                         [typeAheadIsInMenu]="typeAheadIsInMenu"
                          (ArtificialIntelligenceEventEmitter)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)">
     </app-typeahead-input>
 
 
-    <div [@accordion]="detailMenuOpen" class="ui secondary pointing menu board">
+    <div [@accordion]="detailMenuOpen" class="ui secondary inverted pointing menu board">
         <a *ngFor="let board of dashboardList; let i = index" class="item"
            [ngClass]="{'active':board == selectedBoard}"
            (click)="gadgetGrid.loadBoard(board)" (click)="selectBoard(board)">
@@ -17,30 +18,30 @@
     </div>
 
 
-    <div class="right menu">
+    <div class="right inverted menu">
 
         <a [@accordion]="detailMenuOpen" class="item"
            (click)="toggleNotificationSideBar()">
-            <i class="large grey alarm icon"></i>
+            <i class="large inverted alarm icon"></i>
             <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>
         </a>
         <a [@accordion]="detailMenuOpen" class="item"
            (click)="addGadgetModal.showComponentLibraryModal('Add Gadget')">
-            <i class="large grey plus icon"></i>
+            <i class="large inverted plus icon"></i>
         </a>
 
         <a [@accordion]="detailMenuOpen" class="item"
            (click)="toggleLayoutSideBar()">
-            <i class="large grey grid layout icon"></i>
+            <i class="large inverted grid layout icon"></i>
         </a>
 
         <a [@accordion]="detailMenuOpen" class="item"
            (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
-            <i class="large grey setting icon"></i>
+            <i class="large inverted setting icon"></i>
         </a>
 
         <a class="item"><i
-                class="large grey chevron icon" (click)="toggleAcordion()"
+                class="large inverted chevron icon" (click)="toggleAcordion()"
                 [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
         </a>
     </div>

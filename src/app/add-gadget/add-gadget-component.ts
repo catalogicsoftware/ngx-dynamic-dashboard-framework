@@ -62,6 +62,8 @@ export class AddGadgetComponent implements AfterViewInit {
 
     color = 'white';
 
+    typeAheadIsInMenu = false;
+
     modalicon: string;
     modalheader: string;
     modalmessage: string;

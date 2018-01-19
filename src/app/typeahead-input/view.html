@@ -1,12 +1,8 @@
-<!--<input class='prompt' type='text' placeholder='Begin typing a gadget name' [(ngModel)]=query (keyup)=filter()>-->
-<mat-form-field class="full-width">
-    <input matInput placeholder={{placeHolderText}} [(ngModel)]='query' (keyup)=filter()>
-    <mat-icon matSuffix *ngIf="!query"> search</mat-icon>
-    <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
-        <mat-icon>clear</mat-icon>
-    </button>
-</mat-form-field>
 
+<div class="ui fluid transparent icon input" [ngClass]="{inverted:typeAheadIsInMenu == true}">
+    <input type="text" width="100%" placeholder={{placeHolderText}} [(ngModel)]=query (keyup)=filter()>
+    <i *ngIf="!query"  class="large grey search icon"></i> <i *ngIf="query"  class="large grey remove link icon" (click)="query=''"></i>
+</div>
 
 <div class='suggestions' *ngIf='filteredList.length > 0'>
 

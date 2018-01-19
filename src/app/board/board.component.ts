@@ -57,6 +57,8 @@ export class BoardComponent implements OnInit {
     layoutSideBar: any;
     stickyMenu: any;
 
+    typeAheadIsInMenu = true;
+
     layoutId = 0;
 
     constructor(private _configurationService: ConfigurationService) {

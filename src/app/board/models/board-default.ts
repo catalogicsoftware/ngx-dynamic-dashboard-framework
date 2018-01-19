@@ -1,17 +1,17 @@
 export const  defaultBoard = {
     title: 'Dashboard',
-    structure: '8-8',
+    structure: '6-6',
     id: 5,
     boardInstanceId: 0,
     rows: [
         {
             columns: [
                 {
-                    styleClass: 'eight wide',
+                    styleClass: 'six wide',
                     gadgets: []
                 },
                 {
-                    styleClass: 'eight wide',
+                    styleClass: 'six wide',
                     gadgets: []
                 }
             ]

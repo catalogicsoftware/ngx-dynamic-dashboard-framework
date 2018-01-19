@@ -2,7 +2,9 @@
 .full-width {
     width: 100%;
 }
-
+/deep/ .ui.menu .item>.input input{
+    font-size: 1.1em !important;
+}
 /deep/ .mat-form-field-underline{
     height: 0 !important;
 }

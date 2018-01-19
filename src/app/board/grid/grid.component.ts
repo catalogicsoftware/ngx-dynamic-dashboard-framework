@@ -187,6 +187,7 @@ export class GridComponent {
 
     public updateBoardLayout(structure) {
 
+        console.log('UPDATING LAYOUT');
         if (structure.id === this.getModel().id) {
             return;
         }

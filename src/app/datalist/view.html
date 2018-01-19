@@ -4,6 +4,7 @@
             <app-typeahead-input
                     [searchList]="objectTitleList"
                     [placeHolderText]="placeHolderText"
+                    [typeAheadIsInMenu]="typeAheadIsInMenu"
                     (selectionEvent)="filterListBySearchString($event)">
             </app-typeahead-input>
             <app-filter-list #filterComponent

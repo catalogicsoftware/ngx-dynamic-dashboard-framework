@@ -10,6 +10,9 @@
 ## Add Board and Gadget 
 ![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add.gif)
 
+## Layout
+![Image Layout](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/layout.gif)
+
 ## Alert/Notification
 ![Image Notification](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/notification.gif)
 

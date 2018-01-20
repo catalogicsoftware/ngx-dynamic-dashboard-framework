@@ -188,27 +188,39 @@ export class GridComponent {
     public updateBoardLayout(structure) {
 
         console.log('UPDATING LAYOUT');
+
+        // user selected the currently selected layout
         if (structure.id === this.getModel().id) {
             return;
         }
 
+        // copy the current board's model
         const _model = Object.assign({}, this.getModel());
 
-        const columns: any[] = this.readColumnsFromOriginalModel(_model);
+        // get just the columns that contain gadgets from all rows
+        const originalColumns: any[] = this.readColumnsFromOriginalModel(_model);
 
-        // reset the original model's rows and columns based on the new structure
+        // reset the copied model's rows, which include columns
         _model.rows.length = 0;
 
+        // copy the contents of the requested structure into the temporary model
+        // we now have a board model we can populate with the original board's gadgets
         Object.assign(_model.rows, structure.rows);
         _model.structure = structure.structure;
         _model.id = structure.id;
 
-        let counter = 0;
+        let originalColumnIndexToStartProcessingFrom = 0;
 
-        while (counter < columns.length) {
-            counter = this.fillGridStructure(_model, columns, counter);
+        /* For each column from the original board, copy its gadgets to the new structure.
+         The requested layout may have more or less columns than defined by the original layout. So the fillGridStructure method
+         will copy column content into the target. If there are more columns than the target,
+         the fillGridStructure will return the count of remaining columns to be processed and then process those.
+         */
+        while (originalColumnIndexToStartProcessingFrom < originalColumns.length) {
+            originalColumnIndexToStartProcessingFrom = this.fillGridStructure(_model, originalColumns, originalColumnIndexToStartProcessingFrom);
         }
 
+        // This will copy the just processed model and present it to the board
         this.setModel(_model);
 
         // clear temporary object
@@ -216,6 +228,7 @@ export class GridComponent {
             delete  _model[member];
         }
 
+        // persist the board change
         this.saveBoard('Grid Layout Update', false);
     }
 
@@ -375,7 +388,7 @@ export class GridComponent {
 
         this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
-                this._toastService.sendMessage(this.getModel().title + ':' + this.getModel().boardInstanceId +  ' has been updated!', '');
+                this._toastService.sendMessage(this.getModel().title + ':' + this.getModel().boardInstanceId + ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
                     this.boardUpdateEvent.emit(this.getModel().title);
@@ -387,9 +400,9 @@ export class GridComponent {
     }
 
     private clearGridModelAndGadgetInstanceStructures() {
-        // clear gadgetInstances
+// clear gadgetInstances
         this._gadgetInstanceService.clearAllInstances();
-        // clear current model
+// clear current model
         for (const prop in this.getModel()) {
             if (this.model.hasOwnProperty(prop)) {
                 delete this.model[prop];
@@ -412,8 +425,8 @@ export class GridComponent {
                 }
             }
         }
-        // we go here because the board is either empty or full
-        // insert in the top left most cell
+// we go here because the board is either empty or full
+// insert in the top left most cell
         this.gridInsertionPosition.y = 0;
 
         if (this.noGadgets) {

@@ -1,5 +1,5 @@
 {
-  "name": "ng-adf",
+  "name": "ng-dadf",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -26,7 +26,7 @@
     "@swimlane/ngx-charts": "7.0.1",
     "core-js": "^2.4.1",
     "d3": "^4.4.0",
-    "jquery": "2.2.0",
+    "jquery": "^3.3.1",
     "ng2-cookies": "1.0.3",
     "ng2-dnd": "^5.0.2",
     "reflect-metadata": "0.1.8",

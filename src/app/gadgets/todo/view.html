@@ -1,0 +1,46 @@
+<div class="ui center aligned segment gadget" dnd-draggable
+     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
+
+    <app-gadget-header (mouseover)="showGadgetControls(true)"
+                       (mouseleave)="showGadgetControls(false)"
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleConfigMode()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()">
+    </app-gadget-header>
+
+
+    <div class="card" *ngIf="!inConfig" >
+        <div class="content">
+            <div class="header"><i class="big thumbs up outline icon"></i> To Do</div>
+            <br>
+            <div class="description">
+                This is a very simple gadget! Here is data from your model:
+                <br><br>
+                {{data.value}}
+            </div>
+        </div>
+    </div>
+
+
+    <app-dynamic-form *ngIf="inConfig"
+                  [propertyPages]="propertyPages"
+                  [instanceId]="instanceId"
+                  (updatePropertiesEvent)="updateProperties($event)">
+    </app-dynamic-form>
+
+    <app-error-handler
+            [errorObject]="errorObject"
+            [errorExists]="errorExists">
+    </app-error-handler>
+
+</div>
+

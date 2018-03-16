@@ -13,6 +13,7 @@ import {CPUMGadgetComponent} from '../gadgets/cpum/cpum-gadget.component';
 import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
+import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';
 /**
  * Created by jayhamilton on 6/30/17.
  */
@@ -60,6 +61,8 @@ export class GadgetFactory {
                 return ResponseTimeGadgetComponent;
             case 'StorageObjectListComponent':
                 return StorageObjectListComponent;
+            case 'TodoGadgetComponent':
+                return TodoGadgetComponent;
             default:
                 return null;
 

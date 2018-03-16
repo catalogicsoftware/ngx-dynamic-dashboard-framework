@@ -9,6 +9,7 @@ import {StatisticGadgetComponent} from './statistic/statistic-gadget.component';
 import {TrendGadgetComponent} from './trend/trend-gadget.component';
 import {TrendLineGadgetComponent} from './trend-line/trend-line-gadget.component';
 import {NewsGadgetComponent} from './news/news-gadget.component';
+import {TodoGadgetComponent} from './todo/todo-gadget.component';
 import {JobAnalysisGadgetComponent} from './job-analysis/job-analysis-gadget.component';
 import {CPUService} from './cpu/service';
 import {EdgeService} from './edge-service-list/service';
@@ -38,6 +39,7 @@ import {APITokenService} from '../api-token/api-token.service';
 import {DrillDownComponent} from './donut/drill-down-component';
 import {FacetModule} from '../facet/facet.module';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
+import {TodoService} from './todo/service';
 
 
 
@@ -61,6 +63,7 @@ import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
         DataListModule
     ],
     declarations: [
+        TodoGadgetComponent,
         CPUGadgetComponent,
         CPUMGadgetComponent,
         DiskGadgetComponent,
@@ -87,10 +90,12 @@ import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
         CPUService,
         StorageService,
         DonutService,
-        APITokenService
+        APITokenService,
+        TodoService
     ],
 
     exports: [
+        TodoGadgetComponent,
         CPUGadgetComponent,
         CPUMGadgetComponent,
         DiskGadgetComponent,

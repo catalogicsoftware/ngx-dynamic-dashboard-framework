@@ -17,6 +17,7 @@ import {CPUService} from '../../gadgets/cpu/service';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {DonutService} from '../../gadgets/donut/service';
+import {TodoService} from '../../gadgets/todo/service';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {DonutService} from '../../gadgets/donut/service';
         TrendService,
         EdgeService,
         CPUService,
-        DonutService
+        DonutService,
+        TodoService
     ]
 })
 export class GridModule {

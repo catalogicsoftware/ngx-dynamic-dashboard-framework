@@ -30,7 +30,7 @@ import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-tim
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
-import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';
+import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';  // todo gadget
 import {ToastModule} from '../toast/toast.module';
 
 @NgModule({
@@ -58,7 +58,7 @@ import {ToastModule} from '../toast/toast.module';
             ResponseTimeGadgetComponent,
             StorageObjectListComponent,
             DonutGadgetComponent,
-            TodoGadgetComponent
+            TodoGadgetComponent  // todo gadget
 
         ]),
         GadgetModule,

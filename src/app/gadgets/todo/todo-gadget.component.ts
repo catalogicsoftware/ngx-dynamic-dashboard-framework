@@ -4,7 +4,7 @@ import {GadgetInstanceService} from '../../board/grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {TodoService} from './service';
+import {TodoService} from './service';  // todo component
 
 @Component({
     selector: 'app-dynamic-component',

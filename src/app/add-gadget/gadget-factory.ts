@@ -61,7 +61,7 @@ export class GadgetFactory {
                 return ResponseTimeGadgetComponent;
             case 'StorageObjectListComponent':
                 return StorageObjectListComponent;
-            case 'TodoGadgetComponent':
+            case 'TodoGadgetComponent': // todo gadget
                 return TodoGadgetComponent;
             default:
                 return null;

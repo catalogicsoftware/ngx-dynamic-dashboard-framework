@@ -9,7 +9,7 @@ import {StatisticGadgetComponent} from './statistic/statistic-gadget.component';
 import {TrendGadgetComponent} from './trend/trend-gadget.component';
 import {TrendLineGadgetComponent} from './trend-line/trend-line-gadget.component';
 import {NewsGadgetComponent} from './news/news-gadget.component';
-import {TodoGadgetComponent} from './todo/todo-gadget.component';
+import {TodoGadgetComponent} from './todo/todo-gadget.component';  // todo gadget
 import {JobAnalysisGadgetComponent} from './job-analysis/job-analysis-gadget.component';
 import {CPUService} from './cpu/service';
 import {EdgeService} from './edge-service-list/service';
@@ -39,7 +39,7 @@ import {APITokenService} from '../api-token/api-token.service';
 import {DrillDownComponent} from './donut/drill-down-component';
 import {FacetModule} from '../facet/facet.module';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
-import {TodoService} from './todo/service';
+import {TodoService} from './todo/service';  // todo gadget
 
 
 
@@ -63,7 +63,7 @@ import {TodoService} from './todo/service';
         DataListModule
     ],
     declarations: [
-        TodoGadgetComponent,
+        TodoGadgetComponent,  // todo gadget
         CPUGadgetComponent,
         CPUMGadgetComponent,
         DiskGadgetComponent,
@@ -91,11 +91,11 @@ import {TodoService} from './todo/service';
         StorageService,
         DonutService,
         APITokenService,
-        TodoService
+        TodoService  // todo gadget
     ],
 
     exports: [
-        TodoGadgetComponent,
+        TodoGadgetComponent,  // todo gadget
         CPUGadgetComponent,
         CPUMGadgetComponent,
         DiskGadgetComponent,

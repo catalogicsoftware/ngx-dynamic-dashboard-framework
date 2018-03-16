@@ -1212,7 +1212,7 @@
     {
       "componentType": "TodoGadgetComponent",
       "name": "Todo",
-      "description": "Todo",
+      "description": "Todo Gadget",
       "icon": "assets/images/todo.png",
       "instanceId": -1,
       "tags": [

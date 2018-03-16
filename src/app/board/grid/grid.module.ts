@@ -44,7 +44,7 @@ import {TodoService} from '../../gadgets/todo/service';
         EdgeService,
         CPUService,
         DonutService,
-        TodoService
+        TodoService  // todo gadget
     ]
 })
 export class GridModule {

@@ -101,6 +101,7 @@ Import the gadget's service into the grid module
 Import the gadget's component and service into the gadget module
 [gadget.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/gadget.module.ts)
 
+![Todo Gadget](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/gifs/TodoGadget.gif)
 
 # NgADF
 

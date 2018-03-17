@@ -55,6 +55,53 @@ Features:
 * Web Socket support
 * Completely customizable and configurable
 
+# Getting Started Developing a Gadget
+
+The code includes a very simple Todo gadget that can be used as an example for getting started developing your own gadget:
+
+## Define the Gadget Component, Service and View
+
+Component: 
+ `ngx-dynamic-dashboard-framework/src/app/gadgets/todo/todo-gadget.component.ts`
+
+View
+`ngx-dynamic-dashboard-framework/src/app/gadgets/todo/view.html`
+
+Service
+`ngx-dynamic-dashboard-framework/src/app/gadgets/todo/service.ts`
+
+Sample mock service data
+`ngx-dynamic-dashboard-framework/src/assets/api/todo-model.json`
+
+## Define the gadget's model
+
+The model is used to dynamically create and render the gadget and its property page forms. This model is an entry into a model array used for all gadgets. You will simply add an entry to the model's array. See the Todo entry.
+
+Add an entry for the gadget in the library model array
+`ngx-dynamic-dashboard-framework/src/assets/api/gadget-library-model.json`
+
+## Add the gadget entry to the gadget factory class
+
+Add an entry for your gadget in the factory gadget class
+`ngx-dynamic-dashboard-framework/src/app/add-gadget/gadget-factory.ts`
+
+## Gadget Icon
+
+Define an image/icon for your gadget
+`ngx-dynamic-dashboard-framework/src/assets/images/todo.png`
+
+## Gadget Module References
+
+Import the gadget's component into the board module
+`ngx-dynamic-dashboard-framework/src/app/board/board.module.ts`
+
+Import the gadget's service into the grid module
+`ngx-dynamic-dashboard-framework/src/app/board/grid/grid.module.ts`
+
+Import the gadget's component and service into the gadget module
+`ngx-dynamic-dashboard-framework/src/app/gadgets/gadget.module.ts`
+
+
 # NgADF
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.x.

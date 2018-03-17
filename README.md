@@ -57,7 +57,7 @@ Features:
 
 # Getting Started Developing a Gadget
 
-The code includes a very simple Todo gadget that can be used as an example for getting started developing your own gadget:
+The code includes a very simple Todo gadget that can be used as an example for getting started developing your own gadget. The following steps uses that Todo Gadget as a reference. You focus on defining the gadget and the rest of the framework will deal with making it available to the Add Gadget Modal, drag and drop, instance creation, tracking, persistence and cleanup, etc.
 
 ## Define the Gadget Component, Service and View
 

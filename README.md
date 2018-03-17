@@ -61,7 +61,7 @@ The code includes a very simple Todo gadget that can be used as an example for g
 
 ## Define the Gadget Component, Service and View
 
-Todo Component: 
+Todo Component 
 [todo-gadget.component.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/src/app/gadgets/todo/todo-gadget.component.ts)
 
 Todo View
@@ -70,7 +70,8 @@ Todo View
 Todo Service
 [service.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/src/app/gadgets/todo/service.ts)
 
-Sample mock service data)
+Sample mock service data
+[todo-model.json](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/api/todo-model.json)
 
 ## Define the gadget's model
 

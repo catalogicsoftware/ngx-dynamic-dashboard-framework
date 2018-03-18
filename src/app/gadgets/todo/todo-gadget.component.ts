@@ -18,7 +18,8 @@ export class TodoGadgetComponent extends GadgetBase {
 
     // runtime document subscription
     data: any;
-    resource: string;
+    todo: string;
+    todoList = ['todo 1'];
 
     constructor(protected _todoService: TodoService,
                 protected _procMonRuntimeService: RuntimeService,
@@ -36,7 +37,6 @@ export class TodoGadgetComponent extends GadgetBase {
     }
 
     public preRun(): void {
-        this.resource = this.getPropFromPropertyPages('resource');
         this.updateData(null);
     }
 
@@ -56,6 +56,16 @@ export class TodoGadgetComponent extends GadgetBase {
                 this.data = _data;
             },
             error => this.handleError(error));
+    }
+
+    public addTodo(todo: string) {
+        this.todoList.push(todo);
+    }
+
+    public removeTodo(todoIx: number) {
+        if (this.todoList.length) {
+            this.todoList.splice(todoIx, 1);
+        }
     }
 
     public updateProperties(updatedProperties: any) {
@@ -88,7 +98,6 @@ export class TodoGadgetComponent extends GadgetBase {
             }
         });
 
-        this.resource = updatedPropsObject.resource;
         this.title = updatedPropsObject.title;
         this.setEndPoint(updatedPropsObject.endpoint);
         this.updateData(null);

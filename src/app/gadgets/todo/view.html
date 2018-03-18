@@ -1,42 +1,67 @@
-
 <!--todo view -->
 <div class="ui center aligned segment gadget" dnd-draggable
      [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
 
     <app-gadget-header (mouseover)="showGadgetControls(true)"
                        (mouseleave)="showGadgetControls(false)"
-            [title]="title"
-            [inRun]="inRun"
-            [inConfig]="inConfig"
-            [actionInitiated]="actionInitiated"
-            [showOperationControls]="showOperationControls"
-            [gadgetHasOperationControls]="gadgetHasOperationControls"
-            [showConfigurationControl]="showConfigurationControl"
-            [showControls]="showControls"
-            (toggleConfigModeEvent)="toggleConfigMode()"
-            (removeEvent)="remove()"
-            (runEvent)="run()"
-            (stopEvent)="stop()">
+                       [title]="title"
+                       [inRun]="inRun"
+                       [inConfig]="inConfig"
+                       [actionInitiated]="actionInitiated"
+                       [showOperationControls]="showOperationControls"
+                       [gadgetHasOperationControls]="gadgetHasOperationControls"
+                       [showConfigurationControl]="showConfigurationControl"
+                       [showControls]="showControls"
+                       (toggleConfigModeEvent)="toggleConfigMode()"
+                       (removeEvent)="remove()"
+                       (runEvent)="run()"
+                       (stopEvent)="stop()">
     </app-gadget-header>
 
 
-    <div class="card" *ngIf="!inConfig" >
+    <div class="card" *ngIf="!inConfig">
         <div class="content">
-            <div class="header"><i class="big thumbs up outline icon"></i> To Do</div>
-            <br>
             <div class="description">
-                This is a very simple gadget! Here is data from your model:
-                <br><br>
-                {{data.value}}
+                <i class="big thumbs up outline icon"></i> This is a very simple todo gadget!
+                <br>
+                Todo service mock data:<span style="color:#0f9119"> {{data.value}} </span>
             </div>
         </div>
     </div>
-
+    <table class="ui very basic table" *ngIf="!inConfig">
+        <thead>
+        <th class="c-col">#</th>
+        <th>Item</th>
+        <th></th>
+        </thead>
+        <tr class="ui basic segment" *ngFor="let todo of todoList; let i = index">
+            <td class="c-col">{{i + 1}}</td>
+            <td>{{todo}}</td>
+            <td style="text-align:right">
+                <a mat-mini-fab routerLink="." (click)="removeTodo(i)">
+                    <mat-icon>clear</mat-icon>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <mat-input-container>
+                    <input [(ngModel)]="todo" matInput placeholder="Add Todo">
+                </mat-input-container>
+            </td>
+            <td style="text-align:right">
+                <a mat-mini-fab routerLink="." color='primary' (click)="addTodo(todo)">
+                    <mat-icon>add</mat-icon>
+                </a>
+            </td>
+        </tr>
+    </table>
 
     <app-dynamic-form *ngIf="inConfig"
-                  [propertyPages]="propertyPages"
-                  [instanceId]="instanceId"
-                  (updatePropertiesEvent)="updateProperties($event)">
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
     </app-dynamic-form>
 
     <app-error-handler

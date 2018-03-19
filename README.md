@@ -96,7 +96,7 @@ Import the gadget's component into the board module
 [board.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/board/board.module.ts)
 
 Import the gadget's service into the grid module
-[grid.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/board/grid/grid.module.ts)
+[grid.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/grid/grid.module.ts)
 
 Import the gadget's component and service into the gadget module
 [gadget.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/gadget.module.ts)

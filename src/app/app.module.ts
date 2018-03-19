@@ -6,6 +6,9 @@ import {RoutingModule} from './routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BoardModule} from './board/board.module';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {GadgetDetailModule} from './gadget-detail/gadget-detail.module';
+import {MenuModule} from './menu/menu.module';
+
 
 
 @NgModule({
@@ -15,7 +18,9 @@ import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
         RoutingModule,
         FormsModule,
         HttpClientModule,
+        MenuModule,
         BoardModule,
+        GadgetDetailModule,
         HttpClientJsonpModule
     ],
     declarations: [

@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {GadgetInstanceService} from '../../board/grid/grid.service';
+import {GadgetInstanceService} from '../../grid/grid.service';
 import {RuntimeService} from '../../services/runtime.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';

@@ -1,6 +1,6 @@
 import {Component, Input, ViewContainerRef, OnInit, ComponentFactoryResolver} from '@angular/core';
 import {GadgetInstanceService} from './grid.service';
-import {GadgetFactory} from '../../add-gadget/gadget-factory';
+import {GadgetFactory} from '../add-gadget/gadget-factory';
 
 /*
  this class handles the dynamic creation of components

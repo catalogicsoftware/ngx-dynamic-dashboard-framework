@@ -5,26 +5,29 @@ import {FormsModule} from '@angular/forms';
 import {GridComponent} from './grid.component';
 import {CellComponent} from './cell.component';
 import {GadgetInstanceService} from './grid.service';
-import {ConfigurationService} from '../../services/configuration.service';
-import {AddGadgetService} from '../../add-gadget/service';
+import {ConfigurationService} from '../services/configuration.service';
+import {AddGadgetService} from '../add-gadget/service';
 import {DndModule} from 'ng2-dnd';
-import {NewsService} from '../../gadgets/news/service';
-import {JobAnalysisService} from '../../gadgets/job-analysis/service';
-import {TrendService} from '../../gadgets/trend/service';
-import {TrendLineService} from '../../gadgets/trend-line/service';
-import {EdgeService} from '../../gadgets/edge-service-list/service';
-import {CPUService} from '../../gadgets/cpu/service';
+import {NewsService} from '../gadgets/news/service';
+import {JobAnalysisService} from '../gadgets/job-analysis/service';
+import {TrendService} from '../gadgets/trend/service';
+import {TrendLineService} from '../gadgets/trend-line/service';
+import {EdgeService} from '../gadgets/edge-service-list/service';
+import {CPUService} from '../gadgets/cpu/service';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
-import {DonutService} from '../../gadgets/donut/service';
-import {TodoService} from '../../gadgets/todo/service';
+import {DonutService} from '../gadgets/donut/service';
+import {TodoService} from '../gadgets/todo/service';
+import {ToastModule} from '../toast/toast.module';
 
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        HttpClientModule, HttpModule, DndModule.forRoot()
+        HttpModule,
+        ToastModule,
+        HttpClientModule, DndModule.forRoot()
     ],
     declarations: [
         GridComponent,

@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
-import {GadgetInstanceService} from '../../board/grid/grid.service';
+import {GadgetInstanceService} from '../../grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
@@ -32,12 +32,10 @@ export class TodoGadgetComponent extends GadgetBase {
             _propertyService,
             _endPointService,
             _changeDetectionRef);
-
-        this.run();
     }
 
     public preRun(): void {
-        this.updateData(null);
+        this.run();
     }
 
     public run() {

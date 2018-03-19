@@ -3,7 +3,7 @@ import {EndPoint} from '../../configuration/tab-endpoint/endpoint.model';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from './gadget-property.service';
 import {RuntimeService} from '../../services/runtime.service';
-import {GadgetInstanceService} from '../../board/grid/grid.service';
+import {GadgetInstanceService} from '../../grid/grid.service';
 import {AfterViewInit, ChangeDetectorRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {DynamicFormComponent} from '../../dynamic-form/dynamic-form.component';
 

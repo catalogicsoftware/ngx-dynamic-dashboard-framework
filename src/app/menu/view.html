@@ -1,0 +1,77 @@
+<div [@accordion2]="detailMenuOpen" class="ui inverted menu sticky" #stickymenu_tag>
+
+
+    <app-typeahead-input [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
+                         [searchList]="searchList"
+                         [placeHolderText]="placeHolderText"
+                         [typeAheadIsInMenu]="typeAheadIsInMenu"
+                         (ArtificialIntelligenceEventEmitter)="emitBoardAIAddGadgetEvent($event)">
+    </app-typeahead-input>
+
+
+    <div [@accordion]="detailMenuOpen" class="ui secondary inverted pointing menu board">
+        <a *ngFor="let board of dashboardList; let i = index" class="item"
+           [ngClass]="{'active':board == selectedBoard}"
+           (click)="emitBoardSelectEvent(board)">
+            {{board}}
+        </a>
+    </div>
+
+
+    <div class="right inverted menu">
+
+        <a [@accordion]="detailMenuOpen" class="item"
+           (click)="toggleNotificationSideBar()">
+            <i class="large inverted alarm icon"></i>
+            <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>
+        </a>
+        <a [@accordion]="detailMenuOpen" class="item"
+           (click)="addGadgetModal.showComponentLibraryModal('Add Gadget')">
+            <i class="large inverted plus icon"></i>
+        </a>
+
+        <a [@accordion]="detailMenuOpen" class="item"
+           (click)="toggleLayoutSideBar()">
+            <i class="large inverted grid layout icon"></i>
+        </a>
+
+        <a [@accordion]="detailMenuOpen" class="item"
+           (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
+            <i class="large inverted setting icon"></i>
+        </a>
+
+        <a class="item"><i
+                class="large inverted chevron icon" (click)="toggleAccordion()"
+                [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
+        </a>
+    </div>
+
+</div>
+<br>
+
+<!-- the modal will emit an event and call the grid component to add the requested cell to the board -->
+<app-add-gadget-modal #addGadgetModal
+                      (addGadgetEvent)="emitBoardAddGadgetEvent($event)">
+</app-add-gadget-modal>
+
+<app-board-configuration-modal #boardConfigModal
+                               (dashboardCreateEvent)="emitBoardCreateEvent($event)"
+                               (dashboardEditEvent)="emitBoardEditEvent($event)"
+                               (dashboardDeleteEvent)="emitBoardDeleteEvent($event)"
+                               [dashboardList]="dashboardList">
+
+
+</app-board-configuration-modal>
+
+
+<!-- side bar content -->
+<div class="ui sidebar inverted right vertical menu" #notificationSideBar_tag>
+    <app-notification-modal></app-notification-modal>
+</div>
+
+<div class="ui sidebar inverted right vertical menu" #layoutSideBar_tag>
+    <app-board-layout-manager-modal [layoutId]="layoutId"
+                                    (boardLayoutChangeEvent)="emitBoardChangeLayoutEvent($event)">
+    </app-board-layout-manager-modal>
+</div>
+

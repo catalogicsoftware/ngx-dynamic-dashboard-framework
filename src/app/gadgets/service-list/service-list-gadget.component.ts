@@ -5,7 +5,7 @@ import {
 
 import {RuntimeService} from '../../services/runtime.service';
 import {serviceList} from './service-list';
-import {GadgetInstanceService} from '../../board/grid/grid.service';
+import {GadgetInstanceService} from '../../grid/grid.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';

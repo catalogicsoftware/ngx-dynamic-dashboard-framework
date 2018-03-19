@@ -1,9 +1,9 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 import {GadgetInstanceService} from './grid.service';
-import {ConfigurationService} from '../../services/configuration.service';
-import {GadgetConfigModel} from '../../gadgets/_common/gadget-config-model';
-import {AddGadgetService} from '../../add-gadget/service';
-import {ToastService} from '../../toast/toast.service';
+import {ConfigurationService} from '../services/configuration.service';
+import {GadgetConfigModel} from '../gadgets/_common/gadget-config-model';
+import {AddGadgetService} from '../add-gadget/service';
+import {ToastService} from '../toast/toast.service';
 
 
 @Component({

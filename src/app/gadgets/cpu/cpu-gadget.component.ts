@@ -1,10 +1,11 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {GadgetInstanceService} from '../../board/grid/grid.service';
+import {GadgetInstanceService} from '../../grid/grid.service';
 import {RuntimeService} from '../../services/runtime.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {CPUService} from './service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-dynamic-component',
@@ -13,7 +14,7 @@ import {CPUService} from './service';
     styleUrls: ['../_common/styles-gadget.css']
 })
 
-export class CPUGadgetComponent extends GadgetBase implements OnDestroy, OnInit {
+export class CPUGadgetComponent extends GadgetBase {
 
     // chart options
     showXAxis = true;
@@ -36,7 +37,8 @@ export class CPUGadgetComponent extends GadgetBase implements OnDestroy, OnInit 
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 protected _cpuService: CPUService,
-                private _changeDetectionRef: ChangeDetectorRef) {
+                private _changeDetectionRef: ChangeDetectorRef,
+                private _route: Router) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
@@ -59,7 +61,7 @@ export class CPUGadgetComponent extends GadgetBase implements OnDestroy, OnInit 
     }
 
     public stop() {
-       this.setStopState(false);
+        this.setStopState(false);
     }
 
     public updateData(data: any[]) {
@@ -70,6 +72,12 @@ export class CPUGadgetComponent extends GadgetBase implements OnDestroy, OnInit 
 
             },
             error => this.handleError(error));
+    }
+
+    public drillDown(data) {
+        this._route.navigate(['/detail'], {
+
+        });
     }
 
     public updateProperties(updatedProperties: any) {

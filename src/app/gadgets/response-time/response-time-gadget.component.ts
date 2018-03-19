@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
-import {GadgetInstanceService} from '../../board/grid/grid.service';
+import {GadgetInstanceService} from '../../grid/grid.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';

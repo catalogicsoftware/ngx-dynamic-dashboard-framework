@@ -4,7 +4,10 @@
     right: 10px;
     width: 300px;
 }
-
+.ui.info.message{
+    border-left-width: 10px;
+    border-left-style: solid;
+}
 .toast{
 
     padding: 5px;

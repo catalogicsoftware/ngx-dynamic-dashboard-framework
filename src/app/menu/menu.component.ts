@@ -14,7 +14,7 @@ declare var jQuery: any;
     moduleId: module.id,
     selector: 'app-menu-component',
     templateUrl: './view.html',
-    styleUrls: ['./styles-board.css'],
+    styleUrls: ['./styles.css'],
     animations: [
 
         trigger('accordion', [

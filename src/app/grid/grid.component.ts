@@ -4,6 +4,7 @@ import {ConfigurationService} from '../services/configuration.service';
 import {GadgetConfigModel} from '../gadgets/_common/gadget-config-model';
 import {AddGadgetService} from '../add-gadget/service';
 import {ToastService} from '../toast/toast.service';
+import {MenuEventService} from '../menu/menu-service';
 
 
 @Component({
@@ -44,14 +45,50 @@ export class GridComponent {
     constructor(private _gadgetInstanceService: GadgetInstanceService,
                 private _configurationService: ConfigurationService,
                 private _gadgetLibraryService: AddGadgetService,
-                private _toastService: ToastService) {
+                private _toastService: ToastService,
+                private _menuEventService: MenuEventService) {
+
+
+        this.setupEventListeners();
+        this.initializeBoard();
+        this.getGadgetLibrary();
+
+    }
+
+    setupEventListeners() {
+
 
         this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
             this.saveBoard('Gadget Removed From Board: ' + message, false);
         });
 
-        this.initializeBoard();
-        this.getGadgetLibrary();
+        this._menuEventService.listenForMenuEvents().subscribe((event: IEvent) => {
+            const edata = event['data'];
+
+            switch (event['name']) {
+                case 'boardChangeLayoutEvent':
+                    this.updateBoardLayout(edata);
+                    break;
+                case 'boardSelectEvent':
+                    this.loadBoard(edata);
+                    break;
+                case 'boardCreateEvent':
+                    this.createBoard(edata);
+                    break;
+                case 'boardEditEvent':
+                    this.editBoard(edata);
+                    break;
+                case 'boardDeleteEvent':
+                    this.deleteBoard(edata);
+                    break;
+                case 'boardAddGadgetEvent':
+                    this.addGadget(edata);
+                    break;
+                case 'boardAIAddGadgetEvent':
+                    this.addGadgetUsingArtificialIntelligence(edata);
+                    break;
+            }
+        });
 
     }
 
@@ -391,7 +428,7 @@ export class GridComponent {
                 this._toastService.sendMessage(this.getModel().title + ':' + this.getModel().boardInstanceId + ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
-                    this.boardUpdateEvent.emit(this.getModel().title);
+                    this._menuEventService.raiseGridEvent({name: 'boardUpdateEvent', data: this.getModel().title});
                 }
             },
             error => console.error('Error' + error),

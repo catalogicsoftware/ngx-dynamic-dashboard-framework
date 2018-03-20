@@ -1,6 +1,7 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MenuEventService} from './menu-service';
 
 
 declare var jQuery: any;
@@ -41,14 +42,6 @@ declare var jQuery: any;
 })
 export class MenuComponent implements OnInit {
 
-    @Output() boardChangeLayoutEvent: EventEmitter<any> = new EventEmitter();
-    @Output() boardSelectionEvent: EventEmitter<any> = new EventEmitter<any>();
-    @Output() boardCreateEvent: EventEmitter<any> = new EventEmitter();
-    @Output() boardEditEvent: EventEmitter<any> = new EventEmitter();
-    @Output() boardDeleteEvent: EventEmitter<any> = new EventEmitter();
-    @Output() boardAddGadgetEvent: EventEmitter<any> = new EventEmitter<any>();
-    @Output() boardAIAddGadgetEvent: EventEmitter<any> = new EventEmitter<any>();
-
     dashboardList: any[] = [];
     selectedBoard = '';
     placeHolderText = 'Ask the board to do something!';
@@ -68,7 +61,24 @@ export class MenuComponent implements OnInit {
 
     layoutId = 0;
 
-    constructor(private _configurationService: ConfigurationService) {
+    constructor(private _configurationService: ConfigurationService,
+                private _menuEventService: MenuEventService) {
+
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        this._menuEventService.listenForGridEvents().subscribe((event: IEvent) => {
+
+            const edata = event['data'];
+
+            switch (event['name']) {
+                case 'boardUpdateEvent':
+                    this.updateDashboardMenu(edata);
+                    break;
+            }
+
+        });
     }
 
     ngOnInit() {
@@ -78,32 +88,32 @@ export class MenuComponent implements OnInit {
     }
 
     emitBoardChangeLayoutEvent(event) {
-        this.boardChangeLayoutEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardChangeLayoutEvent', data: event});
     }
 
     emitBoardSelectEvent(event) {
         this.boardSelect(event);
-        this.boardSelectionEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardSelectEvent', data: event});
     }
 
     emitBoardCreateEvent(event) {
-        this.boardCreateEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardCreateEvent', data: event});
     }
 
     emitBoardEditEvent(event) {
-        this.boardEditEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardEditEvent', data: event});
     }
 
     emitBoardDeleteEvent(event) {
-        this.boardDeleteEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardDeleteEvent', data: event});
     }
 
     emitBoardAddGadgetEvent(event) {
-        this.boardAddGadgetEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardAddGadgetEvent', data: event});
     }
 
     emitBoardAIAddGadgetEvent(event) {
-        this.boardAIAddGadgetEvent.emit(event);
+        this._menuEventService.raiseMenuEvent({name: 'boardAIAddGadgetEvent', data: event});
     }
 
     updateDashboardMenu(selectedBoard: string) {

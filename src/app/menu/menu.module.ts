@@ -15,6 +15,7 @@ import {ObservableWebSocketService} from '../services/websocket-service';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {ToastModule} from '../toast/toast.module';
 import {MenuComponent} from './menu.component';
+import {MenuEventService} from './menu-service';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import {MenuComponent} from './menu.component';
         RuntimeService,
         ConfigurationService,
         GadgetPropertyService,
-        ObservableWebSocketService
+        ObservableWebSocketService,
+        MenuEventService
     ],
     declarations: [
         MenuComponent

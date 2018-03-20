@@ -1,18 +1,5 @@
-<app-menu-component #menu
 
-        (boardAddGadgetEvent)="gadgetGrid.addGadget($event)"
-        (boardAIAddGadgetEvent)="gadgetGrid.addGadgetUsingArtificialIntelligence($event)"
-        (boardCreateEvent)="gadgetGrid.createBoard($event)"
-        (boardEditEvent)="gadgetGrid.editBoard($event)"
-        (boardDeleteEvent)="gadgetGrid.deleteBoard($event)"
-        (boardChangeLayoutEvent)="gadgetGrid.updateBoardLayout($event)"
-        (boardSelectionEvent)="gadgetGrid.loadBoard($event)"
-
->
-
-</app-menu-component>
-
-<app-grid-component  #gadgetGrid
-                     (boardUpdateEvent)="menu.updateDashboardMenu($event)">
+<app-menu-component></app-menu-component>
+<app-grid-component>
 </app-grid-component>
 

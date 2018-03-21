@@ -8,24 +8,20 @@ import {GadgetDetailComponent} from './gadget-detail/gadget-detail.component';
 export const routes: Routes = [
     {
         path: '',
-        component: AppComponent,
-        children:
-
-            [
-                {
-                    path: '',
-                    redirectTo: 'main-board',
-                    pathMatch: 'full'
-                },
-                {
-                    path: 'main-board',
-                    component: BoardComponent
-                },
-                {
-                    path: 'detail',
-                    component: GadgetDetailComponent
-                }
-            ]
+        component: AppComponent
+    },
+    {
+        path: 'main-board',
+        component: BoardComponent
+    },
+    {
+        path: 'detail',
+        component: GadgetDetailComponent
+    },
+    {
+        path: '',
+        redirectTo: 'main-board',
+        pathMatch: 'full'
     }
 ];
 

@@ -57,7 +57,6 @@ export class GridComponent {
 
     setupEventListeners() {
 
-
         this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
             this.saveBoard('Gadget Removed From Board: ' + message, false);
         });
@@ -89,7 +88,6 @@ export class GridComponent {
                     break;
             }
         });
-
     }
 
     /**

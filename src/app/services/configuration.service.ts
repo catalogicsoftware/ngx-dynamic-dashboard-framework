@@ -4,8 +4,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {defaultBoard} from '../board/models/board-default';
-import {sampleBoardCollection} from '../board/models/board-collection-sample';
+import {defaultBoard} from './configuration-sample-default-board';
+import {sampleBoardCollection} from './configuration-sample-boards.model';
 
 
 @Injectable()

@@ -12,7 +12,7 @@ import {
     templateUrl: './view.html',
     styleUrls: ['./styles.css']
 })
-export class AIConfigComponent {
+export class AIComponent {
 
     token;
     ibmwatsonuid;

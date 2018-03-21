@@ -8,6 +8,11 @@ import {GadgetDetailComponent} from './gadget-detail/gadget-detail.component';
 export const routes: Routes = [
     {
         path: '',
+        redirectTo: 'main-board',
+        pathMatch: 'full'
+    },
+    {
+        path: '',
         component: AppComponent
     },
     {
@@ -17,12 +22,8 @@ export const routes: Routes = [
     {
         path: 'detail',
         component: GadgetDetailComponent
-    },
-    {
-        path: '',
-        redirectTo: 'main-board',
-        pathMatch: 'full'
     }
+
 ];
 
 @NgModule({

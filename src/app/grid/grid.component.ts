@@ -221,7 +221,6 @@ export class GridComponent {
 
     }
 
-
     public updateBoardLayout(structure) {
 
         console.log('UPDATING LAYOUT');

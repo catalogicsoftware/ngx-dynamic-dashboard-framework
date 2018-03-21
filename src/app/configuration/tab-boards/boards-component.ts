@@ -11,7 +11,7 @@ import {
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
-import {tabsModel} from '../../board/models/board-configtabs.model';
+import {tabsModel} from '../tabs.model';
 import {ConfigurationService} from '../../services/configuration.service';
 
 
@@ -30,7 +30,7 @@ declare var jQuery: any;
 @Component({
     selector: 'app-board-configuration-modal',
     moduleId: module.id,
-    templateUrl: './board-configuration.html',
+    templateUrl: './view.html',
     styleUrls: ['./styles-board.css'],
     animations: [
 
@@ -48,7 +48,7 @@ declare var jQuery: any;
 
 
 })
-export class BoardConfigurationComponent implements AfterViewInit {
+export class BoardsComponent implements AfterViewInit {
 
     @Output() dashboardCreateEvent: EventEmitter<any> = new EventEmitter();
     @Output() dashboardEditEvent: EventEmitter<any> = new EventEmitter();

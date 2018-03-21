@@ -23,7 +23,6 @@ import {MenuModule} from '../menu/menu.module';
 @NgModule({
     imports: [
         CommonModule,
-        MenuModule,
         GridModule.withComponents([
             MemoryGadgetComponent,
             CPUGadgetComponent,

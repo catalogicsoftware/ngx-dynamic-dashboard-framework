@@ -41,8 +41,8 @@ The primary projects leveraged:
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
 * angular material
 * AI Natural Language Processing - The board includes two options for AI, Wit.Ai and IBM Watson.
-..* Wit.ai - Natural Language Processing site has been integrated via JSONP
-..* IBM Watson - IBM Watson does not support JSONP so the code relies on a backend implementation of the IBM Watson SDK.
+* Wit.ai - Natural Language Processing site has been integrated via JSONP
+* IBM Watson - IBM Watson does not support JSONP so the code relies on a backend implementation of the IBM Watson SDK.
 I offer sample backend code based on Spring Boot within the comments of the Runtime Service
 
 Features:

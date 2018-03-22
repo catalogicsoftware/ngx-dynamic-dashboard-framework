@@ -41,8 +41,8 @@ The primary projects leveraged:
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
 * angular material
 * AI Natural Language Processing - The board includes two options for AI, Wit.Ai and IBM Watson.
-** Wit.ai - Natural Language Processing site has been integrated via JSONP
-** IBM Watson - IBM Watson does not support JSONP so the code relies on a backend implementation of the IBM Watson SDK.
+..* Wit.ai - Natural Language Processing site has been integrated via JSONP
+..* IBM Watson - IBM Watson does not support JSONP so the code relies on a backend implementation of the IBM Watson SDK.
 I offer sample backend code based on Spring Boot within the comments of the Runtime Service
 
 Features:
@@ -61,45 +61,29 @@ The code includes a very simple Todo gadget that can be used as an example for g
 
 ## Define the Gadget Component, Service and View
 
-Todo Component 
-[todo-gadget.component.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/todo/todo-gadget.component.ts)
-
-Todo View
-[view.html](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/todo/view.html)
-
-Todo Service
-[service.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/todo/service.ts)
-
-Sample mock service data
-[todo-model.json](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/api/todo-model.json)
+* Todo Component  [todo-gadget.component.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/todo/todo-gadget.component.ts)
+* Todo View [view.html](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/todo/view.html)
+* Todo Service [service.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/todo/service.ts)
+* Sample mock service data [todo-model.json](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/api/todo-model.json)
 
 ## Define the gadget's model
 
 The model is used to dynamically create and render the gadget and its property page forms. This model is an entry into a model array used for all gadgets. You will simply add an entry to the model's array. See the Todo entry.
-
-Add an entry for the gadget in the library model array
-[gadget-library-model.json](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/api/gadget-library-model.json)
+Add an entry for the gadget in the library model array [gadget-library-model.json](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/api/gadget-library-model.json)
 
 ## Add the gadget entry to the gadget factory class
 
-Add an entry for your gadget in the factory gadget class
-[gadget-factory.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/add-gadget/gadget-factory.ts)
+Add an entry for your gadget in the factory gadget class [gadget-factory.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/add-gadget/gadget-factory.ts)
 
 ## Gadget Icon
 
-Define an image/icon for your gadget
-[todo.png](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/images/todo.png)
+Define an image/icon for your gadget [todo.png](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/assets/images/todo.png)
 
 ## Gadget Module References
 
-Import the gadget's component into the board module
-[board.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/board/board.module.ts)
-
-Import the gadget's service into the grid module
-[grid.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/grid/grid.module.ts)
-
-Import the gadget's component and service into the gadget module
-[gadget.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/gadget.module.ts)
+* Import the gadget's component into the board module [board.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/board/board.module.ts)
+* Import the gadget's service into the grid module [grid.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/grid/grid.module.ts)
+* Import the gadget's component and service into the gadget module [gadget.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/gadget.module.ts)
 
 ![Todo Gadget](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/gifs/TodoGadget.gif)
 
@@ -139,11 +123,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 This project uses the compodoc project : https://github.com/compodoc/compodoc
 
 Run `npm install -g @compodoc/compodoc` to install compodoc globally
-
 Run `compodoc -p tsconfig.json -n 'NGX Dynamic Dashboard Framework'` to generate the documentation. It will be placed in the documentation folder
-
 Run `compodoc -s` to serve up the documentation site at http://localhost:8080
-
 
 ## Further help
 

@@ -13,6 +13,7 @@ export class RuntimeService {
 
     // watsonMicroserviceURL = 'http://localhost:8080/classify';
     watsonMicroserviceURL = '/classify';
+
     static handleError(err: HttpErrorResponse | any) {
 
         const errMsg: any = {
@@ -45,6 +46,17 @@ export class RuntimeService {
 
     testURLResponse(url: string) {
         return this._http.get(url, {responseType: 'text'})
+            .catch(RuntimeService.handleError);
+
+    }
+
+    testConnectivity(url: string, host: string, port: string) {
+
+        let p = new HttpParams();
+        p = p.append('host', host);
+        p = p.append('port', port);
+
+        return this._http.get(url, {params: p})
             .catch(RuntimeService.handleError);
 
     }

@@ -26,8 +26,8 @@ import {ErrorHandlerModule} from '../error/error.module';
 
 import {ResponseTimeGadgetComponent} from './response-time/response-time-gadget.component';
 import {
-    MatButtonModule, MatCheckboxModule, MatExpansionModule, MatIconModule, MatInputModule,
-    MatProgressBarModule
+    MatButtonModule, MatCheckboxModule, MatExpansionModule, MatIconModule, MatInputModule, MatOptionModule,
+    MatProgressBarModule, MatSelectModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {StorageObjectListComponent} from './storage-object-list/storage-object-list.component';
@@ -57,6 +57,8 @@ import {TodoService} from './todo/service';  // todo gadget
         MatInputModule,
         MatProgressBarModule,
         MatExpansionModule,
+        MatOptionModule,
+        MatSelectModule,
         FormsModule,
         FacetModule,
         TypeAheadInputModule,

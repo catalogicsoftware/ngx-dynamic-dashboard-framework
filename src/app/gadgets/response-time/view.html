@@ -1,45 +1,87 @@
-<div  class="ui left aligned segment gadget" dnd-draggable [dragEnabled]="true"
+<div class="ui left aligned segment gadget" dnd-draggable [dragEnabled]="true"
      [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
 
 
     <app-gadget-header (mouseover)="showGadgetControls(true)"
                        (mouseleave)="showGadgetControls(false)"
-            [title]="title"
-            [inRun]="inRun"
-            [inConfig]="inConfig"
-            [actionInitiated]="actionInitiated"
-            [showOperationControls]="showOperationControls"
-            [gadgetHasOperationControls]="gadgetHasOperationControls"
-            [showConfigurationControl]="showConfigurationControl"
-            [showControls]="showControls"
-            (toggleConfigModeEvent)="toggleConfigMode()"
-            (removeEvent)="remove()"
-            (runEvent)="run()"
-            (stopEvent)="stop()">
+                       [title]="title"
+                       [inRun]="inRun"
+                       [inConfig]="inConfig"
+                       [actionInitiated]="actionInitiated"
+                       [showOperationControls]="showOperationControls"
+                       [gadgetHasOperationControls]="gadgetHasOperationControls"
+                       [showConfigurationControl]="showConfigurationControl"
+                       [showControls]="showControls"
+                       (toggleConfigModeEvent)="toggleConfigMode()"
+                       (removeEvent)="remove()"
+                       (runEvent)="run()"
+                       (stopEvent)="stop()">
     </app-gadget-header>
 
 
-    <div class="ui centered grid" *ngIf="!inConfig">
+    <div class="ui grid" *ngIf="!inConfig">
 
         <div class="row">
-            <mat-input-container class="example-full-width">
-                <input matInput [(ngModel)]="testURL" placeholder="Enter Endpoint To Test">
-            </mat-input-container>
-            <div style="min-height: 200px">
-                <ngx-charts-number-card
-                        [view]="view"
-                        [scheme]="colorScheme"
-                        [results]="single"
-                        (select)="onSelect($event)">
-                </ngx-charts-number-card>
+            <div class="ui padded basic segment">
+                <table>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Enter Host" [(ngModel)]="host">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="half-width">
+                                <mat-select placeholder="Enter Port" [(value)]="port">
+                                    <mat-option value="25">SMTP</mat-option>
+                                    <mat-option value="92">VCenter</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button mat-raised-button color="primary" (click)="testConnection()">Test Connectivity</button>
+                        </td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                        <td>
+                            <mat-input-container class="example-full-width">
+                                <input matInput [(ngModel)]="testURL" placeholder="Enter Endpoint To Test">
+                            </mat-input-container>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button mat-raised-button color="primary" (click)="run()">Test URL connection response time</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ngx-charts-number-card
+                                    [view]="view"
+                                    [scheme]="colorScheme"
+                                    [results]="single"
+                                    (select)="onSelect($event)">
+                            </ngx-charts-number-card>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
+
     </div>
+
     <app-dynamic-form *ngIf="inConfig"
                       [propertyPages]="propertyPages"
                       [instanceId]="instanceId"
                       (updatePropertiesEvent)="updateProperties($event)">
     </app-dynamic-form>
+
 
     <app-error-handler
             [errorObject]="errorObject"

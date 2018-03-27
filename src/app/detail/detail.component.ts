@@ -2,14 +2,14 @@ import { Component, OnInit} from '@angular/core';
 
 
 /**a
- * GadgetDetail component
+ * Detail component
  *
  */
 @Component({
     moduleId: module.id,
     templateUrl: './view.html'
 })
-export class GadgetDetailComponent implements OnInit {
+export class DetailComponent implements OnInit {
 
     constructor() {
     }

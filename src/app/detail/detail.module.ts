@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {MatCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {GadgetDetailComponent} from './gadget-detail.component';
+import {DetailComponent} from './detail.component';
 
 
 @NgModule({
@@ -12,15 +12,15 @@ import {GadgetDetailComponent} from './gadget-detail.component';
         MatCheckboxModule
     ],
     declarations: [
-        GadgetDetailComponent
+        DetailComponent
     ],
     providers: [
 
     ],
     exports: [
-        GadgetDetailComponent
+        DetailComponent
     ]
 })
-export class GadgetDetailModule {
+export class DetailModule {
 }
 

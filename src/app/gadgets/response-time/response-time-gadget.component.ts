@@ -10,7 +10,9 @@ import {GadgetPropertyService} from '../_common/gadget-property.service';
     selector: 'app-dynamic-component',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['../_common/styles-gadget.css']
+    styleUrls: ['./styles.css']
+
+
 })
 export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy {
     single: any = [];
@@ -19,6 +21,9 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         domain: ['#0AFF16', '#0d5481']
     };
     testURL = '';
+    host = '';
+    port = '';
+    localURL = '/connectTest';
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -34,7 +39,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     }
 
     public preRun(): void {
-
     }
 
     public run() {
@@ -63,6 +67,17 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     public stop() {
         this.setStopState(false);
     }
+
+    public testConnection() {
+
+        this._procMonRuntimeService.testConnectivity(this.localURL, this.host, this.port).subscribe(
+            data => {
+
+                console.log(data);
+            },
+            error => this.handleError(error));
+    }
+
 
     public updateData(data: any[]) {
     }

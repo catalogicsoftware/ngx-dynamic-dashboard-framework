@@ -47,7 +47,7 @@
                     </td>
                 </tr>
                 <tr [@fade] *ngIf="errorEventRaised">
-                    <td>
+                    <td [@fade] *ngIf="detailMessageOpen == true">
                         <div class="ui info message full-width">
                             <div>
                                 {{connectionResults}}
@@ -57,7 +57,7 @@
                     </td>
                 </tr>
                 <tr [@fade] *ngIf="errorEventRaised">
-                    <td>
+                    <td [@fade] *ngIf="detailMessageOpen == true">
                         <div>
                             <table class="ui celled table" style="border:none !important">
                                 <thead>
@@ -84,7 +84,17 @@
                 </tr>
             </table>
         </div>
+
+        <div *ngIf="!inConfig" class="ui bottom right attached label" style="background-color: white">
+            <i *ngIf="errorEventRaised" class="large chevron icon" (click)="toggleMessageDetail()"
+               [ngClass]="{'up':detailMessageOpen == true, 'down': detailMessageOpen == false}"
+               style="color:lightgrey">
+            </i>
+        </div>
+
+
     </div>
+
 
     <app-dynamic-form *ngIf="inConfig"
                       [propertyPages]="propertyPages"

@@ -23,7 +23,7 @@ import {ConnectionService} from './service';
                     animate(1000, style({opacity: 1}))
                 ]),
                 transition(':leave', [   // :leave is alias to '* => void'
-                    animate(5, style({opacity: 0}))
+                    animate(300, style({opacity: 0}))
                 ])
             ])
     ]
@@ -37,6 +37,8 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     connectStatus: string;
     errorEventRaised = false;
     model: any; // todo create an interface for this
+
+    detailMessageOpen: boolean;
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -55,14 +57,16 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     public preRun(): void {
         this.port = this.getPropFromPropertyPages('port');
         this.host = this.getPropFromPropertyPages('host');
+
+        this.detailMessageOpen = false;
     }
 
     public run() {
+        /** todo - add a one second delay to give the appearance of something hapenning when there are two subsequent tests that
+         *  have the same result
+         */
         this.initializeRunState(true);
-
-        this.errorEventRaised = false;
         this.testConnection();
-
     }
 
     public stop() {
@@ -92,6 +96,9 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
                 if (this.connectStatus !== 'success') {
                     this.errorEventRaised = true;
+                    this.detailMessageOpen = true;
+                } else {
+                    this.errorEventRaised = false;
                 }
 
                 this.setConnectionStatusModel();
@@ -157,6 +164,12 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         this.host = updatedPropsObject.host;
         this.title = updatedPropsObject.title;
         this.showOperationControls = true;
+    }
+
+    toggleMessageDetail(): void {
+
+        this.detailMessageOpen = !this.detailMessageOpen;
+
     }
 
     ngOnDestroy() {

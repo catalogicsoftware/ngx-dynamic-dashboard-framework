@@ -47,9 +47,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "CPUMGadgetComponent",
@@ -58,15 +60,15 @@
       "icon": "assets/images/cpu.png",
       "instanceId": -1,
       "tags": [
-      {
-        "facet": "Performance",
-        "name": "real-time"
-      },
-      {
-        "facet": "Chart",
-        "name": "bar"
-      }
-    ],
+        {
+          "facet": "Performance",
+          "name": "real-time"
+        },
+        {
+          "facet": "Chart",
+          "name": "bar"
+        }
+      ],
       "config": {
         "propertyPages": [
           {
@@ -212,14 +214,16 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "ResponseTimeGadgetComponent",
-      "name": "Response Time",
-      "description": "Test Response Time Of Endpoints.",
+      "name": "Connection Test",
+      "description": "Test Connection To Endpoints.",
       "icon": "assets/images/response.png",
       "instanceId": -1,
       "tags": [
@@ -239,9 +243,75 @@
                 "controlType": "textbox",
                 "key": "title",
                 "label": "Title",
-                "value": "Response Time",
+                "value": "Connection Test",
                 "required": true,
                 "order": 1
+              },
+              {
+                "controlType": "textbox",
+                "key": "host",
+                "label": "Host",
+                "value": "",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "dropdown",
+                "key": "port",
+                "label": "Port",
+                "value": "",
+                "required": true,
+                "order": 3,
+                "options": [
+                  {
+                    "key": "SPP (3000)",
+                    "value": "3000"
+                  },
+                  {
+                    "key": "LDAP (389)",
+                    "value": "389"
+                  },
+                  {
+                    "key": "LDAP (636)",
+                    "value": "636"
+                  },
+                  {
+                    "key": "VADP (8080)",
+                    "value": "8080"
+                  },
+                  {
+                    "key": "WinRM (5985)",
+                    "value": "5985"
+                  },
+                  {
+                    "key": "VSnap (8900)",
+                    "value": "8900"
+                  },
+                  {
+                    "key": "SSH (22)",
+                    "value": "22"
+                  },
+                  {
+                    "key": "ISCSI (3260)",
+                    "value": "3260"
+                  },
+                  {
+                    "key": "NFS (2049)",
+                    "value": "2049"
+                  },
+                  {
+                    "key": "NFS (2048)",
+                    "value": "2048"
+                  },
+                  {
+                    "key": "NFS (111)",
+                    "value": "111"
+                  },
+                  {
+                    "key": "ESXI (902)",
+                    "value": "902"
+                  }
+                ]
               },
               {
                 "controlType": "hidden",
@@ -255,9 +325,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "EdgeServiceListGadgetComponent",
@@ -322,9 +394,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "TrendGadgetComponent",
@@ -393,9 +467,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "TrendLineGadgetComponent",
@@ -464,9 +540,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "CPUGadgetComponent",
@@ -535,9 +613,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "MemoryGadgetComponent",
@@ -606,9 +686,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "ServiceListGadgetComponent",
@@ -673,9 +755,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "PropertyListGadgetComponent",
@@ -731,9 +815,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "DiskGadgetComponent",
@@ -863,9 +949,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "DonutGadgetComponent",
@@ -929,7 +1017,6 @@
             "groupId": "counts",
             "position": 10,
             "properties": [
-
               {
                 "controlType": "textbox",
                 "key": "apiBasePath",
@@ -962,7 +1049,6 @@
                 "required": true,
                 "order": 1
               }
-
             ]
           },
           {
@@ -1014,9 +1100,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "StatisticGadgetComponent",
@@ -1091,9 +1179,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "NewsGadgetComponent",
@@ -1146,9 +1236,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "JobAnalysisGadgetComponent",
@@ -1205,9 +1297,11 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     },
     {
       "componentType": "TodoGadgetComponent",
@@ -1256,12 +1350,12 @@
           }
         ]
       },
-      "actions":[{
-        "name": "Add"
-      }]
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
     }
-
-
   ]
 }
 

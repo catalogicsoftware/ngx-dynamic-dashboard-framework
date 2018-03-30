@@ -11,8 +11,11 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/c
 @Injectable()
 export class RuntimeService {
 
-    // watsonMicroserviceURL = 'http://localhost:8080/classify';
-    watsonMicroserviceURL = '/classify';
+    watsonMicroserviceURL = 'http://localhost:8080/classify';
+    // watsonMicroserviceURL = '/classify';
+
+    connectivityTestURL = 'http://localhost:8080/connectTest';
+    // connectivityTestURL = '/connectTest';
 
     static handleError(err: HttpErrorResponse | any) {
 
@@ -50,13 +53,13 @@ export class RuntimeService {
 
     }
 
-    testConnectivity(url: string, host: string, port: string) {
+    testConnectivity( host: string, port: string) {
 
         let p = new HttpParams();
         p = p.append('host', host);
         p = p.append('port', port);
 
-        return this._http.get(url, {params: p})
+        return this._http.get(this.connectivityTestURL, {params: p})
             .catch(RuntimeService.handleError);
 
     }

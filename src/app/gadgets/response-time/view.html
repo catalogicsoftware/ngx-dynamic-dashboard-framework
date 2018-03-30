@@ -17,63 +17,214 @@
                        (runEvent)="run()"
                        (stopEvent)="stop()">
     </app-gadget-header>
-
-
-    <div class="ui grid" *ngIf="!inConfig">
-
+    <div class="ui centered grid" *ngIf="!inConfig">
         <div class="row">
-            <div class="ui padded basic segment">
-                <table>
-                    <tr>
-                        <td>
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Enter Host" [(ngModel)]="host">
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <mat-form-field class="half-width">
-                                <mat-select placeholder="Enter Port" [(value)]="port">
-                                    <mat-option value="25">SMTP</mat-option>
-                                    <mat-option value="92">VCenter</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button mat-raised-button color="primary" (click)="testConnection()">Test Connectivity</button>
-                        </td>
-                    </tr>
-                    <tr><td>&nbsp;</td></tr>
-                    <tr><td>&nbsp;</td></tr>
-                    <tr>
-                        <td>
-                            <mat-input-container class="example-full-width">
-                                <input matInput [(ngModel)]="testURL" placeholder="Enter Endpoint To Test">
-                            </mat-input-container>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button mat-raised-button color="primary" (click)="run()">Test URL connection response time</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ngx-charts-number-card
-                                    [view]="view"
-                                    [scheme]="colorScheme"
-                                    [results]="single"
-                                    (select)="onSelect($event)">
-                            </ngx-charts-number-card>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+            <table class=" ui compact table">
+                <tr>
+                    <td>
+                        <h4>Host : {{host}} </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4> Port : {{port}}</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button mat-raised-button color="primary" (click)="testConnection()" class="full-width">Test
+                            Connectivity
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ui info message full-width">
+                            <div>
+                                {{connectionResults}} <i class="icon large"
+                                                         [ngClass]="{
 
+                            'green':connectStatus == 'success',
+                            'check':connectStatus == 'success',
+                            'yellow':connectStatus != 'success',
+                            'exclamation triangle':connectStatus != 'success' && connectStatus != null
+
+
+
+                            }"
+                                                         style="float:right"></i>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div [@fade] *ngIf="connectStatus  != 'success' && connectStatus != null">
+                            <table class="ui celled table" [ngSwitch]="connectStatus">
+                                <thead [@fade] *ngIf='connectStatus == "time-out"'>
+                                <tr>
+                                    <th>Possible causes</th>
+                                    <th>Actions you can take</th>
+                                </tr>
+                                </thead>
+                                <tbody [@fade] *ngSwitchCase="'time-out'">
+                                <tr>
+                                    <td>The remote application is in deadlock.</td>
+                                    <td>Check that the remote application is operational, by accessing it as usual from
+                                        the
+                                        browser.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>There is a network connection problem.</td>
+                                    <td>Use the tools described below to check the connection with the remote machine.
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                                <thead [@fade] *ngIf='connectStatus == "refuse"'>
+                                <tr>
+                                    <th>Possible causes</th>
+                                    <th>Actions you can take</th>
+                                </tr>
+                                </thead>
+                                <tbody [@fade] *ngSwitchCase="'refuse'">
+                                <tr>
+                                    <td>You have the correct URL but the wrong Port.</td>
+                                    <td>
+                                        <ul>
+                                            <li>Double check an make sure you are using the correct port if a port is
+                                                required.
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>The remote application is down.</td>
+                                    <td>
+                                        <ul>
+                                            <li>Check that the remote application is operational, by accessing it from
+                                                the
+                                                browser using the application URL (or the display URL if the remote
+                                                application is behind a reverse proxy).
+                                            </li>
+                                            <li> If the remote application is not accessible with the browser, ping the
+                                                remote application URL from the local server – the remote application
+                                                must
+                                                be accessible using the application URL for the application link to
+                                                work.
+                                                See ping below.
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>The application URL is misconfigured.</td>
+                                    <td>Check the application URL configuration at the local end:
+
+                                        <ul>
+                                            <li>Does the application URL use the correct port?
+                                                If you're using the IP address for the application URL, is that correct?
+                                            </li>
+                                            <li>Does the application URL match the base URL of the remote application
+                                                (or
+                                                the display URL if the remote application is behind a reverse proxy )?
+                                            </li>
+                                            <li>Does the application URL use the correct context path?</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>A firewall is blocking access.
+                                    </td>
+                                    <td>Check that the firewall configuration allows access on the required port, using
+                                        the
+                                        network tools described below.
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                                <thead [@fade] *ngIf='connectStatus == "unknown"'>
+                                <tr>
+                                    <th>Possible causes</th>
+                                    <th>Actions you can take</th>
+                                </tr>
+                                </thead>
+                                <tbody [@fade] *ngSwitchCase="'unknown'">
+                                <tr>
+                                    <td>Misconfigured DNS.</td>
+                                    <td>Check your DNS configuration, particularly for private networks.</td>
+                                </tr>
+                                <tr>
+                                    <td>The application URL for the remote application is misconfigured, or may have
+                                        changed
+                                        recently.
+                                    </td>
+                                    <td>Check the application URL of the remote application:
+                                        <ul>
+                                            <li> Is the host name correct?</li>
+                                            <li> Is the port correct?</li>
+                                            <li> Is the context path correct?</li>
+                                            <li> Does the application URL match the base URL for the remote application
+                                                (or
+                                                the display URL if the remote application is behind a reverse proxy)?
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>The application URL is misconfigured.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>A firewall is blocking access.
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                </tbody>
+                                <thead [@fade] *ngIf='connectStatus == "route"'>
+                                <tr>
+                                    <th>Possible causes</th>
+                                    <th>Actions you can take</th>
+                                </tr>
+                                </thead>
+                                <tbody [@fade] *ngSwitchCase="'route'">
+                                <tr>
+                                    <td>A firewall is blocking requests.</td>
+                                    <td>Check that the firewall configuration allows access on the required port.
+                                        Use a tool like traceroute, described below, to show the path of traffic between
+                                        the
+                                        local and remote machines..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>An intermediate router is down.
+                                    </td>
+                                    <td>Use a tool like traceroute, described below, to show the path of traffic between
+                                        the
+                                        local and remote machines.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>The application URL is misconfigured.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>A firewall is blocking access.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <app-dynamic-form *ngIf="inConfig"
@@ -88,10 +239,5 @@
             [errorExists]="errorExists">
     </app-error-handler>
 
-    <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
-
-    <div class="ui bottom attached" *ngIf="inRun">
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </div>
 
 </div>

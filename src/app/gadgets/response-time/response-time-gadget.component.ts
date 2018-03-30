@@ -4,26 +4,36 @@ import {GadgetInstanceService} from '../../grid/grid.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
     selector: 'app-dynamic-component',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['./styles.css']
+    styleUrls: ['../_common/styles-gadget.css'],
+    animations: [
 
+        trigger(
+            'fade',
+            [
+                transition(':enter', [   // :enter is alias to 'void => *'
+                    style({opacity: 0}),
+                    animate(1000, style({opacity: 1}))
+                ]),
+                transition(':leave', [   // :leave is alias to '* => void'
+                    animate(5, style({opacity: 0}))
+                ])
+            ])
+    ]
 
 })
 export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy {
-    single: any = [];
-    view: any[];
-    colorScheme: any = {
-        domain: ['#0AFF16', '#0d5481']
-    };
-    testURL = '';
-    host = '';
-    port = '';
-    localURL = '/connectTest';
+
+    host: string;
+    port: string;
+    connectionResults: string;
+    connectStatus: string;
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -39,29 +49,15 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     }
 
     public preRun(): void {
+        this.port = this.getPropFromPropertyPages('port');
+        this.host = this.getPropFromPropertyPages('host');
     }
 
     public run() {
         this.initializeRunState(true);
 
-        let single = [];
-        Object.assign(this, {single});
+        this.testConnection();
 
-        const val = performance.now();
-
-        this._procMonRuntimeService.testURLResponse(this.testURL).subscribe(
-            data => {
-
-                this.inRun = false;
-                const val2 = performance.now();
-                single = this.single = [{
-                    'name': 'Response Time (milliseconds)',
-                    'value': (val2 - val)
-                }];
-
-                Object.assign(this, single);
-            },
-            error => this.handleError(error));
     }
 
     public stop() {
@@ -70,10 +66,27 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     public testConnection() {
 
-        this._procMonRuntimeService.testConnectivity(this.localURL, this.host, this.port).subscribe(
+        this.connectionResults = '';
+        const me = this;
+        this._procMonRuntimeService.testConnectivity(this.host, this.port).subscribe(
             data => {
 
-                console.log(data);
+                this.connectionResults = data['data'];
+
+                if (this.connectionResults.toLocaleLowerCase().indexOf('success') >= 0) {
+                    this.connectStatus = 'success';
+                } else if (this.connectionResults.toLocaleLowerCase().indexOf('time') >= 0) {
+                    this.connectStatus = 'time-out';
+                } else if (this.connectionResults.toLocaleLowerCase().indexOf('refuse') >= 0) {
+                    this.connectStatus = 'refuse';
+                } else if (this.connectionResults.toLocaleLowerCase().indexOf('unknown') >= 0) {
+                    this.connectStatus = 'unknown';
+                } else if (this.connectionResults.toLocaleLowerCase().indexOf('route') >= 0) {
+                    this.connectStatus = 'route';
+                }
+
+                me.stop();
+
             },
             error => this.handleError(error));
     }
@@ -113,6 +126,8 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         });
 
 
+        this.port = updatedPropsObject.port;
+        this.host = updatedPropsObject.host;
         this.title = updatedPropsObject.title;
         this.showOperationControls = true;
     }

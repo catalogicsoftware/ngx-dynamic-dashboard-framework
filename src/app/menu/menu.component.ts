@@ -98,6 +98,7 @@ export class MenuComponent implements OnInit {
 
     emitBoardCreateEvent(event) {
         this._menuEventService.raiseMenuEvent({name: 'boardCreateEvent', data: event});
+        this.updateDashboardMenu(event);
     }
 
     emitBoardEditEvent(event) {
@@ -106,6 +107,7 @@ export class MenuComponent implements OnInit {
 
     emitBoardDeleteEvent(event) {
         this._menuEventService.raiseMenuEvent({name: 'boardDeleteEvent', data: event});
+        this.updateDashboardMenu('');
     }
 
     emitBoardAddGadgetEvent(event) {

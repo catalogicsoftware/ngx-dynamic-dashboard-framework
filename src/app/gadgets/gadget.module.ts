@@ -39,7 +39,8 @@ import {APITokenService} from '../api-token/api-token.service';
 import {DrillDownComponent} from './donut/drill-down-component';
 import {FacetModule} from '../facet/facet.module';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
-import {TodoService} from './todo/service';  // todo gadget
+import {TodoService} from './todo/service';
+import {ConnectionService} from './response-time/service';  // todo gadget
 
 
 
@@ -93,6 +94,7 @@ import {TodoService} from './todo/service';  // todo gadget
         StorageService,
         DonutService,
         APITokenService,
+        ConnectionService,
         TodoService  // todo gadget
     ],
 

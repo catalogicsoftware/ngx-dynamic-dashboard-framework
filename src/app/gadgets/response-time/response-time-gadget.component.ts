@@ -4,7 +4,8 @@ import {GadgetInstanceService} from '../../grid/grid.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {ConnectionService} from './service';
 
 
 @Component({
@@ -34,12 +35,15 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     port: string;
     connectionResults: string;
     connectStatus: string;
+    errorEventRaised = false;
+    model: any; // todo create an interface for this
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                private _changeDetectionRef: ChangeDetectorRef) {
+                private _changeDetectionRef: ChangeDetectorRef,
+                protected _connectionService: ConnectionService) {
         super(_procMonRuntimeService,
             _gadgetInstanceService,
             _propertyService,
@@ -56,6 +60,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     public run() {
         this.initializeRunState(true);
 
+        this.errorEventRaised = false;
         this.testConnection();
 
     }
@@ -78,12 +83,18 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
                 } else if (this.connectionResults.toLocaleLowerCase().indexOf('time') >= 0) {
                     this.connectStatus = 'time-out';
                 } else if (this.connectionResults.toLocaleLowerCase().indexOf('refuse') >= 0) {
-                    this.connectStatus = 'refuse';
+                    this.connectStatus = 'connection-refuse';
                 } else if (this.connectionResults.toLocaleLowerCase().indexOf('unknown') >= 0) {
-                    this.connectStatus = 'unknown';
+                    this.connectStatus = 'unknown-host';
                 } else if (this.connectionResults.toLocaleLowerCase().indexOf('route') >= 0) {
-                    this.connectStatus = 'route';
+                    this.connectStatus = 'no-route';
                 }
+
+                if (this.connectStatus !== 'success') {
+                    this.errorEventRaised = true;
+                }
+
+                this.setConnectionStatusModel();
 
                 me.stop();
 
@@ -91,6 +102,22 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
             error => this.handleError(error));
     }
 
+    private setConnectionStatusModel() {
+
+        const me = this;
+        me.model = {};
+
+        // get the model based on the connection status
+        this._connectionService.get().subscribe(data => {
+
+            data.forEach(connectionModel => {
+                if (connectionModel['event'] === me.connectStatus) {
+                    me.model = connectionModel;
+                }
+            });
+
+        });
+    }
 
     public updateData(data: any[]) {
     }

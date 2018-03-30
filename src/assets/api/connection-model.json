@@ -1,0 +1,144 @@
+[
+  {
+    "event": "time-out",
+    "title": "Network request timed out",
+    "summary": "The application link was able to contact the remote application but could not establish a connection.",
+    "solution": [
+      {
+        "cause": "The remote application is in deadlock.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Check that the remote application is operational, by accessing it as usual from the browser."
+          }
+        ]
+      },
+      {
+        "cause": "There is a network connection problem.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Use the tools described below to check the connection with the remote machine.."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "event": "connection-refuse",
+    "title":"The remote application is not responding",
+    "summary": "The application link was attempting to connect to the remote application but the connection was refused.",
+    "solution": [
+      {
+        "cause": "You have the correct URL but the wrong Port.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Double check an make sure you are using the correct port if a port is required."
+          }
+        ]
+      },
+      {
+        "cause": "The remote application is down.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Check that the remote application is operational, by accessing it from the browser using the application URL (or the display URL if the remote application is behind a reverse proxy)."
+          },
+          {
+            "id": 2,
+            "task": "If the remote application is not accessible with the browser, ping the remote application URL from the local server – the remote application must be accessible using the application URL for the application link to work."
+          }
+        ]
+      },
+      {
+        "cause": "The application URL is misconfigured.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Does the application URL use the correct port? If you're using the IP address for the application URL, is that correct?"
+          },
+          {
+            "id": 2,
+            "task": "Does the application URL match the base URL of the remote application (or the display URL if the remote application is behind a reverse proxy )?"
+          },
+          {
+            "id": 3,
+            "task": "Does the application URL use the correct context path?"
+          }
+        ]
+      },
+      {
+        "cause": "A firewall is blocking access.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Check that the firewall configuration allows access on the required port, using the network tools described below."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "event": "unknown-host",
+    "title":"Unable to reach the remote application",
+    "summary": "The application link was attempting to connect to the remote application but the hostname of the remote application couldn't be resolved.",
+    "solution": [
+      {
+        "cause": "Misconfigured DNS.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Check your DNS configuration, particularly for private networks.."
+          }
+        ]
+      },
+      {
+        "cause": "The application URL for the remote application is misconfigured, or may have changed recently.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Is the host name correct?"
+          },
+          {
+            "id": 2,
+            "task": "Is the port correct?"
+          },
+          {
+            "id": 3,
+            "task": "Is the context path correct?"
+          },
+          {
+            "id": 4,
+            "task": "Does the application URL match the base URL for the remote application (or the display URL if the remote application is behind a reverse proxy)?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "event": "no-route",
+    "title":"Unable to locate the remote application",
+    "summary": "The application link was attempting to connect to the remote application but couldn't even contact it.",
+    "solution": [
+      {
+        "cause": "A firewall is blocking requests.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Check that the firewall configuration allows access on the required port. Use a tool like traceroute, described below, to show the path of traffic between the local and remote machines"
+          }
+        ]
+      },
+      {
+        "cause": "An intermediate router is down.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Use a tool like traceroute, described below, to show the path of traffic between the local and remote machines."
+          }
+        ]
+      }
+    ]
+  }
+]

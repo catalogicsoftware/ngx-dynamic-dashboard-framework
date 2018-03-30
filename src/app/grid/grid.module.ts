@@ -19,6 +19,7 @@ import {HttpModule} from '@angular/http';
 import {DonutService} from '../gadgets/donut/service';
 import {TodoService} from '../gadgets/todo/service';
 import {ToastModule} from '../toast/toast.module';
+import {ConnectionService} from '../gadgets/response-time/service';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {ToastModule} from '../toast/toast.module';
         EdgeService,
         CPUService,
         DonutService,
+        ConnectionService,
         TodoService  // todo gadget
     ]
 })

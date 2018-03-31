@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button class="ui blue button" (click)="testConnection()">Test
+                        <button class="ui blue button" (click)="run()">Test
                             Connectivity
                         </button>
 
@@ -92,7 +92,6 @@
             </i>
         </div>
 
-
     </div>
 
 
@@ -107,6 +106,10 @@
             [errorObject]="errorObject"
             [errorExists]="errorExists">
     </app-error-handler>
+
+    <div class="ui bottom attached" *ngIf="actionInitiated" style="width:90%">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
 
 
 </div>

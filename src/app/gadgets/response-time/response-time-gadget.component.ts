@@ -65,8 +65,10 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         /** todo - add a one second delay to give the appearance of something hapenning when there are two subsequent tests that
          *  have the same result
          */
-        this.initializeRunState(true);
+        this.initializeRunState(false);
+        this.clearState();
         this.testConnection();
+        this.inRun = true;
     }
 
     public stop() {
@@ -75,7 +77,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     public testConnection() {
 
-        this.connectionResults = '';
         const me = this;
         this._procMonRuntimeService.testConnectivity(this.host, this.port).subscribe(
             data => {
@@ -124,6 +125,11 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
             });
 
         });
+    }
+
+    private clearState() {
+        this.connectionResults = '';
+        this.detailMessageOpen = false;
     }
 
     public updateData(data: any[]) {

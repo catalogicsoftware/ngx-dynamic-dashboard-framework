@@ -172,7 +172,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         this.showOperationControls = true;
     }
 
-    toggleMessageDetail(): void {
+    public toggleMessageDetail(): void {
 
         this.detailMessageOpen = !this.detailMessageOpen;
 

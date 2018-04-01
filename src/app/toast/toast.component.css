@@ -2,15 +2,18 @@
     position:absolute;
     top:50px;
     right: 10px;
-    width: 300px;
+    width: 400px;
 }
-.ui.info.message{
-    border-left-width: 10px;
-    border-left-style: solid;
+.ui.positive.message{
+    border-radius: 0px;
 }
 .toast{
+    width:inherit;
+}
 
-    padding: 5px;
-    margin: 5px;
-    width: 300px;
+.toast-icon{
+
+    background-color:forestgreen;
+    text-align: center;
+
 }

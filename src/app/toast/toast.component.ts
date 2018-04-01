@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ToastService} from './toast.service';
 import {Message} from './message';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {TrendLineService} from '../gadgets/trend-line/service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'app-toast',
@@ -31,6 +33,18 @@ export class ToastComponent implements OnInit {
     ngOnInit() {
 
         this.messages = this._toastService.getMessages();
+
+
+        Observable.timer(0, 7000).subscribe(t => {
+
+            this.messages.forEach(message => {
+
+                this.dismiss(message.id);
+
+            });
+
+
+        });
     }
 
     dismiss(id) {

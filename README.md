@@ -2,31 +2,31 @@
 # NGX Dynamic Dashboard Framework
 
 ## Natural Language Processing (NLP) integration
-![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/gifs/nlp.gif)
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/nlp.gif)
 
 ## Sample Board 1
-![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb1.png)
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/images/sb1.png)
 
 ## Add Board and Gadget 
-![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/add.gif)
+![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/add.gif)
 
 ## Layout
-![Image Layout](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/layout.gif)
+![Image Layout](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/layout.gif)
 
 ## Alert/Notification
-![Image Notification](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/notification.gif)
+![Image Notification](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/notification.gif)
 
 ## Sample Realtime Web Socket Based Gadget
-![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/websocket-realtime.gif)
+![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/websocket-realtime.gif)
 
 ## Sample Board 2
-![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/images/sb2.png)
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/images/sb2.png)
 
 ## Drag and Drop
-![Image of Add Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/drag-drop.gif)
+![Image of Add Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/drag-drop.gif)
 
 ## Facet Filter
-![Image of Filter Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master//documentation/gifs/filter.gif)
+![Image of Filter Board To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/filter.gif)
 
 
 
@@ -85,7 +85,7 @@ Define an image/icon for your gadget [todo.png](https://github.com/catalogicsoft
 * Import the gadget's service into the grid module [grid.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/grid/grid.module.ts)
 * Import the gadget's component and service into the gadget module [gadget.module.ts](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework/blob/master/src/app/gadgets/gadget.module.ts)
 
-![Todo Gadget](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/documentation/gifs/TodoGadget.gif)
+![Todo Gadget](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/TodoGadget.gif)
 
 # NgADF
 

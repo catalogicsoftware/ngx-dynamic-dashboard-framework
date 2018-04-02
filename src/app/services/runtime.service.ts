@@ -6,16 +6,14 @@ import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {ErrorHandler} from '../error/error-handler';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
 export class RuntimeService {
 
-    watsonMicroserviceURL = 'http://localhost:8080/classify';
-    // watsonMicroserviceURL = '/classify';
-
-    connectivityTestURL = 'http://localhost:8080/connectTest';
-    // connectivityTestURL = '/connectTest';
+    watsonMicroserviceURL: string;
+    connectivityTestURL: string;
 
     static handleError(err: HttpErrorResponse | any) {
 
@@ -45,6 +43,19 @@ export class RuntimeService {
     }
 
     constructor(private _http: HttpClient) {
+        this.configure();
+    }
+
+    configure() {
+
+        if (environment.production) {
+            this.watsonMicroserviceURL = '/classify';
+            this.connectivityTestURL = '/connectTest';
+        } else {
+            this.connectivityTestURL = 'http://localhost:8080/connectTest';
+            this.watsonMicroserviceURL = 'http://localhost:8080/classify';
+        }
+
     }
 
     testURLResponse(url: string) {
@@ -53,7 +64,7 @@ export class RuntimeService {
 
     }
 
-    testConnectivity( host: string, port: string) {
+    testConnectivity(host: string, port: string) {
 
         let p = new HttpParams();
         p = p.append('host', host);
@@ -121,8 +132,6 @@ export class RuntimeService {
      * @param {string} aiStatement
      * @returns {Observable<any>}
      */
-
-
     callWatsonAI(aiStatement: string) {
         console.log('running Watson');
 

@@ -19,11 +19,16 @@
 
 
     <div class="right inverted menu">
-
+        <a [@accordion]="detailMenuOpen" class="item"
+          (click)="showDocumentation()">
+            <i class="large inverted book icon"></i>
+        </a>
         <a [@accordion]="detailMenuOpen" class="item"
            (click)="toggleNotificationSideBar()">
             <i class="large inverted alarm icon"></i>
-            <div class="floating ui red label"><span style="font-size: 1.2em; font-weight: normal">4</span></div>
+            <div class="floating ui red label">
+                <span style="font-size: 1.2em; font-weight: normal">4</span>
+            </div>
         </a>
         <a [@accordion]="detailMenuOpen" class="item"
            (click)="addGadgetModal.showComponentLibraryModal('Add Gadget')">
@@ -40,9 +45,10 @@
             <i class="large inverted setting icon"></i>
         </a>
 
-        <a class="item"><i
-                class="large inverted chevron icon" (click)="toggleAccordion()"
-                [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
+        <a class="item">
+            <i
+                    class="large inverted chevron icon" (click)="toggleAccordion()"
+                    [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
         </a>
     </div>
 

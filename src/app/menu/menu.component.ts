@@ -2,6 +2,8 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 import {ConfigurationService} from '../services/configuration.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MenuEventService} from './menu-service';
+import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 
 declare var jQuery: any;
@@ -42,11 +44,11 @@ declare var jQuery: any;
 })
 export class MenuComponent implements OnInit {
 
+    host = window.location.host;
     dashboardList: any[] = [];
     selectedBoard = '';
     placeHolderText = 'Ask the board to do something!';
     searchList: Array<string> = [];
-
     detailMenuOpen = 'out';
 
     @ViewChild('notificationSideBar_tag') notificationSideBarRef: ElementRef;
@@ -62,7 +64,7 @@ export class MenuComponent implements OnInit {
     layoutId = 0;
 
     constructor(private _configurationService: ConfigurationService,
-                private _menuEventService: MenuEventService) {
+                private _menuEventService: MenuEventService, private _route: Router) {
 
         this.setupEventListeners();
     }
@@ -170,4 +172,11 @@ export class MenuComponent implements OnInit {
         this.notificationSideBar.sidebar('setting', 'transition', 'overlay');
         this.notificationSideBar.sidebar('toggle');
     }
+
+
+    public showDocumentation() {
+
+        window.location.href = 'http://' + window.location.host + '/assets/documentation/index.html';
+    }
+
 }

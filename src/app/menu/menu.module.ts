@@ -13,7 +13,6 @@ import {RuntimeService} from '../services/runtime.service';
 import {EndPointService} from '../configuration/tab-endpoint/endpoint.service';
 import {ObservableWebSocketService} from '../services/websocket-service';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
-import {ToastModule} from '../toast/toast.module';
 import {MenuComponent} from './menu.component';
 import {MenuEventService} from './menu-service';
 

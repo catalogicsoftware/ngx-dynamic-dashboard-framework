@@ -19,6 +19,7 @@ hr {
 h3, h4 {
     color: rgba(66, 66, 66, .74) !important;
     font-weight: 400 !important;
+    font-size:.85em;
 }
 
 .ui.basic.segment {
@@ -35,5 +36,5 @@ h3, h4 {
 
 .ui.table td {
     padding: .3em !important;
+    font-size: .8em;
 }
-

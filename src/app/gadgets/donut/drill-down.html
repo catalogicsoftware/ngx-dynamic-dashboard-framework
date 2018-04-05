@@ -11,103 +11,104 @@
 
         <div class="ui grid">
 
-            <div class="eleven wide column">
+            <div class="{{leftColumnWidth}} wide column" >
 
-                <h3>There are <span class="drill-down-blue">{{chartSelectedValue}} </span> Item(s) <span
-                        class="drill-down-blue">{{chartSelectedName}}</span></h3>
-                <app-data-list
+            <h3>There are <span class="drill-down-blue">{{chartSelectedValue}} </span> item(s) <span
+                    class="drill-down-blue">{{chartSelectedName}}</span></h3>
+            <app-data-list
 
-                        [objectList]="objects"
-                        [objectTitleList]="objecNameList"
-                        [placeHolderText]="placeHolderText"
-                        [layoutColumnOneWidth]="layoutColumnOneWidth"
-                        [layoutColumnTwoWidth]="layoutColumnTwoWidth"
-                        [listHeader]="listHeader"
-                        [facetTags]="facetTags">
+                    [objectList]="objects"
+                    [objectTitleList]="objecNameList"
+                    [placeHolderText]="placeHolderText"
+                    [layoutColumnOneWidth]="layoutColumnOneWidth"
+                    [layoutColumnTwoWidth]="layoutColumnTwoWidth"
+                    [listHeader]="listHeader"
+                    [facetTags]="facetTags">
 
-                    <ng-template let-item="$implicit">
-
-
-                        <mat-expansion-panel dnd-draggable [dragEnabled]="true" dragData={{item.name}}>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    {{item.name}}
-                                </mat-panel-title>
-                                <mat-panel-description>
-                                </mat-panel-description>
-                            </mat-expansion-panel-header>
-
-                            <p>Expansion data </p>
-
-                        </mat-expansion-panel>
-
-                    </ng-template>
-
-                </app-data-list>
+                <ng-template let-item="$implicit">
 
 
-            </div>
-            <div class="five wide column" *ngIf="!hideRightColumn">
+                    <mat-expansion-panel dnd-draggable [dragEnabled]="true" dragData={{item.name}}>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{item.name}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
 
-                <h3>SLAs</h3>
+                        <p>Expansion data </p>
 
-                <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden">
+                    </mat-expansion-panel>
 
-                    <div dnd-droppable
-                         (onDropSuccess)="updateDropZone1($event)">
-                        <table class="ui small celled striped table">
-                            <thead>
-                            <tr>
-                                <th>Gold</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td style="text-align: center"> ({{dropZone1Count}})</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <br>
-                    <div dnd-droppable
-                         (onDropSuccess)="updateDropZone2($event)">
-                        <table class="ui small celled striped table">
-                            <thead>
-                            <tr>
-                                <th>Silver</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td style="text-align: center">({{dropZone2Count}})</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <br>
-                    <div dnd-droppable
-                         (onDropSuccess)="updateDropZone3($event)">
-                        <table class="ui small celled striped table">
-                            <thead>
-                            <tr>
-                                <th>Bronze</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td style="text-align: center">({{dropZone3Count}})</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                </ng-template>
+
+            </app-data-list>
+
+
+        </div>
+        <div class="five wide column" *ngIf="hideRightColumn == false">
+
+            <h3>SLAs</h3>
+
+            <div style="max-height: 600px; overflow-y: auto; overflow-x: hidden">
+
+                <div dnd-droppable
+                     (onDropSuccess)="updateDropZone1($event)">
+                    <table class="ui small celled striped table">
+                        <thead>
+                        <tr>
+                            <th>Gold</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: center"> ({{dropZone1Count}})</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-
+                <br>
+                <div dnd-droppable
+                     (onDropSuccess)="updateDropZone2($event)">
+                    <table class="ui small celled striped table">
+                        <thead>
+                        <tr>
+                            <th>Silver</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: center">({{dropZone2Count}})</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <div dnd-droppable
+                     (onDropSuccess)="updateDropZone3($event)">
+                    <table class="ui small celled striped table">
+                        <thead>
+                        <tr>
+                            <th>Bronze</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td style="text-align: center">({{dropZone3Count}})</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
 
-        <div class="actions">
-            <div class="ui approve button">Close</div>
-        </div>
     </div>
+
+    <br>
+    <div class="actions">
+        <div class="ui approve button">Close</div>
+    </div>
+</div>
 </div>

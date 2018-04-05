@@ -80,6 +80,8 @@ export class DrillDownComponent implements AfterViewInit {
     dropZone3Count = 0;
 
     hideRightColumn = false;
+    leftColumnWidth = 'eleven';
+
 
 
     @ViewChild('drillmodal_tag') modalaRef: ElementRef;
@@ -126,10 +128,12 @@ export class DrillDownComponent implements AfterViewInit {
         if (this.chartSelectedName === 'non-compliant') {
 
             this.hideRightColumn = false;
+            this.leftColumnWidth = 'eleven';
 
         } else {
 
             this.hideRightColumn = true;
+            this.leftColumnWidth = 'sixteen';
         }
 
         this._donutService.get().subscribe(_data => {

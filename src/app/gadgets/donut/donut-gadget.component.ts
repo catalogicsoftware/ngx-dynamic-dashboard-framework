@@ -50,13 +50,15 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
 
     topic: any;
     data = {};
-    showOperationControls = true;
     colorScheme = {
-        domain: ['#2c83d0', '#ff9a76', '#6347dd']
+        domain: ['#0cd057', '#3f8eff', '#9a0101']
     };
-    vms: any;
     detailMenuOpen: string;
     donutServiceSubscription: any;
+
+    // gadget properties
+    autoCompliance: boolean;
+    complianceFrequency: number;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -131,10 +133,11 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
         });
 
         this.title = updatedPropsObject.title;
+        this.autoCompliance = updatedPropsObject.auto;
+        this.complianceFrequency = updatedPropsObject.frequency;
+        this.showOperationControls = true;
 
         this.setEndPoint(updatedPropsObject.endpoint);
-
-        this.showOperationControls = true;
 
     }
 

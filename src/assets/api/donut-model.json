@@ -1,7 +1,7 @@
 [
   {
     "name": "compliant",
-    "value": 100,
+    "value": 6,
     "detail": [
       {
         "id": "1234",
@@ -23,12 +23,52 @@
             "name": "storage"
           }
         ]
+      },
+      {
+        "id": "2346",
+        "name": "Red Hat test 1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "2347",
+        "name": "Centos test 1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "2348",
+        "name": "Ubuntu Prod1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "2349",
+        "name": "Ubuntu Prod2",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
       }
     ]
   },
   {
     "name": "staged",
-    "value": 35,
+    "value": 4,
     "detail": [
       {
         "id": "5678",
@@ -75,7 +115,7 @@
   },
   {
     "name": "non-compliant",
-    "value": 50,
+    "value": 2,
     "detail": [
       {
         "id": "1213",

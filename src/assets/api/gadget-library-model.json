@@ -1000,9 +1000,18 @@
               },
               {
                 "controlType": "number",
-                "key": "threshold",
-                "label": "Consumed Threshold",
+                "key": "frequency",
+                "label": "Compliant Check Frequency",
                 "value": 50,
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "auto",
+                "label": "Use AI to automate compliance",
+                "value": true,
                 "required": true,
                 "order": 3
               },
@@ -1013,76 +1022,6 @@
                 "value": 2,
                 "required": true,
                 "order": -1
-              }
-            ]
-          },
-          {
-            "displayName": "Counts",
-            "groupId": "counts",
-            "position": 10,
-            "properties": [
-              {
-                "controlType": "textbox",
-                "key": "apiBasePath",
-                "label": "Base API Path",
-                "value": "",
-                "required": true,
-                "order": 1
-              },
-              {
-                "controlType": "textbox",
-                "key": "passAPI",
-                "label": "Pass API",
-                "value": "",
-                "required": true,
-                "order": 1
-              },
-              {
-                "controlType": "textbox",
-                "key": "warnAPI",
-                "label": "Warn API",
-                "value": "",
-                "required": true,
-                "order": 1
-              },
-              {
-                "controlType": "textbox",
-                "key": "todoAPI",
-                "label": "To Do API",
-                "value": "",
-                "required": true,
-                "order": 1
-              }
-            ]
-          },
-          {
-            "displayName": "Thresholds",
-            "groupId": "threshold",
-            "position": 10,
-            "properties": [
-              {
-                "controlType": "number",
-                "key": "frequency",
-                "label": "Frequency",
-                "value": 30,
-                "required": true,
-                "order": 3
-              },
-              {
-                "controlType": "number",
-                "key": "retentionH",
-                "label": "Retention High",
-                "value": 30,
-                "required": true,
-                "order": 4
-              },
-              {
-                "controlType": "number",
-                "key": "retentionL",
-                "label": "Retention Low",
-                "value": 180,
-                "required": true,
-                "order": 4
               }
             ]
           },

@@ -176,7 +176,6 @@ export class DrillDownComponent implements AfterViewInit {
     }
 
     updateDropZone1(object: any) {
-        console.log(object);
         if (object.dragData === 'all') {
             this.dropZone1Count += this.objects.length;
         } else {
@@ -185,7 +184,6 @@ export class DrillDownComponent implements AfterViewInit {
     }
 
     updateDropZone2(object: any) {
-        console.log(object);
         if (object.dragData === 'all') {
             this.dropZone2Count += this.objects.length;
         } else {
@@ -194,7 +192,6 @@ export class DrillDownComponent implements AfterViewInit {
     }
 
     updateDropZone3(object: any) {
-        console.log(object);
         if (object.dragData === 'all') {
             this.dropZone3Count += this.objects.length;
         } else {

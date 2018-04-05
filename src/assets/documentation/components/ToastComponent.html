@@ -1099,7 +1099,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/toast/toast.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/toast/toast.component.ts:26</a></div>
                                 </td>
                             </tr>
     
@@ -1128,7 +1128,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/toast/toast.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/toast/toast.component.ts:32</a></div>
                                 </td>
                             </tr>
     
@@ -1159,7 +1159,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/toast/toast.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/toast/toast.component.ts:47</a></div>
                                 </td>
                             </tr>
     
@@ -1196,7 +1196,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/toast/toast.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/toast/toast.component.ts:26</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1210,7 +1210,6 @@
 import {ToastService} from &#x27;./toast.service&#x27;;
 import {Message} from &#x27;./message&#x27;;
 import {animate, state, style, transition, trigger} from &#x27;@angular/animations&#x27;;
-import {TrendLineService} from &#x27;../gadgets/trend-line/service&#x27;;
 import {Observable} from &#x27;rxjs/Observable&#x27;;
 
 @Component({
@@ -1243,15 +1242,13 @@ export class ToastComponent implements OnInit {
         this.messages &#x3D; this._toastService.getMessages();
 
 
-        Observable.timer(0, 7000).subscribe(t &#x3D;&gt; {
+        Observable.timer(7000, 7000).subscribe(t &#x3D;&gt; {
 
             this.messages.forEach(message &#x3D;&gt; {
 
                 this.dismiss(message.id);
 
             });
-
-
         });
     }
 

@@ -65,8 +65,8 @@ export class DrillDownComponent implements AfterViewInit {
     chartSelectedName: string;
     chartSelectedValue: number;
 
-    objects: any[] = [];
-    objecNameList: string[] = [];
+    objects: any[];
+    objecNameList: string[];
 
     placeHolderText = 'Begin typing a name';
 
@@ -79,7 +79,7 @@ export class DrillDownComponent implements AfterViewInit {
     dropZone2Count = 0;
     dropZone3Count = 0;
 
-    pass = false;
+    hideRightColumn = false;
 
 
     @ViewChild('drillmodal_tag') modalaRef: ElementRef;
@@ -123,6 +123,15 @@ export class DrillDownComponent implements AfterViewInit {
             this.chartSelectedValue = $event['value'];
         }
 
+        if (this.chartSelectedName === 'non-compliant') {
+
+            this.hideRightColumn = false;
+
+        } else {
+
+            this.hideRightColumn = true;
+        }
+
         this._donutService.get().subscribe(_data => {
 
             _data.forEach(object => {
@@ -148,6 +157,9 @@ export class DrillDownComponent implements AfterViewInit {
 
     processObjects(objectsToProcess: any) {
 
+
+        this.objects = [];
+        this.objecNameList = [];
 
         Object.assign(this.objects, objectsToProcess);
 

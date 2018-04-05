@@ -13,7 +13,8 @@
 
             <div class="eleven wide column">
 
-                <H3>There are {{chartSelectedValue}} Item(s) {{chartSelectedName}} </H3>
+                <h3>There are <span class="drill-down-blue">{{chartSelectedValue}} </span> Item(s) <span
+                        class="drill-down-blue">{{chartSelectedName}}</span></h3>
                 <app-data-list
 
                         [objectList]="objects"
@@ -46,7 +47,7 @@
 
 
             </div>
-            <div class="five wide column" *ngIf="!pass">
+            <div class="five wide column" *ngIf="!hideRightColumn">
 
                 <h3>SLAs</h3>
 

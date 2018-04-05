@@ -50,40 +50,13 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
 
     topic: any;
     data = {};
-
     showOperationControls = true;
-
-    badColorScheme = {
-        domain: ['#a10910', '#ffff00', '#DDDDDD']
-    };
-    goodColorScheme = {
-        domain: ['#00c700', '#ffff00', '#DDDDDD']
+    colorScheme = {
+        domain: ['#2c83d0', '#ff9a76', '#6347dd']
     };
     vms: any;
-
     detailMenuOpen: string;
-    threshold: string;
-
-    // chart counts and labels
-    passCount = 0;
-    warnCount = 0;
-    todoCount = 1;
-
-    passChartLabel = 'Passed';
-    warnChartLabel = 'Staged';
-    todoChartLabel = 'ToDo';
-
-
-    // API paths
-    apiBasePath: string;
-    passAPI: string;
-    warnAPI: string;
-    todoAPI: string;
-
-
     donutServiceSubscription: any;
-
-    colorScheme = this.goodColorScheme;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -97,25 +70,19 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
             _propertyService,
             _endPointService,
             _changeDetectionRef);
-
     }
 
     public preRun(): void {
 
-        console.log('PRERUN');
-
         this.setTopic();
         this.setProperties();
-        this.setChartData();
+        this.run();
 
     }
 
     public run() {
 
-        this.initializeRunState(false);
-
-        // process objects - take non successful objects and submit them to api for processing
-
+        this.initializeRunState(true);
         this.updateData(null);
     }
 
@@ -125,151 +92,25 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
             this.donutServiceSubscription.unsubscribe();
         }
         this.setStopState(false);
-
-    }
-
-    private setAPIToken() {
-
-        console.log('Attempting to get get API token');
-
-        if (this.endpointObject && this.endpointObject.address) {
-
-            console.log('Endpoint Found');
-            /**
-             * todo - this should really be done in pre run. However, there is  currently an issue where Pre-Run is called twice
-             * so this needs to be refactored.
-             */
-            this._apiTokenService.getAPITokenForCredentials({
-                'url': this.endpointObject.address + this.endpointObject.tokenAPI,
-                'user': this.endpointObject.user,
-                'password': this.endpointObject.credential
-            }).subscribe(data => {
-
-                    const apiToken = data[this.endpointObject.tokenAPIProperty];
-
-                    this._apiTokenService.setAPIToken(apiToken);
-
-                    this._donutService.setAPIBaseDetails(
-                        apiToken,
-                        this.endpointObject.tokenAPIHeader,
-                        this.endpointObject.address,
-                        this.apiBasePath);
-
-
-                    console.log('Donut Endpoint tokenKey: ' + apiToken);
-                },
-                error => {
-
-                    // handle error condition
-                    console.error('PRERUN - Error getting API token!!!');
-                    console.error(error);
-
-                });
-        } else {
-            // issue a warning and instruction
-            console.log('PRERUN - Endpoint not configured!!!');
-        }
     }
 
 
     public updateData(data: any[]) {
 
-        console.log('GETTING MOCK DATA');
+        this.donutServiceSubscription = this._donutService.poll().subscribe(donutData => {
 
-        /**
-         * todo - add an option to run this method in simulation mode
-         */
+            const me = this;
 
-        /*
-            this._donutService.getMockData(this.objectLabelVal1, this.objectLabelVal2).subscribe(_data => {
+            this._donutService.get().subscribe(_data => {
 
-                this.data = _data;
-
-                console.log('Mock Data Returned');
-
-                const thresholdVal = Number(this.threshold);
-
-                if (this.data[0].value < thresholdVal) {
-                    this.colorScheme = this.goodColorScheme;
-                } else {
-                    this.colorScheme = this.badColorScheme;
-                }
-
-                // get real data
-                this.getData();
-            },
-            error => this.handleError(error));
-
-        */
-
-        this.donutServiceSubscription = this._donutService.poll().subscribe(_data => {
-
-                console.log('Attempting to get live data');
-
-                const me = this;
-
-                if (this._apiTokenService.getAPIToken()) { // todo - handle token expiration
-
-                    console.log('Attempting to get success count!');
-
-                    this._donutService.getPassCount().subscribe(passCount => {
-
-                            if (passCount['results'].length) {
-                                me.passCount = passCount['results'][0]['count'];
-
-                                console.log('Attempting to get to do count!');
-                            }
-                            this._donutService.getToDoCount().subscribe(todoCount => {
-
-                                if (todoCount['results'].length) {
-
-                                    me.todoCount = todoCount['results'][0]['count'];
-                                    me.setChartData();
-                                }
-
-                                this.setInRunState();
-
-                            }, error => {
-                                console.error('Error getting to do count!');
-                                me.handleError(error);
-                            });
-
-                        },
-                        error => {
-                            console.error('Error getting pass count!');
-                            console.log(error);
-                            me.handleError(error);
-                        });
-
-
-                } else {
-
-                    console.log('API Token not defined');
-
-                    this.setAPIToken();
-                }
-            },
-            error => this.handleError(error));
+                    me.data = _data;
+                },
+                error => this.handleError(error));
+        });
     }
 
 
-    /**
-     * this is called when the property page is configured and saved
-     * @param updatedProperties
-     */
     public updateProperties(updatedProperties: any) {
-
-        console.log('UPDATE PROPERTIES');
-
-        /**
-         * todo
-         *  A similar operation exists on the procmman-config-service
-         *  whenever the property page form is saved, the in memory board model
-         *  is updated as well as the gadget instance properties
-         *  which is what the code below does. This can be eliminated with code added to the
-         *  config service or the property page service.
-         *
-         * **/
 
         const updatedPropsObject = JSON.parse(updatedProperties);
 
@@ -289,21 +130,11 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
             }
         });
 
-        this.apiBasePath = updatedPropsObject.apiBasePath;
-        this.passAPI = updatedPropsObject.passAPI;
-        this.warnAPI = updatedPropsObject.warnAPI;
-        this.todoAPI = updatedPropsObject.todoAPI;
-
-
-        this.threshold = updatedPropsObject.threshold;
         this.title = updatedPropsObject.title;
 
         this.setEndPoint(updatedPropsObject.endpoint);
-        this.setAPIInService();
-
 
         this.showOperationControls = true;
-
 
     }
 
@@ -313,54 +144,12 @@ export class DonutGadgetComponent extends GadgetBase implements OnDestroy {
         });
     }
 
-    /**
-     * this is called when the gadget already has been configured on the board
-     *
-     */
     public setProperties() {
 
-        this.threshold = this.getPropFromPropertyPages('threshold');
-        this.apiBasePath = this.getPropFromPropertyPages('apiBasePath');
-        this.passAPI = this.getPropFromPropertyPages('passAPI');
-        this.warnAPI = this.getPropFromPropertyPages('warnAPI');
-        this.todoAPI = this.getPropFromPropertyPages('todoAPI');
         this.title = this.getPropFromPropertyPages('title');
         this.detailMenuOpen = 'out';
-        this.setAPIInService();
     }
 
-    private setChartData() {
-
-        this.data = [
-            {
-                'name': this.passChartLabel,
-                'value': this.passCount
-            },
-            {
-                'name': this.warnChartLabel,
-                'value': this.warnCount
-            },
-            {
-                'name': this.todoChartLabel,
-                'value': this.todoCount - (this.passCount + this.warnCount)
-            }
-        ];
-
-        if (this.data[0].value < this.threshold) {
-            this.colorScheme = this.goodColorScheme;
-        } else {
-            this.colorScheme = this.badColorScheme;
-        }
-    }
-
-    setAPIInService() {
-
-        this._donutService.setAPIs(
-            this.passAPI,
-            this.warnAPI,
-            this.todoAPI);
-
-    }
 
     toggleAccordion(): void {
 

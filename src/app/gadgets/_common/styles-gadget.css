@@ -1,18 +1,18 @@
 .gadget {
     margin-bottom: 15px !important;
     min-height: inherit !important;
-    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    font-family:  'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
     color: grey;
 }
 
 :host /deep/ div:not(.proppages) {
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     display: block !important
 }
 
 .ui.form .field > label {
-    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
     font-size: 1.3em !important;
     font-weight: 300;
     color: grey;
@@ -27,7 +27,7 @@ input {
     border: none !important;
     width: 75% !important;
     font-weight: 300 !important;
-    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
     font-size: 1.3em !important;
     outline: none !important;
 }
@@ -35,9 +35,9 @@ input {
 .ct-title {
     color: #808080 !important;
     font-size: 1.5em !important;
-    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
     text-align: left !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
 }
 
 .ui.top.left.floated.label, .ui.top.attached.label {
@@ -66,23 +66,34 @@ hr {
     height: 2em;
 }
 
-.ui.items>.item>.content>.description{
+.ui.items > .item > .content > .description {
     color: darkgray !important;
 }
-.suggestions>li{
 
-    background-color:white !important;
+.suggestions > li {
+
+    background-color: white !important;
 
 }
+
 td {
-    font-family: 'Roboto', sans-serif;
-    color:grey;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
+    color: grey;
 }
 
 th {
-    font-family: 'Roboto', sans-serif;
-    color:grey;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
+    color: grey;
 }
+
 .example-full-width {
     width: 100%;
+}
+
+h4 {
+    font-weight: 400;
+}
+
+.ui.segment{
+
 }

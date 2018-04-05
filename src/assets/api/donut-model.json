@@ -1,0 +1,103 @@
+[
+  {
+    "name": "compliant",
+    "value": 100,
+    "detail": [
+      {
+        "id": "1234",
+        "name": "20GA_Exchange",
+        "type": "vm",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "2345",
+        "name": "Windows Prod1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "staged",
+    "value": 35,
+    "detail": [
+      {
+        "id": "5678",
+        "name": "20GA_SQL",
+        "type": "vm",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "9101",
+        "name": "Windows 2016 Prod1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "9102",
+        "name": "Oracle Version a",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "9103",
+        "name": "Catalog VM Server1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "non-compliant",
+    "value": 50,
+    "detail": [
+      {
+        "id": "1213",
+        "name": "MY SQL",
+        "type": "vm",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      },
+      {
+        "id": "1415",
+        "name": "QA System 1",
+        "tags": [
+          {
+            "facet": "Informational",
+            "name": "storage"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -30,7 +30,8 @@ declare var jQuery: any;
 @Component({
     selector: 'app-drill-down-modal',
     moduleId: module.id,
-    templateUrl: './drill-down-v2.html',
+    templateUrl: './drill-down.html',
+    styleUrls: ['drill-down-style.css'],
     animations: [
 
         trigger('contentSwitch', [
@@ -54,8 +55,6 @@ declare var jQuery: any;
             transition('active => inactive', animate('750ms ease-out'))
         ])
     ]
-
-
 })
 export class DrillDownComponent implements AfterViewInit {
 
@@ -63,16 +62,18 @@ export class DrillDownComponent implements AfterViewInit {
     modalheader: string;
     modalconfig: string;
 
-    objects: any[];
+    chartSelectedName: string;
+    chartSelectedValue: number;
 
-    objectList: any[] = [];
+    objects: any[] = [];
     objecNameList: string[] = [];
-    placeHolderText = 'Begin typing vm name';
+
+    placeHolderText = 'Begin typing a name';
 
     layoutColumnOneWidth = 'six';
     layoutColumnTwoWidth = 'ten';
     facetTags: Array<Facet> = [];
-    listHeader = 'Virtual Machines';
+    listHeader = 'Header Name';
 
     dropZone1Count = 0;
     dropZone2Count = 0;
@@ -111,82 +112,30 @@ export class DrillDownComponent implements AfterViewInit {
     }
 
     showDrillDownDetail($event) {
-        let chartSelection = null;
-        let chartSelectionVal = null;
 
         if (typeof $event === 'string') {
 
-            chartSelection = $event.toLocaleLowerCase();
+            this.chartSelectedName = $event.toLocaleLowerCase();
 
         } else {
 
-            chartSelection = $event['name'].toString().toLocaleLowerCase();
-            chartSelectionVal = $event['value'];
-        }
-        const me = this;
-
-        switch (chartSelection) {
-
-
-            // get objects protected
-            case 'passed': {
-
-                this._donutService.getPassObjects().subscribe(data => {
-
-                    console.log(data);
-                    me.pass = true;
-                    this.objects = data['children'];
-
-                    if (this.objects) {
-                        // prepare the typeahead component
-                        this.objects.forEach(object => {
-                            this.objecNameList.push(object.name);
-                        });
-                    }
-                    me.setFacets();
-                });
-            }
-                break;
-            // get VMs that are part of SLAs
-            case'staged': {
-
-                this._donutService.getWarnObjects().subscribe(data => {
-                    me.pass = false;
-                    console.log(data);
-                    me.setFacets();
-
-                });
-            }
-                break;
-            // get objects unprotected
-            case 'todo': {
-                this._donutService.getTodoObjects().subscribe(data => {
-
-                    console.log(data);
-                    me.pass = false;
-                    this.objects = data['vms'];
-
-                    if (this.objects) {
-                        // prepare the typeahead component
-                        this.objects.forEach(object => {
-                            this.objecNameList.push(object.name);
-                        });
-                    }
-
-                    me.setFacets();
-
-                });
-            }
-                break;
+            this.chartSelectedName = $event['name'].toString().toLocaleLowerCase();
+            this.chartSelectedValue = $event['value'];
         }
 
+        this._donutService.get().subscribe(_data => {
 
-        this.showMessageModal(null, 'Detail', null);
+            _data.forEach(object => {
 
+                if (object['name'] === this.chartSelectedName) {
 
-        // todo - why is this here???
-        this.objects = null;
+                    this.processObjects(object['detail']);
+                    this.setFacets();
+                    this.showMessageModal(null, 'Detail', null);
 
+                }
+            });
+        });
     }
 
     showDetail($event) {
@@ -194,6 +143,19 @@ export class DrillDownComponent implements AfterViewInit {
         const data: string = JSON.stringify($event, null, 4);
         this.showMessageModal(null, 'Detail', data);
 
+
+    }
+
+    processObjects(objectsToProcess: any) {
+
+
+        Object.assign(this.objects, objectsToProcess);
+
+        this.objects.forEach(name => {
+
+            this.objecNameList.push(name['name']);
+
+        });
 
     }
 
@@ -224,24 +186,19 @@ export class DrillDownComponent implements AfterViewInit {
         }
     }
 
-    /**
-     * TODO - Facet Tags will have to be worked on. There will need to be a transformation component
-     * that transforms the incoming objects into a form expected by the datalist component. The code below
-     * is used as a placeholder to just present the facet component
-     */
     setFacets() {
 
         this.facetTags.length = 0;
 
-        const t1 = new Tag('Vm-Tag1');
-        const t2 = new Tag('Vm-Tag2');
+        const t1 = new Tag('Tag1');
+        const t2 = new Tag('Tag2');
         const a1 = new Array<Tag>();
         a1.push(t1);
         a1.push(t2);
         const f1 = new Facet('Category A', a1);
 
-        const t3 = new Tag('Vm-Tag3');
-        const t4 = new Tag('Vm-Tag4');
+        const t3 = new Tag('Tag3');
+        const t4 = new Tag('Tag4');
 
         const a2 = new Array<Tag>();
         a2.push(t3);

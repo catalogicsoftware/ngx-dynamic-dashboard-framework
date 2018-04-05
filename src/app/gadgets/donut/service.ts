@@ -28,7 +28,7 @@ export class DonutService {
     }
 
     get() {
-        return this._http.get('/assets/api/disk-model.json')
+        return this._http.get('/assets/api/donut-model.json')
             .catch(RuntimeService.handleError);
     }
 

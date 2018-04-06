@@ -33,11 +33,11 @@ input {
 }
 
 .ct-title {
-    color: #808080 !important;
+    color: #585858 !important;
     font-size: 1.5em !important;
     font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
     text-align: left !important;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
 }
 
 .ui.top.left.floated.label, .ui.top.attached.label {

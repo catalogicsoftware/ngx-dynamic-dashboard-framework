@@ -2,12 +2,17 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs/Observable';
 
 
-export class DetailResolverService implements Resolve <DetailModel> {
+export class DetailResolver implements Resolve <DetailModel> {
 
+    data: DetailModel;
+
+    constructor(detailData: DetailModel) {
+        this.data = detailData;
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<DetailModel> | Promise<DetailModel> | DetailModel {
 
-        return null;
+        return this.data;
     };
 
 }

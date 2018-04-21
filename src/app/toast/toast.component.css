@@ -4,8 +4,9 @@
     right: 10px;
     width: 400px;
 }
-.ui.positive.message{
+.ui.message{
     border-radius: 0px;
+    background-color: white;
 }
 .toast{
     width:inherit;
@@ -13,7 +14,7 @@
 
 .toast-icon{
 
-    background-color:forestgreen;
+    background-color: #384b5f;
     text-align: center;
 
 }

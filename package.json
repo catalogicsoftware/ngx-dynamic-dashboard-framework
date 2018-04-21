@@ -2,6 +2,11 @@
   "name": "ng-dadf",
   "version": "0.0.0",
   "license": "MIT",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public_api.ts"
+    }
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

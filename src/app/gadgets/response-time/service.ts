@@ -15,7 +15,7 @@ export class ConnectionService {
     }
 
     get() {
-        return this._http.get('/assets/api/connection-model.json')
+        return this._http.get<any[]>('/assets/api/connection-model.json')
             .catch(RuntimeService.handleError);
     }
 

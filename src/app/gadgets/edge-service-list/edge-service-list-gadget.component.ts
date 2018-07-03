@@ -170,7 +170,7 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
 
     public checkPoxySelection() {
         this._edgeService.getSelectedProxy().subscribe(result => {
-            this.selectedUri = result._body;
+            this.selectedUri = result['_body'];
         });
     }
 

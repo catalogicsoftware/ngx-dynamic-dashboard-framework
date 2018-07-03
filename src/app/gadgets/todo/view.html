@@ -46,9 +46,9 @@
         <tr>
             <td></td>
             <td>
-                <mat-input-container>
+                <mat-form-field>
                     <input [(ngModel)]="todo" matInput placeholder="Add Todo">
-                </mat-input-container>
+                </mat-form-field>
             </td>
             <td style="text-align:right">
                 <a mat-mini-fab routerLink="." color='primary' (click)="addTodo(todo)">

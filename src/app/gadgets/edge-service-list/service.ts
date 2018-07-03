@@ -28,7 +28,7 @@ export class EdgeService {
 
     getTaskCount(uri: string) {
         console.log('Getting task count for: ' + uri);
-        return this._http.get(uri + '/task')
+        return this._http.get<number>(uri + '/task')
             .catch(RuntimeService.handleError);
     }
 

@@ -40,9 +40,9 @@
             <div class="ui basic segment">
 
                 <div class="grid-row">
-                    <mat-input-container class="example-full-width">
+                    <mat-form-field class="example-full-width">
                         <input [(ngModel)]="newDashboardItem" matInput placeholder="Enter Dashboard Name">
-                    </mat-input-container>
+                    </mat-form-field>
 
                     <a mat-mini-fab routerLink="." color='primary'(click)="createBoard(newDashboardItem)">
                     <mat-icon>add</mat-icon>

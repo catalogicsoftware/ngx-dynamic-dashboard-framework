@@ -75,7 +75,7 @@ export class StorageObjectListComponent extends GadgetBase {
     public updateData(data: any[]) {
 
         this._storageService.get().subscribe(item => {
-                item.volumes.forEach(_data => {
+                item['volumes'].forEach(_data => {
                     this.objectList.push(_data);
                     this.objectTitleList.push(_data.name);
                 });

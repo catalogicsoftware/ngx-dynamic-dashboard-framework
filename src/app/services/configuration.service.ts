@@ -2,7 +2,7 @@
  * Created by jayhamilton on 2/7/17.
  */
 import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {defaultBoard} from './configuration-sample-default-board';
 import {sampleBoardCollection} from './configuration-sample-boards.model';
@@ -23,7 +23,7 @@ export class ConfigurationService {
      */
     remoteConfigurationRepository = 'http://localhost:8090/api/store';
 
-    constructor(private _http: Http) {
+    constructor(private _http: HttpClient) {
 
         Object.assign(this, {defaultBoard});
         Object.assign(this, {sampleBoardCollection});
@@ -57,7 +57,7 @@ export class ConfigurationService {
             });
         } else {
 
-            return this._http.get(this.remoteConfigurationRepository + '/' + name).map(res => res.json());
+            return this._http.get(this.remoteConfigurationRepository + '/' + name);
         }
     }
 
@@ -79,7 +79,7 @@ export class ConfigurationService {
              * todo - this call is based on an internal representation (admin console) of something called a store.
              * That concept requires refactoring.
              */
-            return this._http.get(this.remoteConfigurationRepository).map(res => res.json());
+            return this._http.get(this.remoteConfigurationRepository);
         }
     }
 
@@ -123,9 +123,13 @@ export class ConfigurationService {
              * todo - a delete must happen here
              *
              */
-            const headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            return this._http.post(this.remoteConfigurationRepository + '?id=' + board.title, JSON.stringify(board), {headers: headers});
+            const httpOptions = {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json'
+                })
+            };
+
+            return this._http.post(this.remoteConfigurationRepository + '?id=' + board.title, JSON.stringify(board), httpOptions);
         }
     }
 
@@ -140,9 +144,9 @@ export class ConfigurationService {
         const board_collection = JSON.parse(localStorage.getItem('board'));
 
         let index;
-        if (board_collection && ( index = board_collection['board'].findIndex(item => {
-                return item.title === boardTitle;
-            })) >= 0) {
+        if (board_collection && (index = board_collection['board'].findIndex(item => {
+            return item.title === boardTitle;
+        })) >= 0) {
 
             board_collection['board'].splice(index, 1);
 

@@ -15,7 +15,6 @@ import {TrendLineService} from '../gadgets/trend-line/service';
 import {EdgeService} from '../gadgets/edge-service-list/service';
 import {CPUService} from '../gadgets/cpu/service';
 import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from '@angular/http';
 import {DonutService} from '../gadgets/donut/service';
 import {TodoService} from '../gadgets/todo/service';
 import {ToastModule} from '../toast/toast.module';
@@ -27,7 +26,6 @@ import {BubbleService} from "../gadgets/bubble/service";
     imports: [
         CommonModule,
         FormsModule,
-        HttpModule,
         ToastModule,
         HttpClientModule, DndModule.forRoot()
     ],

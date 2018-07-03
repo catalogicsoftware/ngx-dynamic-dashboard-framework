@@ -6,6 +6,8 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {ConnectionService} from './service';
+import {ServiceModel} from "./service.model";
+
 
 
 @Component({
@@ -33,6 +35,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     host: string;
     port: string;
+    ports:Array<string>;
     connectionResults: string;
     connectStatus: string;
     errorEventRaised = false;
@@ -77,8 +80,11 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     public testConnection() {
 
+        this.ports = this.port.split( ",");
+        const serviceModel:ServiceModel   = new ServiceModel(this.host, this.ports);
+
         const me = this;
-        this._procMonRuntimeService.testConnectivity(this.host, this.port).subscribe(
+        this._connectionService.testConnectivityWGet(serviceModel).subscribe(
             data => {
 
                 this.connectionResults = data['data'];

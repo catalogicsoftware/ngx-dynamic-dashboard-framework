@@ -1,6 +1,59 @@
 {
   "library": [
     {
+      "componentType": "BubbleGadgetComponent",
+      "name": "Bubble",
+      "description": "Bubble Gadget",
+      "icon": "assets/images/bubble.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Bubble",
+          "name": "bubble"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Bubble",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": false,
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
+    },
+    {
       "componentType": "StorageObjectListComponent",
       "name": "Storage Information",
       "description": "Provides a storage view.",
@@ -263,6 +316,14 @@
                 "required": true,
                 "order": 3,
                 "options": [
+                  {
+                    "key": "vSnap + vAdp (All Ports)",
+                    "value": "8900,8080,22,111,2048,2049"
+                  },
+                  {
+                    "key": "SPP Single Appliance (All Ports)",
+                    "value": "443,8900,22,111,2048,2049"
+                  },
                   {
                     "key": "SPP (443)",
                     "value": "443"
@@ -1299,6 +1360,7 @@
         }
       ]
     }
+
   ]
 }
 

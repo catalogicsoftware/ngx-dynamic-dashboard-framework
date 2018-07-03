@@ -18,6 +18,7 @@ import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-tim
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';  // todo gadget
+import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';  // t
             StorageObjectListComponent,
             DonutGadgetComponent,
             TodoGadgetComponent  // todo gadget
+            , BubbleGadgetComponent
 
         ]),
     ],

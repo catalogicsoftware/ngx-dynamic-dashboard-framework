@@ -20,6 +20,7 @@ import {DonutService} from '../gadgets/donut/service';
 import {TodoService} from '../gadgets/todo/service';
 import {ToastModule} from '../toast/toast.module';
 import {ConnectionService} from '../gadgets/response-time/service';
+import {BubbleService} from "../gadgets/bubble/service";
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import {ConnectionService} from '../gadgets/response-time/service';
         DonutService,
         ConnectionService,
         TodoService  // todo gadget
+        ,BubbleService
     ]
 })
 export class GridModule {

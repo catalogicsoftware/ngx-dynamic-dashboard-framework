@@ -14,6 +14,8 @@ import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-tim
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';
+import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
+
 /**
  * Created by jayhamilton on 6/30/17.
  */
@@ -63,6 +65,8 @@ export class GadgetFactory {
                 return StorageObjectListComponent;
             case 'TodoGadgetComponent': // todo gadget
                 return TodoGadgetComponent;
+            case 'BubbleGadgetComponent': // todo gadget
+                return BubbleGadgetComponent;
             default:
                 return null;
 

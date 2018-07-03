@@ -40,7 +40,8 @@ import {DrillDownComponent} from './donut/drill-down-component';
 import {FacetModule} from '../facet/facet.module';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {TodoService} from './todo/service';
-import {ConnectionService} from './response-time/service';  // todo gadget
+import {ConnectionService} from './response-time/service';
+import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";  // todo gadget
 
 
 
@@ -83,7 +84,8 @@ import {ConnectionService} from './response-time/service';  // todo gadget
         ResponseTimeGadgetComponent,
         StorageObjectListComponent,
         DonutGadgetComponent,
-        DrillDownComponent
+        DrillDownComponent,
+        BubbleGadgetComponent
     ],
 
     providers: [TrendService,
@@ -115,7 +117,8 @@ import {ConnectionService} from './response-time/service';  // todo gadget
         ServiceListGadgetComponent,
         ResponseTimeGadgetComponent,
         StorageObjectListComponent,
-        DonutGadgetComponent
+        DonutGadgetComponent,
+        BubbleGadgetComponent
     ]
 })
 export class GadgetModule {

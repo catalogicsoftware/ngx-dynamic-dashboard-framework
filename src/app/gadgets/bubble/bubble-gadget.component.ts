@@ -28,7 +28,7 @@ export class BubbleGadgetComponent extends GadgetBase {
     view: any[];
     data: any[] = [];
     colorScheme: any = {
-        domain: ['#00ff00', '#4800ff','#4894FF','#AF0854']
+        domain: ['#00ff00', '#4800ff', '#4894FF', '#AF0854']
     };
 
 
@@ -49,7 +49,7 @@ export class BubbleGadgetComponent extends GadgetBase {
 
     public preRun(): void {
 
-        this.run();
+        // this.run();
     }
 
     public run() {
@@ -77,9 +77,7 @@ export class BubbleGadgetComponent extends GadgetBase {
     }
 
     public drillDown(data) {
-        this._route.navigate(['/detail'], {
-
-        });
+        this._route.navigate(['/detail'], {});
     }
 
     public updateProperties(updatedProperties: any) {
@@ -112,6 +110,7 @@ export class BubbleGadgetComponent extends GadgetBase {
             }
         });
 
+        /*
         this.title = updatedPropsObject.title;
         this.showXAxis = updatedPropsObject.chart_properties;
         this.showYAxis = updatedPropsObject.chart_properties;
@@ -119,6 +118,7 @@ export class BubbleGadgetComponent extends GadgetBase {
         this.showLegend = updatedPropsObject.chart_properties;
         this.showXAxisLabel = updatedPropsObject.chart_properties;
         this.showYAxisLabel = updatedPropsObject.chart_properties;
+        */
 
         this.setEndPoint(updatedPropsObject.endpoint);
 

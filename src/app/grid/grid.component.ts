@@ -199,6 +199,8 @@ export class GridComponent {
 
     public addGadget(gadget: any) {
 
+        //console.log("Adding Gadget!!!!!!!@#@##@#@#@#@#@#@@");
+
         const _gadget = Object.assign({}, gadget);
 
         _gadget.instanceId = new Date().getTime();

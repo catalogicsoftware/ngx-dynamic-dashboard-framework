@@ -49,7 +49,7 @@ export class MenuComponent implements OnInit {
     selectedBoard = '';
     placeHolderText = 'Ask the board to do something!';
     searchList: Array<string> = [];
-    detailMenuOpen = 'out';
+    detailMenuOpen = 'in';
 
     @ViewChild('notificationSideBar_tag') notificationSideBarRef: ElementRef;
     @ViewChild('layoutSideBar_tag') layoutSideBarRef: ElementRef;

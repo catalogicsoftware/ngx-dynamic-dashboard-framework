@@ -1,0 +1,88 @@
+<div class="ui centered grid">
+
+    <div class="ui basic segment">
+
+        <table class=" ui compact table" style="border:none !important">
+            <th>
+                Host
+            </th>
+            <th>
+                Port
+            </th>
+            <th>
+                Description
+            </th>
+            <th style="float:right">
+                Status
+            </th>
+            <tr>
+                <td>
+                    {{connectionResult.host}}
+                </td>
+                <td>
+                    {{connectionResult.port}}
+                </td>
+                <td>
+                    Port description. This port is used for xyz.
+                </td>
+                <td>
+                    <i class="icon large"
+                       [ngClass]="{
+
+                            'green':connectionResult.status == 'success',
+                            'check':connectionResult.status == 'success',
+                            'yellow':connectionResult.status != 'success',
+                            'exclamation triangle':connectionResult.status != 'success'
+                            }" style="float:right"></i>
+                </td>
+            </tr>
+
+            <tr [@fade] *ngIf="connectionResult.status != 'success'">
+                <td colspan="4">
+                    <div class="ui info message full-width">
+                        <div>
+                            {{connectionResult.exception}}
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+
+            <tr [@fade] *ngIf="connectionResult.status != 'success'">
+                <td colspan="4" [@fade] *ngIf="detailMessageOpen == true">
+                    <div>
+                        <table class="ui celled table" style="border:none !important">
+                            <thead>
+                            <tr>
+                                <th>Possible causes</th>
+                                <th>Actions you can take</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let solution of connectionResult.knowledgeBaseArticle.solution">
+                                <td>{{solution.cause}}</td>
+                                <td>
+                                    <ul *ngFor="let action of solution.action">
+                                        <li>{{action.task}}</li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="ui bottom right attached label" style="background-color: transparent">
+        <i *ngIf="connectionResult.status != 'success'" class="large chevron icon" (click)="toggleMessageDetail()"
+           [ngClass]="{'up':detailMessageOpen == true, 'down': detailMessageOpen == false}"
+           style="color:lightgrey">
+        </i>
+    </div>
+</div>
+
+
+

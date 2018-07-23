@@ -3,8 +3,8 @@
  */
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {ServiceModel} from "./service.model";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {EndPointModel} from "./service.model";
 import {environment} from "../../../environments/environment";
 
 @Injectable()
@@ -42,30 +42,16 @@ export class ConnectionService {
 
     }
 
-    get() {
-        return this._http.get<any[]>('/assets/api/connection-model.json')
-            .catch(RuntimeService.handleError);
-    }
-
-    testConnectivity(serviceModel: ServiceModel) {
+    testConnectivity(endPoints: Array<EndPointModel>) {
 
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })
         };
-
-        return this._http.post<ServiceModel>(this.connectivityTestURL, serviceModel, httpOptions)
+        return this._http.post<Array<EndPointModel>>(this.connectivityTestURL, endPoints, httpOptions)
             .catch(RuntimeService.handleError);
 
     }
 
-    testConnectivityWGet(serviceModel: ServiceModel) {
-        let p = new HttpParams();
-        p = p.append('host', serviceModel.host);
-        p = p.append('port', serviceModel.ports[0]);
-
-        return this._http.get(this.connectivityTestURL, {params: p})
-            .catch(RuntimeService.handleError);
-    }
 }

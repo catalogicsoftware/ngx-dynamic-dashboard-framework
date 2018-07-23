@@ -41,7 +41,8 @@ import {FacetModule} from '../facet/facet.module';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {TodoService} from './todo/service';
 import {ConnectionService} from './response-time/service';
-import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";  // todo gadget
+import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";
+import {ResultViewComponent} from "./response-time/result-view.component";  // todo gadget
 
 
 
@@ -85,7 +86,9 @@ import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";  // todo
         StorageObjectListComponent,
         DonutGadgetComponent,
         DrillDownComponent,
-        BubbleGadgetComponent
+        BubbleGadgetComponent,
+        ResultViewComponent
+
     ],
 
     providers: [TrendService,

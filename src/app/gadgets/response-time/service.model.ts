@@ -1,13 +1,13 @@
 
-export class ServiceModel {
+export class EndPointModel {
 
     host: string;
-    ports:Array<string>;
+    port: string;
 
-    constructor(host: string, ports: Array<string>) {
+    constructor(host: string, port: string) {
 
         this.host = host;
-        this.ports = ports;
+        this.port = port;
 
     }
 }

@@ -17,47 +17,64 @@
                        (runEvent)="run()"
                        (stopEvent)="stop()">
     </app-gadget-header>
-    <div class="ui centered grid" *ngIf="!inConfig">
-        <div class="row">
-            <table class=" ui compact table" style="border:none !important">
-                <tr>
-                    <td>
-                        <h4>Host : {{host}} </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h4> Port : {{port}}</h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="ui compact blue button" (click)="run()">Test
-                            Connectivity
-                        </button>
 
+
+    <div class="ui centered grid" *ngIf="!inConfig">
+
+        <div class="ui segment" *ngFor="let result of testResultData">
+
+
+            <connection-result-view-component [connectionResult]="result"></connection-result-view-component>
+
+            <!--
+            <table class=" ui compact table" style="border:none !important">
+                <th>
+                    Host
+                </th>
+                <th>
+                    Port
+                </th>
+                <th>
+                    Description
+                </th>
+                <th style="float:right">
+                    Status
+                </th>
+                <tr>
+                    <td>
+                        {{result.host}}
+                    </td>
+                    <td>
+                        {{result.port}}
+                    </td>
+                    <td>
+                        Port description. This port is used for xyz.
+                    </td>
+                    <td>
                         <i class="icon large"
                            [ngClass]="{
 
-                            'green':connectStatus == 'success',
-                            'check':connectStatus == 'success',
-                            'yellow':connectStatus != 'success',
-                            'exclamation triangle':errorEventRaised
+                            'green':result.status == 'success',
+                            'check':result.status == 'success',
+                            'yellow':result.status != 'success',
+                            'exclamation triangle':result.status != 'success'
                             }" style="float:right"></i>
                     </td>
                 </tr>
-                <tr [@fade] *ngIf="errorEventRaised">
-                    <td [@fade] *ngIf="detailMessageOpen == true">
+
+                <tr [@fade] *ngIf="result.status != 'success'">
+                    <td colspan="4">
                         <div class="ui info message full-width">
                             <div>
-                                {{connectionResults}}
+                                {{result.exception}}
                             </div>
 
                         </div>
                     </td>
                 </tr>
-                <tr [@fade] *ngIf="errorEventRaised">
-                    <td [@fade] *ngIf="detailMessageOpen == true">
+
+                <tr [@fade] *ngIf="result.status != 'success'">
+                    <td colspan="4">
                         <div>
                             <table class="ui celled table" style="border:none !important">
                                 <thead>
@@ -67,7 +84,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr *ngFor=" let solution of model.solution">
+                                <tr *ngFor="let solution of result.knowledgeBaseArticle.solution">
                                     <td>{{solution.cause}}</td>
                                     <td>
                                         <ul *ngFor="let action of solution.action">
@@ -83,13 +100,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
-
-        <div *ngIf="!inConfig" class="ui bottom right attached label" style="background-color: white">
-            <i *ngIf="errorEventRaised" class="large chevron icon" (click)="toggleMessageDetail()"
-               [ngClass]="{'up':detailMessageOpen == true, 'down': detailMessageOpen == false}"
-               style="color:lightgrey">
-            </i>
+            -->
         </div>
 
     </div>

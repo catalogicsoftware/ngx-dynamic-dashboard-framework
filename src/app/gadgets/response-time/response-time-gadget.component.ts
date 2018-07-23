@@ -6,8 +6,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {ConnectionService} from './service';
-import {ServiceModel} from "./service.model";
-
+import {EndPointModel} from "./service.model";
 
 
 @Component({
@@ -35,13 +34,11 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     host: string;
     port: string;
-    ports:Array<string>;
-    connectionResults: string;
-    connectStatus: string;
-    errorEventRaised = false;
-    model: any; // todo create an interface for this
+    endPoints:Array<any> = [];
 
-    detailMessageOpen: boolean;
+    //new data object
+    testResultData: Array<any> = [];
+
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -61,15 +58,14 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         this.port = this.getPropFromPropertyPages('port');
         this.host = this.getPropFromPropertyPages('host');
 
-        this.detailMessageOpen = false;
     }
 
     public run() {
         /** todo - add a one second delay to give the appearance of something hapenning when there are two subsequent tests that
          *  have the same result
          */
+        this.setUpEndPoints();
         this.initializeRunState(false);
-        this.clearState();
         this.testConnection();
         this.inRun = true;
     }
@@ -80,35 +76,14 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     public testConnection() {
 
-        this.ports = this.port.split( ",");
-        const serviceModel:ServiceModel   = new ServiceModel(this.host, this.ports);
+       const me = this;
 
-        const me = this;
-        this._connectionService.testConnectivityWGet(serviceModel).subscribe(
+        this._connectionService.testConnectivity(this.endPoints).subscribe(
             data => {
 
-                this.connectionResults = data['data'];
+                this.testResultData = data.slice();
 
-                if (this.connectionResults.toLocaleLowerCase().indexOf('success') >= 0) {
-                    this.connectStatus = 'success';
-                } else if (this.connectionResults.toLocaleLowerCase().indexOf('time') >= 0) {
-                    this.connectStatus = 'time-out';
-                } else if (this.connectionResults.toLocaleLowerCase().indexOf('refuse') >= 0) {
-                    this.connectStatus = 'connection-refuse';
-                } else if (this.connectionResults.toLocaleLowerCase().indexOf('unknown') >= 0) {
-                    this.connectStatus = 'unknown-host';
-                } else if (this.connectionResults.toLocaleLowerCase().indexOf('route') >= 0) {
-                    this.connectStatus = 'no-route';
-                }
-
-                if (this.connectStatus !== 'success') {
-                    this.errorEventRaised = true;
-                    this.detailMessageOpen = true;
-                } else {
-                    this.errorEventRaised = false;
-                }
-
-                this.setConnectionStatusModel();
+                console.log (this.testResultData);
 
                 me.stop();
 
@@ -116,26 +91,10 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
             error => this.handleError(error));
     }
 
-    private setConnectionStatusModel() {
-
-        const me = this;
-        me.model = {};
-
-        // get the model based on the connection status
-        this._connectionService.get().subscribe(data => {
-
-            data.forEach(connectionModel => {
-                if (connectionModel['event'] === me.connectStatus) {
-                    me.model = connectionModel;
-                }
-            });
-
-        });
-    }
 
     private clearState() {
-        this.connectionResults = '';
-        this.detailMessageOpen = false;
+        this.testResultData.length = 0;
+        this.endPoints.length = 0;
     }
 
     public updateData(data: any[]) {
@@ -176,13 +135,25 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         this.host = updatedPropsObject.host;
         this.title = updatedPropsObject.title;
         this.showOperationControls = true;
-    }
-
-    public toggleMessageDetail(): void {
-
-        this.detailMessageOpen = !this.detailMessageOpen;
 
     }
+
+    public setUpEndPoints(){
+
+        this.clearState();
+
+        let ports = this.port.split(",");
+
+        const me = this;
+
+        ports.forEach(function (port) {
+
+            me.endPoints.push(new EndPointModel(me.host, port));
+
+        });
+
+    }
+
 
     ngOnDestroy() {
 

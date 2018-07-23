@@ -4,7 +4,6 @@ import {GadgetInstanceService} from '../../grid/grid.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
-import {animate, style, transition, trigger} from '@angular/animations';
 import {ConnectionService} from './service';
 import {EndPointModel} from "./service.model";
 
@@ -13,21 +12,7 @@ import {EndPointModel} from "./service.model";
     selector: 'app-dynamic-component',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['../_common/styles-gadget.css'],
-    animations: [
-
-        trigger(
-            'fade',
-            [
-                transition(':enter', [   // :enter is alias to 'void => *'
-                    style({opacity: 0}),
-                    animate(1000, style({opacity: 1}))
-                ]),
-                transition(':leave', [   // :leave is alias to '* => void'
-                    animate(300, style({opacity: 0}))
-                ])
-            ])
-    ]
+    styleUrls: ['../_common/styles-gadget.css']
 
 })
 export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy {

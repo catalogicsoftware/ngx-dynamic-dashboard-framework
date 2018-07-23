@@ -1,5 +1,5 @@
 <div class="ui left aligned segment gadget" dnd-draggable [dragEnabled]="true"
-     [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
+     [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']" style="background-color:#f7f7f7">
 
 
     <app-gadget-header (mouseover)="showGadgetControls(true)"
@@ -18,89 +18,13 @@
                        (stopEvent)="stop()">
     </app-gadget-header>
 
-
-    <div class="ui centered grid" *ngIf="!inConfig">
+    <br>
+    <div class="ui centered grid" *ngIf="!inConfig" style="background-color:#f7f7f7">
 
         <div class="ui segment" *ngFor="let result of testResultData">
 
-
             <connection-result-view-component [connectionResult]="result"></connection-result-view-component>
 
-            <!--
-            <table class=" ui compact table" style="border:none !important">
-                <th>
-                    Host
-                </th>
-                <th>
-                    Port
-                </th>
-                <th>
-                    Description
-                </th>
-                <th style="float:right">
-                    Status
-                </th>
-                <tr>
-                    <td>
-                        {{result.host}}
-                    </td>
-                    <td>
-                        {{result.port}}
-                    </td>
-                    <td>
-                        Port description. This port is used for xyz.
-                    </td>
-                    <td>
-                        <i class="icon large"
-                           [ngClass]="{
-
-                            'green':result.status == 'success',
-                            'check':result.status == 'success',
-                            'yellow':result.status != 'success',
-                            'exclamation triangle':result.status != 'success'
-                            }" style="float:right"></i>
-                    </td>
-                </tr>
-
-                <tr [@fade] *ngIf="result.status != 'success'">
-                    <td colspan="4">
-                        <div class="ui info message full-width">
-                            <div>
-                                {{result.exception}}
-                            </div>
-
-                        </div>
-                    </td>
-                </tr>
-
-                <tr [@fade] *ngIf="result.status != 'success'">
-                    <td colspan="4">
-                        <div>
-                            <table class="ui celled table" style="border:none !important">
-                                <thead>
-                                <tr>
-                                    <th>Possible causes</th>
-                                    <th>Actions you can take</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr *ngFor="let solution of result.knowledgeBaseArticle.solution">
-                                    <td>{{solution.cause}}</td>
-                                    <td>
-                                        <ul *ngFor="let action of solution.action">
-                                            <li>{{action.task}}</li>
-                                        </ul>
-
-                                    </td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            -->
         </div>
 
     </div>
@@ -121,6 +45,6 @@
     <div class="ui bottom attached" *ngIf="actionInitiated" style="width:25%">
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div>
-
+    <br>
 
 </div>

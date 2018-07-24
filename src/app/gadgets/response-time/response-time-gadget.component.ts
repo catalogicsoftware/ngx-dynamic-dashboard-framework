@@ -76,7 +76,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
             error => this.handleError(error));
     }
 
-
     private clearState() {
         this.testResultData.length = 0;
         this.endPoints.length = 0;
@@ -138,7 +137,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         });
 
     }
-
 
     ngOnDestroy() {
 

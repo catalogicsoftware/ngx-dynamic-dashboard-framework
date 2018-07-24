@@ -1,8 +1,6 @@
 <div class="ui centered grid">
-
     <div class="ui basic segment">
-
-        <table class=" ui compact table" style="border:none !important">
+        <table class=" ui compact table" style="border:none !important; table-layout: fixed;">
             <th>
                 Host
             </th>
@@ -23,7 +21,7 @@
                     {{connectionResult.port}}
                 </td>
                 <td>
-                    Port description. This port is used for xyz.
+                    {{connectionResult.portDescription}}
                 </td>
                 <td>
                     <i class="icon large"

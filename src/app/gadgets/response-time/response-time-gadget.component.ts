@@ -19,7 +19,7 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     host: string;
     port: string;
-    endPoints:Array<any> = [];
+    endPoints: Array<any> = [];
 
     //new data object
     testResultData: Array<any> = [];
@@ -43,6 +43,9 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
         this.port = this.getPropFromPropertyPages('port');
         this.host = this.getPropFromPropertyPages('host');
 
+        if (this.port && this.host) {
+            this.run();
+        }
     }
 
     public run() {
@@ -61,15 +64,12 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     public testConnection() {
 
-       const me = this;
+        const me = this;
 
         this._connectionService.testConnectivity(this.endPoints).subscribe(
             data => {
 
                 this.testResultData = data.slice();
-
-                console.log (this.testResultData);
-
                 me.stop();
 
             },
@@ -100,7 +100,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
         this.propertyPages.forEach(function (propertyPage) {
 
-
             for (let x = 0; x < propertyPage.properties.length; x++) {
 
                 for (const prop in updatedPropsObject) {
@@ -108,7 +107,6 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
                         if (prop === propertyPage.properties[x].key) {
                             propertyPage.properties[x].value = updatedPropsObject[prop];
                         }
-
                     }
                 }
             }
@@ -122,11 +120,13 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
     }
 
-    public setUpEndPoints(){
+    public setUpEndPoints() {
 
         this.clearState();
 
-        let ports = this.port.split(",");
+        let ports: Array<string>;
+
+        ports = this.port.split(",");
 
         const me = this;
 

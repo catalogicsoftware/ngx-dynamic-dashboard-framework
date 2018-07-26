@@ -13,7 +13,7 @@ export const boardLayouts = [
         rows: [{
             columns: [
                 {
-                    styleClass: 'fourteen wide',
+                    styleClass: 'eight wide',
 
                 }]
         }]

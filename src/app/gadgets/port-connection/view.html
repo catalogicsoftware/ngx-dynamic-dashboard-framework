@@ -18,8 +18,16 @@
                        (stopEvent)="stop()">
     </app-gadget-header>
 
+    <div *ngIf="!inConfig">
+        <div class="ui basic segment">
+            <div class="ui header">
+                Testing Host & Port(s)
+            </div>
+            <p>{{host}} {{port}}</p>
+        </div>
+    </div>
     <br>
-    <div class="ui centered grid" *ngIf="!inConfig" style="background-color:#f7f7f7">
+    <div class="ui  centered grid" *ngIf="!inConfig" style="background-color:#f7f7f7">
 
         <div class="ui segment" *ngFor="let result of testResultData">
 

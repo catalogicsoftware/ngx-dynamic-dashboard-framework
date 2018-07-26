@@ -14,7 +14,7 @@ import {PropertyListGadgetComponent} from '../gadgets/property-list/property-lis
 import {ServiceListGadgetComponent} from '../gadgets/service-list/service-list-gadget.component';
 import {CPUGadgetComponent} from '../gadgets/cpu/cpu-gadget.component';
 import {MemoryGadgetComponent} from '../gadgets/memory/memory-gadget.component';
-import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
+import {PortConnectionGadgetComponent} from '../gadgets/port-connection/port-connection-gadget.component';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';  // todo gadget
@@ -36,7 +36,7 @@ import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
             TrendLineGadgetComponent,
             EdgeServiceListGadgetComponent,
             CPUMGadgetComponent,
-            ResponseTimeGadgetComponent,
+            PortConnectionGadgetComponent,
             StorageObjectListComponent,
             DonutGadgetComponent,
             TodoGadgetComponent  // todo gadget

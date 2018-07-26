@@ -1,0 +1,72 @@
+[
+
+  {
+    "serviceName": "Secure Shell (SSH) ",
+    "portNumber": "22",
+    "transportProtocol": "tcp",
+    "description": "Secure Shell (SSH)"
+
+  },
+  {
+    "serviceName": "sunrpc",
+    "portNumber": "111",
+    "transportProtocol": "tcp",
+    "description": "Remote Procedure Call (RPC) port binding."
+
+  },
+  {
+    "serviceName": "nfs",
+    "portNumber": "2049",
+    "transportProtocol": "tcp",
+    "description": "Used for NFS data transfter to/from vSnap."
+  },
+  {
+    "serviceName": "iSCSI",
+    "portNumber": "3260",
+    "transportProtocol": "tcp",
+    "description": "Used for iSCSI data transfer to/from vSnap."
+  },
+  {
+    "serviceName": "mountd",
+    "portNumber": "20048",
+    "transportProtocol": "tcp",
+    "description": "NFS mount protocol"
+  },
+  {
+    "serviceName": "VADP Proxy",
+    "portNumber": "8080",
+    "transportProtocol": "tcp",
+    "description": "VMware VM data mover management interface. "
+  },
+  {
+    "serviceName": "vSnap",
+    "portNumber": "8900",
+    "transportProtocol": "tcp",
+    "description": "VSnap management service"
+  },
+  {
+    "serviceName": "ESXI Network File Copy (NFC)",
+    "portNumber": "902",
+    "transportProtocol": "tcp",
+    "description": "ESXI Network File Copy (NFC)"
+  },
+  {
+    "serviceName": "VSphere Management",
+    "portNumber": "443",
+    "transportProtocol": "tcp",
+    "description": "This port is the default secure port for many services."
+  },
+  {
+    "serviceName": "Discovery Service",
+    "portNumber": "8761",
+    "transportProtocol": "tcp",
+    "description": "Automatically discovers VADP proxies and is used by IBM Spectrum Protect Plus VM backup operations."
+  },
+  {
+    "serviceName": "Rabbit MQ",
+    "portNumber": "5671",
+    "transportProtocol": "tcp",
+    "description": "Message framework used for communicating asynchronous events."
+  }
+
+]

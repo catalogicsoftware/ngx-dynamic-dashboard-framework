@@ -124,8 +124,11 @@ export class AddGadgetComponent implements AfterViewInit {
             this.gadgetObjectList.length = 0;
             const me = this;
             data.library.forEach(function (item) {
-                me.gadgetObjectList.push(item);
-                me.gadgetObjectTitleList.push(item.name);
+
+                if(item.enable) {
+                    me.gadgetObjectList.push(item);
+                    me.gadgetObjectTitleList.push(item.name);
+                }
             });
             const facetTagProcess = new FacetTagProcessor(this.gadgetObjectList);
             this.facetTags = facetTagProcess.getFacetTags();

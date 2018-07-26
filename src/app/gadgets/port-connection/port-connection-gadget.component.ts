@@ -15,7 +15,7 @@ import {EndPointModel} from "./service.model";
     styleUrls: ['../_common/styles-gadget.css']
 
 })
-export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy {
+export class PortConnectionGadgetComponent extends GadgetBase implements OnDestroy {
 
     host: string;
     port: string;
@@ -42,14 +42,11 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
     public preRun(): void {
         this.port = this.getPropFromPropertyPages('port');
         this.host = this.getPropFromPropertyPages('host');
-
-        if (this.port && this.host) {
-            this.run();
-        }
     }
 
     public run() {
-        /** todo - add a one second delay to give the appearance of something hapenning when there are two subsequent tests that
+        /** todo - add a one second delay to give the appearance
+         *  of something happening when there are two subsequent tests that
          *  have the same result
          */
         this.setUpEndPoints();
@@ -66,14 +63,29 @@ export class ResponseTimeGadgetComponent extends GadgetBase implements OnDestroy
 
         const me = this;
 
-        this._connectionService.testConnectivity(this.endPoints).subscribe(
-            data => {
+        /**
+         * todo:refactor - the requests that include multiple ports are submitted in a loop to avoid requests who's host will
+         * fail due to a timeout. If there are multiple endpoints being tested at the same time
+         * an accumulation of timeouts will exceed the 30 second connection response window that when hit
+         * will result in a 503 from the server.
+         */
+        this.endPoints.forEach(function (endpoint) {
 
-                this.testResultData = data.slice();
-                me.stop();
+            let endpointInstance = [];
+            endpointInstance.push(endpoint);
 
-            },
-            error => this.handleError(error));
+            /**
+             * todon- consider adding a bit of delay between requests
+             */
+            me._connectionService.testConnectivity(endpointInstance).subscribe(
+                data => {
+
+                    me.testResultData.push(...data);
+                    me.stop();
+
+                },
+                error => me.handleError(error));
+        });
     }
 
     private clearState() {

@@ -24,7 +24,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {GadgetSharedModule} from './_common/gadget-shared.module';
 import {ErrorHandlerModule} from '../error/error.module';
 
-import {ResponseTimeGadgetComponent} from './response-time/response-time-gadget.component';
+import {PortConnectionGadgetComponent} from './port-connection/port-connection-gadget.component';
 import {
     MatButtonModule, MatCheckboxModule, MatExpansionModule, MatIconModule, MatInputModule, MatOptionModule,
     MatProgressBarModule, MatSelectModule
@@ -40,9 +40,9 @@ import {DrillDownComponent} from './donut/drill-down-component';
 import {FacetModule} from '../facet/facet.module';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {TodoService} from './todo/service';
-import {ConnectionService} from './response-time/service';
+import {ConnectionService} from './port-connection/service';
 import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";
-import {ResultViewComponent} from "./response-time/result-view.component";  // todo gadget
+import {ResultViewComponent} from "./port-connection/result-view.component";  // todo gadget
 
 
 
@@ -82,7 +82,7 @@ import {ResultViewComponent} from "./response-time/result-view.component";  // t
         StatisticGadgetComponent,
         PropertyListGadgetComponent,
         ServiceListGadgetComponent,
-        ResponseTimeGadgetComponent,
+        PortConnectionGadgetComponent,
         StorageObjectListComponent,
         DonutGadgetComponent,
         DrillDownComponent,
@@ -118,7 +118,7 @@ import {ResultViewComponent} from "./response-time/result-view.component";  // t
         StatisticGadgetComponent,
         PropertyListGadgetComponent,
         ServiceListGadgetComponent,
-        ResponseTimeGadgetComponent,
+        PortConnectionGadgetComponent,
         StorageObjectListComponent,
         DonutGadgetComponent,
         BubbleGadgetComponent

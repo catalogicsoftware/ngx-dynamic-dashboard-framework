@@ -10,7 +10,7 @@ import {JobAnalysisGadgetComponent} from '../gadgets/job-analysis/job-analysis-g
 import {TrendLineGadgetComponent} from '../gadgets/trend-line/trend-line-gadget.component';
 import {EdgeServiceListGadgetComponent} from '../gadgets/edge-service-list/edge-service-list-gadget.component';
 import {CPUMGadgetComponent} from '../gadgets/cpum/cpum-gadget.component';
-import {ResponseTimeGadgetComponent} from '../gadgets/response-time/response-time-gadget.component';
+import {PortConnectionGadgetComponent} from '../gadgets/port-connection/port-connection-gadget.component';
 import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage-object-list.component';
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';
@@ -59,8 +59,8 @@ export class GadgetFactory {
                 return EdgeServiceListGadgetComponent;
             case 'CPUMGadgetComponent':
                 return CPUMGadgetComponent;
-            case 'ResponseTimeGadgetComponent':
-                return ResponseTimeGadgetComponent;
+            case 'PortConnectionGadgetComponent':
+                return PortConnectionGadgetComponent;
             case 'StorageObjectListComponent':
                 return StorageObjectListComponent;
             case 'TodoGadgetComponent': // todo gadget

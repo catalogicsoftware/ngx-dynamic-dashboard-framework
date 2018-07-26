@@ -46,7 +46,8 @@ export class ConnectionService {
 
         const httpOptions = {
             headers: new HttpHeaders({
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
             })
         };
         return this._http.post<Array<EndPointModel>>(this.connectivityTestURL, endPoints, httpOptions)

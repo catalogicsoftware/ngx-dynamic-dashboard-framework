@@ -18,7 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {DonutService} from '../gadgets/donut/service';
 import {TodoService} from '../gadgets/todo/service';
 import {ToastModule} from '../toast/toast.module';
-import {ConnectionService} from '../gadgets/response-time/service';
+import {ConnectionService} from '../gadgets/port-connection/service';
 import {BubbleService} from "../gadgets/bubble/service";
 
 

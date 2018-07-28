@@ -3,7 +3,20 @@
  */
 export const boardLayouts = [
 
+    {
+        id: 0,
+        boardInstanceId: 0,
+        title: 'one-narrow',
+        checked: false,
+        structure: '8',
+        rows: [{
+            columns: [
+                {
+                    styleClass: 'eight wide',
 
+                }]
+        }]
+    },
     {
         id: 1,
         boardInstanceId: 1,
@@ -13,7 +26,7 @@ export const boardLayouts = [
         rows: [{
             columns: [
                 {
-                    styleClass: 'eight wide',
+                    styleClass: 'fourteen wide',
 
                 }]
         }]

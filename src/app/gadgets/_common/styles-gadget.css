@@ -59,7 +59,7 @@ hr {
     bottom: 5px;
     height: 1px;
     width: 95%; /* or 100px */
-    border-bottom: 1px solid #d0d3d6;
+    border-bottom: 0px solid #d0d3d6;
 }
 
 .spacer {
@@ -83,7 +83,7 @@ td {
 
 th {
     font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
-    color: grey;
+    color: #336699;
 }
 
 .example-full-width {
@@ -98,3 +98,4 @@ h4 {
 
     border:none;
 }
+

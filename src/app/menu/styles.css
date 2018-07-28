@@ -123,6 +123,9 @@ i.icon{
 .ui.menu{
     border-radius:0px;
 }
+.ui.inverted.menu{
+    background-color: #1C2B36;
+}
 
 
 

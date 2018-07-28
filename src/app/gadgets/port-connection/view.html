@@ -15,7 +15,8 @@
                        (toggleConfigModeEvent)="toggleConfigMode()"
                        (removeEvent)="remove()"
                        (runEvent)="run()"
-                       (stopEvent)="stop()">
+                       (stopEvent)="stop()"
+                       (helpEvent)="helpModal.showHelp()">>
     </app-gadget-header>
 
     <div *ngIf="!inConfig">
@@ -34,7 +35,7 @@
             <connection-result-view-component [connectionResult]="result"></connection-result-view-component>
 
         </div>
-
+        <br>
     </div>
 
 
@@ -43,6 +44,8 @@
                       [instanceId]="instanceId"
                       (updatePropertiesEvent)="updateProperties($event)">
     </app-dynamic-form>
+
+    <app-help-modal #helpModal [topic]="topic"></app-help-modal>
 
 
     <app-error-handler

@@ -14,16 +14,15 @@ import {EndPointModel} from "./service.model";
     templateUrl: './view.html',
     styleUrls: ['../_common/styles-gadget.css']
 
+
 })
 export class PortConnectionGadgetComponent extends GadgetBase implements OnDestroy {
 
     host: string;
     port: string;
     endPoints: Array<any> = [];
-
-    //new data object
     testResultData: Array<any> = [];
-
+    topic: any;
 
     constructor(protected _procMonRuntimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
@@ -42,6 +41,7 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
     public preRun(): void {
         this.port = this.getPropFromPropertyPages('port');
         this.host = this.getPropFromPropertyPages('host');
+        this.setTopic();
     }
 
     public run() {
@@ -147,6 +147,93 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
             me.endPoints.push(new EndPointModel(me.host, port));
 
         });
+
+    }
+
+    public setTopic() {
+
+            this.topic = {
+                "concept": {
+                    "id": "c_spp_alerts",
+                    "xml:lang": "en-us",
+                    "rev": "rev1v102",
+                    "title": "Port Connectivity Test Tool",
+                    "titlealts": {
+                        "navtitle": "Alerts",
+                        "searchtitle": "IBM Spectrum Protect Plus dashboard"
+                    },
+                    "shortdesc": {
+                        "content": [
+                            "The",
+                            "tool is used to check connectivity to a remote server",
+                            "environment. The number of alerts\ndisplay in a red circle, indicating that alerts are available to view."
+                        ],
+                        "uicontrol": "Alerts",
+                        "keyword": {"conref": "../common/reuse_keyword.dita#kwd/ispplus"}
+                    },
+                    "conbody": {
+                        "p": [
+                            {
+                                "content": [
+                                    "Click the",
+                                    "menu to view the alerts list. Each item in the list\nincludes a status icon, a summary of the alert, the time the associated warning or error occurred,\nand a link to view associated logs."
+                                ],
+                                "uicontrol": "Alerts"
+                            },
+                            "The following alert types display in the alert list:",
+                            {
+                                "dl": {
+                                    "dlentry": {
+                                        "dt": "Alert types",
+                                        "dd": {
+                                            "dl": [
+                                                {
+                                                    "dlentry": {
+                                                        "dt": {"b": "Job failed"},
+                                                        "dd": "Displays when a job fails with critical errors or wholly fails to complete."
+                                                    }
+                                                },
+                                                {
+                                                    "dlentry": [
+                                                        {
+                                                            "dt": {"b": "System disk space low"},
+                                                            "dd": {
+                                                                "content": [
+                                                                    "Displays when the amount of data consumed by the catalog on an",
+                                                                    "data disk exceeds the assigned 5% threshold."
+                                                                ],
+                                                                "keyword": {"conref": "../common/reuse_keyword.dita#kwd/ispplus"}
+                                                            }
+                                                        },
+                                                        {
+                                                            "dt": {"b": "vSnap storage space low"},
+                                                            "dd": "Displays when the amount of free disk space on a vSnap server is less than 5%."
+                                                        },
+                                                        {
+                                                            "dt": {"b": "System memory low"},
+                                                            "dd": {
+                                                                "content": [
+                                                                    "Displays when the amount of memory available to run",
+                                                                    "is less than 5%."
+                                                                ],
+                                                                "keyword": {"conref": "../common/reuse_keyword.dita#kwd/ispplus"}
+                                                            }
+                                                        },
+                                                        {
+                                                            "dt": {"b": "System CPU usage high"},
+                                                            "dd": "Displays when the IBM Spectrum Protect Plus processor usage exceeds the assigned 5% threshold."
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            };
 
     }
 

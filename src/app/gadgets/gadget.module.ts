@@ -42,7 +42,8 @@ import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {TodoService} from './todo/service';
 import {ConnectionService} from './port-connection/service';
 import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";
-import {ResultViewComponent} from "./port-connection/result-view.component";  // todo gadget
+import {ResultViewComponent} from "./port-connection/result-view.component";
+import {SolutionViewComponent} from "./port-connection/solution-view.component";  // todo gadget
 
 
 
@@ -87,7 +88,8 @@ import {ResultViewComponent} from "./port-connection/result-view.component";  //
         DonutGadgetComponent,
         DrillDownComponent,
         BubbleGadgetComponent,
-        ResultViewComponent
+        ResultViewComponent,
+        SolutionViewComponent
 
     ],
 

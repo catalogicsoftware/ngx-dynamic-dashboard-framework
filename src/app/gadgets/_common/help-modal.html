@@ -1,12 +1,20 @@
 <div class="ui long modal" #helpmodal_tag>
     <div class="header">
-        <h2>{{modalheader}}</h2>
+       {{topic.concept.title}} Help
     </div>
 
-    <div style="overflow-y:auto; padding-left:100px; padding-right:100px; text-align: left !important; background-color:#f7f7f7" *ngIf="topic && topic.details && topic.heading">
+    <div class="ui basic segment">
+        <br>
+        <br>
+        <p>{{topic.concept.shortdesc.content}}</p>
 
-        <br><br>
+        <p *ngFor="let p of topic.concept.conbody.p">
 
+            {{p}}
+            </p>
+
+        <img src="https://www-prd-trops.events.ibm.com/sites/default/files/support/swg/tivtech.nsf/0/1176ca81273d6e048525821a00361689/Content/0.544A.gif" height="700px" width="800px">
+        <!--
             <h3 style="font-weight:600 !important">{{topic.heading}}</h3>
             <div *ngFor="let detail of topic.details" class="ui segment">
                 <h4 style="font-weight:500 !important">{{detail.category}}</h4>
@@ -22,7 +30,7 @@
                     </div>
                 </div>
             </div>
-
+-->
         <br><br>
     </div>
     <div class="actions">

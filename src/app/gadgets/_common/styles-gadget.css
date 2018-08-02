@@ -1,7 +1,7 @@
 .gadget {
     margin-bottom: 15px !important;
     min-height: inherit !important;
-    font-family:  'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, 'Lucida Grande', sans-serif;
     color: grey;
 }
 
@@ -94,8 +94,7 @@ h4 {
     font-weight: 400;
 }
 
-.ui.segment{
+.ui.segment {
 
-    border:none;
+    border: none;
 }
-

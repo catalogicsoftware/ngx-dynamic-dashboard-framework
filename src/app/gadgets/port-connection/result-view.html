@@ -63,20 +63,16 @@
                                     <ul *ngFor="let action of solution.action">
                                         <li>{{action.task}}</li>
                                     </ul>
-
                                 </td>
                             </tr>
-                            <!--
-                                todo add a solution component that will allow the user to extend this list by adding
-                                to the solution list
-                            -->
-
                             </tbody>
                         </table>
                     </div>
+                    <!-- <solution-view-component></solution-view-component> -->
                 </td>
             </tr>
         </table>
+
     </div>
     <div class="ui bottom right attached label" style="background-color: transparent">
         <i *ngIf="connectionResult.status != 'success'" class="large chevron icon" (click)="toggleMessageDetail()"

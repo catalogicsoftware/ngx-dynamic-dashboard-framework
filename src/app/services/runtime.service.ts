@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {ErrorHandler} from '../error/error-handler';
-import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
 
@@ -14,6 +14,8 @@ export class RuntimeService {
 
     watsonMicroserviceURL: string;
     connectivityTestURL: string;
+    serviceVersionURL : string;
+    testURL = "localhost:8080";
 
     static handleError(err: HttpErrorResponse | any) {
 
@@ -51,9 +53,11 @@ export class RuntimeService {
         if (environment.production) {
             this.watsonMicroserviceURL = '/classify';
             this.connectivityTestURL = '/connectTest';
+            this.serviceVersionURL = '/version'
         } else {
-            this.connectivityTestURL = 'http://localhost:8080/connectTest';
-            this.watsonMicroserviceURL = 'http://localhost:8080/classify';
+            this.connectivityTestURL = this.testURL + '/connectTest';
+            this.watsonMicroserviceURL = this.testURL + '/classify';
+            this.serviceVersionURL = this.testURL + '/version'
         }
 
     }
@@ -84,19 +88,21 @@ export class RuntimeService {
     callWitAI(aiStatement: string) {
         console.log('running WitAi');
 
-        let p = new HttpParams();
+        if(environment.experimental) {
 
-        if (!localStorage.getItem('Wit.aiToken')) {
-            return;
+            let p = new HttpParams();
+            if (!localStorage.getItem('Wit.aiToken')) {
+                return;
+            }
+
+            p = p.append('v', '20171128');
+            p = p.append('q', aiStatement);
+            p = p.append('access_token', localStorage.getItem('Wit.aiToken'));
+
+            return this._http.jsonp('https://api.wit.ai/message?' + p.toString(),
+                'callback'
+            ).catch(RuntimeService.handleError);
         }
-
-        p = p.append('v', '20171128');
-        p = p.append('q', aiStatement);
-        p = p.append('access_token', localStorage.getItem('Wit.aiToken'));
-
-        return this._http.jsonp('https://api.wit.ai/message?' + p.toString(),
-            'callback'
-        ).catch(RuntimeService.handleError);
     }
 
     callback(data) {
@@ -134,6 +140,7 @@ export class RuntimeService {
      */
     callWatsonAI(aiStatement: string) {
         console.log('running Watson');
+
 
         if (!localStorage.getItem('ibmwatsoncid')) {
             return;

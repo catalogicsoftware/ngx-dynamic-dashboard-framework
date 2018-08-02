@@ -21,7 +21,7 @@ export class ConfigurationService {
      * todo - fix this hard coded store
      * @type {string}
      */
-    remoteConfigurationRepository = 'http://localhost:8090/api/store';
+    remoteConfigurationRepository = '';
 
     constructor(private _http: HttpClient) {
 

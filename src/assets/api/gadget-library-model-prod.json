@@ -1,0 +1,186 @@
+{
+  "library": [
+    {
+      "componentType": "PortConnectionGadgetComponent",
+      "name": "Port Connection Test",
+      "description": "Test Connection To Endpoints.",
+      "icon": "assets/images/response.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Informational",
+          "name": "port-connection"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Connection Test",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "textbox",
+                "key": "host",
+                "label": "Host",
+                "value": "",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "dropdown",
+                "key": "port",
+                "label": "Port(s)",
+                "value": "",
+                "required": true,
+                "order": 3,
+                "options": [
+                  {
+                    "key": "vSnap + vAdp (All Ports)",
+                    "value": "8900,8080,22,111,20048,2049"
+                  },
+                  {
+                    "key": "SPP Single Appliance (All Ports)",
+                    "value": "443,8900,22,111,20048,2049"
+                  },
+                  {
+                    "key": "SPP (443)",
+                    "value": "443"
+                  },
+                  {
+                    "key": "SPP (8443)",
+                    "value": "8443"
+                  },
+                  {
+                    "key": "SPP (3000)",
+                    "value": "3000"
+                  },
+                  {
+                    "key": "LDAP (389)",
+                    "value": "389"
+                  },
+                  {
+                    "key": "LDAP (636)",
+                    "value": "636"
+                  },
+                  {
+                    "key": "VADP (8080)",
+                    "value": "8080"
+                  },
+                  {
+                    "key": "WinRM (5985)",
+                    "value": "5985"
+                  },
+                  {
+                    "key": "VSnap (8900)",
+                    "value": "8900"
+                  },
+                  {
+                    "key": "SSH (22)",
+                    "value": "22"
+                  },
+                  {
+                    "key": "ISCSI (3260)",
+                    "value": "3260"
+                  },
+                  {
+                    "key": "NFS (2049)",
+                    "value": "2049"
+                  },
+                  {
+                    "key": "NFS (20048)",
+                    "value": "20048"
+                  },
+                  {
+                    "key": "NFS (111)",
+                    "value": "111"
+                  },
+                  {
+                    "key": "ESXI (902)",
+                    "value": "902"
+                  }
+                ]
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": true,
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
+    },
+    {
+      "componentType": "TodoGadgetComponent",
+      "name": "Todo",
+      "description": "Todo Gadget",
+      "icon": "assets/images/todo.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Todo",
+          "name": "todo"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Todo",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 2,
+                "required": false,
+                "order": -1
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
+    }
+
+  ]
+}
+

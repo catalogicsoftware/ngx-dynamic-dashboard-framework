@@ -15,6 +15,7 @@ import {ObservableWebSocketService} from '../services/websocket-service';
 import {TypeAheadInputModule} from '../typeahead-input/typeahead-input.module';
 import {MenuComponent} from './menu.component';
 import {MenuEventService} from './menu-service';
+import {AboutModule} from "../about/about.module";
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import {MenuEventService} from './menu-service';
         NotificationModule,
         AddGadgetModule,
         LayoutModule,
+        AboutModule,
         ConfigurationModule,
         TypeAheadInputModule,
         GadgetModule,

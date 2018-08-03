@@ -4,6 +4,18 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  experimental:true
+    production: false,
+    experimental: true,
+    productName: "Dynamic Dashboard Framework",
+    productVersion: "0.0.1",
+    menu:{
+        documentation:true,
+        aiSearch: true,
+        notification:true
+    },
+    boardConfiguration:{
+        board:true,
+        ai:true,
+        endpoint:true
+    }
 };

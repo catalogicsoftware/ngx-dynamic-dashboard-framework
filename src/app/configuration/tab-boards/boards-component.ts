@@ -13,6 +13,7 @@ import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {tabsModel} from '../tabs.model';
 import {ConfigurationService} from '../../services/configuration.service';
+import {environment} from '../../../environments/environment'
 
 
 declare var jQuery: any;
@@ -62,6 +63,7 @@ export class BoardsComponent implements AfterViewInit {
     modalicon: string;
     modalheader: string;
     modalconfig: string;
+    env:any;
 
     @ViewChild('boardconfigmodal_tag') boardconfigmodalaRef: ElementRef;
     configModal: any;
@@ -72,6 +74,7 @@ export class BoardsComponent implements AfterViewInit {
 
         Object.assign(this, {tabsModel});
         this.setCurrentTab(0);
+        this.env = environment;
 
     }
 

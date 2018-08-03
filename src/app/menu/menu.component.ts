@@ -50,13 +50,16 @@ export class MenuComponent implements OnInit {
     placeHolderText = 'Ask the board to do something!';
     searchList: Array<string> = [];
     detailMenuOpen = 'in';
+    env: any;
 
     @ViewChild('notificationSideBar_tag') notificationSideBarRef: ElementRef;
     @ViewChild('layoutSideBar_tag') layoutSideBarRef: ElementRef;
+    @ViewChild('aboutSideBar_tag') aboutSideBarRef: ElementRef;
     @ViewChild('stickymenu_tag') stickyMenuRef: ElementRef;
 
     notificationSideBar: any;
     layoutSideBar: any;
+    aboutSideBar:any;
     stickyMenu: any;
 
     typeAheadIsInMenu = true;
@@ -67,6 +70,7 @@ export class MenuComponent implements OnInit {
                 private _menuEventService: MenuEventService, private _route: Router) {
 
         this.setupEventListeners();
+        this.env = environment;
     }
 
     setupEventListeners() {
@@ -171,6 +175,11 @@ export class MenuComponent implements OnInit {
         this.notificationSideBar = jQuery(this.notificationSideBarRef.nativeElement);
         this.notificationSideBar.sidebar('setting', 'transition', 'overlay');
         this.notificationSideBar.sidebar('toggle');
+    }
+    toggleAboutSideBar() {
+        this.aboutSideBar = jQuery(this.aboutSideBarRef.nativeElement);
+        this.aboutSideBar.sidebar('setting', 'transition', 'overlay');
+        this.aboutSideBar.sidebar('toggle');
     }
 
 

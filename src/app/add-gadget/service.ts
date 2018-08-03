@@ -3,14 +3,27 @@
  */
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment'
 
 @Injectable()
 export class AddGadgetService {
 
-    constructor(private _http: HttpClient) {}
+    env: any;
+
+    constructor(private _http: HttpClient) {
+        this.env = environment;
+    }
 
     getGadgetLibrary() {
-        return this._http.get<GadgetLibraryResponse>('/assets/api/gadget-library-model.json');
+        let gadgetLibraryJson = '';
+
+        if (this.env.production == true) {
+            gadgetLibraryJson = 'gadget-library-model-prod.json';
+
+        } else {
+            gadgetLibraryJson = 'gadget-library-model.json';
+        }
+        return this._http.get<GadgetLibraryResponse>('/assets/api/' + gadgetLibraryJson);
     }
 
 }

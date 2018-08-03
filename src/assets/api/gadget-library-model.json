@@ -1,7 +1,6 @@
 {
   "library": [
     {
-      "enable": true,
       "componentType": "BubbleGadgetComponent",
       "name": "Bubble",
       "description": "Bubble Gadget",
@@ -55,7 +54,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "StorageObjectListComponent",
       "name": "Storage Information",
       "description": "Provides a storage view.",
@@ -109,7 +107,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "CPUMGadgetComponent",
       "name": "CPUM Chart",
       "description": "Monitors CPU utilization.",
@@ -277,7 +274,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "PortConnectionGadgetComponent",
       "name": "Port Connection Test",
       "description": "Test Connection To Endpoints.",
@@ -405,7 +401,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "EdgeServiceListGadgetComponent",
       "name": "Edge Service Status",
       "description": "Monitors edge service status",
@@ -475,7 +470,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "TrendGadgetComponent",
       "name": "Trend",
       "description": "General trends.",
@@ -549,7 +543,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "TrendLineGadgetComponent",
       "name": "Realtime Performance",
       "description": "Monitors IOPs and network bandwidth.",
@@ -623,7 +616,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "CPUGadgetComponent",
       "name": "CPU Chart",
       "description": "Monitors CPU utilization.",
@@ -697,7 +689,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "MemoryGadgetComponent",
       "name": "Memory Chart",
       "description": "Monitors memory utilization",
@@ -771,7 +762,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "ServiceListGadgetComponent",
       "name": "Service Status",
       "description": "Monitors service status",
@@ -841,7 +831,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "PropertyListGadgetComponent",
       "name": "Tuning Parameters",
       "description": "System related tuning parameters.",
@@ -902,7 +891,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "DiskGadgetComponent",
       "name": "Disk Utilization",
       "description": "Disk consumption information.",
@@ -1037,7 +1025,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "DonutGadgetComponent",
       "name": "Smart Protection",
       "description": "Ai based protection.",
@@ -1128,7 +1115,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "StatisticGadgetComponent",
       "name": "Statistic",
       "description": "General statistic.",
@@ -1208,7 +1194,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "NewsGadgetComponent",
       "name": "News",
       "description": "What's new",
@@ -1266,7 +1251,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "JobAnalysisGadgetComponent",
       "name": "Job Analyzer",
       "description": "Performs operation analysis.",
@@ -1328,7 +1312,6 @@
       ]
     },
     {
-      "enable": true,
       "componentType": "TodoGadgetComponent",
       "name": "Todo",
       "description": "Todo Gadget",

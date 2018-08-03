@@ -1,13 +1,14 @@
 <br>
-<div class="header">
-    <h2><span style="padding: 30px; color:white">{{modalHeader}}</span></h2>
+
+<div style="text-align: center">
+    <h2>{{modalHeader}}</h2>
 </div>
 
 <ul>
     <li style='list-style: none'
-     *ngFor="let layout of boardLayouts; let i = index">
-    <img [ngClass]="{'layout-selected': layoutId == layout.id }" src="/assets/images/{{layout.title}}.png"
-         (click)="selectBoardLayout(layout.id)">
+        *ngFor="let layout of boardLayouts; let i = index">
+        <img [ngClass]="{'layout-selected': layoutId == layout.id }" src="/assets/images/{{layout.title}}.png"
+             (click)="selectBoardLayout(layout.id)">
 
     </li>
 </ul>

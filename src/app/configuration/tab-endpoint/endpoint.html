@@ -1,4 +1,4 @@
-<div class="ui equal width fields grid container">
+<div *ngIf="env.boardConfiguration.endpoint == true" class="ui equal width fields grid container">
 
     <div class="field six wide column">
 
@@ -23,5 +23,10 @@
 
     </div>
 </div>
+
+<div *ngIf="env.boardConfiguration.endpoint == false">
+    This feature is not ready yet!
+</div>
+
 
 

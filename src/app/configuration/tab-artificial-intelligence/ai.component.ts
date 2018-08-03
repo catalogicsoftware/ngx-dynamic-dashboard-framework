@@ -27,13 +27,16 @@ export class AIComponent {
         {value: ' ', viewValue: ' '}
     ];
     selectedAIEngineValue: string;
+    env: any;
 
     constructor() {
         /**
          * todo - get this information from a backend store
          * **/
 
-        if (environment.experimental) {
+        this.env = environment;
+
+        if (this.env.experimental) {
 
             this.token = localStorage.getItem('Wit.aiToken');
             this.ibmwatsonuid = localStorage.getItem('ibmwatsonuid');

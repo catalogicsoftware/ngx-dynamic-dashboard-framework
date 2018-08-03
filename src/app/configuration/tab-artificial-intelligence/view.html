@@ -1,4 +1,4 @@
-<div class="ui equal width fields centered grid container">
+<div *ngIf="env.boardConfiguration.ai == true" class="ui equal width fields centered grid container">
 
     <div class="row">
         <div class="field four wide column">
@@ -15,7 +15,6 @@
         <div class="field four wide column">
         </div>
     </div>
-
 
     <div *ngIf="selectedAIEngineValue === '' || selectedAIEngineValue === 'witai'">
         <div class="row">
@@ -73,6 +72,10 @@
         </div>
     </div>
 
+</div>
+
+<div *ngIf="env.boardConfiguration.ai == false">
+    This feature is not ready yet!
 </div>
 
 

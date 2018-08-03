@@ -1,7 +1,7 @@
 <div [@accordion2]="detailMenuOpen" class="ui inverted menu sticky" #stickymenu_tag style="height: 66px !important">
 
 
-    <app-typeahead-input *ngIf="env.menu.ai" [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
+    <app-typeahead-input *ngIf="env.menu.aiSearch" [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
                          [searchList]="searchList"
                          [placeHolderText]="placeHolderText"
                          [typeAheadIsInMenu]="typeAheadIsInMenu"
@@ -61,8 +61,8 @@
         <!--
         <a class="item">
             <i
-                    class="large inverted chevron icon" (click)="toggleAccordion()"
-                    [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
+                class="large inverted chevron icon" (click)="toggleAccordion()"
+                [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
         </a>
         -->
     </div>

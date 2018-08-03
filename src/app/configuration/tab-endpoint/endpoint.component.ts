@@ -4,7 +4,7 @@
 import {Component} from '@angular/core';
 import {EndPoint} from './endpoint.model';
 import {EndPointService} from './endpoint.service';
-import {ToastService} from '../../toast/toast.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-endpoint',
@@ -16,12 +16,16 @@ import {ToastService} from '../../toast/toast.service';
 })
 export class EndPointComponent {
 
+    env:any;
+
     endPoints: EndPoint[];
 
     currentEndPoint: EndPoint = new EndPoint('', '', '', '', '', '',
         '', '', '');
 
     constructor(private _endPointService: EndPointService) {
+
+        this.env = environment;
 
         this._endPointService.getEndPoints().subscribe(data => {
             this.endPoints = data['endPoint'];

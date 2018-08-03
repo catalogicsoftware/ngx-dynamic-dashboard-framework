@@ -21,7 +21,7 @@
 
         </div>
         <div class="form-row field">
-            <button class="ui submit button" type="submit" [disabled]="!form.valid"> Save</button>
+            <button class="ui green submit button" type="submit" [disabled]="!form.valid || !form.dirty"> Save</button>
         </div>
     </form>
 

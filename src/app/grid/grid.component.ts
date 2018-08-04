@@ -424,7 +424,7 @@ export class GridComponent {
 
         this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
-                this._toastService.sendMessage(this.getModel().title + ':' + this.getModel().boardInstanceId + ' has been updated!', '');
+                this._toastService.sendMessage(this.getModel().title +  ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
                     this._menuEventService.raiseGridEvent({name: 'boardUpdateEvent', data: this.getModel().title});

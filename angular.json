@@ -23,7 +23,8 @@
             "styles": [
               "src/styles.css",
               "node_modules/semantic-ui/dist/semantic.min.css",
-              "node_modules/ng2-dnd/bundles/style.css"
+              "node_modules/ng2-dnd/bundles/style.css",
+              "node_modules/material-design-icons/iconfont/material-icons.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

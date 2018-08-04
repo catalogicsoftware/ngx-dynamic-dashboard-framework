@@ -59,7 +59,7 @@ export class AIComponent {
         /**
          * todo - get this information from a backend store
          * **/
-        if (environment.experimental) {
+        if (!environment.production) {
             localStorage.setItem('Wit.aiToken', this.token);
             localStorage.setItem('ibmwatsonuid', this.ibmwatsonuid);
             localStorage.setItem('ibmwatsonpwd', this.ibmwatsonpwd);

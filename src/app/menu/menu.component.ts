@@ -1,8 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MenuEventService} from './menu-service';
-import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 
 
@@ -44,7 +42,7 @@ export class MenuComponent implements OnInit {
     layoutId = 0;
 
     constructor(private _configurationService: ConfigurationService,
-                private _menuEventService: MenuEventService, private _route: Router) {
+                private _menuEventService: MenuEventService) {
 
         this.setupEventListeners();
         this.env = environment;

@@ -8,8 +8,7 @@ import {
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import {environment} from '../../environments/environment';
-
-
+import {AboutService} from "./service";
 
 
 /**
@@ -32,11 +31,12 @@ import {environment} from '../../environments/environment';
 export class AboutComponent implements AfterViewInit {
 
     modalHeader = 'About';
+    apiVersion: string;
 
     messageModal: any;
-    env:any;
+    env: any;
 
-    constructor() {
+    constructor(private _aboutService: AboutService) {
 
         this.env = environment;
     }
@@ -44,8 +44,19 @@ export class AboutComponent implements AfterViewInit {
 
     ngAfterViewInit() {
 
+        this.getVersion();
+
     }
 
+    getVersion() {
+
+        this._aboutService.getAPIVersion().subscribe(data => {
+
+            this.apiVersion = data['version'];
+
+        });
+
+    }
 
 
 }

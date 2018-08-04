@@ -34,11 +34,8 @@ export class RuntimeService {
             errMsg.status = err.status;
             errMsg.statusText = 'A backend error occurred';
             errMsg.resource = err.url;
-            console.log('Backend error');
-
 
         }
-        console.log(err);
 
         return Observable.throw(ErrorHandler.getErrorObject(errMsg));
 
@@ -88,7 +85,7 @@ export class RuntimeService {
     callWitAI(aiStatement: string) {
         console.log('running WitAi');
 
-        if(environment.experimental) {
+        if(!environment.production) {
 
             let p = new HttpParams();
             if (!localStorage.getItem('Wit.aiToken')) {

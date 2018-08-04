@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigurationService} from '../services/configuration.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MenuEventService} from './menu-service';
@@ -18,29 +18,7 @@ declare var jQuery: any;
     selector: 'app-menu-component',
     templateUrl: './view.html',
     styleUrls: ['./styles.css'],
-    animations: [
 
-        trigger('accordion', [
-            state('in', style({
-                opacity: '1'
-            })),
-            state('out', style({
-                opacity: '0'
-            })),
-            transition('in => out', animate('50ms ease-in-out')),
-            transition('out => in', animate('100ms ease-in-out'))
-        ]),
-        trigger('accordion2', [
-            state('in', style({
-                height: '*'
-            })),
-            state('out', style({
-                height: '0px'
-            })),
-            transition('in => out', animate('100ms ease-in-out')),
-            transition('out => in', animate('50ms ease-in-out'))
-        ])
-    ]
 })
 export class MenuComponent implements OnInit {
 
@@ -49,7 +27,6 @@ export class MenuComponent implements OnInit {
     selectedBoard = '';
     placeHolderText = 'Ask the board to do something!';
     searchList: Array<string> = [];
-    detailMenuOpen = 'in';
     env: any;
 
     @ViewChild('notificationSideBar_tag') notificationSideBarRef: ElementRef;
@@ -156,12 +133,6 @@ export class MenuComponent implements OnInit {
 
     boardSelect(selectedBoard: string) {
         this.selectedBoard = selectedBoard;
-    }
-
-    toggleAccordion(): void {
-
-        this.detailMenuOpen = this.detailMenuOpen === 'out' ? 'in' : 'out';
-
     }
 
     toggleLayoutSideBar() {

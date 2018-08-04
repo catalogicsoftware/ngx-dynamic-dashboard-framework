@@ -1,7 +1,7 @@
-<div [@accordion2]="detailMenuOpen" class="ui inverted menu sticky" #stickymenu_tag style="height: 66px !important">
+<div  class="ui inverted menu sticky" #stickymenu_tag style="height: 66px !important">
 
 
-    <app-typeahead-input *ngIf="env.menu.aiSearch" [@accordion]="detailMenuOpen" style="width:25%; padding-bottom:0" class="item"
+    <app-typeahead-input *ngIf="env.menu.aiSearch"  style="width:25%; padding-bottom:0" class="item"
                          [searchList]="searchList"
                          [placeHolderText]="placeHolderText"
                          [typeAheadIsInMenu]="typeAheadIsInMenu"
@@ -9,7 +9,7 @@
     </app-typeahead-input>
 
 
-    <div [@accordion]="detailMenuOpen" class="ui secondary inverted pointing menu board">
+    <div class="ui secondary inverted pointing menu board">
         <a *ngFor="let board of dashboardList; let i = index" class="item"
            [ngClass]="{'active':board == selectedBoard}"
            (click)="emitBoardSelectEvent(board)">
@@ -21,12 +21,12 @@
     <div class="right inverted menu">
 
 
-        <a  *ngIf="env.menu.documentation" [@accordion]="detailMenuOpen" class="item"
+        <a  *ngIf="env.menu.documentation"  class="item"
           (click)="showDocumentation()">
             <i class="large inverted book icon"></i>
         </a>
 
-        <a *ngIf="env.menu.notification" [@accordion]="detailMenuOpen" class="item"
+        <a *ngIf="env.menu.notification"  class="item"
            (click)="toggleNotificationSideBar()">
             <i class="large inverted alarm icon"></i>
             <div class="floating ui red label">
@@ -35,36 +35,29 @@
         </a>
 
 
-        <a [@accordion]="detailMenuOpen" class="item"
+        <a class="item"
            (click)="addGadgetModal.showComponentLibraryModal('Add Gadget')">
             <i class="large inverted plus icon"></i>
         </a>
 
 
-        <a [@accordion]="detailMenuOpen" class="item"
+        <a class="item"
            (click)="toggleLayoutSideBar()">
             <i class="large inverted grid layout icon"></i>
         </a>
 
 
-        <a [@accordion]="detailMenuOpen" class="item"
+        <a class="item"
            (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
             <i class="large inverted setting icon"></i>
         </a>
 
 
-        <a [@accordion]="detailMenuOpen" class="item"
+        <a class="item"
            (click)="toggleAboutSideBar()">
             <i class="large inverted info icon"></i>
         </a>
 
-        <!--
-        <a class="item">
-            <i
-                class="large inverted chevron icon" (click)="toggleAccordion()"
-                [ngClass]="{'up':detailMenuOpen == 'in', 'down': detailMenuOpen=='out'}"></i>
-        </a>
-        -->
     </div>
 
 </div>

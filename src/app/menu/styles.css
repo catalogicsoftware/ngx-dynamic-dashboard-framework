@@ -44,5 +44,7 @@ input {
     background-color: #1C2B36;
 }
 
-
+.ui.menu .item>i.icon {
+    margin: 0;
+}
 

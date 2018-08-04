@@ -19,7 +19,7 @@ export class AboutService {
 
         if (this.env.production == true) {
 
-            url = 'http://localhost:8080/version';
+            url = '/version';
 
         } else {
 

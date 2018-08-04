@@ -1,20 +1,27 @@
-.wrapper{
-    position:absolute;
-    top:50px;
+.wrapper {
+    position: absolute;
+    top: 50px;
     right: 10px;
     width: 400px;
 }
-.ui.message{
-    border-radius: 0px;
-    background-color: white;
-}
-.toast{
-    width:inherit;
+
+.toast {
+    width: inherit;
 }
 
-.toast-icon{
+.toast-icon {
 
     background-color: #384b5f;
     text-align: center;
 
+}
+
+.ui[class*="top right attached"].label {
+    background-color: transparent;
+}
+
+.toast-message{
+    height: 40px;
+    display:table-cell;
+    vertical-align: middle;
 }

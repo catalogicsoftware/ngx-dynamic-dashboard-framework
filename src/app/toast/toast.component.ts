@@ -42,6 +42,7 @@ export class ToastComponent implements OnInit {
 
             });
         });
+
     }
 
     dismiss(id) {

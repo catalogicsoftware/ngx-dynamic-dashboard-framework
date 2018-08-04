@@ -1,13 +1,12 @@
 <div class="wrapper">
     <div class="toast" *ngFor="let message of messages">
-        <table [@showHide] *ngIf="message.dismissed == false">
+        <table class="ui table" (click)="dismiss(message.id)" [@showHide] *ngIf="message.dismissed == false">
             <tr>
                 <td class="toast-icon" width='50px'><i
                         class="large inverted check icon"></i></td>
                 <td>
-                    <div class="ui message">
-                        <i class="close icon" (click)="dismiss(message.id)"></i>
-                        <p>{{message.content}}</p>
+                    <div class="toast-message">
+                        {{message.content}}
                     </div>
                 </td>
             </tr>

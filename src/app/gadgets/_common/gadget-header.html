@@ -1,19 +1,19 @@
 <div class="ui top attached label">
 
     <button class="compact ui button right floated"
-            *ngIf="showControls" (click)="remove()">
+            *ngIf="showControls || globalOptions.enableHover" (click)="remove()">
         <i class="trash icon" style="margin-right:0 !important"></i>
     </button>
     <button class="compact ui button right floated"
-            *ngIf="showControls && showConfigurationControl" (click)="toggleConfigMode()">
+            *ngIf="showControls || globalOptions.enableHover && showConfigurationControl" (click)="toggleConfigMode()">
         <i class="setting  icon" style="margin-right:0 !important"></i>
     </button>
     <button class="compact ui button right floated"
-            *ngIf="showControls" (click)="help()">
+            *ngIf="showControls || globalOptions.enableHover" (click)="help()">
         <i class="info icon" style="margin-right:0 !important" ></i>
     </button>
 
-    <app-gadget-operation-control *ngIf="showControls"
+    <app-gadget-operation-control *ngIf="showControls || globalOptions.enableHover"
                               [inRun]="inRun"
                               [inConfig]="inConfig"
                               [actionInitiated]="actionInitiated"

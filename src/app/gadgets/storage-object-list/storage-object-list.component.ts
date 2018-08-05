@@ -8,6 +8,7 @@ import {StorageService} from './service';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {Facet} from '../../facet/facet-model';
 import {FacetTagProcessor} from '../../facet/facet-tag-processor';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 @Component({
     selector: 'app-dynamic-component',
@@ -48,12 +49,14 @@ export class StorageObjectListComponent extends GadgetBase {
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
-                protected _storageService: StorageService) {
+                protected _storageService: StorageService,
+                protected _optionsService: OptionsService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
     }
 
     public preRun(): void {

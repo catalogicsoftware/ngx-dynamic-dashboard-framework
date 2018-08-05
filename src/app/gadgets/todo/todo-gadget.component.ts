@@ -4,7 +4,8 @@ import {GadgetInstanceService} from '../../grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {TodoService} from './service';  // todo component
+import {TodoService} from './service';
+import {OptionsService} from "../../configuration/tab-options/service";  // todo component
 
 @Component({
     selector: 'app-dynamic-component',
@@ -26,12 +27,14 @@ export class TodoGadgetComponent extends GadgetBase {
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                protected _changeDetectionRef: ChangeDetectorRef) {
+                protected _changeDetectionRef: ChangeDetectorRef,
+                protected _optionsService: OptionsService) {
         super(_procMonRuntimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
     }
 
     public preRun(): void {

@@ -1,8 +1,10 @@
 <div  class="ui center aligned segment gadget" dnd-draggable
      [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']" style="background-color: #f7f7f7">
 
-    <app-gadget-header (mouseover)="showGadgetControls(true)"
-                       (mouseleave)="showGadgetControls(false)"
+    <app-gadget-header
+            (mouseover)="showGadgetControls(true)"
+            (mouseleave)="showGadgetControls(false)"
+            [globalOptions]="globalOptions"
             [title]="title"
             [inRun]="inRun"
             [inConfig]="inConfig"

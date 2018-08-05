@@ -7,6 +7,7 @@ import {GadgetBase} from '../_common/gadget-base';
 import {JobAnalysisService} from './service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 declare var d3: any;
 
@@ -28,12 +29,14 @@ export class JobAnalysisGadgetComponent extends GadgetBase {
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
                 protected _jobAnalysisService: JobAnalysisService,
-                iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+                iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
+                protected _optionsService: OptionsService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
         iconRegistry.addSvgIcon(
             'thumbs-up',

@@ -1,10 +1,11 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import  {RuntimeService} from '../../services/runtime.service';
+import {RuntimeService} from '../../services/runtime.service';
 import {GadgetInstanceService} from '../../grid/grid.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {StatisticService} from './service';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 @Component({
     selector: 'app-dynamic-component',
@@ -25,12 +26,14 @@ export class StatisticGadgetComponent extends GadgetBase {
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                protected _changeDetectionRef: ChangeDetectorRef) {
+                protected _changeDetectionRef: ChangeDetectorRef,
+                protected _optionsService: OptionsService) {
         super(_procMonRuntimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
         this.run();
     }

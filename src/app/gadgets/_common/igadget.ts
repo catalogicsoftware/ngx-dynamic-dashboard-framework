@@ -23,5 +23,7 @@ interface IGadget {
 
     configureGadget(instanceId: number, config: any);
 
+    updateGadgetWithGlobalOptions(options:any);
+
 
 }

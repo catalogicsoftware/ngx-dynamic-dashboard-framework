@@ -6,6 +6,7 @@ import {RuntimeService} from '../../services/runtime.service';
 import {GadgetInstanceService} from '../../grid/grid.service';
 import {AfterViewInit, ChangeDetectorRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {DynamicFormComponent} from '../../dynamic-form/dynamic-form.component';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 /**
  * Created by jayhamilton on 6/22/17.
@@ -75,12 +76,27 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
 
     errorObject: ErrorObject;
     errorExists = false;
+    globalOptions:any;
 
     constructor(protected _runtimeService: RuntimeService,
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                protected changeDetectionRef: ChangeDetectorRef) {
+                protected changeDetectionRef: ChangeDetectorRef,
+                protected _optionsService: OptionsService) {
+
+        this._optionsService.listenForGlobalOptionsChanges().subscribe(options=>{
+
+            /**
+             * This is called when there is a change to the options tab within the configuration modal.
+             * The following method needs to also be called when the gadget is initially instantiated.
+             * When the gadget is instantiated the option values need to come from the persistent store.
+             */
+
+            this.updateGadgetWithGlobalOptions(options);
+        });
+
+        this.updateGadgetWithGlobalOptions(this._optionsService.getBoardOptions())
     }
 
     public ngOnInit() {
@@ -237,6 +253,14 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
     }
 
     public ngOnDestroy() {
+
+    }
+
+    public updateGadgetWithGlobalOptions(options:any){
+
+
+        this.globalOptions = Object.assign({},options);
+
 
     }
 }

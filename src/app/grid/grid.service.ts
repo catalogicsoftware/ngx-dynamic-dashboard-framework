@@ -5,6 +5,9 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
+/**
+ * todo - the name of this service does not represent the file name. This should be refactored. Consider moving this service to the gadget module instead.
+ */
 
 @Injectable()
 export class GadgetInstanceService {
@@ -19,6 +22,7 @@ export class GadgetInstanceService {
     addInstance(gadget: any) {
 
         this.concreteGadgetInstances.push(gadget);
+        console.log(this.concreteGadgetInstances);
 
     }
 

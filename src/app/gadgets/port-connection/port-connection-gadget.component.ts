@@ -6,6 +6,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {ConnectionService} from './service';
 import {EndPointModel} from "./service.model";
+import {OptionsService} from "../../configuration/tab-options/service";
 
 
 @Component({
@@ -29,12 +30,14 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 private _changeDetectionRef: ChangeDetectorRef,
-                protected _connectionService: ConnectionService) {
+                protected _connectionService: ConnectionService,
+                protected _optionsService: OptionsService) {
         super(_procMonRuntimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
     }
 

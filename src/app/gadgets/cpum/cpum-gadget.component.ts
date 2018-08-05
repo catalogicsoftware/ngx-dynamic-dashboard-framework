@@ -10,6 +10,7 @@ import {ErrorObject} from '../../error/error-model';
 import {ErrorHandler} from '../../error/error-handler';
 import {CPUChartMetric} from './cpu.model';
 import {Series} from '../_common/base-chart-models/series.model';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 @Component({
     selector: 'app-dynamic-component',
@@ -43,12 +44,14 @@ export class CPUMGadgetComponent extends GadgetBase implements OnDestroy, OnInit
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 private _changeDetectionRef: ChangeDetectorRef,
-                private _webSocketService: ObservableWebSocketService) {
+                private _webSocketService: ObservableWebSocketService,
+                protected _optionsService: OptionsService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
             _changeDetectionRef,
+            _optionsService,
         );
     }
 

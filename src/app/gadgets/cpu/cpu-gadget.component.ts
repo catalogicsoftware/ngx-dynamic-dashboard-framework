@@ -6,6 +6,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetBase} from '../_common/gadget-base';
 import {CPUService} from './service';
 import {Router} from '@angular/router';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 @Component({
     selector: 'app-dynamic-component',
@@ -38,12 +39,14 @@ export class CPUGadgetComponent extends GadgetBase {
                 protected _endPointService: EndPointService,
                 protected _cpuService: CPUService,
                 private _changeDetectionRef: ChangeDetectorRef,
+                protected _optionsService: OptionsService,
                 private _route: Router) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
     }
 

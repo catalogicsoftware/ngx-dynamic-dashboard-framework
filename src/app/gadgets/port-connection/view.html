@@ -2,21 +2,23 @@
      [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']" style="background-color:#f7f7f7">
 
 
-    <app-gadget-header (mouseover)="showGadgetControls(true)"
-                       (mouseleave)="showGadgetControls(false)"
-                       [title]="title"
-                       [inRun]="inRun"
-                       [inConfig]="inConfig"
-                       [actionInitiated]="actionInitiated"
-                       [showOperationControls]="showOperationControls"
-                       [gadgetHasOperationControls]="gadgetHasOperationControls"
-                       [showConfigurationControl]="showConfigurationControl"
-                       [showControls]="showControls"
-                       (toggleConfigModeEvent)="toggleConfigMode()"
-                       (removeEvent)="remove()"
-                       (runEvent)="run()"
-                       (stopEvent)="stop()"
-                       (helpEvent)="helpModal.showHelp()">>
+    <app-gadget-header
+            (mouseover)="showGadgetControls(true)"
+            (mouseleave)="showGadgetControls(false)"
+            [globalOptions]="globalOptions"
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleConfigMode()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()"
+            (helpEvent)="helpModal.showHelp()">>
     </app-gadget-header>
 
     <div *ngIf="!inConfig">

@@ -10,6 +10,7 @@ import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {EdgeService} from './service';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 declare var jQuery: any;
 
@@ -91,12 +92,14 @@ export class EdgeServiceListGadgetComponent extends GadgetBase implements OnDest
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 private _changeDetectionRef: ChangeDetectorRef,
-                private _edgeService: EdgeService) {
+                private _edgeService: EdgeService,
+                protected _optionsService: OptionsService) {
         super(_procMonRuntimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
         Object.assign(this, {serviceList});
 

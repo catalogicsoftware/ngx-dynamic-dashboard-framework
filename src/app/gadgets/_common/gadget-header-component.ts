@@ -21,6 +21,7 @@ export class GadgetHeaderComponent {
     @Input() showOperationControls: boolean;
     @Input() showConfigurationControl: boolean;
     @Input() gadgetHasOperationControls: boolean;
+    @Input() globalOptions:any;
     @Output() removeEvent: EventEmitter<any> = new EventEmitter();
     @Output() toggleConfigModeEvent: EventEmitter<any> = new EventEmitter();
     @Output() runEvent: EventEmitter<any> = new EventEmitter();

@@ -6,6 +6,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetBase} from '../_common/gadget-base';
 import {Observable} from 'rxjs/Observable';
 import {ObservableWebSocketService} from '../../services/websocket-service';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 @Component({
     selector: 'app-dynamic-component',
@@ -32,12 +33,14 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 private _changeDetectionRef: ChangeDetectorRef,
-                private _webSocketService: ObservableWebSocketService) {
+                private _webSocketService: ObservableWebSocketService,
+                protected _optionsService: OptionsService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
     }
 

@@ -6,6 +6,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetBase} from '../_common/gadget-base';
 import {TrendLineService} from './service';
 import {Observable} from 'rxjs/Observable';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 declare var d3: any;
 
@@ -48,12 +49,14 @@ export class TrendLineGadgetComponent extends GadgetBase {
                 protected _gadgetInstanceService: GadgetInstanceService,
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
-                protected _changeDetectionRef: ChangeDetectorRef) {
+                protected _changeDetectionRef: ChangeDetectorRef,
+                protected _optionsService: OptionsService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
 
     }

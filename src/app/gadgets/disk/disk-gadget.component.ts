@@ -12,6 +12,7 @@ import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {DiskService} from './service';
+import {OptionsService} from "../../configuration/tab-options/service";
 
 
 @Component({
@@ -73,12 +74,14 @@ export class DiskGadgetComponent extends GadgetBase {
                 protected _propertyService: GadgetPropertyService,
                 protected _endPointService: EndPointService,
                 protected _changeDetectionRef: ChangeDetectorRef,
-                protected _diskService: DiskService) {
+                protected _diskService: DiskService,
+                protected _optionsService: OptionsService) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
             _endPointService,
-            _changeDetectionRef);
+            _changeDetectionRef,
+            _optionsService);
 
         this.run();
         this.setTopic();

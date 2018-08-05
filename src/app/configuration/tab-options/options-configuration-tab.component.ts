@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import {OptionsService} from "./service";
 
-
 @Component({
     selector: 'app-options-config-tab',
     moduleId: module.id,
@@ -28,4 +27,5 @@ export class OptionsConfigurationTabComponent {
 
 
     }
+
 }

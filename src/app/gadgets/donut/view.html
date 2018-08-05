@@ -4,8 +4,10 @@
     <a class="ui left corner label">
         <i class="heart icon" [ngClass]="{'green':inRun, 'yellow':!inRun}"></i>
     </a>
-    <app-gadget-header (mouseover)="showGadgetControls(true)"
-                       (mouseleave)="showGadgetControls(false)"
+    <app-gadget-header
+            (mouseover)="showGadgetControls(true)"
+            (mouseleave)="showGadgetControls(false)"
+            [globalOptions]="globalOptions"
             [title]="title"
             [inRun]="inRun"
             [inConfig]="inConfig"

@@ -48,7 +48,7 @@
 
 
         <a class="item"
-           (click)="boardConfigModal.showBoardConfigurationModal('Configuration')">
+           (click)="boardConfigModal.showConfigurationModal('Configuration')">
             <i class="large inverted setting icon"></i>
         </a>
 
@@ -68,14 +68,14 @@
                       (addGadgetEvent)="emitBoardAddGadgetEvent($event)">
 </app-add-gadget-modal>
 
-<app-board-configuration-modal #boardConfigModal
+<app-configuration-modal #boardConfigModal
                                (dashboardCreateEvent)="emitBoardCreateEvent($event)"
                                (dashboardEditEvent)="emitBoardEditEvent($event)"
                                (dashboardDeleteEvent)="emitBoardDeleteEvent($event)"
                                [dashboardList]="dashboardList">
 
 
-</app-board-configuration-modal>
+</app-configuration-modal>
 
 
 <!-- side bar content -->

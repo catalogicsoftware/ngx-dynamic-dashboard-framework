@@ -5,13 +5,12 @@ import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 import {credentialScheme, EndPoint} from './endpoint.model';
-import {ToastService} from '../../toast/toast.service';
 
 @Component({
     selector: 'app-endpoint-detail',
     moduleId: module.id,
     templateUrl: './endpointDetail.html',
-    styleUrls: ['./styles-endpoints.css']
+    styleUrls: ['./styles.css']
 
 })
 export class EndPointDetailComponent implements OnChanges {

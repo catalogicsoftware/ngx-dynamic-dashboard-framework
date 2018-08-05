@@ -1,14 +1,19 @@
 export const tabsModel: ({ groupId: string; displayName: string } | { groupId: string; displayName: string })[] = [
     {
-        groupId: 'dashboard_config',
+        groupId: 'boards',
         displayName: 'Boards'
     },
     {
-        groupId: 'apiendpoint_config',
+        groupId: 'options',
+        displayName: 'Options'
+    },
+    {
+        groupId: 'endpoint',
         displayName: 'API Endpoint Registration'
     },
     {
-        groupId: 'ai_config',
+        groupId: 'ai',
         displayName: 'AI Configuration'
     }
+
 ];

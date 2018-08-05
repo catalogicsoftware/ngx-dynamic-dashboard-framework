@@ -80,6 +80,7 @@ export class MenuComponent implements OnInit {
     emitBoardCreateEvent(event) {
         this._menuEventService.raiseMenuEvent({name: 'boardCreateEvent', data: event});
         this.updateDashboardMenu(event);
+        console.log("Emitting creating new board event from menu component: " + event);
     }
 
     emitBoardEditEvent(event) {

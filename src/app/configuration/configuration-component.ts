@@ -8,12 +8,11 @@ import {
      style, state, trigger, animate, transition
 } from '@angular/animations';
 
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
-import {tabsModel} from '../tabs.model';
-import {ConfigurationService} from '../../services/configuration.service';
-import {environment} from '../../../environments/environment'
+import {tabsModel} from './tabs.model';
+import {ConfigurationService} from '../services/configuration.service';
+import {environment} from '../../environments/environment'
 
 
 declare var jQuery: any;
@@ -29,7 +28,7 @@ declare var jQuery: any;
  *      hideMessageModal - hide the message modal
  */
 @Component({
-    selector: 'app-board-configuration-modal',
+    selector: 'app-configuration-modal',
     moduleId: module.id,
     templateUrl: './view.html',
     styleUrls: ['./styles-board.css'],
@@ -49,7 +48,7 @@ declare var jQuery: any;
 
 
 })
-export class BoardsComponent implements AfterViewInit {
+export class ConfigurationComponent implements AfterViewInit {
 
     @Output() dashboardCreateEvent: EventEmitter<any> = new EventEmitter();
     @Output() dashboardEditEvent: EventEmitter<any> = new EventEmitter();
@@ -79,24 +78,7 @@ export class BoardsComponent implements AfterViewInit {
     }
 
 
-    popConfigModal(icon: string, header: string, message: string, durationms: number) {
-        this.showMessageModal(icon, header, message);
-        Observable.interval(durationms).take(1).subscribe(
-            () => {
-                this.hideMessageModal();
-            }
-        );
-    }
-
-    showMessageModal(icon: string, header: string, message: string) {
-        this.modalicon = icon;
-        this.modalheader = header;
-        this.modalconfig = message;
-        this.configModal.modal('show');
-
-    }
-
-    showBoardConfigurationModal(header: string) {
+    showConfigurationModal(header: string) {
         this.modalheader = header;
         this.configModal.modal('show');
     }
@@ -113,6 +95,7 @@ export class BoardsComponent implements AfterViewInit {
             this.dashboardCreateEvent.emit(name);
             this.newDashboardItem = '';
         }
+        console.log("Creating new board event from configuration component: " + name);
     }
 
     editBoard(name: string) {

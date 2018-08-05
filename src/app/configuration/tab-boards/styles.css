@@ -1,0 +1,61 @@
+
+
+input {
+    padding: 5px;
+    font-weight: 300 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 1.1em;
+    outline: none !important;
+}
+
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em !important;
+    color: #4a4d50 !important;
+}
+
+label.endpoint {
+    font-size: 1em !important;
+    line-height: 1.5em !important;
+}
+
+td.detail {
+
+    background-color: white !important;
+
+}
+
+.index-column {
+
+    background-color: #ddebf5 !important;
+    border: none !important;
+    width: 5% !important;
+    color: #788ca0 !important;
+
+}
+
+.ui.table thead th td {
+    color: #788ca0 !important;
+}
+
+.ui.table {
+    color: rgba(97, 97, 97, 0.68) !important
+}
+
+.inLine {
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+.example-full-width {
+    width: 100%;
+}
+
+.grid-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

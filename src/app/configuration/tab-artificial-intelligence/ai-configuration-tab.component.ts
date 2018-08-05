@@ -9,12 +9,12 @@ import {environment} from '../../../environments/environment';
 
 
 @Component({
-    selector: 'app-ai-config',
+    selector: 'app-ai-config-tab',
     moduleId: module.id,
     templateUrl: './view.html',
     styleUrls: ['./styles.css']
 })
-export class AIComponent {
+export class AIConfigurationTabComponent {
 
     token;
     ibmwatsonuid;

@@ -1,15 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {EndPointComponent} from './tab-endpoint/endpoint.component';
+import {EndpointConfigurationTabComponent} from './tab-endpoint/endpoint-configuration-tab.component';
 import {EndPointDetailComponent} from './tab-endpoint/endpointDetail.component';
 import {EndPointService} from './tab-endpoint/endpoint.service';
-import {BoardsComponent} from './tab-boards/boards-component';
+import {BoardsConfigurationTabComponent} from './tab-boards/boards-configuration-tab.component';
 import {DndModule} from 'ng2-dnd';
 import {
     MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatOptionModule, MatSelectModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AIComponent} from './tab-artificial-intelligence/ai.component';
+import {AIConfigurationTabComponent} from './tab-artificial-intelligence/ai-configuration-tab.component';
+import {OptionsConfigurationTabComponent} from "./tab-options/options-configuration-tab.component";
+import {ConfigurationComponent} from "./configuration-component";
 
 @NgModule({
     imports: [
@@ -25,19 +27,23 @@ import {AIComponent} from './tab-artificial-intelligence/ai.component';
         ReactiveFormsModule
     ],
     declarations: [
-        BoardsComponent,
-        EndPointComponent,
+        BoardsConfigurationTabComponent,
+        EndpointConfigurationTabComponent,
         EndPointDetailComponent,
-        AIComponent
+        AIConfigurationTabComponent,
+        OptionsConfigurationTabComponent,
+        ConfigurationComponent
     ],
     providers: [
 
         EndPointService
     ],
     exports: [
-        BoardsComponent,
-        EndPointComponent,
-        EndPointDetailComponent
+        BoardsConfigurationTabComponent,
+        EndpointConfigurationTabComponent,
+        EndPointDetailComponent,
+        OptionsConfigurationTabComponent,
+        ConfigurationComponent
     ]
 })
 export class ConfigurationModule {

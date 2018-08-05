@@ -7,14 +7,14 @@ import {EndPointService} from './endpoint.service';
 import {environment} from '../../../environments/environment';
 
 @Component({
-    selector: 'app-endpoint',
+    selector: 'app-endpoint-config-tab',
     moduleId: module.id,
-    templateUrl: './endpoint.html',
-    styleUrls: ['./styles-endpoints.css']
+    templateUrl: './view.html',
+    styleUrls: ['./styles.css']
 
 
 })
-export class EndPointComponent {
+export class EndpointConfigurationTabComponent {
 
     env:any;
 

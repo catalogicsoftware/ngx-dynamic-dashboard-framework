@@ -69,7 +69,7 @@ export class ConfigurationComponent implements AfterViewInit {
     currentTab: string;
     tabsModel: any[];
 
-    constructor(private _configurationService: ConfigurationService) {
+    constructor() {
 
         Object.assign(this, {tabsModel});
         this.setCurrentTab(0);

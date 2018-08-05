@@ -1,1 +1,5 @@
-<h2>Options</h2>
+<mat-slide-toggle
+        [checked]="enableHover"
+        (change)="onHooverOptionChange($event)">
+    Show/Hide gadget controls when the user hovers over the gadget title bar.
+</mat-slide-toggle>

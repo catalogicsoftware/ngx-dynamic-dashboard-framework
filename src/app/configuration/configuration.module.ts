@@ -6,12 +6,19 @@ import {EndPointService} from './tab-endpoint/endpoint.service';
 import {BoardsConfigurationTabComponent} from './tab-boards/boards-configuration-tab.component';
 import {DndModule} from 'ng2-dnd';
 import {
-    MatButtonModule, MatCheckboxModule, MatIconModule, MatInputModule, MatOptionModule, MatSelectModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatSlideToggleModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AIConfigurationTabComponent} from './tab-artificial-intelligence/ai-configuration-tab.component';
 import {OptionsConfigurationTabComponent} from "./tab-options/options-configuration-tab.component";
 import {ConfigurationComponent} from "./configuration-component";
+import {OptionsService} from "./tab-options/service";
 
 @NgModule({
     imports: [
@@ -24,7 +31,8 @@ import {ConfigurationComponent} from "./configuration-component";
         MatSelectModule,
         MatOptionModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatSlideToggleModule
     ],
     declarations: [
         BoardsConfigurationTabComponent,
@@ -36,7 +44,8 @@ import {ConfigurationComponent} from "./configuration-component";
     ],
     providers: [
 
-        EndPointService
+        EndPointService,
+        OptionsService
     ],
     exports: [
         BoardsConfigurationTabComponent,

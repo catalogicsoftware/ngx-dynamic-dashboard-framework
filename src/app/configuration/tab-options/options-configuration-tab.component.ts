@@ -4,8 +4,7 @@
 import {
     Component
 } from '@angular/core';
-
-import {environment} from '../../../environments/environment';
+import {OptionsService} from "./service";
 
 
 @Component({
@@ -16,11 +15,17 @@ import {environment} from '../../../environments/environment';
 })
 export class OptionsConfigurationTabComponent {
 
+    enableHover: boolean;
 
-    constructor() {
+    constructor(private _optionsService: OptionsService) {
 
+        this.enableHover = this._optionsService.getBoardOptions()['enableHover'];
     }
 
+    onHooverOptionChange(value) {
+
+        this._optionsService.setBoardOptions({"enableHover": value['checked']})
 
 
+    }
 }

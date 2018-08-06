@@ -5,7 +5,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {defaultBoard} from './configuration-sample-default-board';
+import {sampleBoardCollectionProd} from './configuration-sample-boards-prod.model';
 import {sampleBoardCollection} from './configuration-sample-boards.model';
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
@@ -13,9 +15,11 @@ export class ConfigurationService {
     model: any; // todo review this object closely
     currentModel: any; // this object helps with updates to property page values
     demo = true;
+    env: any;
 
     defaultBoard: any;
     sampleBoardCollection: any;
+    sampleBoardCollectionProd:any;
 
     /**
      * todo - fix this hard coded store
@@ -27,13 +31,22 @@ export class ConfigurationService {
 
         Object.assign(this, {defaultBoard});
         Object.assign(this, {sampleBoardCollection});
+        Object.assign(this, {sampleBoardCollectionProd});
+        this.env = environment;
         this.seedLocalStorageWithSampleBoardCollection();
     }
 
     private seedLocalStorageWithSampleBoardCollection() {
 
         if (localStorage.getItem('board') === null) {
-            localStorage.setItem('board', JSON.stringify(this.sampleBoardCollection));
+
+
+            if (this.env.production == true) {
+
+                localStorage.setItem('board', JSON.stringify(this.sampleBoardCollectionProd));
+            } else {
+                localStorage.setItem('board', JSON.stringify(this.sampleBoardCollection));
+            }
         }
     }
 

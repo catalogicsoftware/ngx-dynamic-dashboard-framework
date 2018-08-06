@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ng config -g cli.warnings.versionMismatch false
+#ng config -g cli.warnings.versionMismatch false
 
 npm install
 
-ng build
+ng build --prod --aot
 

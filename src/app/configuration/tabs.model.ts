@@ -9,7 +9,7 @@ export const tabsModel: ({ groupId: string; displayName: string } | { groupId: s
     },
     {
         groupId: 'endpoint',
-        displayName: 'API Endpoint Registration'
+        displayName: 'Data Source Registration'
     },
     {
         groupId: 'ai',

@@ -1,6 +1,5 @@
 
 td.selected {
-    border-radius: 6px;
     background-color: #3f51b5 !important;
     color: white;
     font-weight: bold;
@@ -34,4 +33,8 @@ td.selected {
 .ui.form textarea{
 
     color: rgba(97, 97, 97, 0.68) !important;
+}
+
+tr {
+     cursor: pointer;
 }

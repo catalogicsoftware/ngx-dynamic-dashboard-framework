@@ -31,7 +31,7 @@ declare var jQuery: any;
     selector: 'app-configuration-modal',
     moduleId: module.id,
     templateUrl: './view.html',
-    styleUrls: ['./styles-board.css'],
+    styleUrls: ['./styles.css'],
     animations: [
 
         trigger('contentSwitch', [

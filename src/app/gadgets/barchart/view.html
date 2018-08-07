@@ -25,7 +25,24 @@
 
     <div class="ui grid">
         <div class="row">
-            <div *ngIf="!inConfig" style="min-height: 100px">
+            <div *ngIf="!inConfig && verticalOrientation == true" style="min-height: 110px">
+                <ngx-charts-bar-vertical-normalized
+                        [view]="view"
+                        [scheme]="colorScheme"
+                        [results]="data"
+                        [gradient]="gradient"
+                        [xAxis]="showXAxis"
+                        [yAxis]="showYAxis"
+                        [legend]="showLegend"
+                        [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel"
+                        [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel"
+                        [barPadding]=30
+                        (select)="drillDown($event)">
+                </ngx-charts-bar-vertical-normalized>
+            </div>
+            <div *ngIf="!inConfig && verticalOrientation == false" style="min-height: 110px">
                 <ngx-charts-bar-horizontal-normalized
                         [view]="view"
                         [scheme]="colorScheme"

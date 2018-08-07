@@ -20,16 +20,17 @@ import {Observable} from "rxjs/Rx";
 export class BarChartGadgetComponent extends GadgetBase {
 
     // chart options
-    showXAxis = true;
-    showYAxis = true;
-    gradient = true;
-    showLegend = true;
-    showXAxisLabel = false;
-    showYAxisLabel = false;
+    showXAxis:boolean
+    showYAxis:boolean;
+    gradient:boolean;
+    showLegend:boolean;
+    showXAxisLabel:boolean;
+    showYAxisLabel:boolean;
     yAxisLabel = 'committed';
     xAxisLabel = 'used';
     view: any[];
     data: any[] = [];
+    verticalOrientation:boolean;
     colorScheme: any = {
         domain: ['#0d5481', '#0AFF16']
     };
@@ -55,7 +56,8 @@ export class BarChartGadgetComponent extends GadgetBase {
 
     }
 
-    public preRun(): void {
+    public preRun(){
+
     }
 
     public run() {
@@ -128,12 +130,16 @@ export class BarChartGadgetComponent extends GadgetBase {
         });
 
         this.title = updatedPropsObject.title;
-        this.showXAxis = updatedPropsObject.chart_properties;
-        this.showYAxis = updatedPropsObject.chart_properties;
-        this.gradient = updatedPropsObject.chart_properties;
-        this.showLegend = updatedPropsObject.chart_properties;
-        this.showXAxisLabel = updatedPropsObject.chart_properties;
-        this.showYAxisLabel = updatedPropsObject.chart_properties;
+
+
+
+        this.showXAxis = updatedPropsObject.showXAxis;
+        this.showYAxis = updatedPropsObject.showYAxis;
+        this.gradient = updatedPropsObject.gradient;
+        this.showLegend = updatedPropsObject.showLegend;
+        this.showXAxisLabel = updatedPropsObject.showXAxisLabel;
+        this.showYAxisLabel = updatedPropsObject.showYAxisLabel;
+        this.verticalOrientation = updatedPropsObject.orientation;
 
         this.setEndPoint(updatedPropsObject.endpoint);
 

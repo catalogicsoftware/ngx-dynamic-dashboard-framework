@@ -5,14 +5,31 @@ import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 import {credentialScheme, EndPoint} from './endpoint.model';
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: 'app-endpoint-detail',
     moduleId: module.id,
     templateUrl: './endpointDetail.html',
-    styleUrls: ['./styles.css']
+    styleUrls: ['./styles.css'],
+    animations: [
+
+        trigger('transition', [
+            state('inactive', style({
+                opacity: 0,
+                height: '0'
+            })),
+            state('active', style({
+                opacity: 1,
+                height: '100%'
+            })),
+            transition('inactive => active', animate('300ms ease-in')),
+            transition('active => inactive', animate('300ms ease-out'))
+        ])
+    ]
 
 })
+
 export class EndPointDetailComponent implements OnChanges {
 
     @Input() currentEndPoint: EndPoint;
@@ -25,6 +42,7 @@ export class EndPointDetailComponent implements OnChanges {
 
     endPointForm: FormGroup;
     credentialScheme = credentialScheme;
+    useCredentials: boolean;
 
 
     ngOnChanges() {
@@ -56,6 +74,12 @@ export class EndPointDetailComponent implements OnChanges {
         );
     }
 
+    useCredentialsChange(value) {
+
+        this.useCredentials = value['checked'];
+
+    }
+
     setFormState() {
 
         /**
@@ -85,6 +109,22 @@ export class EndPointDetailComponent implements OnChanges {
 
             name: ['', Validators.required],
             address: ['', Validators.required],
+            user: '',
+            credentialType: '',
+            credential: '',
+            tokenAPI: '',
+            tokenAPIProperty: '',
+            tokenAPIHeader: '',
+            description: ''
+        });
+
+
+        /*
+
+        this.endPointForm = this.fb.group({
+
+            name: ['', Validators.required],
+            address: ['', Validators.required],
             user: ['', Validators.required],
             credentialType: ['', Validators.required],
             credential: ['', Validators.required],
@@ -94,6 +134,7 @@ export class EndPointDetailComponent implements OnChanges {
             description: ''
         });
 
+        */
     }
 
     createEndPoint() {

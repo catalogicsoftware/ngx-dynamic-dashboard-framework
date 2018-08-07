@@ -34,5 +34,5 @@ export class EndPoint {
 
 }
 
-export const credentialScheme = ['password', 'ssh key', 'OAuth Secret'];
+export const credentialScheme = ['none', 'password', 'ssh key', 'OAuth Secret'];
 

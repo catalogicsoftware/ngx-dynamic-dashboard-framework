@@ -43,7 +43,10 @@ import {TodoService} from './todo/service';
 import {ConnectionService} from './port-connection/service';
 import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";
 import {ResultViewComponent} from "./port-connection/result-view.component";
-import {SolutionViewComponent} from "./port-connection/solution-view.component";  // todo gadget
+import {SolutionViewComponent} from "./port-connection/solution-view.component";
+import {BarChartGadgetComponent} from "./barchart/barchart-gadget.component";
+import {BarChartService} from "./barchart/service";  // todo gadget
+
 
 
 
@@ -89,7 +92,8 @@ import {SolutionViewComponent} from "./port-connection/solution-view.component";
         DrillDownComponent,
         BubbleGadgetComponent,
         ResultViewComponent,
-        SolutionViewComponent
+        SolutionViewComponent,
+        BarChartGadgetComponent
 
     ],
 
@@ -102,7 +106,8 @@ import {SolutionViewComponent} from "./port-connection/solution-view.component";
         DonutService,
         APITokenService,
         ConnectionService,
-        TodoService  // todo gadget
+        TodoService,  // todo gadget
+        BarChartService
     ],
 
     exports: [
@@ -123,7 +128,8 @@ import {SolutionViewComponent} from "./port-connection/solution-view.component";
         PortConnectionGadgetComponent,
         StorageObjectListComponent,
         DonutGadgetComponent,
-        BubbleGadgetComponent
+        BubbleGadgetComponent,
+        BarChartGadgetComponent
     ]
 })
 export class GadgetModule {

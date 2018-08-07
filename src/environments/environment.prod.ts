@@ -10,7 +10,7 @@ export const environment = {
     boardConfiguration:{
         board:true,
         ai:false,
-        endpoint:false
+        endpoint:true
     }
 
 };

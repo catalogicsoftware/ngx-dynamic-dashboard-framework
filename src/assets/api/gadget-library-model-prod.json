@@ -128,15 +128,19 @@
       ]
     },
     {
-      "componentType": "TodoGadgetComponent",
-      "name": "Todo",
-      "description": "Todo Gadget",
-      "icon": "assets/images/todo.png",
+      "componentType": "BarChartGadgetComponent",
+      "name": "Bar Chart",
+      "description": "Bar Char",
+      "icon": "assets/images/cpu.png",
       "instanceId": -1,
       "tags": [
         {
-          "facet": "Todo",
-          "name": "todo"
+          "facet": "Performance",
+          "name": "real-time"
+        },
+        {
+          "facet": "Chart",
+          "name": "bar"
         }
       ],
       "config": {
@@ -144,8 +148,16 @@
           {
             "displayName": "Run",
             "groupId": "run",
-            "position": 11,
+            "position": 10,
             "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Bar Chart Data",
+                "required": true,
+                "order": 1
+              },
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
@@ -155,20 +167,28 @@
                 "order": 3
               },
               {
-                "controlType": "textbox",
-                "key": "title",
-                "label": "Title",
-                "value": "Todo",
-                "required": true,
-                "order": 1
-              },
-              {
                 "controlType": "hidden",
                 "key": "instanceId",
                 "label": "",
-                "value": 2,
-                "required": false,
+                "value": 999,
+                "required": true,
                 "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
               }
             ]
           }

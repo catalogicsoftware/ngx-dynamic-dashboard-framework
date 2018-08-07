@@ -19,6 +19,7 @@ import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';  // todo gadget
 import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
+import {BarChartGadgetComponent} from "../gadgets/barchart/barchart-gadget.component";
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
             StorageObjectListComponent,
             DonutGadgetComponent,
             TodoGadgetComponent  // todo gadget
-            , BubbleGadgetComponent
+            , BubbleGadgetComponent,
+            BarChartGadgetComponent
 
         ]),
     ],

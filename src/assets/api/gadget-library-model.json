@@ -1,6 +1,79 @@
 {
   "library": [
     {
+      "componentType": "BarChartGadgetComponent",
+      "name": "Bar Chart",
+      "description": "Bar Char",
+      "icon": "assets/images/cpu.png",
+      "instanceId": -1,
+      "tags": [
+        {
+          "facet": "Performance",
+          "name": "real-time"
+        },
+        {
+          "facet": "Chart",
+          "name": "bar"
+        }
+      ],
+      "config": {
+        "propertyPages": [
+          {
+            "displayName": "Run",
+            "groupId": "run",
+            "position": 10,
+            "properties": [
+              {
+                "controlType": "textbox",
+                "key": "title",
+                "label": "Title",
+                "value": "Bar Chart Data",
+                "required": true,
+                "order": 1
+              },
+              {
+                "controlType": "dynamicdropdown",
+                "key": "endpoint",
+                "label": "API Endpoints",
+                "value": "",
+                "required": true,
+                "order": 3
+              },
+              {
+                "controlType": "hidden",
+                "key": "instanceId",
+                "label": "",
+                "value": 999,
+                "required": true,
+                "order": -1
+              }
+            ]
+          },
+          {
+            "displayName": "Chart",
+            "groupId": "chart",
+            "position": 11,
+            "properties": [
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "chart_properties",
+                "label": "Show chart details",
+                "value": true,
+                "required": true,
+                "order": 3
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "name": "Add"
+        }
+      ]
+    },
+    {
       "componentType": "BubbleGadgetComponent",
       "name": "Bubble",
       "description": "Bubble Gadget",

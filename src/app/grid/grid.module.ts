@@ -20,6 +20,7 @@ import {TodoService} from '../gadgets/todo/service';
 import {ToastModule} from '../toast/toast.module';
 import {ConnectionService} from '../gadgets/port-connection/service';
 import {BubbleService} from "../gadgets/bubble/service";
+import {BarChartService} from "../gadgets/barchart/service";
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {BubbleService} from "../gadgets/bubble/service";
         DonutService,
         ConnectionService,
         TodoService  // todo gadget
-        ,BubbleService
+        ,BubbleService,
+        BarChartService
     ]
 })
 export class GridModule {

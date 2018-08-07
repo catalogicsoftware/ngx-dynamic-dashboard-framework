@@ -15,6 +15,7 @@ import {StorageObjectListComponent} from '../gadgets/storage-object-list/storage
 import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';
 import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
+import {BarChartGadgetComponent} from "../gadgets/barchart/barchart-gadget.component";
 
 /**
  * Created by jayhamilton on 6/30/17.
@@ -67,6 +68,8 @@ export class GadgetFactory {
                 return TodoGadgetComponent;
             case 'BubbleGadgetComponent': // todo gadget
                 return BubbleGadgetComponent;
+            case 'BarChartGadgetComponent': // todo gadget
+                return BarChartGadgetComponent;
             default:
                 return null;
 

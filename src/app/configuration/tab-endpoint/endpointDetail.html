@@ -52,48 +52,58 @@
         </div>
     </div>
 
-    <div class="field">
-        <div class="ui left icon input">
-            <input formControlName="user" type="text" placeholder="User">
-            <i class="user icon"></i>
-        </div>
-    </div>
+    <mat-slide-toggle
+            [checked]="useCredentials"
+            (change)="useCredentialsChange($event)"
+            disabled="true">
+        Use credentials (future use)
+    </mat-slide-toggle>
 
-    <div class="field">
-        <label>Credential Type
-            <select class="ui transparent" formControlName="credentialType">
-                <option *ngFor="let credentialType of credentialScheme" [value]="credentialType">
-                    {{credentialType}}
-                </option>
-            </select>
-        </label>
-    </div>
+    <br>
+    <br>
+    <div [@transition]="useCredentials == true ? 'active':'inactive'">
+            <div class="field">
+                <label>
+                    <select class="ui transparent" formControlName="credentialType">
+                        <option *ngFor="let credentialType of credentialScheme" [value]="credentialType">
+                            {{credentialType}}
+                        </option>
+                    </select>
+                </label>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input formControlName="user" type="text" placeholder="User">
+                    <i class="user icon"></i>
+                </div>
+            </div>
 
-    <div class="field">
-        <div class="ui left icon input">
-            <input formControlName="credential" type="password" placeholder="Credential">
-            <i class="key icon"></i>
-        </div>
-    </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input formControlName="credential" type="password" placeholder="Credential">
+                    <i class="key icon"></i>
+                </div>
+            </div>
 
-    <div class="field">
-        <div class="ui left icon input">
-            <input formControlName="tokenAPI" type="string" placeholder="Token API">
-            <i class="key icon"></i>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input formControlName="tokenAPI" type="string" placeholder="Token API">
+                    <i class="key icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input formControlName="tokenAPIProperty" type="string" placeholder="Token API Property">
+                    <i class="key icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input formControlName="tokenAPIHeader" type="string" placeholder="Token API Header">
+                    <i class="key icon"></i>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="field">
-        <div class="ui left icon input">
-            <input formControlName="tokenAPIProperty" type="string" placeholder="Token API Property">
-            <i class="key icon"></i>
-        </div>
-    </div>
-    <div class="field">
-        <div class="ui left icon input">
-            <input formControlName="tokenAPIHeader" type="string" placeholder="Token API Header">
-            <i class="key icon"></i>
-        </div>
-    </div>
 
     <div class="field">
         <div class="ui">

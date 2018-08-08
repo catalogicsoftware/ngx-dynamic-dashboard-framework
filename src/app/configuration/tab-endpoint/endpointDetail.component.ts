@@ -25,6 +25,7 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
     preDefinedEndPoints = ["memory", "testdatasource"];
 
     currentState: string;
+    preDefined = false;
 
     endPointForm: FormGroup;
     credentialScheme = credentialScheme;
@@ -33,9 +34,11 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
 
     checkPredefinition() {
 
+        this.preDefined = false;
         for (let x = 0; x < this.preDefinedEndPoints.length; x++) {
             if (this.preDefinedEndPoints[x].toLocaleLowerCase().trim() === this.currentEndPoint.name.toLocaleLowerCase().trim()) {
                 this.disableControls();
+                this.preDefined = true;
             }
         }
     }

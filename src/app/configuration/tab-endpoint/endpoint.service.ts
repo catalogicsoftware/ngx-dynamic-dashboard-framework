@@ -27,7 +27,7 @@ export class EndPointService {
                     'test user',
                     'testCredential',
                     'unknown',
-                    'description',
+                    'Predefined data source that cannot be modified or removed.',
                     'token API',
                     'token API Header',
                     'token API Property'
@@ -39,7 +39,7 @@ export class EndPointService {
                     'test user',
                     'testCredential',
                     'unknown',
-                    'description',
+                    'Predefined data source that cannot be modified or removed',
                     'token API',
                     'token API Header',
                     'token API Property'

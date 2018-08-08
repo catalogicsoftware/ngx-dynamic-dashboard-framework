@@ -27,7 +27,7 @@
             &nbsp;create&nbsp;
         </span>
 
-        <span *ngIf="currentEndPoint.name !='' && currentState != 'create'">
+        <span *ngIf="currentEndPoint.name !='' && currentState != 'create' && preDefined == false">
             <a mat-mini-fab routerLink="." (click)="deleteEndPoint()"> <mat-icon>clear</mat-icon></a>
             &nbsp;remove&nbsp;
         </span>

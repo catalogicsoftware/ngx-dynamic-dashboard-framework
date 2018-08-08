@@ -20,9 +20,18 @@ export class GadgetInstanceService {
     }
 
     addInstance(gadget: any) {
+        let gadgetFound = false;
 
-        this.concreteGadgetInstances.push(gadget);
-        console.log(this.concreteGadgetInstances);
+        for (let x = 0; x < this.concreteGadgetInstances.length; x++) {
+            if (gadget.instance.instanceId == this.concreteGadgetInstances[x]['instance']['instanceId']) {
+                gadgetFound = true;
+            }
+        }
+
+        if (gadgetFound == false) {
+            this.concreteGadgetInstances.push(gadget);
+
+        }
 
     }
 
@@ -64,6 +73,7 @@ export class GadgetInstanceService {
                 break;
             }
         }
+        console.log(this.concreteGadgetInstances);
 
         // raise an event indicating a gadget was removed
         this.subject.next('gadget id: ' + id);

@@ -20,17 +20,17 @@ import {Observable} from "rxjs/Rx";
 export class BarChartGadgetComponent extends GadgetBase {
 
     // chart options
-    showXAxis:boolean
-    showYAxis:boolean;
-    gradient:boolean;
-    showLegend:boolean;
-    showXAxisLabel:boolean;
-    showYAxisLabel:boolean;
+    showXAxis = true;
+    showYAxis = true;
+    gradient = true;
+    showLegend= true;
+    showXAxisLabel = true;
+    showYAxisLabel = true;
     yAxisLabel = 'committed';
     xAxisLabel = 'used';
     view: any[];
     data: any[] = [];
-    verticalOrientation:boolean;
+    verticalOrientation = false;
     colorScheme: any = {
         domain: ['#0d5481', '#0AFF16']
     };

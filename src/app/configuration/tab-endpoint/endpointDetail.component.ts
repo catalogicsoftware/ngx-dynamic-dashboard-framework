@@ -22,7 +22,7 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
     @Output() updateEvent: EventEmitter<EndPoint> = new EventEmitter();
     @Output() deleteEvent: EventEmitter<EndPoint> = new EventEmitter();
 
-    preDefinedEndPoints = ["memory", "testendpoint"];
+    preDefinedEndPoints = ["memory", "testdatasource"];
 
     currentState: string;
 

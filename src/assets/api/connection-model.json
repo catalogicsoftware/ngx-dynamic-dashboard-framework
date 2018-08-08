@@ -18,7 +18,7 @@
         "action": [
           {
             "id": 1,
-            "task": "Use the tools described below to check the connection with the remote machine.."
+            "task": "Use tools like Wire Shark to check the connection to the remote machine. You may want to contact your network administrator."
           }
         ]
       }
@@ -27,14 +27,14 @@
   {
     "event": "connection-refuse",
     "title":"The remote application is not responding",
-    "summary": "The application link was attempting to connect to the remote application but the connection was refused.",
+    "summary": "The application was attempting to connect to the remote application but the connection was refused.",
     "solution": [
       {
-        "cause": "You have the correct URL but the wrong Port.",
+        "cause": "You may have the correct URL but the wrong Port.",
         "action": [
           {
             "id": 1,
-            "task": "Double check an make sure you are using the correct port if a port is required."
+            "task": "Double check an make sure you are using the correct port if a port is required. Review the documentation that describes which ports are required to open."
           }
         ]
       },
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "cause": "The application URL is misconfigured.",
+        "cause": "The application URL is mis-configured.",
         "action": [
           {
             "id": 1,
@@ -73,7 +73,7 @@
         "action": [
           {
             "id": 1,
-            "task": "Check that the firewall configuration allows access on the required port, using the network tools described below."
+            "task": "Check that the firewall configuration allows access on the required port."
           }
         ]
       }
@@ -94,7 +94,7 @@
         ]
       },
       {
-        "cause": "The application URL for the remote application is misconfigured, or may have changed recently.",
+        "cause": "The application URL for the remote application is mis-configured, or may have changed recently.",
         "action": [
           {
             "id": 1,
@@ -126,7 +126,7 @@
         "action": [
           {
             "id": 1,
-            "task": "Check that the firewall configuration allows access on the required port. Use a tool like traceroute, described below, to show the path of traffic between the local and remote machines"
+            "task": "Check that the firewall configuration allows access on the required port. Use a tool like traceroute to show the path of traffic between the local and remote machines"
           }
         ]
       },
@@ -135,7 +135,7 @@
         "action": [
           {
             "id": 1,
-            "task": "Use a tool like traceroute, described below, to show the path of traffic between the local and remote machines."
+            "task": "Use a tool like traceroute to show the path of traffic between the local and remote machines."
           }
         ]
       }

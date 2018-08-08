@@ -148,7 +148,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 3
@@ -201,7 +201,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Data Source",
                 "value": "vSnap",
                 "required": true,
                 "order": 3
@@ -266,7 +266,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 3
@@ -548,7 +548,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "Carlosappliance",
                 "required": true,
                 "order": 2
@@ -621,7 +621,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 2
@@ -694,7 +694,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 2
@@ -775,7 +775,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 3
@@ -840,7 +840,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 2
@@ -909,7 +909,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Data Source",
                 "value": "",
                 "required": true,
                 "order": 2
@@ -1042,7 +1042,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 4
@@ -1176,7 +1176,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 4
@@ -1288,7 +1288,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Data Source",
                 "value": "",
                 "required": true,
                 "order": 3
@@ -1459,7 +1459,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 3

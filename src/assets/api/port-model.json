@@ -5,20 +5,39 @@
     "portNumber": "22",
     "transportProtocol": "tcp",
     "description": "Secure Shell (SSH)"
-
   },
   {
     "serviceName": "sunrpc",
     "portNumber": "111",
     "transportProtocol": "tcp",
     "description": "Remote Procedure Call (RPC) port binding."
+  },
+  {
+    "serviceName": "LDAP",
+    "portNumber": "389",
+    "transportProtocol": "tcp",
+    "description": "Default LDAP port."
+
+  },
+  {
+    "serviceName": "Default TLS port",
+    "portNumber": "443",
+    "transportProtocol": "tcp",
+    "description": "Default web server secure port used with SPP, VCenter and ESX Hosts"
+
+  },
+  {
+    "serviceName": "LDAP (TLS)",
+    "portNumber": "636",
+    "transportProtocol": "tcp",
+    "description": "Default LDAP support that encrypts data in flight using TLS."
 
   },
   {
     "serviceName": "nfs",
     "portNumber": "2049",
     "transportProtocol": "tcp",
-    "description": "Used for NFS data transfter to/from vSnap."
+    "description": "Used for NFS data transfer to/from vSnap."
   },
   {
     "serviceName": "iSCSI",
@@ -49,12 +68,6 @@
     "portNumber": "902",
     "transportProtocol": "tcp",
     "description": "ESXI Network File Copy (NFC)"
-  },
-  {
-    "serviceName": "VSphere Management",
-    "portNumber": "443",
-    "transportProtocol": "tcp",
-    "description": "This port is the default secure port for many services."
   },
   {
     "serviceName": "Discovery Service",

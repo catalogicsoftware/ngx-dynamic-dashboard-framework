@@ -121,8 +121,6 @@ export class GridComponent {
 
     addGadgetUsingArtificialIntelligence(aiObject: any) {
 
-        console.log('In add gadget component');
-        console.log(aiObject);
         /** todo
          * make confidence code configurable
          */
@@ -223,7 +221,6 @@ export class GridComponent {
 
     public updateBoardLayout(structure) {
 
-        console.log('UPDATING LAYOUT');
 
         // user selected the currently selected layout
         if (structure.id === this.getModel().id) {
@@ -322,8 +319,6 @@ export class GridComponent {
             });
         });
 
-        console.log('Fill grid structure counter value returned: ' + counter);
-
         return counter;
 
     }
@@ -386,7 +381,6 @@ export class GridComponent {
 
         this._configurationService.getDefaultBoard().subscribe(board => {
 
-            console.log('loading default board');
             this.setModel(board);
             this.updateServicesAndGridWithModel();
             this.saveBoard('Initialization of a default board', true);

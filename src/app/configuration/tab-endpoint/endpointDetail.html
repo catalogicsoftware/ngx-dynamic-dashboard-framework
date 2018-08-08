@@ -40,28 +40,24 @@
 <form [formGroup]="endPointForm" novalidate class="ui form">
     <div class="field">
         <div class="ui left icon input">
-            <input formControlName="name" type="text" placeholder="Name">
+            <input formControlName="name"  type="text" placeholder="Name">
             <i class="tag icon"></i>
         </div>
     </div>
 
     <div class="field">
         <div class="ui left icon input">
-            <input formControlName="address" type="text" placeholder="URL">
+            <input formControlName="address"  type="text" placeholder="URL">
             <i class="marker icon"></i>
         </div>
     </div>
+    <div class="field">
+        <div class="ui">
+            <textarea rows="2" class="form-control" formControlName="description" placeholder="Description"></textarea>
+        </div>
+    </div>
 
-    <mat-slide-toggle
-            [checked]="useCredentials"
-            (change)="useCredentialsChange($event)"
-            disabled="true">
-        Use credentials (future use)
-    </mat-slide-toggle>
-
-    <br>
-    <br>
-    <div [@transition]="useCredentials == true ? 'active':'inactive'">
+    <div *ngIf="useCredentials">
             <div class="field">
                 <label>
                     <select class="ui transparent" formControlName="credentialType">
@@ -105,11 +101,7 @@
             </div>
         </div>
 
-    <div class="field">
-        <div class="ui">
-            <textarea rows="2" class="form-control" formControlName="description" placeholder="Description"></textarea>
-        </div>
-    </div>
+
 </form>
 
 

@@ -131,8 +131,6 @@ export class BarChartGadgetComponent extends GadgetBase {
 
         this.title = updatedPropsObject.title;
 
-
-
         this.showXAxis = updatedPropsObject.showXAxis;
         this.showYAxis = updatedPropsObject.showYAxis;
         this.gradient = updatedPropsObject.gradient;

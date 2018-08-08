@@ -49,8 +49,6 @@ export class EndpointConfigurationTabComponent {
 
         this.endPoints.push(endPoint);
 
-        this.clearPersistantStore();
-
         this.persistInMemoryDataToStore();
 
         this.setSelectedEndPoint(endPoint);
@@ -76,7 +74,6 @@ export class EndpointConfigurationTabComponent {
             }
         });
 
-        this.clearPersistantStore();
 
         this.persistInMemoryDataToStore();
 
@@ -90,17 +87,6 @@ export class EndpointConfigurationTabComponent {
             this.currentEndPoint.tokenAPIProperty = '';
             this.currentEndPoint.user = '';
         }
-    }
-
-    clearPersistantStore() {
-
-        // delete the currently persisted structure
-        this._endPointService.deleteEndPoint().subscribe(data => {
-
-            /**
-             * todo - error handling
-             */
-        });
     }
 
     persistInMemoryDataToStore() {

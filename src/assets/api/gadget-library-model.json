@@ -8,8 +8,8 @@
       "instanceId": -1,
       "tags": [
         {
-          "facet": "Performance",
-          "name": "real-time"
+          "facet": "Chart",
+          "name": "metric"
         },
         {
           "facet": "Chart",
@@ -34,7 +34,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 3

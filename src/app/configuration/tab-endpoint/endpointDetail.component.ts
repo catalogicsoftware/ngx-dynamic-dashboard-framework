@@ -1,7 +1,7 @@
 /**
  * Created by jayhamilton on 5/16/17.
  */
-import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 import {credentialScheme, EndPoint} from './endpoint.model';
@@ -11,26 +11,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     selector: 'app-endpoint-detail',
     moduleId: module.id,
     templateUrl: './endpointDetail.html',
-    styleUrls: ['./styles.css'],
-    animations: [
-
-        trigger('transition', [
-            state('inactive', style({
-                opacity: 0,
-                height: '0'
-            })),
-            state('active', style({
-                opacity: 1,
-                height: '100%'
-            })),
-            transition('inactive => active', animate('300ms ease-in')),
-            transition('active => inactive', animate('300ms ease-out'))
-        ])
-    ]
-
+    styleUrls: ['./styles.css']
 })
 
-export class EndPointDetailComponent implements OnChanges {
+export class EndPointDetailComponent implements OnChanges, AfterViewInit {
 
     @Input() currentEndPoint: EndPoint;
 
@@ -38,14 +22,33 @@ export class EndPointDetailComponent implements OnChanges {
     @Output() updateEvent: EventEmitter<EndPoint> = new EventEmitter();
     @Output() deleteEvent: EventEmitter<EndPoint> = new EventEmitter();
 
+    preDefinedEndPoints = ["memory", "testendpoint"];
+
     currentState: string;
 
     endPointForm: FormGroup;
     credentialScheme = credentialScheme;
-    useCredentials: boolean;
+    useCredentials = false;
 
+
+    checkPredefinition() {
+
+        for (let x = 0; x < this.preDefinedEndPoints.length; x++) {
+            if (this.preDefinedEndPoints[x].toLocaleLowerCase().trim() === this.currentEndPoint.name.toLocaleLowerCase().trim()) {
+                this.disableControls();
+            }
+        }
+    }
+
+    ngAfterViewInit() {
+
+        this.checkPredefinition();
+    }
 
     ngOnChanges() {
+
+        this.enableControls();
+        this.endPointForm.get('address').enable();
 
         this.endPointForm.reset();
         this.endPointForm.setValue({
@@ -59,12 +62,15 @@ export class EndPointDetailComponent implements OnChanges {
             tokenAPIProperty: this.currentEndPoint.tokenAPIProperty,
             tokenAPIHeader: this.currentEndPoint.tokenAPIHeader
         });
+        this.checkPredefinition();
     }
 
     constructor(private fb: FormBuilder) {
 
+        let me = this;
+
         this.createForm();
-        const me = this;
+
         this.endPointForm.valueChanges.forEach(
             (value => {
                 if (this.currentState !== 'create') {
@@ -73,6 +79,23 @@ export class EndPointDetailComponent implements OnChanges {
             })
         );
     }
+
+    disableControls() {
+
+        this.endPointForm.get('name').disable();
+        this.endPointForm.get('address').disable();
+        this.endPointForm.get('description').disable();
+
+    }
+
+    enableControls() {
+
+        this.endPointForm.get('name').enable();
+        this.endPointForm.get('address').enable();
+        this.endPointForm.get('description').enable();
+
+    }
+
 
     useCredentialsChange(value) {
 
@@ -104,6 +127,7 @@ export class EndPointDetailComponent implements OnChanges {
     }
 
     createForm() {
+
 
         this.endPointForm = this.fb.group({
 
@@ -139,6 +163,9 @@ export class EndPointDetailComponent implements OnChanges {
 
     createEndPoint() {
 
+        this.enableControls();
+
+
         const ep: EndPoint = new EndPoint(
             this.endPointForm.value.name,
             this.endPointForm.value.address,
@@ -172,6 +199,8 @@ export class EndPointDetailComponent implements OnChanges {
     }
 
     newEndPoint() {
+
+        this.enableControls();
         this.endPointForm.reset();
         /**
          * The create state is used to display the save icon even if the form is being edited
@@ -188,6 +217,8 @@ export class EndPointDetailComponent implements OnChanges {
     deleteEndPoint() {
 
         this.deleteEvent.emit(this.currentEndPoint);
+        this.endPointForm.reset();
+
 
     }
 }

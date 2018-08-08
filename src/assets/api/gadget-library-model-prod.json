@@ -135,8 +135,8 @@
       "instanceId": -1,
       "tags": [
         {
-          "facet": "Performance",
-          "name": "real-time"
+          "facet": "Chart",
+          "name": "metric"
         },
         {
           "facet": "Chart",
@@ -161,7 +161,7 @@
               {
                 "controlType": "dynamicdropdown",
                 "key": "endpoint",
-                "label": "API Endpoints",
+                "label": "Chart Data Source",
                 "value": "",
                 "required": true,
                 "order": 3
@@ -184,12 +184,65 @@
               {
                 "controlType": "checkbox",
                 "type": "checkbox",
-                "key": "chart_properties",
-                "label": "Show chart details",
+                "key": "gradient",
+                "label": "Show colors in gradient",
                 "value": true,
                 "required": true,
                 "order": 3
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showXAxis",
+                "label": "Show x axis",
+                "value": true,
+                "required": false,
+                "order": 3
+              },{
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showYAxis",
+                "label": "Show y axis",
+                "value": true,
+                "required": false,
+                "order": 3
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showLegend",
+                "label": "Show chart legend",
+                "value": true,
+                "required": false,
+                "order": 3
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showXAxisLabel",
+                "label": "Show x axis label",
+                "value": true,
+                "required": false,
+                "order": 3
+              },{
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "showYAxisLabel",
+                "label": "Show y axis label",
+                "value": true,
+                "required": false,
+                "order": 3
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
+                "key": "orientation",
+                "label": "Checked/Vertical Unchecked/Horizontal",
+                "value": false,
+                "required": true,
+                "order": 3
               }
+
             ]
           }
         ]

@@ -157,86 +157,28 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
 
             this.topic = {
                 "concept": {
-                    "id": "c_spp_alerts",
+                    "id": "c_network_test_tool",
                     "xml:lang": "en-us",
-                    "rev": "rev1v102",
-                    "title": "Port Connectivity Test Tool",
-                    "titlealts": {
-                        "navtitle": "Alerts",
-                        "searchtitle": "IBM Spectrum Protect Plus dashboard"
-                    },
-                    "shortdesc": {
-                        "content": [
-                            "The",
-                            "tool is used to check connectivity to a remote server",
-                            "environment. The number of alerts\ndisplay in a red circle, indicating that alerts are available to view."
-                        ],
-                        "uicontrol": "Alerts",
-                        "keyword": {"conref": "../common/reuse_keyword.dita#kwd/ispplus"}
-                    },
+                    "title": "Network Test Connectivity Tool",
+                    "shortdesc": "The Network Test Connectivity tool tests host addresses and ports to determine if a\nconnection can be established. If a connection can be established, the tool returns a green check\nmark. If a connection cannot be established, the raw error condition displays, along with possible\ncauses and actions.",
                     "conbody": {
                         "p": [
+                            "The Network Test Connectivity tool can provide guidance for the following error conditions:",
                             {
-                                "content": [
-                                    "Click the",
-                                    "menu to view the alerts list. Each item in the list\nincludes a status icon, a summary of the alert, the time the associated warning or error occurred,\nand a link to view associated logs."
-                                ],
-                                "uicontrol": "Alerts"
-                            },
-                            "The following alert types display in the alert list:",
-                            {
-                                "dl": {
-                                    "dlentry": {
-                                        "dt": "Alert types",
-                                        "dd": {
-                                            "dl": [
-                                                {
-                                                    "dlentry": {
-                                                        "dt": {"b": "Job failed"},
-                                                        "dd": "Displays when a job fails with critical errors or wholly fails to complete."
-                                                    }
-                                                },
-                                                {
-                                                    "dlentry": [
-                                                        {
-                                                            "dt": {"b": "System disk space low"},
-                                                            "dd": {
-                                                                "content": [
-                                                                    "Displays when the amount of data consumed by the catalog on an",
-                                                                    "data disk exceeds the assigned 5% threshold."
-                                                                ],
-                                                                "keyword": {"conref": "../common/reuse_keyword.dita#kwd/ispplus"}
-                                                            }
-                                                        },
-                                                        {
-                                                            "dt": {"b": "vSnap storage space low"},
-                                                            "dd": "Displays when the amount of free disk space on a vSnap server is less than 5%."
-                                                        },
-                                                        {
-                                                            "dt": {"b": "System memory low"},
-                                                            "dd": {
-                                                                "content": [
-                                                                    "Displays when the amount of memory available to run",
-                                                                    "is less than 5%."
-                                                                ],
-                                                                "keyword": {"conref": "../common/reuse_keyword.dita#kwd/ispplus"}
-                                                            }
-                                                        },
-                                                        {
-                                                            "dt": {"b": "System CPU usage high"},
-                                                            "dd": "Displays when the IBM Spectrum Protect Plus processor usage exceeds the assigned 5% threshold."
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    }
+                                "ul": {
+                                    "id": "ul_k5c_qdl_r2b",
+                                    "li": [
+                                        "time out",
+                                        "connection refused",
+                                        "unknown host",
+                                        "no route"
+                                    ]
                                 }
                             }
                         ]
                     }
                 }
-            };
+            }
 
     }
 

@@ -97,12 +97,6 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
     }
 
 
-    useCredentialsChange(value) {
-
-        this.useCredentials = value['checked'];
-
-    }
-
     setFormState() {
 
         /**

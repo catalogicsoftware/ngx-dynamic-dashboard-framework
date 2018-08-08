@@ -22,7 +22,7 @@ export class EndPointService {
             return new Observable(observer => {
                 const base = {endPoint: []};
                 const testEndPoint = new EndPoint(
-                    'TestEndPoint',
+                    'TestDataSource',
                     '/assets/api/data-source-model.json',
                     'test user',
                     'testCredential',

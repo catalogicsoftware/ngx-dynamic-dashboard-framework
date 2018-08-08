@@ -22,73 +22,45 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_TypeAheadInputModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="19.5,-70 19.5,-268 476.5,-268 476.5,-70 19.5,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="142,-70 142,-268 354,-268 354,-70 142,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_TypeAheadInputModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="276.5,-78 276.5,-130 468.5,-130 468.5,-78 276.5,-78"/>
-</g>
-<g id="clust4" class="cluster">
-<title>cluster_TypeAheadInputModule_imports</title>
-<polygon fill="none" stroke="#000000" points="27.5,-78 27.5,-130 268.5,-130 268.5,-78 27.5,-78"/>
+<polygon fill="none" stroke="#000000" points="152,-78 152,-130 344,-130 344,-78 152,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_TypeAheadInputModule_exports</title>
-<polygon fill="none" stroke="#000000" points="106.5,-208 106.5,-260 302.5,-260 302.5,-208 106.5,-208"/>
+<polygon fill="none" stroke="#000000" points="150,-208 150,-260 346,-260 346,-208 150,-208"/>
 </g>
 <!-- TypeAheadInputComponent -->
 <g id="node1" class="node">
 <title>TypeAheadInputComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="460.6867,-122 284.3133,-122 284.3133,-86 460.6867,-86 460.6867,-122"/>
-<text text-anchor="middle" x="372.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">TypeAheadInputComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="336.1867,-122 159.8133,-122 159.8133,-86 336.1867,-86 336.1867,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">TypeAheadInputComponent</text>
 </g>
 <!-- TypeAheadInputModule -->
 <g id="node2" class="node">
 <title>TypeAheadInputModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="281.9045,-187 278.9045,-191 257.9045,-191 254.9045,-187 127.0955,-187 127.0955,-151 281.9045,-151 281.9045,-187"/>
-<text text-anchor="middle" x="204.5" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">TypeAheadInputModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="325.4045,-187 322.4045,-191 301.4045,-191 298.4045,-187 170.5955,-187 170.5955,-151 325.4045,-151 325.4045,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">TypeAheadInputModule</text>
 </g>
 <!-- TypeAheadInputComponent&#45;&gt;TypeAheadInputModule -->
 <g id="edge1" class="edge">
 <title>TypeAheadInputComponent&#45;&gt;TypeAheadInputModule</title>
-<path fill="none" stroke="#000000" d="M289.375,-122.1061C289.375,-141.3391 289.375,-169 289.375,-169 289.375,-169 288.6218,-169 288.6218,-169"/>
-<polygon fill="#000000" stroke="#000000" points="291.843,-165.5001 281.8429,-169 291.8429,-172.5001 291.843,-165.5001"/>
+<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
 </g>
 <!-- TypeAheadInputComponent  -->
-<g id="node5" class="node">
+<g id="node3" class="node">
 <title>TypeAheadInputComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="294.1869,-252 114.8131,-252 114.8131,-216 294.1869,-216 294.1869,-252"/>
-<text text-anchor="middle" x="204.5" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TypeAheadInputComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="337.6869,-252 158.3131,-252 158.3131,-216 337.6869,-216 337.6869,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">TypeAheadInputComponent </text>
 </g>
 <!-- TypeAheadInputModule&#45;&gt;TypeAheadInputComponent  -->
-<g id="edge4" class="edge">
-<title>TypeAheadInputModule&#45;&gt;TypeAheadInputComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M204.5,-187.1061C204.5,-187.1061 204.5,-205.991 204.5,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="201.0001,-205.9909 204.5,-215.991 208.0001,-205.991 201.0001,-205.9909"/>
-</g>
-<!-- CommonModule -->
-<g id="node3" class="node">
-<title>CommonModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="260.1681,-122 257.1681,-126 236.1681,-126 233.1681,-122 148.8319,-122 148.8319,-86 260.1681,-86 260.1681,-122"/>
-<text text-anchor="middle" x="204.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
-</g>
-<!-- CommonModule&#45;&gt;TypeAheadInputModule -->
 <g id="edge2" class="edge">
-<title>CommonModule&#45;&gt;TypeAheadInputModule</title>
-<path fill="none" stroke="#000000" d="M204.5,-122.1061C204.5,-122.1061 204.5,-140.991 204.5,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="201.0001,-140.9909 204.5,-150.991 208.0001,-140.991 201.0001,-140.9909"/>
-</g>
-<!-- FormsModule -->
-<g id="node4" class="node">
-<title>FormsModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="131.3288,-122 128.3288,-126 107.3288,-126 104.3288,-122 35.6712,-122 35.6712,-86 131.3288,-86 131.3288,-122"/>
-<text text-anchor="middle" x="83.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FormsModule</text>
-</g>
-<!-- FormsModule&#45;&gt;TypeAheadInputModule -->
-<g id="edge3" class="edge">
-<title>FormsModule&#45;&gt;TypeAheadInputModule</title>
-<path fill="none" stroke="#000000" d="M120.9774,-122.1061C120.9774,-141.3391 120.9774,-169 120.9774,-169 120.9774,-169 121.6051,-169 121.6051,-169"/>
-<polygon fill="#000000" stroke="#000000" points="117.2552,-172.5002 127.2551,-169 117.2551,-165.5002 117.2552,-172.5002"/>
+<title>TypeAheadInputModule&#45;&gt;TypeAheadInputComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
 </g>
 </g>
 </svg>

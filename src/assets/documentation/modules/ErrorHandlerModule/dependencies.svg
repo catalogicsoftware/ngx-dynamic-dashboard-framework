@@ -22,15 +22,11 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_ErrorHandlerModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="86,-70 86,-268 410,-268 410,-70 86,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="152,-70 152,-268 344,-268 344,-70 152,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_ErrorHandlerModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="230,-78 230,-130 402,-130 402,-78 230,-78"/>
-</g>
-<g id="clust4" class="cluster">
-<title>cluster_ErrorHandlerModule_imports</title>
-<polygon fill="none" stroke="#000000" points="94,-78 94,-130 222,-130 222,-78 94,-78"/>
+<polygon fill="none" stroke="#000000" points="162,-78 162,-130 334,-130 334,-78 162,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_ErrorHandlerModule_exports</title>
@@ -39,8 +35,8 @@
 <!-- ErrorHandlerComponent -->
 <g id="node1" class="node">
 <title>ErrorHandlerComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="393.9538,-122 238.0462,-122 238.0462,-86 393.9538,-86 393.9538,-122"/>
-<text text-anchor="middle" x="316" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ErrorHandlerComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="325.9538,-122 170.0462,-122 170.0462,-86 325.9538,-86 325.9538,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ErrorHandlerComponent</text>
 </g>
 <!-- ErrorHandlerModule -->
 <g id="node2" class="node">
@@ -51,32 +47,20 @@
 <!-- ErrorHandlerComponent&#45;&gt;ErrorHandlerModule -->
 <g id="edge1" class="edge">
 <title>ErrorHandlerComponent&#45;&gt;ErrorHandlerModule</title>
-<path fill="none" stroke="#000000" d="M276.5544,-122.1061C276.5544,-122.1061 276.5544,-140.991 276.5544,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="273.0544,-140.9909 276.5544,-150.991 280.0544,-140.991 273.0544,-140.9909"/>
+<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
 </g>
 <!-- ErrorHandlerComponent  -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>ErrorHandlerComponent </title>
 <polygon fill="#fb8072" stroke="#000000" points="327.9544,-252 168.0456,-252 168.0456,-216 327.9544,-216 327.9544,-252"/>
 <text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">ErrorHandlerComponent </text>
 </g>
 <!-- ErrorHandlerModule&#45;&gt;ErrorHandlerComponent  -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>ErrorHandlerModule&#45;&gt;ErrorHandlerComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
-</g>
-<!-- CommonModule -->
-<g id="node3" class="node">
-<title>CommonModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="213.6681,-122 210.6681,-126 189.6681,-126 186.6681,-122 102.3319,-122 102.3319,-86 213.6681,-86 213.6681,-122"/>
-<text text-anchor="middle" x="158" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
-</g>
-<!-- CommonModule&#45;&gt;ErrorHandlerModule -->
-<g id="edge2" class="edge">
-<title>CommonModule&#45;&gt;ErrorHandlerModule</title>
-<path fill="none" stroke="#000000" d="M197.3741,-122.1061C197.3741,-122.1061 197.3741,-140.991 197.3741,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="193.8742,-140.9909 197.3741,-150.991 200.8742,-140.991 193.8742,-140.9909"/>
 </g>
 </g>
 </svg>

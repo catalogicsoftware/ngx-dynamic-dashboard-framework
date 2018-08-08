@@ -22,15 +22,11 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_LayoutModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="62,-70 62,-268 434,-268 434,-70 62,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="128,-70 128,-268 368,-268 368,-70 128,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_LayoutModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="206,-78 206,-130 426,-130 426,-78 206,-78"/>
-</g>
-<g id="clust4" class="cluster">
-<title>cluster_LayoutModule_imports</title>
-<polygon fill="none" stroke="#000000" points="70,-78 70,-130 198,-130 198,-78 70,-78"/>
+<polygon fill="none" stroke="#000000" points="138,-78 138,-130 358,-130 358,-78 138,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_LayoutModule_exports</title>
@@ -39,8 +35,8 @@
 <!-- BoardLayoutManagerComponent -->
 <g id="node1" class="node">
 <title>BoardLayoutManagerComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="418.451,-122 213.549,-122 213.549,-86 418.451,-86 418.451,-122"/>
-<text text-anchor="middle" x="316" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">BoardLayoutManagerComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="350.451,-122 145.549,-122 145.549,-86 350.451,-86 350.451,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">BoardLayoutManagerComponent</text>
 </g>
 <!-- LayoutModule -->
 <g id="node2" class="node">
@@ -51,32 +47,20 @@
 <!-- BoardLayoutManagerComponent&#45;&gt;LayoutModule -->
 <g id="edge1" class="edge">
 <title>BoardLayoutManagerComponent&#45;&gt;LayoutModule</title>
-<path fill="none" stroke="#000000" d="M255.5642,-122.1061C255.5642,-122.1061 255.5642,-140.991 255.5642,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="252.0642,-140.9909 255.5642,-150.991 259.0642,-140.991 252.0642,-140.9909"/>
+<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
 </g>
 <!-- BoardLayoutManagerComponent  -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>BoardLayoutManagerComponent </title>
 <polygon fill="#fb8072" stroke="#000000" points="352.4515,-252 143.5485,-252 143.5485,-216 352.4515,-216 352.4515,-252"/>
 <text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">BoardLayoutManagerComponent </text>
 </g>
 <!-- LayoutModule&#45;&gt;BoardLayoutManagerComponent  -->
-<g id="edge3" class="edge">
+<g id="edge2" class="edge">
 <title>LayoutModule&#45;&gt;BoardLayoutManagerComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
-</g>
-<!-- CommonModule -->
-<g id="node3" class="node">
-<title>CommonModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="189.6681,-122 186.6681,-126 165.6681,-126 162.6681,-122 78.3319,-122 78.3319,-86 189.6681,-86 189.6681,-122"/>
-<text text-anchor="middle" x="134" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
-</g>
-<!-- CommonModule&#45;&gt;LayoutModule -->
-<g id="edge2" class="edge">
-<title>CommonModule&#45;&gt;LayoutModule</title>
-<path fill="none" stroke="#000000" d="M189.99,-104C199.2799,-104 205.9604,-104 205.9604,-104 205.9604,-104 205.9604,-140.8939 205.9604,-140.8939"/>
-<polygon fill="#000000" stroke="#000000" points="202.4604,-140.8938 205.9604,-150.8939 209.4604,-140.8939 202.4604,-140.8938"/>
 </g>
 </g>
 </svg>

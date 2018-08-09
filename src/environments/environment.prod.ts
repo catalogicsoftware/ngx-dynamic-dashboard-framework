@@ -1,7 +1,7 @@
 export const environment = {
     production: true,
     productName: "Dynamic Dashboard Framework",
-    productVersion: "0.0.1",
+    productVersion: "0.0.2",
     menu:{
         documentation:false,
         ai: false,

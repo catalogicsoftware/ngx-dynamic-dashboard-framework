@@ -173,6 +173,14 @@
                 "value": 999,
                 "required": true,
                 "order": -1
+              },
+              {
+                "controlType": "hidden",
+                "key": "state",
+                "label": "",
+                "value": "stop",
+                "required": true,
+                "order": -2
               }
             ]
           },

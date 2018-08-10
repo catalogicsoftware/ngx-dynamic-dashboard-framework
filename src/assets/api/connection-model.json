@@ -1,5 +1,38 @@
 [
   {
+    "event": "unreachable",
+    "title": "Network is unreachable",
+    "summary": "The application failed to connect to the host due to inability to reach the host.",
+    "solution": [
+      {
+        "cause": "The target address may be IPV6.",
+        "action": [
+          {
+            "id": 1,
+            "task": "Contact support to review this issue."
+          }
+        ]
+      },
+      {
+        "cause": "There may be a stale entry within the DNS server.",
+        "action": [
+          {
+            "id": 2,
+            "task": "You may want to contact your network administrator to see if the issue is related to a stale DNS entries."
+          }
+        ]
+      },
+      {
+        "cause": "General connectivity issue.",
+        "action": [
+          {
+            "id": 2,
+            "task": "Verify your network connections, proxies and firewalls."
+          }
+        ]
+      }
+    ]
+  },{
     "event": "time-out",
     "title": "Network request timed out",
     "summary": "The application link was able to contact the remote application but could not establish a connection.",
@@ -17,8 +50,8 @@
         "cause": "There is a network connection problem.",
         "action": [
           {
-            "id": 1,
-            "task": "Use tools like Wire Shark to check the connection to the remote machine. You may want to contact your network administrator."
+            "id": 2,
+            "task": "Use tools like ping, telnet or Wire Shark to check the connection to the remote machine. You may want to contact your network administrator."
           }
         ]
       }
@@ -42,11 +75,11 @@
         "cause": "The remote application is down.",
         "action": [
           {
-            "id": 1,
+            "id": 2,
             "task": "Check that the remote application is operational, by accessing it from the browser using the application URL (or the display URL if the remote application is behind a reverse proxy)."
           },
           {
-            "id": 2,
+            "id": 3,
             "task": "If the remote application is not accessible with the browser, ping the remote application URL from the local server – the remote application must be accessible using the application URL for the application link to work."
           }
         ]

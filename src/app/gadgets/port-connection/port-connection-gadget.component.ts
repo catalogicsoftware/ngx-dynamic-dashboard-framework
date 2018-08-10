@@ -160,7 +160,7 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
                     "id": "c_network_test_tool",
                     "xml:lang": "en-us",
                     "title": "Network Test Connectivity Tool",
-                    "shortdesc": "The Network Test Connectivity tool tests host addresses and ports to determine if a\nconnection can be established. If a connection can be established, the tool returns a green check\nmark. If a connection cannot be established, the raw error condition displays, along with possible\ncauses and actions.",
+                    "shortdesc": "The Network Test Connectivity tool tests host addresses and ports to determine if a connection can be established. If a connection can be established, the tool returns a green checkmark. If a connection cannot be established, the raw error condition displays, along with possible causes and actions.",
                     "conbody": {
                         "p": [
                             "The Network Test Connectivity tool can provide guidance for the following error conditions:",
@@ -171,7 +171,8 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
                                         "time out",
                                         "connection refused",
                                         "unknown host",
-                                        "no route"
+                                        "no route",
+                                        "unreachable host"
                                     ]
                                 }
                             }

@@ -73,7 +73,6 @@ export class GadgetInstanceService {
                 break;
             }
         }
-        console.log(this.concreteGadgetInstances);
 
         // raise an event indicating a gadget was removed
         this.subject.next('gadget id: ' + id);

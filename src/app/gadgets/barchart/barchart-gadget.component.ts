@@ -21,27 +21,30 @@ import {ConfigurationService} from "../../services/configuration.service";
 export class BarChartGadgetComponent extends GadgetBase {
 
     // chart options
-    showXAxis = true;
-    showYAxis = true;
-    gradient = true;
-    showLegend = true;
-    showXAxisLabel = true;
-    showYAxisLabel = false;
+    showXAxis: boolean;
+    showYAxis: boolean;
+    gradient: boolean;
+    showLegend: boolean;
+    showXAxisLabel: boolean;
+    showYAxisLabel: boolean;
+    verticalOrientation: boolean;
+
+    //todo - control these options from the property pages
     yAxisLabel = 'committed';
     xAxisLabel = 'used';
     view: any[];
-    data: any[] = [];
-    verticalOrientation = false;
     colorScheme: any = {
         domain: ['#0d5481', '#0AFF16'] //todo - control color from property page
     };
+    //////////////////
+
+    data: any[] = [];
     subscription: any;
     state: string;
 
     RUN_STATE = 'run';
     STOP_STATE = 'stop';
     POLL_INTERVAL = 15000;
-
 
 
     constructor(protected _runtimeService: RuntimeService,
@@ -51,8 +54,8 @@ export class BarChartGadgetComponent extends GadgetBase {
                 protected _barChartService: BarChartService,
                 private _changeDetectionRef: ChangeDetectorRef,
                 protected _optionsService: OptionsService,
-                private _configService: ConfigurationService,
-                private _route: Router) {
+                private _configService: ConfigurationService
+    ) {
         super(_runtimeService,
             _gadgetInstanceService,
             _propertyService,
@@ -64,10 +67,28 @@ export class BarChartGadgetComponent extends GadgetBase {
 
     public preRun() {
 
+        /**
+         * the base class initializes the common property gadgets. Prerun gives
+         * us a chance to initialize any of the gadgets unique properties.
+         */
+        this.initializeTheRemainderOfTheProperties();
+
         if (this.getPropFromPropertyPages('state') == this.RUN_STATE) {
             this.run();
         }
     }
+
+    initializeTheRemainderOfTheProperties() {
+
+        this.gradient = this.getPropFromPropertyPages('gradient');
+        this.showXAxis = this.getPropFromPropertyPages('showXAxis');
+        this.showYAxis = this.getPropFromPropertyPages('showYAxis');
+        this.showLegend = this.getPropFromPropertyPages('showLegend');
+        this.showXAxisLabel = this.getPropFromPropertyPages('showXAxisLabel');
+        this.showYAxisLabel = this.getPropFromPropertyPages('showYAxisLabel');
+        this.verticalOrientation = this.getPropFromPropertyPages('orientation');
+    }
+
 
     public run() {
         this.clearChartData();
@@ -209,14 +230,14 @@ export class BarChartGadgetComponent extends GadgetBase {
             + ",\"title\":\"" + this.title
             + "\",\"state\":\"" + this.state
             + "\",\"endpoint\":\"" + this.endpointObject.name
-            + "\",\"gradient\":\"" + this.gradient
-            + "\",\"showXAxis\":\"" + this.showXAxis
-            + "\",\"showYAxis\":\"" + this.showYAxis
-            + "\",\"showLegend\":\"" + this.showLegend
-            + "\",\"showXAxisLabel\":\"" + this.showXAxisLabel
-            + "\",\"showYAxisLabel\":\"" + this.showYAxisLabel
-            + "\",\"orientation\":\"" + this.verticalOrientation
-            + "\"}";
+            + "\",\"gradient\":" + this.gradient
+            + ",\"showXAxis\":" + this.showXAxis
+            + ",\"showYAxis\":" + this.showYAxis
+            + ",\"showLegend\":" + this.showLegend
+            + ",\"showXAxisLabel\":" + this.showXAxisLabel
+            + ",\"showYAxisLabel\":" + this.showYAxisLabel
+            + ",\"orientation\":" + this.verticalOrientation
+            + "}";
 
         this._configService.notifyGadgetOnPropertyChange(payLoad, this.instanceId);
 

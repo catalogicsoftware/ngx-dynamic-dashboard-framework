@@ -1,4 +1,4 @@
-<div  class="ui  center aligned segment gadget" dnd-draggable
+<div class="ui  center aligned segment gadget" dnd-draggable
      [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
 
     <a class="ui left corner label">
@@ -17,7 +17,7 @@
             [gadgetHasOperationControls]="gadgetHasOperationControls"
             [showConfigurationControl]="showConfigurationControl"
             [showControls]="showControls"
-            (toggleConfigModeEvent)="toggleConfigMode()"
+            (toggleConfigModeEvent)="toggleChartProperties()"
             (removeEvent)="remove()"
             (runEvent)="run()"
             (stopEvent)="stop()">
@@ -62,10 +62,22 @@
         </div>
     </div>
 
-    <app-dynamic-form *ngIf="inConfig"
-                  [propertyPages]="propertyPages"
-                  [instanceId]="instanceId"
-                  (updatePropertiesEvent)="updateProperties($event)">
+    <!-- use the side bar content -->
+    <div *ngIf="inConfig && globalOptions.displayGadgetOptionsInSideBar == true" class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
+        <br>
+        <br>
+        <app-dynamic-form
+                [propertyPages]="propertyPages"
+                [instanceId]="instanceId"
+                (updatePropertiesEvent)="updateProperties($event)">
+        </app-dynamic-form>
+    </div>
+
+
+    <app-dynamic-form *ngIf="inConfig && globalOptions.displayGadgetOptionsInSideBar == false"
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
     </app-dynamic-form>
 
     <app-error-handler

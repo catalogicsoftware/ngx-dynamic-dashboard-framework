@@ -2,9 +2,16 @@
 The following options control various aspects of the board's and gadget's behavior. Changes take effect immediately.
 <br>
 <br>
-<br>
+
 <mat-slide-toggle
         [checked]="enableHover"
         (change)="onHooverOptionChange($event)">
     Always show the gadget buttons in the title. By default buttons show/hide when you hover over the title.
+</mat-slide-toggle>
+<br>
+<br>
+<mat-slide-toggle
+        [checked]="displayGadgetOptionsInSideBar"
+        (change)="onDisplayGadgetOptionsInSideBarChange($event)">
+    (Experimental) When set the options are displayed in the side bar. Otherwise it is displayed within the gadget.
 </mat-slide-toggle>

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, ViewChild} from '@angular/core';
 import {GadgetInstanceService} from '../../grid/grid.service';
 import {RuntimeService} from '../../services/runtime.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
@@ -10,6 +10,7 @@ import {OptionsService} from "../../configuration/tab-options/service";
 import {startWith, switchMap} from "rxjs/operators";
 import {Observable} from "rxjs/Rx";
 import {ConfigurationService} from "../../services/configuration.service";
+declare var jQuery: any;
 
 @Component({
     selector: 'app-dynamic-component',
@@ -19,6 +20,9 @@ import {ConfigurationService} from "../../services/configuration.service";
 })
 
 export class BarChartGadgetComponent extends GadgetBase {
+
+    @ViewChild('chartOptionsSideBar_tag') chartOptionsSideBarRef: ElementRef;
+    chartOptionsSideBar:any;
 
     // chart options
     showXAxis: boolean;
@@ -242,4 +246,17 @@ export class BarChartGadgetComponent extends GadgetBase {
         this._configService.notifyGadgetOnPropertyChange(payLoad, this.instanceId);
 
     }
+
+    toggleChartProperties() {
+
+        if(this.globalOptions.displayGadgetOptionsInSideBar == false){
+            this.toggleConfigMode();
+            return;
+        }
+        this.chartOptionsSideBar = jQuery(this.chartOptionsSideBarRef.nativeElement);
+        this.chartOptionsSideBar.sidebar('setting', 'transition', 'overlay');
+        this.chartOptionsSideBar.sidebar('toggle');
+
+    }
+
 }

@@ -16,17 +16,33 @@ import {ToastService} from "../../toast/toast.service";
 export class OptionsConfigurationTabComponent {
 
     enableHover: boolean;
+    displayGadgetOptionsInSideBar:boolean;
 
     constructor(private _optionsService: OptionsService, private _toastService: ToastService) {
 
         this.enableHover = this._optionsService.getBoardOptions()['enableHover'];
+        this.displayGadgetOptionsInSideBar = this._optionsService.getBoardOptions()['displayGadgetOptionsInSideBar'];
     }
 
     onHooverOptionChange(value) {
 
-        this._optionsService.setBoardOptions({"enableHover": value['checked']});
-        this._toastService.sendMessage("The board configuration has changed!",null);
+        this._optionsService.setBoardOptions(
+            {
+                "enableHover": value['checked'],
+                "displayGadgetOptionsInSideBar": this.displayGadgetOptionsInSideBar
 
+            });
+        this._toastService.sendMessage("The board configuration has changed!",null);
+    }
+
+    onDisplayGadgetOptionsInSideBarChange(value) {
+
+        this._optionsService.setBoardOptions( {
+            "enableHover": this.enableHover,
+            "displayGadgetOptionsInSideBar": value['checked']
+
+        });
+        this._toastService.sendMessage("The board configuration has changed!",null);
 
     }
 

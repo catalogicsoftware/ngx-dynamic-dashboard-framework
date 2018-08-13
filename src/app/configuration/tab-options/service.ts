@@ -8,7 +8,8 @@ export class OptionsService {
 
     optionsCollectionName = 'dashboardOptions';
     defaultOptions = {
-        'enableHover': false
+        'enableHover': false,
+        'displayGadgetOptionsInSideBar': false
     };
 
     private globalOptionsChangeEventSubject: Subject<any> = new Subject<any>();

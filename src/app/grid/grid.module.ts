@@ -21,6 +21,7 @@ import {ToastModule} from '../toast/toast.module';
 import {ConnectionService} from '../gadgets/port-connection/service';
 import {BubbleService} from "../gadgets/bubble/service";
 import {BarChartService} from "../gadgets/barchart/service";
+import {PieChartService} from "../gadgets/piechart/service";
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {BarChartService} from "../gadgets/barchart/service";
         ConnectionService,
         TodoService  // todo gadget
         ,BubbleService,
-        BarChartService
+        BarChartService,
+        PieChartService
     ]
 })
 export class GridModule {

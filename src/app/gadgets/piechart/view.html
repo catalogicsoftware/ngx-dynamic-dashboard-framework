@@ -1,0 +1,74 @@
+<div class="ui  center aligned segment gadget" dnd-draggable
+     [dragEnabled]="true" [dragData]="instanceId" [dropZones]="['c0','c1','c2','c3','r0','r1']">
+
+    <a class="ui left corner label">
+        <i class="circle icon" [ngClass]="{'green':inRun, 'yellow':!inRun}"></i>
+    </a>
+
+    <app-gadget-header
+            (mouseover)="showGadgetControls(true)"
+            (mouseleave)="showGadgetControls(false)"
+            [globalOptions]="globalOptions"
+            [title]="title"
+            [inRun]="inRun"
+            [inConfig]="inConfig"
+            [actionInitiated]="actionInitiated"
+            [showOperationControls]="showOperationControls"
+            [gadgetHasOperationControls]="gadgetHasOperationControls"
+            [showConfigurationControl]="showConfigurationControl"
+            [showControls]="showControls"
+            (toggleConfigModeEvent)="toggleChartProperties()"
+            (removeEvent)="remove()"
+            (runEvent)="run()"
+            (stopEvent)="stop()">
+    </app-gadget-header>
+
+    <div class="ui grid">
+        <div class="row">
+            <div *ngIf="!inConfig" style="max-height: 300px; max-width: 400px; min-height: 250px">
+                <ngx-charts-pie-chart
+                    *ngIf="!inConfig"
+                      [view]="view"
+                      [scheme]="colorScheme"
+                      [results]="data"
+                      [legend]= "showLegend"
+                      [explodeSlices]="explodeSlices"
+                      [labels]="showLabels"
+                      [doughnut]="showDonut"
+                      [gradient]="gradient"
+                      [legendTitle]="legendTitle"
+                      [arcWidth]=".5"
+                      (select)="drillDownPopUp.showDrillDownDetail($event)">
+                </ngx-charts-pie-chart>
+            </div>
+        </div>
+    </div>
+
+    <!-- use the side bar content -->
+    <div *ngIf="inConfig && globalOptions.displayGadgetOptionsInSideBar == true" class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
+        <br>
+        <br>
+        <app-dynamic-form
+                [propertyPages]="propertyPages"
+                [instanceId]="instanceId"
+                (updatePropertiesEvent)="updateProperties($event)">
+        </app-dynamic-form>
+    </div>
+
+
+    <app-dynamic-form *ngIf="inConfig && globalOptions.displayGadgetOptionsInSideBar == false"
+                      [propertyPages]="propertyPages"
+                      [instanceId]="instanceId"
+                      (updatePropertiesEvent)="updateProperties($event)">
+    </app-dynamic-form>
+
+    <app-error-handler
+            [errorObject]="errorObject"
+            [errorExists]="errorExists">
+    </app-error-handler>
+
+    <app-vis-drill-down-modal #drillDownPopUp></app-vis-drill-down-modal>
+
+</div>
+
+

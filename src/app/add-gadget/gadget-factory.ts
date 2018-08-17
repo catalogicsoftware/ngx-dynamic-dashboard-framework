@@ -16,6 +16,7 @@ import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';
 import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
 import {BarChartGadgetComponent} from "../gadgets/barchart/barchart-gadget.component";
+import {PieChartGadgetComponent} from "../gadgets/piechart/piechart-gadget.component";
 
 /**
  * Created by jayhamilton on 6/30/17.
@@ -70,8 +71,10 @@ export class GadgetFactory {
                 return BubbleGadgetComponent;
             case 'BarChartGadgetComponent': // todo gadget
                 return BarChartGadgetComponent;
+            case 'PieChartGadgetComponent': // todo gadget
+                return PieChartGadgetComponent;
             default:
-                return null;
+                return null;// todo add default gadget that would be displayed. Useful for troubleshooting new gadget dev
 
         }
     }

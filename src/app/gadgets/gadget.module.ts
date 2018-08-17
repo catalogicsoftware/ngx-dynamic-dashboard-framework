@@ -45,7 +45,9 @@ import {BubbleGadgetComponent} from "./bubble/bubble-gadget.component";
 import {ResultViewComponent} from "./port-connection/result-view.component";
 import {SolutionViewComponent} from "./port-connection/solution-view.component";
 import {BarChartGadgetComponent} from "./barchart/barchart-gadget.component";
-import {BarChartService} from "./barchart/service";  // todo gadget
+import {BarChartService} from "./barchart/service";
+import {PieChartGadgetComponent} from "./piechart/piechart-gadget.component";
+import {PieChartService} from "./piechart/service";  // todo gadget
 
 
 
@@ -93,7 +95,8 @@ import {BarChartService} from "./barchart/service";  // todo gadget
         BubbleGadgetComponent,
         ResultViewComponent,
         SolutionViewComponent,
-        BarChartGadgetComponent
+        BarChartGadgetComponent,
+        PieChartGadgetComponent
 
     ],
 
@@ -107,7 +110,8 @@ import {BarChartService} from "./barchart/service";  // todo gadget
         APITokenService,
         ConnectionService,
         TodoService,  // todo gadget
-        BarChartService
+        BarChartService,
+        PieChartService
     ],
 
     exports: [
@@ -129,7 +133,8 @@ import {BarChartService} from "./barchart/service";  // todo gadget
         StorageObjectListComponent,
         DonutGadgetComponent,
         BubbleGadgetComponent,
-        BarChartGadgetComponent
+        BarChartGadgetComponent,
+        PieChartGadgetComponent
     ]
 })
 export class GadgetModule {

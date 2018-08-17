@@ -20,6 +20,7 @@ import {DonutGadgetComponent} from '../gadgets/donut/donut-gadget.component';
 import {TodoGadgetComponent} from '../gadgets/todo/todo-gadget.component';  // todo gadget
 import {BubbleGadgetComponent} from "../gadgets/bubble/bubble-gadget.component";
 import {BarChartGadgetComponent} from "../gadgets/barchart/barchart-gadget.component";
+import {PieChartGadgetComponent} from "../gadgets/piechart/piechart-gadget.component";
 
 @NgModule({
     imports: [
@@ -42,7 +43,8 @@ import {BarChartGadgetComponent} from "../gadgets/barchart/barchart-gadget.compo
             DonutGadgetComponent,
             TodoGadgetComponent  // todo gadget
             , BubbleGadgetComponent,
-            BarChartGadgetComponent
+            BarChartGadgetComponent,
+            PieChartGadgetComponent
 
         ]),
     ],

@@ -63,8 +63,9 @@
     </div>
 
     <!-- use the side bar content -->
-    <div *ngIf="inConfig && globalOptions.displayGadgetOptionsInSideBar == true" class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
+    <div class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
         <br>
+        <div class="ct-title">{{title}}</div>
         <br>
         <app-dynamic-form
                 [propertyPages]="propertyPages"

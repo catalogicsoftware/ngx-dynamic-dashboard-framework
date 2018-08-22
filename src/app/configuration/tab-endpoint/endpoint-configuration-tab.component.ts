@@ -21,7 +21,7 @@ export class EndpointConfigurationTabComponent {
     endPoints: EndPoint[];
 
     currentEndPoint: EndPoint = new EndPoint('', '', '', '', '', '',
-        '', '', '');
+        '', '', '',{'tags':[]});
 
     constructor(private _endPointService: EndPointService) {
 

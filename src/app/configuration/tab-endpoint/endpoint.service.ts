@@ -21,18 +21,32 @@ export class EndPointService {
 
             return new Observable(observer => {
                 const base = {endPoint: []};
-                const testEndPoint = new EndPoint(
-                    'TestDataSource',
-                    '/assets/api/data-source-model.json',
+                const mockBarChart = new EndPoint(
+                    'Chart Mock Bar Data Source',
+                    '/assets/api/chart-mock-bar-model.json',
                     'test user',
                     'testCredential',
                     'unknown',
                     'Predefined data source that cannot be modified or removed.',
                     'token API',
                     'token API Header',
-                    'token API Property'
+                    'token API Property',
+                    {'tags':[{'name':'bar'},{'name':'chart'}]}
                 );
-                base.endPoint.push(testEndPoint);
+                base.endPoint.push(mockBarChart);
+                const mockPieChart = new EndPoint(
+                    'Chart Mock Pie Data Source',
+                    '/assets/api/chart-mock-pie-model.json',
+                    'test user',
+                    'testCredential',
+                    'unknown',
+                    'Predefined data source that cannot be modified or removed',
+                    'token API',
+                    'token API Header',
+                    'token API Property',
+                    {'tags':[{'name':'pie'},{'name':'chart'}]}
+                );
+                base.endPoint.push(mockPieChart);
                 const memoryEndpoint = new EndPoint(
                     'Memory',
                     '/metric?measure=memory',
@@ -42,9 +56,11 @@ export class EndPointService {
                     'Predefined data source that cannot be modified or removed',
                     'token API',
                     'token API Header',
-                    'token API Property'
+                    'token API Property',
+                    {'tags':[{'name':'memory'}]}
                 );
                 base.endPoint.push(memoryEndpoint);
+
                 localStorage.setItem('endpoint', JSON.stringify(base));
                 observer.next(base);
                 return () => {

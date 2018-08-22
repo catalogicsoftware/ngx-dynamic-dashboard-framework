@@ -38,3 +38,6 @@ td.selected {
 tr {
      cursor: pointer;
 }
+.example-chip-list {
+    width: 100%;
+}

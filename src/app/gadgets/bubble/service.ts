@@ -13,7 +13,7 @@ export class BubbleService {
     }
 
     getMockData() {
-        return this._http.get('/assets/api/bubble-model.json')
+        return this._http.get('/assets/api/chart-mock-bubble-model.json')
             .catch(RuntimeService.handleError);
     }
 }

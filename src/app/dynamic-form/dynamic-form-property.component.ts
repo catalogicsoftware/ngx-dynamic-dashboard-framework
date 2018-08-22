@@ -33,6 +33,7 @@ import {
 export class DynamicFormPropertyComponent {
     @Input() property: PropertyBase<any>;
     @Input() form: FormGroup;
+    @Input() gadgetTags:any[];//todo - use to control what endpoints are displayed
     endPoints: string[] = [];
 
     get isValid() {
@@ -49,7 +50,7 @@ export class DynamicFormPropertyComponent {
 
         this.endPointService.getEndPoints().subscribe(data => {
 
-            this.endPoints = data['endPoint'];
+            this.endPoints = data['endPoint'].slice();
 
         });
     }

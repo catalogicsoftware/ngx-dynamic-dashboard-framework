@@ -12,7 +12,8 @@ import {
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatChipsModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AIConfigurationTabComponent} from './tab-artificial-intelligence/ai-configuration-tab.component';
@@ -32,7 +33,8 @@ import {OptionsService} from "./tab-options/service";
         MatOptionModule,
         FormsModule,
         ReactiveFormsModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatChipsModule
     ],
     declarations: [
         BoardsConfigurationTabComponent,

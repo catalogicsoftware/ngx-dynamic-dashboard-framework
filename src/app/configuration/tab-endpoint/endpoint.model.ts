@@ -1,3 +1,7 @@
+export interface TAG {
+    name: string;
+}
+
 export class EndPoint {
     public id: number;
     public name: string;
@@ -9,6 +13,7 @@ export class EndPoint {
     public tokenAPI: string;
     public tokenAPIProperty: string;
     public tokenAPIHeader: string;
+    public tags: any;
 
     constructor(name: string,
                 address: string,
@@ -18,7 +23,8 @@ export class EndPoint {
                 description: string,
                 tokenAPI: string,
                 tokenAPIProperty: string,
-                tokenAPIHeader: string) {
+                tokenAPIHeader: string,
+                tags: any) {
 
         this.name = name;
         this.address = address;
@@ -29,6 +35,7 @@ export class EndPoint {
         this.tokenAPI = tokenAPI;
         this.tokenAPIProperty = tokenAPIProperty;
         this.tokenAPIHeader = tokenAPIHeader;
+        Object.assign(this, tags);
         this.id = 0;
     }
 

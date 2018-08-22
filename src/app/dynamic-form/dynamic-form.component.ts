@@ -53,6 +53,7 @@ import {EndPoint} from '../configuration/tab-endpoint/endpoint.model';
 })
 export class DynamicFormComponent implements OnInit, AfterViewInit {
 
+    @Input() gadgetTags: any[];//todo - use to control what endpoints are displayed
     @Input() propertyPages: any[];
     @Input() instanceId: number;
     @Output() updatePropertiesEvent: EventEmitter<any> = new EventEmitter(true);
@@ -76,7 +77,7 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
     updateEndPointList() {
 
         this.endPointService.getEndPoints().subscribe(data => {
-            this.endPoints = data['endPoint'];
+            this.endPoints = data['endPoint'].slice();
         });
     }
 

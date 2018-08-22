@@ -56,6 +56,20 @@
             <textarea rows="2" class="form-control" formControlName="description" placeholder="Description"></textarea>
         </div>
     </div>
+    <mat-form-field  class="example-chip-list">
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let tag of formTags.tags" [selectable]="selectable"
+                      [removable]="removable" (removed)="removeTag(tag)">
+                {{tag.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input [disabled]="preDefined" type="" placeholder={{tagPlaceHolderText}}
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="addTag($event)">
+        </mat-chip-list>
+    </mat-form-field>
 
     <div *ngIf="useCredentials">
             <div class="field">
@@ -93,15 +107,8 @@
                     <i class="key icon"></i>
                 </div>
             </div>
-            <div class="field">
-                <div class="ui left icon input">
-                    <input formControlName="tokenAPIHeader" type="string" placeholder="Token API Header">
-                    <i class="key icon"></i>
-                </div>
-            </div>
+
         </div>
-
-
 </form>
 
 

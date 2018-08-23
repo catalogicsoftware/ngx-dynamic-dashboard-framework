@@ -5,10 +5,9 @@
     border-bottom-width: thin !important;
 }
 td.selected {
-    border-radius: 2px;
     background-color: #4fa6d3 !important;
     color: white;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 td{
@@ -21,4 +20,7 @@ td{
 
 .ui.floating.label{
 
+}
+tr {
+    cursor: pointer;
 }

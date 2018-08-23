@@ -1,23 +1,14 @@
+<h3>&nbsp;&nbsp;Details</h3>
 <table class="ui inverted table">
-    <thead>
-    <tr>
-        <th colspan="2">
-            Details
-        </th>
-        <th colspan="2" style="text-align: right">
-            <div class="ui basic inverted button">
-                Mark all as read <i class=" float right large inverted check icon"></i>
-            </div>
-        </th>
-    </tr>
-    </thead>
     <tr *ngFor="let notification of notifications">
-        <td><i class="large yellow warning icon"></i></td>
-        <td>{{notification.description}}</td>
-        <td>{{notification.when}};</td>
-        <td><i class="large inverted check icon"></i></td>
+        <td style="font-weight:100 !important;">
+            <div>
+                {{notification.description}}
+                <br>
+                {{notification.when}}
+            </div>
+        </td>
     </tr>
-
 </table>
 
 

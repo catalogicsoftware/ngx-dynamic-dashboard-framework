@@ -45,7 +45,7 @@
     </div>
 
     <!-- use the side bar content -->
-    <div class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
+    <div *ngIf="globalOptions.displayGadgetOptionsInSideBar == true" class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
         <br>
         <div class="ct-title">{{title}}</div>
         <br>

@@ -265,7 +265,7 @@
       "componentType": "PieChartGadgetComponent",
       "name": "Pie Chart",
       "description": "Pie Chart",
-      "icon": "assets/images/cpu.png",
+      "icon": "assets/images/pie.png",
       "instanceId": -1,
       "tags": [
         {

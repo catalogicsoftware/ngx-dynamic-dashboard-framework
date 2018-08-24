@@ -86,6 +86,8 @@ export class EndpointConfigurationTabComponent {
             this.currentEndPoint.tokenAPI = '';
             this.currentEndPoint.tokenAPIProperty = '';
             this.currentEndPoint.user = '';
+        }else{
+            this.setSelectedEndPoint(this.endPoints[0])
         }
     }
 

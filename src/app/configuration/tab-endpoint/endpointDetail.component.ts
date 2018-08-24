@@ -256,7 +256,7 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
     deleteEndPoint() {
 
         this.deleteEvent.emit(this.currentEndPoint);
-        this.endPointForm.reset();
+        this.resetForm();
     }
 
     resetForm() {

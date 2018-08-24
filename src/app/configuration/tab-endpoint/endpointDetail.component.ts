@@ -31,6 +31,7 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
     preDefinedEndPoints = ["memory", "mock"];
 
     currentState: string;
+    preDefined = false;
 
     endPointForm: FormGroup;
     credentialScheme = credentialScheme;
@@ -40,9 +41,7 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
     selectable = true;
     removable = true;
     visible = true;
-    addOnBlur = true;
-
-    preDefined = false;
+    addOnBlur = false;
     tagPlaceHolderText = '';
     formTags = {tags: []};
 
@@ -62,7 +61,9 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
             input.value = '';
         }
 
-        this.setControlsState('update');
+        if (this.currentState == 'reset') {
+            this.currentState = 'update';
+        }
     }
 
     removeTag(tag: TAG): void {
@@ -71,22 +72,56 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
         if (index >= 0) {
             this.formTags.tags.splice(index, 1);
         }
-        this.setControlsState('update');
+        if (this.currentState == 'reset') {
+            this.currentState = 'update';
+        }
     }
 
+    checkPredefinition() {
+
+        this.preDefined = false;
+        for (let x = 0; x < this.preDefinedEndPoints.length; x++) {
+            if (this.currentEndPoint.name.toLocaleLowerCase().trim().indexOf(this.preDefinedEndPoints[x].toLocaleLowerCase().trim()) >= 0) {
+
+                this.disableControls();
+                this.preDefined = true;
+            }
+        }
+    }
 
     ngAfterViewInit() {
 
-        this.setControlsState('');
+        this.checkPredefinition();
     }
 
     ngOnChanges() {
 
-        this.resetEndPoint();
+        this.enableControls();
+        this.resetForm();
+        this.populateFormWithCurrentEndpointValues();
+        this.checkPredefinition();
+    }
+
+    populateFormWithCurrentEndpointValues() {
+
+        this.endPointForm.setValue({
+            name: this.currentEndPoint.name,
+            address: this.currentEndPoint.address,
+            user: this.currentEndPoint.user,
+            credentialType: this.currentEndPoint.credentialType,
+            credential: this.currentEndPoint.credential,
+            description: this.currentEndPoint.description,
+            tokenAPI: this.currentEndPoint.tokenAPI,
+            tokenAPIProperty: this.currentEndPoint.tokenAPIProperty,
+            tokenAPIHeader: this.currentEndPoint.tokenAPIHeader
+        });
+        this.formTags.tags = this.currentEndPoint.tags.slice();
     }
 
     constructor(private fb: FormBuilder) {
+
         let me = this;
+
         this.createForm();
 
         this.endPointForm.valueChanges.forEach(
@@ -98,44 +133,26 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
         );
     }
 
-    setControlsState(state: string) {
+    disableControls() {
 
-        this.currentState = state;
-
-        if (state != 'create') {
-            this.preDefined = this.checkIfTheEndPointIsPredefinedAndShouldNotBeModified();
-        } else {
-            this.preDefined = false;
-        }
-
-        this.selectable = !this.preDefined;
-        this.removable = !this.preDefined;
-
-
-        if (this.preDefined) {
-            this.endPointForm.get('name').disable();
-            this.endPointForm.get('address').disable();
-            this.endPointForm.get('description').disable();
-            this.tagPlaceHolderText = '';
-        } else {
-            this.endPointForm.get('name').enable();
-            this.endPointForm.get('address').enable();
-            this.endPointForm.get('description').enable();
-            this.tagPlaceHolderText = 'Add tag...';
-
-        }
+        this.endPointForm.get('name').disable();
+        this.endPointForm.get('address').disable();
+        this.endPointForm.get('description').disable();
+        this.removable = false;
+        this.selectable = false;
+        this.tagPlaceHolderText = "";
 
     }
 
-    checkIfTheEndPointIsPredefinedAndShouldNotBeModified() {
+    enableControls() {
 
-        for (let x = 0; x < this.preDefinedEndPoints.length; x++) {
-            if (this.currentEndPoint.name.toLocaleLowerCase().trim().indexOf(this.preDefinedEndPoints[x].toLocaleLowerCase().trim()) >= 0) {
-                return true;
-            }
-        }
+        this.endPointForm.get('name').enable();
+        this.endPointForm.get('address').enable();
+        this.endPointForm.get('description').enable();
+        this.removable = true;
+        this.selectable = true;
+        this.tagPlaceHolderText = "Add tag...";
 
-        return false;
     }
 
 
@@ -149,16 +166,16 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
 
             // something other than name changed so this must be an update
             if (this.endPointForm.dirty) {
-                this.setControlsState('update');
+                this.currentState = 'update';
             }
         } else {
             // name change so assume user wants to perform save as
-            this.setControlsState('save as');
+            this.currentState = 'save as';
         }
 
         // reset state when a form is clean
         if (this.endPointForm.pristine) {
-            this.setControlsState('reset');
+            this.currentState = 'reset';
         }
     }
 
@@ -175,11 +192,12 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
             tokenAPIProperty: '',
             tokenAPIHeader: '',
             description: ''
-
         });
     }
 
     createEndPoint() {
+
+        this.enableControls();
 
         const ep: EndPoint = new EndPoint(
             this.endPointForm.value.name,
@@ -191,14 +209,12 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
             this.endPointForm.value.tokenAPI,
             this.endPointForm.value.tokenAPIProperty,
             this.endPointForm.value.tokenAPIHeader,
-            {tags: []},
+            this.formTags
         );
 
         this.createEvent.emit(ep);
-        this.setControlsState('reset');
-
+        this.currentState = 'reset';
     }
-
 
     updateEndPoint() {
 
@@ -214,53 +230,40 @@ export class EndPointDetailComponent implements OnChanges, AfterViewInit {
         this.currentEndPoint.tags = this.formTags.tags.slice();
 
         this.updateEvent.emit(this.currentEndPoint);
-        this.setControlsState('reset');
+        this.currentState = 'reset';
     }
 
     newEndPoint() {
 
+        this.enableControls();
         this.resetForm();
+        this.selectable = true;
+        this.removable = true;
+        this.preDefined = false;
+        this.tagPlaceHolderText = "Add tag..."
         /**
          * The create state is used to display the save icon even if the form is being edited
-         * todo - implement state machine
+         * todo - implmenet state machine
          */
-        this.setControlsState('create');
-
+        this.currentState = 'create';
     }
 
     resetEndPoint() {
-
-        this.endPointForm.get('address').enable();
-
-        this.resetForm();
-
-        this.endPointForm.setValue({
-            name: this.currentEndPoint.name,
-            address: this.currentEndPoint.address,
-            user: this.currentEndPoint.user,
-            credentialType: this.currentEndPoint.credentialType,
-            credential: this.currentEndPoint.credential,
-            description: this.currentEndPoint.description,
-            tokenAPI: this.currentEndPoint.tokenAPI,
-            tokenAPIProperty: this.currentEndPoint.tokenAPIProperty,
-            tokenAPIHeader: this.currentEndPoint.tokenAPIHeader
-        });
-
-        this.formTags.tags = this.currentEndPoint.tags.slice();
-        this.setControlsState('');
+        this.ngOnChanges();
 
     }
 
     deleteEndPoint() {
 
         this.deleteEvent.emit(this.currentEndPoint);
-        this.resetForm();
-
+        this.endPointForm.reset();
     }
 
     resetForm() {
-
         this.endPointForm.reset();
-        this.formTags = {tags: []};
+        if (this.formTags.tags && this.formTags.tags.length) {
+            this.formTags.tags = [];
+        }
     }
 }
+

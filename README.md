@@ -35,11 +35,10 @@
 This is an angular (ngx) based dashboard framework that is inspired by JIRA's dashboard implementation and https://github.com/angular-dashboard-framework/angular-dashboard-framework
 
 The primary projects leveraged:
-* ngx  - https://angularjs.org/
+* Angular  - https://angularjs.org/
 * ngx-charts (angular based d3 charts) - https://github.com/swimlane/ngx-charts
 * Semantic-UI - https://semantic-ui.com/
 * ng2-dnd drag and drop - https://github.com/akserg/ng2-dnd
-* angular material
 * AI Natural Language Processing - The board includes two options for AI, Wit.Ai and IBM Watson.
 * Wit.ai - Natural Language Processing site has been integrated via JSONP
 * IBM Watson - IBM Watson does not support JSONP so the code relies on a backend implementation of the IBM Watson SDK.
@@ -122,6 +121,20 @@ This project uses the compodoc project : https://github.com/compodoc/compodoc
 Run `npm install -g @compodoc/compodoc` to install compodoc globally
 Run `compodoc -p tsconfig.json -n 'NGX Dynamic Dashboard Framework'` to generate the documentation. It will be placed in the documentation folder
 Run `compodoc -s` to serve up the documentation site at http://localhost:8080
+
+## Spring Boot Backend Project
+
+There is an accompanying java based backend project that serves up some of the endpoints used by the board.
+
+`https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework-microservice`
+
+It is a maven based project so you will need to do the following: 
+* Install and configure Maven. 
+* Copy the dist directory produced from this project's build into the 
+`static` folder of the microservice project. 
+* Build the microservice project using `<directory path to maven bin folder>/mvn install`  from within the project's root directory. 
+* Launch the microservice over the default port: `http://localhost:8080` using `java -jar <path to the microservice root folder>/target/ngxdd-x.y.z.jar`
+
 
 ## Further help
 

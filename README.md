@@ -126,7 +126,7 @@ Run `compodoc -s` to serve up the documentation site at http://localhost:8080
 
 There is an accompanying java based backend project that serves up some of the endpoints used by the board.
 
-`https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework-microservice`
+[https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework-microservice](https://github.com/catalogicsoftware/ngx-dynamic-dashboard-framework-microservice)
 
 It is a maven based project so you will need to do the following: 
 * Install and configure Maven. 

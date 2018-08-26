@@ -116,15 +116,15 @@ export const boardLayouts = [
         rows: [{
             columns: [
                 {
-                    styleClass: 'five wide',
+                    styleClass: 'four wide',
 
                 },
                 {
-                    styleClass: 'five wide',
+                    styleClass: 'four wide',
 
                 },
                 {
-                    styleClass: 'five wide',
+                    styleClass: 'four wide',
 
                 }
             ]
@@ -140,17 +140,17 @@ export const boardLayouts = [
             {
                 columns: [
                     {
-                        styleClass: 'sixteen wide'
+                        styleClass: 'twelve wide'
                     }
                 ]
             },
             {
                 columns: [
                     {
-                        styleClass: 'eight wide'
+                        styleClass: 'six wide'
                     },
                     {
-                        styleClass: 'eight wide'
+                        styleClass: 'six wide'
                     }
                 ]
             }

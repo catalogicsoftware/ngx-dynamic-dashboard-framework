@@ -10,6 +10,7 @@ import {OptionsService} from "../../configuration/tab-options/service";
 import {startWith, switchMap} from "rxjs/operators";
 import {Observable} from "rxjs/Rx";
 import {ConfigurationService} from "../../services/configuration.service";
+
 declare var jQuery: any;
 
 @Component({
@@ -22,7 +23,7 @@ declare var jQuery: any;
 export class BarChartGadgetComponent extends GadgetBase {
 
     @ViewChild('chartOptionsSideBar_tag') chartOptionsSideBarRef: ElementRef;
-    chartOptionsSideBar:any;
+    chartOptionsSideBar: any;
 
     // chart options
     showXAxis: boolean;
@@ -31,14 +32,12 @@ export class BarChartGadgetComponent extends GadgetBase {
     showLegend: boolean;
     showXAxisLabel: boolean;
     showYAxisLabel: boolean;
-    verticalOrientation: boolean;
-
-    //todo - control these options from the property pages
-    yAxisLabel = 'committed';
-    xAxisLabel = 'used';
+    barChartType: string;
+    yAxisLabel: string;
+    xAxisLabel: string;
     view: any[];
     colorScheme: any = {
-        domain: ['#0d5481', '#0AFF16'] //todo - control color from property page
+        domain: ['#0AFF16', '#B2303B'] //todo - control color from property page
     };
     //////////////////
 
@@ -90,7 +89,10 @@ export class BarChartGadgetComponent extends GadgetBase {
         this.showLegend = this.getPropFromPropertyPages('showLegend');
         this.showXAxisLabel = this.getPropFromPropertyPages('showXAxisLabel');
         this.showYAxisLabel = this.getPropFromPropertyPages('showYAxisLabel');
-        this.verticalOrientation = this.getPropFromPropertyPages('orientation');
+        this.barChartType = this.getPropFromPropertyPages('barChartType');
+        this.yAxisLabel = this.getPropFromPropertyPages('yAxisLabel');
+        this.xAxisLabel = this.getPropFromPropertyPages('xAxisLabel');
+
     }
 
 
@@ -173,7 +175,9 @@ export class BarChartGadgetComponent extends GadgetBase {
             this.showLegend = updatedPropsObject.showLegend;
             this.showXAxisLabel = updatedPropsObject.showXAxisLabel;
             this.showYAxisLabel = updatedPropsObject.showYAxisLabel;
-            this.verticalOrientation = updatedPropsObject.orientation;
+            this.barChartType = updatedPropsObject.barChartType;
+            this.xAxisLabel = updatedPropsObject.xAxisLabel;
+            this.yAxisLabel = updatedPropsObject.yAxisLabel;
             this.setEndPoint(updatedPropsObject.endpoint);
             this.showOperationControls = true;
         }
@@ -192,6 +196,7 @@ export class BarChartGadgetComponent extends GadgetBase {
     public updateProperties(updatedProperties: any) {
 
         const updatedPropsObject = JSON.parse(updatedProperties);
+
 
         /**
          * update this tools property pages
@@ -240,8 +245,11 @@ export class BarChartGadgetComponent extends GadgetBase {
             + ",\"showLegend\":" + this.showLegend
             + ",\"showXAxisLabel\":" + this.showXAxisLabel
             + ",\"showYAxisLabel\":" + this.showYAxisLabel
-            + ",\"orientation\":" + this.verticalOrientation
-            + "}";
+            + ",\"barChartType\":\"" + this.barChartType
+            + "\",\"yAxisLabel\":\"" + this.yAxisLabel
+            + "\",\"xAxisLabel\":\"" + this.xAxisLabel
+            + "\"}";
+
 
         this._configService.notifyGadgetOnPropertyChange(payLoad, this.instanceId);
 
@@ -249,7 +257,7 @@ export class BarChartGadgetComponent extends GadgetBase {
 
     toggleChartProperties() {
 
-        if(this.globalOptions.displayGadgetOptionsInSideBar == false){
+        if (this.globalOptions.displayGadgetOptionsInSideBar == false) {
             this.toggleConfigMode();
             return;
         }

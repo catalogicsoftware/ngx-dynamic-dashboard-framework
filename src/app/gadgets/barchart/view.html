@@ -25,7 +25,7 @@
 
     <div class="ui grid">
         <div class="row">
-            <div *ngIf="!inConfig && verticalOrientation == true" style="min-height: 110px">
+            <div *ngIf="!inConfig && barChartType == 'normalizedVertical'" style="min-height: 300px">
                 <ngx-charts-bar-vertical-normalized
                         [view]="view"
                         [scheme]="colorScheme"
@@ -38,11 +38,11 @@
                         [showYAxisLabel]="showYAxisLabel"
                         [xAxisLabel]="xAxisLabel"
                         [yAxisLabel]="yAxisLabel"
-                        [barPadding]=30
+                        [barPadding]=15
                         (select)="drillDown($event)">
                 </ngx-charts-bar-vertical-normalized>
             </div>
-            <div *ngIf="!inConfig && verticalOrientation == false" style="min-height: 110px">
+            <div *ngIf="!inConfig && barChartType == 'normalizedHorizontal'" style="min-height: 300px">
                 <ngx-charts-bar-horizontal-normalized
                         [view]="view"
                         [scheme]="colorScheme"
@@ -55,15 +55,50 @@
                         [showYAxisLabel]="showYAxisLabel"
                         [xAxisLabel]="xAxisLabel"
                         [yAxisLabel]="yAxisLabel"
-                        [barPadding]=30
+                        [barPadding]=15
                         (select)="drillDown($event)">
                 </ngx-charts-bar-horizontal-normalized>
+            </div>
+            <div *ngIf="!inConfig && barChartType == 'stackedHorizontal'" style="min-height: 300px">
+                <ngx-charts-bar-horizontal-stacked
+                        [view]="view"
+                        [scheme]="colorScheme"
+                        [results]="data"
+                        [gradient]="gradient"
+                        [xAxis]="showXAxis"
+                        [yAxis]="showYAxis"
+                        [legend]="showLegend"
+                        [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel"
+                        [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel"
+                        [barPadding]=15
+                        (select)="drillDown($event)">
+                </ngx-charts-bar-horizontal-stacked>
+            </div>
+            <div *ngIf="!inConfig && barChartType == 'stackedVertical'" style="min-height: 300px">
+                <ngx-charts-bar-vertical-stacked
+                        [view]="view"
+                        [scheme]="colorScheme"
+                        [results]="data"
+                        [gradient]="gradient"
+                        [xAxis]="showXAxis"
+                        [yAxis]="showYAxis"
+                        [legend]="showLegend"
+                        [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel"
+                        [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel"
+                        [barPadding]=15
+                        (select)="drillDown($event)">
+                </ngx-charts-bar-vertical-stacked>
             </div>
         </div>
     </div>
 
     <!-- use the side bar content -->
-    <div *ngIf="globalOptions.displayGadgetOptionsInSideBar == true" class="ui sidebar left vertical menu" #chartOptionsSideBar_tag>
+    <div *ngIf="globalOptions.displayGadgetOptionsInSideBar == true" class="ui sidebar left vertical menu"
+         #chartOptionsSideBar_tag>
         <br>
         <div class="ct-title">{{title}}</div>
         <br>

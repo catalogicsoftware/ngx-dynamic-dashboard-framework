@@ -67,7 +67,7 @@
                 "type": "dropdown",
                 "key": "barChartType",
                 "label": "Bar Chart Type",
-                "value": "",
+                "value": "normalizedHorizontal",
                 "required": true,
                 "order": 1,
                 "options": [

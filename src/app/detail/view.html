@@ -12,7 +12,10 @@
     <div class="row">
         <div class="two wide column"></div>
         <div class="ten wide column">
-
+            <div class="ui fluid icon input">
+                <i class="search icon"></i>
+                <input [(ngModel)]="searchText" placeholder="search text goes here">
+            </div>
             <table class="ui celled table">
                 <thead>
                 <tr>
@@ -27,12 +30,12 @@
                     <th>Disk</th>
                     <th>Task Start</th>
                     <th>Task End</th>
-
+                    <th>Status</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let task of data; let i = index">
+                <tr *ngFor="let task of data | filter : searchText: searchText2 : searchText3; let i = index ">
                     <td>{{i + 1}}</td>
                     <td>{{task.master}}</td>
                     <td>{{task.jobName}}</td>
@@ -44,6 +47,7 @@
                     <td>{{task.disk}}</td>
                     <td>{{task.taskStart}}</td>
                     <td>{{task.taskEnd}}</td>
+                    <td>{{task.status}}</td>
                 </tr>
 
                 </tbody>

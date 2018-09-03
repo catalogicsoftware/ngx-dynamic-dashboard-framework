@@ -4,6 +4,7 @@ import {MatCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {DetailComponent} from './detail.component';
 import {DetailService} from "./service";
+import {FilterPipe} from "./filter.pipe";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {DetailService} from "./service";
         MatCheckboxModule
     ],
     declarations: [
-        DetailComponent
+        DetailComponent,
+        FilterPipe
     ],
     providers: [
         DetailService

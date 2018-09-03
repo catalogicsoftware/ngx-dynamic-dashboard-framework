@@ -57,7 +57,8 @@ export class BarChartGadgetComponent extends GadgetBase {
                 protected _barChartService: BarChartService,
                 private _changeDetectionRef: ChangeDetectorRef,
                 protected _optionsService: OptionsService,
-                private _configService: ConfigurationService
+                private _configService: ConfigurationService,
+                private _route: Router
     ) {
         super(_runtimeService,
             _gadgetInstanceService,
@@ -79,6 +80,8 @@ export class BarChartGadgetComponent extends GadgetBase {
         if (this.getPropFromPropertyPages('state') == this.RUN_STATE) {
             this.run();
         }
+
+        console.log("IN PRERUN **************");
     }
 
     initializeTheRemainderOfTheProperties() {
@@ -97,6 +100,7 @@ export class BarChartGadgetComponent extends GadgetBase {
 
 
     public run() {
+
         this.clearChartData();
         this.initializeRunState(true);
         this.updateData(null);
@@ -158,7 +162,14 @@ export class BarChartGadgetComponent extends GadgetBase {
     }
 
     public drillDown(data) {
-        // this._route.navigate(['/detail'], {});
+        this._route.navigate(['/detail'], {
+            queryParams:
+                {
+                    chartType:"bar",
+                    chartSeries: data.series,
+                    endPointName: this.endpointObject.name
+                }
+        });
     }
 
 

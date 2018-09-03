@@ -1,4 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {EndPointService} from "../configuration/tab-endpoint/endpoint.service";
+import {RuntimeService} from "../services/runtime.service";
+import {DetailService} from "./service";
 
 
 /**a
@@ -11,10 +15,31 @@ import { Component, OnInit} from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-    constructor() {
+    chartType: string;
+    chartSeries: string;
+    endPointName: string;
+    data=[];
+
+
+    constructor(private _route: ActivatedRoute,
+                private _endPointService: EndPointService,
+                private _detailService: DetailService
+    ) {
+
     }
 
     ngOnInit() {
+        this.chartType = this._route.snapshot.queryParams['chartType'];
+        this.chartSeries = this._route.snapshot.queryParams['chartSeries'];
+        this.endPointName = this._route.snapshot.queryParams['endPointName'];
+        this.getData();
 
+    }
+
+
+    getData() {
+        this._detailService.getDetailByChartSeriesSelected(this.chartType, this.chartSeries, this.endPointName).subscribe(data => {
+            this.data = data.slice();
+        })
     }
 }

@@ -14,8 +14,8 @@ export class RuntimeService {
 
     watsonMicroserviceURL: string;
     connectivityTestURL: string;
-    serviceVersionURL : string;
-    testURL = "localhost:8080";
+    serviceVersionURL: string;
+    testURL = "http://localhost:8080";
 
     static handleError(err: HttpErrorResponse | any) {
 
@@ -32,7 +32,7 @@ export class RuntimeService {
 
         } else {
             errMsg.status = err.status;
-            errMsg.statusText = 'A backend error occurred';
+            errMsg.statusText = 'A backend error occurred. In all likelihood the server/api service is not running.';
             errMsg.resource = err.url;
 
         }
@@ -54,7 +54,7 @@ export class RuntimeService {
         } else {
             this.connectivityTestURL = this.testURL + '/connectTest';
             this.watsonMicroserviceURL = this.testURL + '/classify';
-            this.serviceVersionURL = this.testURL + '/version'
+            this.serviceVersionURL = this.testURL + '/version';
         }
 
     }
@@ -76,7 +76,6 @@ export class RuntimeService {
 
     }
 
-
     /**
      * Wit AI can be called directly from a web server using JSONP
      * @param {string} aiStatement
@@ -85,7 +84,7 @@ export class RuntimeService {
     callWitAI(aiStatement: string) {
         console.log('running WitAi');
 
-        if(!environment.production) {
+        if (!environment.production) {
 
             let p = new HttpParams();
             if (!localStorage.getItem('Wit.aiToken')) {

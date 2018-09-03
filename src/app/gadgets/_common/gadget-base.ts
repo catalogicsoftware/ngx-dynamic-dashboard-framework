@@ -100,12 +100,12 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
     }
 
     public ngOnInit() {
-
-        this.toggleConfigMode();
-        this.changeDetectionRef.detectChanges();
+       this.toggleConfigMode();
+       this.changeDetectionRef.detectChanges();
     }
 
     public ngAfterViewInit() {
+
 
         if (this.propertyPageForm) {
 
@@ -211,7 +211,11 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
         this.setTitle(this.getPropFromPropertyPages('title'));
         this.setEndPoint(this.getPropFromPropertyPages('endpoint'));
 
-        this.preRun();
+        /**
+         *  Todo - remove this prerun call and refactor remaining code. Prerun was called twice and had an impact on the barchart api calls.
+         *  API calls continued after route changes which is undesirable. See ngAfterViewInit where it is also called from.
+         */
+        //this.preRun();
 
     }
 

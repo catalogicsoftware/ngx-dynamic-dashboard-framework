@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {MatCheckboxModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {DetailComponent} from './detail.component';
+import {DetailService} from "./service";
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import {DetailComponent} from './detail.component';
         DetailComponent
     ],
     providers: [
-
+        DetailService
     ],
     exports: [
         DetailComponent

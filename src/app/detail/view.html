@@ -35,7 +35,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let task of data | filter : searchText: searchText2 : searchText3; let i = index ">
+                <tr *ngFor="let task of data | filter : searchText: searchText2 : searchText3; let i = index " [ngClass]="{'negative': task.status != 'Completed'}">
                     <td>{{i + 1}}</td>
                     <td>{{task.master}}</td>
                     <td>{{task.jobName}}</td>

@@ -32,4 +32,15 @@ export class DetailService {
         return this._http.get<Array<any>>(this.detailURL, {params: p}).catch(RuntimeService.handleError)
 
     }
+    getDetail(url: string) {
+
+        return this._http.get<Array<any>>(url).catch(RuntimeService.handleError)
+
+    }
+
+    getRecord(url: string) {
+
+        return this._http.get<Array<any>>(url).catch(RuntimeService.handleError)
+
+    }
 }

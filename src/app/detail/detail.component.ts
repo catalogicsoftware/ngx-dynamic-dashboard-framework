@@ -11,7 +11,8 @@ import {DetailService} from "./service";
  */
 @Component({
     moduleId: module.id,
-    templateUrl: './view.html'
+    templateUrl: './view.html',
+    styleUrls: ['styles.css']
 })
 export class DetailComponent implements OnInit {
 
@@ -19,11 +20,7 @@ export class DetailComponent implements OnInit {
     chartSeries: string;
     chartMetric: string;
     endPointName: string;
-    data=[];
-    searchText:string;
-    searchText2:string;
-    searchText3:string;
-
+    data = [];
 
     constructor(private _route: ActivatedRoute,
                 private _endPointService: EndPointService,
@@ -41,10 +38,31 @@ export class DetailComponent implements OnInit {
 
     }
 
+    getRecord(record: any){
+        //show detail record view
+    }
+
+    getDetail(detail: any) {
+
+        let href = "";
+        detail.links.forEach(link => {
+            if (link.rel == 'self') {
+                href = link.href;
+            }
+        });
+        this._detailService.getDetail(href).subscribe(data => {
+            this.data = data.slice();
+        });
+        let pathParts = href.split('/');
+        this.chartMetric = '';
+        this.chartSeries = this.chartSeries.toLocaleLowerCase() +  ' for ' + pathParts[pathParts.length - 1] ;
+    }
+
 
     getData() {
-        this._detailService.getDetailByChartSeriesSelected(this.chartType, this.chartSeries,this.chartMetric, this.endPointName).subscribe(data => {
+        this._detailService.getDetailByChartSeriesSelected(this.chartType, this.chartSeries, this.chartMetric, this.endPointName).subscribe(data => {
             this.data = data.slice();
-        })
+        });
+        this.chartSeries = this.chartSeries.toLocaleLowerCase() +  ' record(s)';
     }
 }

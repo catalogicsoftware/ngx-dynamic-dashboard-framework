@@ -1,0 +1,7 @@
+a,
+a label {
+    cursor: pointer;
+}
+.ui.input>input{
+    border:none;
+}

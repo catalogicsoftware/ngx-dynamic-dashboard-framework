@@ -164,11 +164,13 @@ export class BarChartGadgetComponent extends GadgetBase {
     }
 
     public drillDown(data) {
+        console.log(data);
         this._route.navigate(['/detail'], {
             queryParams:
                 {
                     chartType:"bar",
                     chartSeries: data.series,
+                    chartMetric: data.name,
                     endPointName: this.endpointObject.name
                 }
         });

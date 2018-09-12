@@ -17,6 +17,7 @@ export class DetailComponent implements OnInit {
 
     chartType: string;
     chartSeries: string;
+    chartMetric: string;
     endPointName: string;
     data=[];
     searchText:string;
@@ -34,6 +35,7 @@ export class DetailComponent implements OnInit {
     ngOnInit() {
         this.chartType = this._route.snapshot.queryParams['chartType'];
         this.chartSeries = this._route.snapshot.queryParams['chartSeries'];
+        this.chartMetric = this._route.snapshot.queryParams['chartMetric'];
         this.endPointName = this._route.snapshot.queryParams['endPointName'];
         this.getData();
 
@@ -41,7 +43,7 @@ export class DetailComponent implements OnInit {
 
 
     getData() {
-        this._detailService.getDetailByChartSeriesSelected(this.chartType, this.chartSeries, this.endPointName).subscribe(data => {
+        this._detailService.getDetailByChartSeriesSelected(this.chartType, this.chartSeries,this.chartMetric, this.endPointName).subscribe(data => {
             this.data = data.slice();
         })
     }

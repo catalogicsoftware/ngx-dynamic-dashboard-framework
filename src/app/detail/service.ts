@@ -19,7 +19,7 @@ export class DetailService {
         }
 
     }
-    getDetailByChartSeriesSelected(chartType: string, chartSeries: string, endPointName: string) {
+    getDetailByChartSeriesSelected(chartType: string, chartSeries: string, chartMetric: string, endPointName: string) {
 
         /**
          * Todo - review these parameters and make them more meaningful. The goal is to send to the service
@@ -27,6 +27,7 @@ export class DetailService {
          */
         let p = new HttpParams();
         p = p.append("detailParam", chartSeries);
+        p = p.append("detailMetric", chartMetric);
 
         return this._http.get<Array<any>>(this.detailURL, {params: p}).catch(RuntimeService.handleError)
 

@@ -2,9 +2,9 @@
     <div class="row">
         <div class="two wide column"></div>
         <div class="ten wide column left aligned">
-            <H1>
-                {{data.length}} {{chartSeries}} Results
-            </H1>
+            <H2>
+                {{data.length}} {{chartMetric}} {{chartSeries}} Results
+            </H2>
         </div>
         <div class="two wide column"></div>
     </div>
@@ -16,13 +16,12 @@
                 <i class="search icon"></i>
                 <input [(ngModel)]="searchText" placeholder="search text goes here">
             </div>
-            <table class="ui celled table">
+            <table class="ui celled compact fixed table">
                 <thead>
                 <tr>
                     <th></th>
                     <th>Master</th>
                     <th>Job Name</th>
-                    <th>Type</th>
                     <th>Sub Type</th>
                     <th>Job Id</th>
                     <th>Task Id</th>
@@ -30,7 +29,6 @@
                     <th>Disk</th>
                     <th>Task Start</th>
                     <th>Task End</th>
-                    <th>Status</th>
 
                 </tr>
                 </thead>
@@ -39,7 +37,6 @@
                     <td>{{i + 1}}</td>
                     <td>{{task.master}}</td>
                     <td>{{task.jobName}}</td>
-                    <td>{{task.type}}</td>
                     <td>{{task.subType}}</td>
                     <td>{{task.jobId}}</td>
                     <td>{{task.taskId}}</td>
@@ -47,7 +44,6 @@
                     <td>{{task.disk}}</td>
                     <td>{{task.taskStart}}</td>
                     <td>{{task.taskEnd}}</td>
-                    <td>{{task.status}}</td>
                 </tr>
 
                 </tbody>

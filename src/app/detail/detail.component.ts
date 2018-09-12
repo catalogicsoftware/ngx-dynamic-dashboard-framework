@@ -21,6 +21,7 @@ export class DetailComponent implements OnInit {
     chartMetric: string;
     endPointName: string;
     data = [];
+    searchText:string;
 
     constructor(private _route: ActivatedRoute,
                 private _endPointService: EndPointService,

@@ -22,6 +22,8 @@ export class DetailComponent implements OnInit {
     endPointName: string;
     data = [];
     searchText:string;
+    searchText2:string;
+    searchText3:string;
 
     constructor(private _route: ActivatedRoute,
                 private _endPointService: EndPointService,

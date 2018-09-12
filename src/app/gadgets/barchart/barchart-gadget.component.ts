@@ -33,6 +33,7 @@ export class BarChartGadgetComponent extends GadgetBase {
     showXAxisLabel: boolean;
     showYAxisLabel: boolean;
     barChartType: string;
+    showDataLabel: boolean;
     yAxisLabel: string;
     xAxisLabel: string;
     view: any[];
@@ -93,6 +94,7 @@ export class BarChartGadgetComponent extends GadgetBase {
         this.showXAxisLabel = this.getPropFromPropertyPages('showXAxisLabel');
         this.showYAxisLabel = this.getPropFromPropertyPages('showYAxisLabel');
         this.barChartType = this.getPropFromPropertyPages('barChartType');
+        this.showDataLabel = this.getPropFromPropertyPages('showDataLabel');
         this.yAxisLabel = this.getPropFromPropertyPages('yAxisLabel');
         this.xAxisLabel = this.getPropFromPropertyPages('xAxisLabel');
 
@@ -187,6 +189,7 @@ export class BarChartGadgetComponent extends GadgetBase {
             this.showXAxisLabel = updatedPropsObject.showXAxisLabel;
             this.showYAxisLabel = updatedPropsObject.showYAxisLabel;
             this.barChartType = updatedPropsObject.barChartType;
+            this.showDataLabel = updatedPropsObject.showDataLabel;
             this.xAxisLabel = updatedPropsObject.xAxisLabel;
             this.yAxisLabel = updatedPropsObject.yAxisLabel;
             this.setEndPoint(updatedPropsObject.endpoint);
@@ -256,6 +259,7 @@ export class BarChartGadgetComponent extends GadgetBase {
             + ",\"showLegend\":" + this.showLegend
             + ",\"showXAxisLabel\":" + this.showXAxisLabel
             + ",\"showYAxisLabel\":" + this.showYAxisLabel
+            + ",\"showDataLabel\":" + this.showDataLabel
             + ",\"barChartType\":\"" + this.barChartType
             + "\",\"yAxisLabel\":\"" + this.yAxisLabel
             + "\",\"xAxisLabel\":\"" + this.xAxisLabel

@@ -117,11 +117,20 @@
               {
                 "controlType": "checkbox",
                 "type": "checkbox",
+                "key": "showDataLabel",
+                "label": "Show data label",
+                "value": true,
+                "required": false,
+                "order": 5
+              },
+              {
+                "controlType": "checkbox",
+                "type": "checkbox",
                 "key": "showXAxis",
                 "label": "Show x axis",
                 "value": true,
                 "required": false,
-                "order": 5
+                "order": 6
               },
               {
                 "controlType": "checkbox",
@@ -130,7 +139,7 @@
                 "label": "Show y axis",
                 "value": true,
                 "required": false,
-                "order": 6
+                "order": 7
               },
               {
                 "controlType": "checkbox",
@@ -139,7 +148,7 @@
                 "label": "Show chart legend",
                 "value": true,
                 "required": false,
-                "order": 7
+                "order": 8
               },
               {
                 "controlType": "checkbox",
@@ -148,7 +157,7 @@
                 "label": "Show x axis label",
                 "value": true,
                 "required": false,
-                "order": 8
+                "order": 9
               },
               {
                 "controlType": "checkbox",
@@ -157,7 +166,7 @@
                 "label": "Show y axis label",
                 "value": false,
                 "required": false,
-                "order": 9
+                "order": 10
               }
             ]
           }

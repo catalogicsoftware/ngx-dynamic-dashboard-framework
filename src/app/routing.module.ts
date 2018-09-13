@@ -20,13 +20,15 @@ export const routes: Routes = [
     },
     {
         path: 'detail',
-        component: DetailComponent
-    }
+        component: DetailComponent,
+        runGuardsAndResolvers: 'always'
+    },
+
 
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes,{onSameUrlNavigation: 'reload'})],
     exports: [RouterModule]
 })
 export class RoutingModule {

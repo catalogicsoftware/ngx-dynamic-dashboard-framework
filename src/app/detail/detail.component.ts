@@ -22,10 +22,10 @@ export class DetailComponent implements OnInit {
     endPointName: string;
     data = [];
     searchText: string;
-    searchText2: string;
-    searchText3: string;
     navRoutes: Array<string> = [];
     navigationSubscription: any;
+    recordFields:any;
+    recordObject=[];
 
 
     constructor(private _router: Router,
@@ -51,7 +51,16 @@ export class DetailComponent implements OnInit {
     }
 
     getRecord(record: any) {
-        //show detail record view
+       console.log(record);
+       this.recordObject=[];
+       this.recordFields = [];
+
+       this.recordFields = Object.keys(record);
+
+       this.recordFields.forEach(key=>{
+
+           this.recordObject.push({"key": key, "value":record[key]});
+       })
     }
 
     getDetail(detail: any) {

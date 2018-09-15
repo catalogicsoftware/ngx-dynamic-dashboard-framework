@@ -1,20 +1,19 @@
 <div class="ui centered stackable grid" style="margin-left: 5px; margin-right: 5px">
     <div class="row">
-        <div class="two wide column"></div>
+        <div class="three wide column"></div>
         <div class="ten wide column left aligned">
             <div class="ui left aligned  segment">
-
                 <div class="ui breadcrumb">
 
                     <a class="section" (click)="goHome()">Home</a>
 
                     <span *ngFor="let nav of navRoutes,let i = index">
                         <span class="divider">/</span>
-                        <a class="section" (click)="gotToRoute(nav, navRoutes.length -1 == i)"  [ngClass]="{'active': navRoutes.length -1 == i }">{{nav}}</a>
+                        <a class="section" (click)="gotToRoute(nav, navRoutes.length -1 == i)"
+                           [ngClass]="{'active': navRoutes.length -1 == i }">{{nav}}</a>
                     </span>
 
                 </div>
-
                 <div class="ui right aligned basic segment">
                     <H4>
                         {{data.length}} {{chartMetric}} {{chartSeries}}
@@ -37,13 +36,13 @@
                         <th>Disk</th>
                         <th>Task Start</th>
                         <th>Task End</th>
-
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let task of data | filter : searchText: searchText2 : searchText3; let i = index "
-                        [ngClass]="{'negative': task.status != 'Completed'}">
-                        <td>{{i + 1}}</td>
+                    <tr *ngFor="let task of data | filter : searchText; let i = index ">
+                        <td [ngClass]="{'negative': task.status != 'Completed', 'positive': task.status == 'Completed' }">
+                            {{i + 1}}
+                        </td>
                         <td>{{task.master}}</td>
                         <td>{{task.jobName}}</td>
                         <td>{{task.subType}}</td>
@@ -54,8 +53,20 @@
                         <td>{{task.taskStart}}</td>
                         <td>{{task.taskEnd}}</td>
                     </tr>
-
                     </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="three wide column">
+            <div class="ui  segment" *ngIf="recordObject.length">
+
+                <table class="ui celled compact fixed table">
+
+                    <tr *ngFor="let item of recordObject; ">
+                        <td class="field">{{item.key}}</td>
+                        <td>{{item.value}}</td>
+                    </tr>
+
                 </table>
             </div>
         </div>

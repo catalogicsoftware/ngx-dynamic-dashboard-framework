@@ -24,8 +24,7 @@ export class DetailComponent implements OnInit {
     searchText: string;
     navRoutes: Array<string> = [];
     navigationSubscription: any;
-    recordFields:any;
-    recordObject=[];
+    objectAsArray = [];
 
 
     constructor(private _router: Router,
@@ -36,7 +35,7 @@ export class DetailComponent implements OnInit {
         this.navigationSubscription = this._router.events.subscribe((e: any) => {
             // If it is a NavigationEnd event re-initalise the component
             if (e instanceof NavigationEnd) {
-                this.getData(true);
+                this.getObjectsByMetric(true);
             }
         });
     }
@@ -46,25 +45,23 @@ export class DetailComponent implements OnInit {
         this.chartSeries = this._route.snapshot.queryParams['chartSeries'];
         this.chartMetric = this._route.snapshot.queryParams['chartMetric'];
         this.endPointName = this._route.snapshot.queryParams['endPointName'];
-        this.getData(false);
+        this.getObjectsByMetric(false);
 
     }
 
-    getRecord(record: any) {
-       console.log(record);
-       this.recordObject=[];
-       this.recordFields = [];
+    getObject(record: any) {
+        this.clearDetailDisplay();
 
-       this.recordFields = Object.keys(record);
+        Object.keys(record).forEach(key => {
 
-       this.recordFields.forEach(key=>{
-
-           this.recordObject.push({"key": key, "value":record[key]});
-       })
+            if (key.indexOf("link") < 0) {
+                this.objectAsArray.push({"key": key, "value": record[key]});
+            }
+        })
     }
 
-    getDetail(detail: any) {
-
+    getObjectsByHateoasLink(detail: any) {
+        this.clearDetailDisplay();
 
         let href = "";
         detail.links.forEach(link => {
@@ -88,7 +85,9 @@ export class DetailComponent implements OnInit {
     }
 
 
-    getData(isReload: boolean) {
+    getObjectsByMetric(isReload: boolean) {
+        this.clearDetailDisplay();
+
         this._detailService.getDetailByChartSeriesSelected(this.chartType, this.chartSeries, this.chartMetric, this.endPointName).subscribe(data => {
             this.data = data.slice();
         });
@@ -125,5 +124,9 @@ export class DetailComponent implements OnInit {
                     }
             });
         }
+    }
+
+    clearDetailDisplay() {
+        this.objectAsArray = [];
     }
 }

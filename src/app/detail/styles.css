@@ -3,7 +3,26 @@ a label {
     cursor: pointer;
 }
 
-.field{
+.field {
     background: #4a95c3;
-    color:white;
+    color: white;
+}
+
+.ui .breadcrumb {
+    font-size: 1.28571429rem;
+}
+
+.detail-right-header {
+    color: #616161;
+    font-size: 1.2rem;
+    float: right;
+}
+
+.detail-left-header {
+    color: #616161;
+    font-size: 1.2rem;
+
+}
+.label{
+    background: transparent;
 }

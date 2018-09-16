@@ -2,22 +2,29 @@
     <div class="row">
         <div class="three wide column"></div>
         <div class="ten wide column left aligned">
-            <div class="ui left aligned  segment">
-                <div class="ui breadcrumb">
 
-                    <a class="section" (click)="goHome()">Home</a>
+            <div class="ui breadcrumb">
+                <a class="section" (click)="goHome()">Board</a>
 
-                    <span *ngFor="let nav of navRoutes,let i = index">
-                        <span class="divider">/</span>
-                        <a class="section" (click)="gotToRoute(nav, navRoutes.length -1 == i)"
+                <span *ngFor="let nav of navRoutes,let i = index">
+                    <span class="divider">/</span>
+                    <a class="section" (click)="gotToRoute(nav, navRoutes.length -1 == i)"
                            [ngClass]="{'active': navRoutes.length -1 == i }">{{nav}}</a>
+                </span>
+
+            </div>
+
+            <div class="ui segment">
+                <div class="ui top right attached label"><i class="big download icon"></i></div>
+
+                <div class="ui  basic segment">
+                     <span class="detail-left-header">
+                        Type: {{chartSeries}}
+                    </span>
+                    <span class="detail-right-header">
+                       Count: {{data.length}} Tasks
                     </span>
 
-                </div>
-                <div class="ui right aligned basic segment">
-                    <H4>
-                        {{data.length}} {{chartMetric}} {{chartSeries}}
-                    </H4>
                 </div>
                 <div class="ui fluid icon input">
                     <i class="search icon"></i>
@@ -46,8 +53,8 @@
                         <td>{{task.master}}</td>
                         <td>{{task.jobName}}</td>
                         <td>{{task.subType}}</td>
-                        <td><a (click)="getDetail(task)">{{task.jobId}}</a></td>
-                        <td><a (click)="getRecord(task)">{{task.taskId}}</a></td>
+                        <td><a (click)="getObjectsByHateoasLink(task)">{{task.jobId}}</a></td>
+                        <td><a (click)="getObject(task)">{{task.taskId}}</a></td>
                         <td>{{task.node}}</td>
                         <td>{{task.disk}}</td>
                         <td>{{task.taskStart}}</td>
@@ -57,14 +64,22 @@
                 </table>
             </div>
         </div>
+
         <div class="three wide column">
-            <div class="ui  segment" *ngIf="recordObject.length">
+            <div class="ui breadcrumb">
+                &nbsp;
+            </div>
+            <div class="ui  segment" *ngIf="objectAsArray.length">
+                <div class="ui top right attached label"><i class="big download icon"></i></div>
+
+                <div class="ui  basic segment">
+                    <span class="detail-left-header">Detail</span>
+                </div>
 
                 <table class="ui celled compact fixed table">
-
-                    <tr *ngFor="let item of recordObject; ">
-                        <td class="field">{{item.key}}</td>
-                        <td>{{item.value}}</td>
+                    <tr *ngFor="let property of objectAsArray; ">
+                        <td class="field">{{property.key}}</td>
+                        <td>{{property.value}}</td>
                     </tr>
 
                 </table>

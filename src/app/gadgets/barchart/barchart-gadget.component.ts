@@ -164,7 +164,9 @@ export class BarChartGadgetComponent extends GadgetBase {
     }
 
     public drillDown(data) {
-        console.log(data);
+
+        this.stopWithoutStateSave();
+
         this._route.navigate(['/detail'], {
             queryParams:
                 {

@@ -49,9 +49,38 @@ export class GridComponent {
                 private _menuEventService: MenuEventService) {
 
 
+        this.removeOldListeners();
+
         this.setupEventListeners();
         this.initializeBoard();
         this.getGadgetLibrary();
+
+    }
+
+    /**
+     * todo - Need to officially unsubscribe - This is a temporary attempt to avoid emitting events from stale listeners.
+     * Most severe symptom is when you drill down and then change the layout.
+     * Multiple events are triggered per action due to the services not
+     * getting destroyed when coming into the main board from a child route. The end result is multiple gadget instances
+     * appearing. The following code improves the condition but there still are issues with multiple gadgets appearing
+     * when changing the layout.
+     *
+     */
+    removeOldListeners(){
+
+        if (this._menuEventService.getMenuSubject().observers.length) {
+            this._menuEventService.getMenuSubject().observers.splice(0, this._menuEventService.getMenuSubject().observers.length);
+
+        }
+        if (this._menuEventService.getGridSubject().observers.length) {
+            this._menuEventService.getGridSubject().observers.splice(0, this._menuEventService.getGridSubject().observers.length);
+
+        }
+        if (this._gadgetInstanceService.getGadgetInstanceSubject().observers.length) {
+            this._gadgetInstanceService.getGadgetInstanceSubject().observers.splice(0, this._gadgetInstanceService.getGadgetInstanceSubject().observers.length);
+        }
+
+        this._gadgetInstanceService.clearAllInstances();
 
     }
 
@@ -221,6 +250,7 @@ export class GridComponent {
 
     public updateBoardLayout(structure) {
 
+        console.log("IN UPDATE BOARD LAYOUT");
 
         // user selected the currently selected layout
         if (structure.id === this.getModel().id) {
@@ -418,7 +448,7 @@ export class GridComponent {
 
         this._configurationService.saveBoard(this.getModel()).subscribe(result => {
 
-                this._toastService.sendMessage(this.getModel().title +  ' has been updated!', '');
+                this._toastService.sendMessage(this.getModel().title + ' has been updated!', '');
 
                 if (alertBoardListenerThatTheMenuShouldBeUpdated) {
                     this._menuEventService.raiseGridEvent({name: 'boardUpdateEvent', data: this.getModel().title});

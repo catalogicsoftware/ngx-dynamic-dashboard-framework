@@ -32,7 +32,6 @@ export class GadgetInstanceService {
             this.concreteGadgetInstances.push(gadget);
 
         }
-
     }
 
     enableConfigureMode() {
@@ -97,8 +96,26 @@ export class GadgetInstanceService {
         return this.subject.asObservable();
     }
 
+    getGadgetInstanceSubject(){
+        /**
+         * todo - need to unsubscribe
+         */
+        return this.subject;
+
+    }
+
     clearAllInstances() {
+
+        for (let x = 0; x < this.concreteGadgetInstances.length; x++) {
+
+            const _gadget = this.concreteGadgetInstances.splice(x, 1);
+
+            _gadget[0].destroy();
+
+        }
+
         this.concreteGadgetInstances.length = 0;
+
     }
 
 }

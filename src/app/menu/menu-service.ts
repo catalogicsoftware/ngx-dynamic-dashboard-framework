@@ -29,6 +29,12 @@ export class MenuEventService {
     listenForMenuEvents(): Observable<IEvent> {
         return this.menuSubject.asObservable();
     }
+    getMenuSubject(){
+        /**
+         * todo - need to unsubscribe
+         */
+        return this.menuSubject;
+    }
 
     raiseGridEvent(event: IEvent) {
         this.menuSubject.next(event);
@@ -37,4 +43,12 @@ export class MenuEventService {
     listenForGridEvents(): Observable<IEvent> {
         return this.gridSubject.asObservable();
     }
+
+    getGridSubject(){
+        /**
+         * todo - need to unsubscribe
+         */
+        return this.gridSubject;
+    }
+
 }

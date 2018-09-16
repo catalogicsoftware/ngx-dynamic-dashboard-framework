@@ -106,7 +106,7 @@ export class DetailComponent implements OnInit {
     }
 
     goHome() {
-        this._router.navigate(["/"]);
+        this._router.navigate(["/main-board"]);
     }
 
     gotToRoute(nav: string, disabled: boolean) {

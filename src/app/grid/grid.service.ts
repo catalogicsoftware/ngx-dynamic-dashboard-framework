@@ -15,6 +15,7 @@ export class GadgetInstanceService {
     private concreteGadgetInstances: any[] = [];
     private model: any;
     private subject: Subject<string> = new Subject<string>();
+    private subscribers: Array<Subject<string>> = [];
 
     constructor() {
     }
@@ -43,6 +44,7 @@ export class GadgetInstanceService {
 
     removeInstance(id: number) {
 
+        console.log("REMOVING GADGET");
         // remove instance representation from model
         this.model.rows.forEach(function (row) {
             row.columns.forEach(function (column) {
@@ -96,26 +98,23 @@ export class GadgetInstanceService {
         return this.subject.asObservable();
     }
 
-    getGadgetInstanceSubject(){
-        /**
-         * todo - need to unsubscribe
-         */
-        return this.subject;
-
+    addSubscriber(subscriber: any) {
+        this.subscribers.push(subscriber);
     }
 
+    unSubscribeAll() {
+
+        this.subscribers.forEach(subscription => {
+            subscription.unsubscribe();
+        });
+
+        this.subscribers.length = 0;
+        this.clearAllInstances();
+
+    }
     clearAllInstances() {
 
-        for (let x = 0; x < this.concreteGadgetInstances.length; x++) {
-
-            const _gadget = this.concreteGadgetInstances.splice(x, 1);
-
-            _gadget[0].destroy();
-
-        }
-
         this.concreteGadgetInstances.length = 0;
-
     }
 
 }

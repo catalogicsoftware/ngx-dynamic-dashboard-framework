@@ -18,6 +18,7 @@ export class MenuEventService {
 
     private menuSubject: Subject<IEvent> = new Subject<IEvent>();
     private gridSubject: Subject<IEvent> = new Subject<IEvent>();
+    private subscribers: Array<Subject<string>> =[];
 
     constructor() {
     }
@@ -29,12 +30,7 @@ export class MenuEventService {
     listenForMenuEvents(): Observable<IEvent> {
         return this.menuSubject.asObservable();
     }
-    getMenuSubject(){
-        /**
-         * todo - need to unsubscribe
-         */
-        return this.menuSubject;
-    }
+
 
     raiseGridEvent(event: IEvent) {
         this.menuSubject.next(event);
@@ -44,11 +40,16 @@ export class MenuEventService {
         return this.gridSubject.asObservable();
     }
 
-    getGridSubject(){
-        /**
-         * todo - need to unsubscribe
-         */
-        return this.gridSubject;
+    addSubscriber(subscriber:any){
+        this.subscribers.push(subscriber);
     }
+    unSubscribeAll(){
 
+        this.subscribers.forEach(subscription=>{
+            subscription.unsubscribe();
+        });
+
+        this.subscribers.length = 0;
+
+    }
 }

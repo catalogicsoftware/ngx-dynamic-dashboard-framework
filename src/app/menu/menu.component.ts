@@ -44,12 +44,14 @@ export class MenuComponent implements OnInit {
     constructor(private _configurationService: ConfigurationService,
                 private _menuEventService: MenuEventService) {
 
+        this._menuEventService.unSubscribeAll();
+
         this.setupEventListeners();
         this.env = environment;
     }
 
     setupEventListeners() {
-        this._menuEventService.listenForGridEvents().subscribe((event: IEvent) => {
+       let gridEventSubscription =  this._menuEventService.listenForGridEvents().subscribe((event: IEvent) => {
 
             const edata = event['data'];
 
@@ -60,6 +62,9 @@ export class MenuComponent implements OnInit {
             }
 
         });
+
+       this._menuEventService.addSubscriber(gridEventSubscription);
+
     }
 
     ngOnInit() {
@@ -80,7 +85,6 @@ export class MenuComponent implements OnInit {
     emitBoardCreateEvent(event) {
         this._menuEventService.raiseMenuEvent({name: 'boardCreateEvent', data: event});
         this.updateDashboardMenu(event);
-        console.log("Emitting creating new board event from menu component: " + event);
     }
 
     emitBoardEditEvent(event) {

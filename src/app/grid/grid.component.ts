@@ -68,29 +68,19 @@ export class GridComponent {
      */
     removeOldListeners(){
 
-        if (this._menuEventService.getMenuSubject().observers.length) {
-            this._menuEventService.getMenuSubject().observers.splice(0, this._menuEventService.getMenuSubject().observers.length);
-
-        }
-        if (this._menuEventService.getGridSubject().observers.length) {
-            this._menuEventService.getGridSubject().observers.splice(0, this._menuEventService.getGridSubject().observers.length);
-
-        }
-        if (this._gadgetInstanceService.getGadgetInstanceSubject().observers.length) {
-            this._gadgetInstanceService.getGadgetInstanceSubject().observers.splice(0, this._gadgetInstanceService.getGadgetInstanceSubject().observers.length);
-        }
-
-        this._gadgetInstanceService.clearAllInstances();
+        this._gadgetInstanceService.unSubscribeAll();
+        this._menuEventService.unSubscribeAll();
 
     }
 
     setupEventListeners() {
 
-        this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
+        let gadgetRemoveEventSubscriber = this._gadgetInstanceService.listenForInstanceRemovedEventsFromGadgets().subscribe((message: string) => {
             this.saveBoard('Gadget Removed From Board: ' + message, false);
         });
 
-        this._menuEventService.listenForMenuEvents().subscribe((event: IEvent) => {
+
+        let menuEventSubscriber = this._menuEventService.listenForMenuEvents().subscribe((event: IEvent) => {
             const edata = event['data'];
 
             switch (event['name']) {
@@ -117,6 +107,10 @@ export class GridComponent {
                     break;
             }
         });
+
+        this._gadgetInstanceService.addSubscriber(gadgetRemoveEventSubscriber);
+        this._menuEventService.addSubscriber(menuEventSubscriber);
+
     }
 
     /**

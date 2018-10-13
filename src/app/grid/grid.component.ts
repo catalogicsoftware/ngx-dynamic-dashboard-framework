@@ -58,7 +58,7 @@ export class GridComponent {
     }
 
     /**
-     * todo - Need to officially unsubscribe - This is a temporary attempt to avoid emitting events from stale listeners.
+     * todo - This is a temporary attempt to avoid emitting events from stale listeners.
      * Most severe symptom is when you drill down and then change the layout.
      * Multiple events are triggered per action due to the services not
      * getting destroyed when coming into the main board from a child route. The end result is multiple gadget instances

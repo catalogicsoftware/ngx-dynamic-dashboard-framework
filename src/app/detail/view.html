@@ -15,7 +15,7 @@
             </div>
 
             <div class="ui segment">
-                <div class="ui top right attached label"><i class="big download icon"></i></div>
+                <div class="ui top right attached label"><i class="big grey download icon"></i></div>
 
                 <div class="ui  basic segment">
                      <span class="detail-left-header">
@@ -34,6 +34,7 @@
                     <thead>
                     <tr>
                         <th></th>
+                        <th style="text-align: center">Status</th>
                         <th>Master</th>
                         <th>Job Name</th>
                         <th>Sub Type</th>
@@ -50,6 +51,10 @@
                         <td [ngClass]="{'negative': task.status != 'Completed', 'positive': task.status == 'Completed' }">
                             {{i + 1}}
                         </td>
+                        <td style="text-align: center"><i class="icon large "[ngClass]="{
+                        'red ban': task.status != 'Completed',
+                        'green check': task.status == 'Completed'
+                        }"></i></td>
                         <td>{{task.master}}</td>
                         <td>{{task.jobName}}</td>
                         <td>{{task.subType}}</td>

@@ -26,3 +26,8 @@ a label {
 .label{
     background: transparent;
 }
+
+.active{
+    color:grey !important;
+    font-weight: normal !important;
+}

@@ -2,7 +2,7 @@
  * Created by jayhamilton on 1/18/17.
  */
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {throwError,Observable} from 'rxjs';
 import {catchError} from "rxjs/operators";
 import {ErrorHandler} from '../error/error-handler';
 import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
@@ -37,7 +37,7 @@ export class RuntimeService {
 
         }
 
-        return Observable.throw(ErrorHandler.getErrorObject(errMsg));
+        return throwError(ErrorHandler.getErrorObject(errMsg));
 
     }
 

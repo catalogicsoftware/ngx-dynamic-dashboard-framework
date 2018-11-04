@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable, timer} from 'rxjs';
 import {RuntimeService} from '../../services/runtime.service';
 import {HttpClient} from '@angular/common/http';
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class TrendLineService {
@@ -59,7 +60,7 @@ export class TrendLineService {
 
     public get(collectors: any[]) {
         return new Observable(observer => {
-            Observable.timer(500, 5000).subscribe(t => {
+            timer(500, 5000).subscribe(t => {
 
                 const data = [];
                 collectors.forEach(collector => {
@@ -78,7 +79,9 @@ export class TrendLineService {
     getHelpTopic() {
 
         return this._http.get('/assets/api/trendline-help-model.json')
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
 }

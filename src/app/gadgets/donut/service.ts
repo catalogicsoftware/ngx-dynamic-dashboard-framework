@@ -4,9 +4,9 @@
 
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
-import {TrendLineService} from '../trend-line/service';
-import {Observable} from 'rxjs/Observable';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {timer, Observable} from 'rxjs';
+import {catchError} from "rxjs/operators";
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class DonutService {
@@ -16,18 +16,22 @@ export class DonutService {
 
     get() {
         return this._http.get<any[]>('/assets/api/donut-model.json')
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
     }
 
     getHelpTopic() {
 
         return this._http.get('/assets/api/disk-help-model.json')
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
     }
 
     poll() {
         return new Observable(observer => {
-            Observable.timer(500, 10000).subscribe(t => {
+            timer(500, 10000).subscribe(t => {
                 observer.next();
             });
         });

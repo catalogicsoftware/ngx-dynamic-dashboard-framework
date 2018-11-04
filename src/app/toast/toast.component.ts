@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastService} from './toast.service';
 import {Message} from './message';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Observable} from 'rxjs/Observable';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {timer} from 'rxjs';
+
 
 @Component({
     selector: 'app-toast',
@@ -34,7 +35,7 @@ export class ToastComponent implements OnInit {
         this.messages = this._toastService.getMessages();
 
 
-        Observable.timer(7000, 7000).subscribe(t => {
+        timer(7000, 7000).subscribe(t => {
 
             this.messages.forEach(message => {
 

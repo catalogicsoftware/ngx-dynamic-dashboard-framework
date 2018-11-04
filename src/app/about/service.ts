@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {RuntimeService} from "../services/runtime.service";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class AboutService {
@@ -27,7 +28,10 @@ export class AboutService {
 
         }
 
-        return this._http.get(url).catch(RuntimeService.handleError);
+        return this._http.get(url)
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
     }
 
 }

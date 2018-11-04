@@ -5,12 +5,6 @@ import {
     ViewChild, ElementRef, AfterViewInit, Component, Input
 } from '@angular/core';
 
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
-
-
-
 declare var jQuery: any;
 
 /**
@@ -44,15 +38,6 @@ export class HelpModalComponent implements AfterViewInit {
     constructor() {
     }
 
-
-    popConfigModal(icon: string, header: string, message: string, durationms: number) {
-        this.showMessageModal(icon, header, message);
-        Observable.interval(durationms).take(1).subscribe(
-            () => {
-                this.hideMessageModal();
-            }
-        );
-    }
 
     showMessageModal(icon: string, header: string, message: string) {
         this.modalicon = icon;

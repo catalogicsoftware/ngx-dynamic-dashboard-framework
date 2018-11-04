@@ -2,8 +2,8 @@
  * Created by jayhamilton on 1/18/17.
  */
 import {Injectable} from '@angular/core';
-import 'rxjs/Rx';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
+import {catchError} from "rxjs/operators";
 import {ErrorHandler} from '../error/error-handler';
 import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
@@ -61,7 +61,9 @@ export class RuntimeService {
 
     testURLResponse(url: string) {
         return this._http.get(url, {responseType: 'text'})
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
 
@@ -72,7 +74,9 @@ export class RuntimeService {
         p = p.append('port', port);
 
         return this._http.get(this.connectivityTestURL, {params: p})
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
 
@@ -97,7 +101,9 @@ export class RuntimeService {
 
             return this._http.jsonp('https://api.wit.ai/message?' + p.toString(),
                 'callback'
-            ).catch(RuntimeService.handleError);
+            ).pipe(
+                catchError(RuntimeService.handleError)
+            );
         }
     }
 
@@ -151,7 +157,9 @@ export class RuntimeService {
 
         return this._http.get(this.watsonMicroserviceURL, {
             params: p
-        }).catch(RuntimeService.handleError);
+        }).pipe(
+            catchError(RuntimeService.handleError)
+        );
 
     }
 }

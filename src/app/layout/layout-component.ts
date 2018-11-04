@@ -5,10 +5,7 @@ import {
     AfterViewInit, Component, Output, EventEmitter, Input
 } from '@angular/core';
 
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
 import {boardLayouts} from './model';
-import {ConfigurationService} from '../services/configuration.service';
 
 
 /**

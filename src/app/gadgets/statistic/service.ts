@@ -4,6 +4,7 @@
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {HttpClient} from '@angular/common/http';
+import {catchError} from "rxjs/operators";
 @Injectable()
 export class StatisticService {
 
@@ -12,6 +13,8 @@ export class StatisticService {
 
     get(resourceType) {
         return this._http.get('/assets/api/stat-' + resourceType + '-model.json')
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
     }
 }

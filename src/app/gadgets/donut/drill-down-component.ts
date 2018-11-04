@@ -9,8 +9,6 @@ import {
     style, state, trigger, animate, transition
 } from '@angular/animations';
 
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
 import {Facet, Tag} from '../../facet/facet-model';
 import {DonutService} from './service';
 

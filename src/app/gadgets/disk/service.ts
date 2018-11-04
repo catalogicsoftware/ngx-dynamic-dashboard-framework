@@ -5,7 +5,8 @@
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {TrendLineService} from '../trend-line/service';
-import {Observable} from 'rxjs/Observable';
+import {timer, Observable} from 'rxjs';
+import {catchError} from "rxjs/operators";
 import {HttpClient} from '@angular/common/http';
 
 @Injectable()
@@ -16,18 +17,21 @@ export class DiskService {
 
     get() {
         return this._http.get('/assets/api/disk-model.json')
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
     }
 
     getHelpTopic() {
 
-        return this._http.get('/assets/api/disk-help-model.json')
-            .catch(RuntimeService.handleError);
+        return this._http.get('/assets/api/disk-help-model.json') .pipe(
+            catchError(RuntimeService.handleError)
+        );
     }
 
     getMockData() {
         return new Observable(observer => {
-            Observable.timer(500, 5000).subscribe(t => {
+            timer(500, 5000).subscribe(t => {
 
                 const used = TrendLineService.getRandomArbitrary(0, 100);
                 const available = 100 - used;

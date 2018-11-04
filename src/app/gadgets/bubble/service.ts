@@ -5,6 +5,7 @@
 import {Injectable} from '@angular/core';
 import {RuntimeService} from '../../services/runtime.service';
 import {HttpClient} from '@angular/common/http';
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class BubbleService {
@@ -14,6 +15,8 @@ export class BubbleService {
 
     getMockData() {
         return this._http.get('/assets/api/chart-mock-bubble-model.json')
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
     }
 }

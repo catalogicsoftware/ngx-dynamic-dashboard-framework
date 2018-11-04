@@ -3,10 +3,9 @@
  */
 import {Injectable} from '@angular/core';
 
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
+import {Observable} from 'rxjs';
 import {EndPoint} from './endpoint.model';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable()

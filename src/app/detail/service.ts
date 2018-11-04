@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {RuntimeService} from "../services/runtime.service";
 import {environment} from "../../environments/environment";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class DetailService {
@@ -29,18 +30,27 @@ export class DetailService {
         p = p.append("detailParam", chartSeries);
         p = p.append("detailMetric", chartMetric);
 
-        return this._http.get<Array<any>>(this.detailURL, {params: p}).catch(RuntimeService.handleError)
+        return this._http.get<Array<any>>(this.detailURL, {params: p})
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
     getDetail(url: string) {
 
-        return this._http.get<Array<any>>(url).catch(RuntimeService.handleError)
+        return this._http.get<Array<any>>(url)
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
 
     getRecord(url: string) {
 
-        return this._http.get<Array<any>>(url).catch(RuntimeService.handleError)
+        return this._http.get<Array<any>>(url)
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
 }

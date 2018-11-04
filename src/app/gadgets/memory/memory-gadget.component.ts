@@ -4,7 +4,7 @@ import {GadgetInstanceService} from '../../grid/grid.service';
 import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
-import {Observable} from 'rxjs/Observable';
+import {timer} from 'rxjs';
 import {ObservableWebSocketService} from '../../services/websocket-service';
 import {OptionsService} from "../../configuration/tab-options/service";
 
@@ -74,9 +74,9 @@ export class MemoryGadgetComponent extends GadgetBase implements OnDestroy {
             });
 
 
-        const timer = Observable.timer(this.waitForConnectionDelay);
+        const _timer = timer(this.waitForConnectionDelay);
 
-        timer.subscribe(t => {
+        _timer.subscribe(t => {
 
             // todo test whether we are connected of not
             this._webSocketService.sendMessage('start');

@@ -3,7 +3,7 @@
  */
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {EMPTY, Observable} from 'rxjs';
 import {defaultBoard} from './configuration-sample-default-board';
 import {sampleBoardCollectionProd} from './configuration-sample-boards-prod.model';
 import {sampleBoardCollection} from './configuration-sample-boards.model';
@@ -101,7 +101,7 @@ export class ConfigurationService {
         this.model = board;
 
         if (Object.keys(board).length === 0 && board.constructor === Object) {
-            return Observable.empty();
+            return  EMPTY;
         }
 
         if (this.demo) {

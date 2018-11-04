@@ -6,6 +6,7 @@ import {RuntimeService} from '../../services/runtime.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EndPointModel} from "./service.model";
 import {environment} from "../../../environments/environment";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class ConnectionService {
@@ -51,7 +52,9 @@ export class ConnectionService {
             })
         };
         return this._http.post<Array<EndPointModel>>(this.connectivityTestURL, endPoints, httpOptions)
-            .catch(RuntimeService.handleError);
+            .pipe(
+                catchError(RuntimeService.handleError)
+            );
 
     }
 

@@ -7,7 +7,7 @@ import {GadgetBase} from '../_common/gadget-base';
 import {PieChartService} from './service';
 import {OptionsService} from "../../configuration/tab-options/service";
 import {startWith, switchMap} from "rxjs/operators";
-import {Observable} from "rxjs/Rx";
+import {interval} from "rxjs";
 import {ConfigurationService} from "../../services/configuration.service";
 declare var jQuery: any;
 
@@ -140,7 +140,7 @@ export class PieChartGadgetComponent extends GadgetBase {
          * poll every 15 seconds
          * todo - change this to a websocket
          */
-        this.subscription = Observable.interval(this.POLL_INTERVAL).pipe(
+        this.subscription = interval(this.POLL_INTERVAL).pipe(
             startWith(0), switchMap(() => this._pieChartService.getData(this.endpointObject.address)))
             .subscribe(data => {
 

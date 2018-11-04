@@ -2,8 +2,7 @@
  * Created by jayhamilton on 1/28/17.
  */
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
+import {Subject,Observable} from 'rxjs';
 
 /**
  * todo - the name of this service does not represent the file name. This should be refactored. Consider moving this service to the gadget module instead.

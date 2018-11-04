@@ -5,7 +5,6 @@ import {GadgetPropertyService} from '../_common/gadget-property.service';
 import {EndPointService} from '../../configuration/tab-endpoint/endpoint.service';
 import {GadgetBase} from '../_common/gadget-base';
 import {TrendLineService} from './service';
-import {Observable} from 'rxjs/Observable';
 import {OptionsService} from "../../configuration/tab-options/service";
 
 declare var d3: any;

@@ -5,8 +5,6 @@ import {
     AfterViewInit, Component, Output, EventEmitter, Input
 } from '@angular/core';
 
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/take';
 import {environment} from '../../environments/environment';
 import {AboutService} from "./service";
 

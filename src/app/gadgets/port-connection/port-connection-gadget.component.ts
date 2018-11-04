@@ -147,7 +147,7 @@ export class PortConnectionGadgetComponent extends GadgetBase implements OnDestr
 
         ports.forEach(function (port) {
 
-            me.endPoints.push(new EndPointModel(me.host, port));
+            me.endPoints.push(new EndPointModel(me.host.trim(), port.trim()));
 
         });
 

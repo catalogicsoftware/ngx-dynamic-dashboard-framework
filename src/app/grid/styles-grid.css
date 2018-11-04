@@ -4,7 +4,7 @@
 }
 
 .ui.attached.info.message, .ui.info.message {
-    box-shadow: 0 0 0 0 px #c8cbce inset, 0 0 0 0 transparent
+    box-shadow: 0 0 0 0 px #c8cbce inset, 0 0 0 0 transparent;
 }
 
 .short-row{

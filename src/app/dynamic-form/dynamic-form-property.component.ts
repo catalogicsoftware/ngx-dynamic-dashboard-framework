@@ -51,7 +51,6 @@ export class DynamicFormPropertyComponent implements AfterViewInit {
         this.endPointService.getEndPoints().subscribe(data => {
 
             this.endPoints = data['endPoint'].slice();
-            console.log(this.endPoints);
 
         });
     }
@@ -66,17 +65,12 @@ export class DynamicFormPropertyComponent implements AfterViewInit {
         this.endPoints.forEach(function (point, index, object) {
 
             let found = false;
-            console.log("EVALUATING: " + point['name']);
-
             point['tags'].forEach(tag => {
 
                 me.gadgetTags.forEach(_gt => {
 
-                    console.log("TESTING: " + _gt.name + " and " + tag.name);
-
                     if (_gt.name.trim().toLowerCase() === tag.name.trim().toLowerCase()) {
                         found = true;
-                        console.log("MATCH: " + _gt.name + " and " + tag.name);
                     }
                 })
             });

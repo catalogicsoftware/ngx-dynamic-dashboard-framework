@@ -17,6 +17,7 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
     title: string;
     instanceId: number;
     config: any;
+    gadgetTags: Array<any>;
 
     /**
      * Used to determine when to show the controls that appear in the gadgets
@@ -203,10 +204,11 @@ export abstract class GadgetBase implements IGadget, OnDestroy, OnInit, AfterVie
      * we give them an opportunity to perform an action during the preRun() method. For example,
      * the statistic gadget uses preRun() to make a single call to the endpoint to update its display.
      * */
-    public configureGadget(instanceId: number, config: any) {
+    public configureGadget(instanceId: number, config: any, tags: Array<any>) {
 
         this.instanceId = instanceId;
         this.config = config;
+        this.gadgetTags = tags.slice();
 
         this.setTitle(this.getPropFromPropertyPages('title'));
         this.setEndPoint(this.getPropFromPropertyPages('endpoint'));

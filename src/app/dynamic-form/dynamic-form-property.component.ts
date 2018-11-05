@@ -1,7 +1,7 @@
 /**
  * Created by jayhamilton on 2/5/17.
  */
-import {Component, Input} from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {PropertyBase} from './property-base';
 import {EndPointService} from '../configuration/tab-endpoint/endpoint.service';
@@ -30,10 +30,10 @@ import {
             ])
     ]
 })
-export class DynamicFormPropertyComponent {
+export class DynamicFormPropertyComponent implements AfterViewInit {
     @Input() property: PropertyBase<any>;
     @Input() form: FormGroup;
-    @Input() gadgetTags:any[];//todo - use to control what endpoints are displayed
+    @Input() gadgetTags: any[];//todo - use to control what endpoints are displayed
     endPoints: string[] = [];
 
     get isValid() {
@@ -51,7 +51,42 @@ export class DynamicFormPropertyComponent {
         this.endPointService.getEndPoints().subscribe(data => {
 
             this.endPoints = data['endPoint'].slice();
+            console.log(this.endPoints);
 
         });
+    }
+
+    ngAfterViewInit() {
+
+        //filter endpoints based on the gadgets tags
+
+        let me = this;
+        let eligibleEndpoints = [];
+
+        this.endPoints.forEach(function (point, index, object) {
+
+            let found = false;
+            console.log("EVALUATING: " + point['name']);
+
+            point['tags'].forEach(tag => {
+
+                me.gadgetTags.forEach(_gt => {
+
+                    console.log("TESTING: " + _gt.name + " and " + tag.name);
+
+                    if (_gt.name.trim().toLowerCase() === tag.name.trim().toLowerCase()) {
+                        found = true;
+                        console.log("MATCH: " + _gt.name + " and " + tag.name);
+                    }
+                })
+            });
+
+            if (found) {
+               eligibleEndpoints.push(point);
+            }
+        });
+
+        this.endPoints = eligibleEndpoints.slice();
+
     }
 }

@@ -15,7 +15,13 @@
 
             <div *ngFor="let property of page.properties"
                  class="form-row">
-                <app-df-property [property]="property" [form]="form"></app-df-property>
+                <app-df-property
+                        [property]="property"
+                        [form]="form"
+                        [gadgetTags]="gadgetTags"
+                >
+
+                </app-df-property>
                 <br>
             </div>
 

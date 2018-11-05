@@ -21,7 +21,7 @@ interface IGadget {
 
     showGadgetControls(enable: boolean);
 
-    configureGadget(instanceId: number, config: any);
+    configureGadget(instanceId: number, config: any, tags: Array<any>);
 
     updateGadgetWithGlobalOptions(options:any);
 

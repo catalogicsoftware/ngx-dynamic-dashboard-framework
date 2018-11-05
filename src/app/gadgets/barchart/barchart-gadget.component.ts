@@ -81,8 +81,6 @@ export class BarChartGadgetComponent extends GadgetBase {
         if (this.getPropFromPropertyPages('state') == this.RUN_STATE) {
             this.run();
         }
-
-        console.log("IN PRERUN **************");
     }
 
     initializeTheRemainderOfTheProperties() {

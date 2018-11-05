@@ -1,18 +1,28 @@
 <div class="ui centered stackable grid" style="margin-left: 5px; margin-right: 5px">
-    <div *ngFor="let row of model.rows; let r = index" class="row" [ngClass]="{'short-row': row.columns.length > 3, 'tall-row': row.columns.length <= 3 }">
+    <div *ngFor="let row of model.rows; let r = index" class="row"
+         [ngClass]="{'short-row': row.columns.length > 3, 'tall-row': row.columns.length <= 3 }">
 
         <div *ngFor="let col of row.columns; let c = index" class="{{col.styleClass}} column" dnd-droppable
              [dropZones]="['c' + c]" (onDropSuccess)="updateGadgetPositionInBoard($event, c, r, 'column')">
 
             <div *ngIf="!col.gadgets || col.gadgets.length== 0" class="ui center aligned massive info message"
-                 style="text-align:center" [ngClass]="{'short-row': row.columns.length > 3, 'tall-row': row.columns.length <= 3 }">
+                 style="text-align:center"
+                 [ngClass]="{'short-row': row.columns.length > 3, 'tall-row': row.columns.length <= 3 }">
 
                 <span style="font-size: .75em">Add Gadget!</span>
 
             </div>
 
-            <app-grid-cell *ngFor="let cellGadget of col.gadgets" [gadgetInstanceId]="cellGadget.instanceId"
-                       [gadgetConfig]="cellGadget.config" [gadgetType]="cellGadget.componentType"></app-grid-cell>
+            <app-grid-cell *ngFor="let cellGadget of col.gadgets"
+
+                           [gadgetInstanceId]="cellGadget.instanceId"
+                           [gadgetConfig]="cellGadget.config"
+                           [gadgetType]="cellGadget.componentType"
+                           [gadgetTags]="cellGadget.tags"
+
+            >
+
+            </app-grid-cell>
 
         </div>
 

@@ -68,18 +68,9 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
 
     constructor(private pcs: PropertyControlService,
                 private configService: ConfigurationService,
-                private endPointService: EndPointService,
                 private changeDetectionRef: ChangeDetectorRef) {
-
-        this.updateEndPointList();
     }
 
-    updateEndPointList() {
-
-        this.endPointService.getEndPoints().subscribe(data => {
-            this.endPoints = data['endPoint'].slice();
-        });
-    }
 
     /* better solution that solves error: Expression has changed after it was checked exception resolution*/
     ngAfterViewInit(): void {

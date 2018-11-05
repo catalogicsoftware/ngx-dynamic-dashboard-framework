@@ -14,6 +14,7 @@ export class CellComponent implements OnInit {
     @Input() gadgetType: string;
     @Input() gadgetConfig: any;
     @Input() gadgetInstanceId: number;
+    @Input() gadgetTags: Array<any>;
 
 
     constructor(private viewContainerRef: ViewContainerRef,
@@ -35,7 +36,7 @@ export class CellComponent implements OnInit {
             /*
              we need to pass the input parameters (instance id and config) back into the newly created component.
              */
-            gadgetRef.instance.configureGadget(this.gadgetInstanceId, this.gadgetConfig);
+            gadgetRef.instance.configureGadget(this.gadgetInstanceId, this.gadgetConfig, this .gadgetTags);
 
             /*
              add concrete component to service for tracking

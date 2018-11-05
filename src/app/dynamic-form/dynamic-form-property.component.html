@@ -44,6 +44,7 @@
                     [id]="property.key"
                     (change)="property.value = $event.target.toString()">
 
+                <option></option>
                 <option *ngFor="let opt of endPoints"
                         [value]="opt.name">{{opt.name}}
                 </option>

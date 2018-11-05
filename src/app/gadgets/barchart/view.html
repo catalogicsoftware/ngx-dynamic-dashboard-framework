@@ -105,6 +105,7 @@
         <div class="ct-title">{{title}}</div>
         <br>
         <app-dynamic-form
+                [gadgetTags]="gadgetTags"
                 [propertyPages]="propertyPages"
                 [instanceId]="instanceId"
                 (updatePropertiesEvent)="updateProperties($event)">
@@ -113,6 +114,7 @@
 
 
     <app-dynamic-form *ngIf="inConfig && globalOptions.displayGadgetOptionsInSideBar == false"
+                      [gadgetTags]="gadgetTags"
                       [propertyPages]="propertyPages"
                       [instanceId]="instanceId"
                       (updatePropertiesEvent)="updateProperties($event)">

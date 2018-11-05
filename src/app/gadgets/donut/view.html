@@ -47,6 +47,7 @@
     </div>
 
     <app-dynamic-form *ngIf="inConfig"
+                  [gadgetTags]="gadgetTags"
                   [propertyPages]="propertyPages"
                   [instanceId]="instanceId"
                   (updatePropertiesEvent)="updateProperties($event)">

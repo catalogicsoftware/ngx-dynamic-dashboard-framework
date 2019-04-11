@@ -1,3 +1,222 @@
+# The following JSON document describes a single board along with its layout, gadgets and their properites.
+
+```json
+{
+  "board": [
+    {
+      "title": "Board Sample 1",
+      "structure": "3-6-3",
+      "id": 9,
+      "boardInstanceId": 1,
+      "rows": [
+        {
+          "columns": [
+            {
+              "styleClass": "three wide",
+              "gadgets": [
+                {
+                  "componentType": "NewsGadgetComponent",
+                  "name": "News",
+                  "description": "What's new",
+                  "icon": "images/news.png",
+                  "instanceId": 1500253814523,
+                  "tags": [
+                    {
+                      "facet": "Informational",
+                      "name": "news"
+                    },
+                    {
+                      "facet": "List",
+                      "name": "news"
+                    }
+                  ],
+                  "config": {
+                    "propertyPages": [
+                      {
+                        "displayName": "Run",
+                        "groupId": "run",
+                        "position": 10,
+                        "properties": [
+                          {
+                            "value": "news",
+                            "key": "endpoint",
+                            "label": "News URL",
+                            "required": false,
+                            "order": 3,
+                            "controlType": "dynamicdropdown"
+                          },
+                          {
+                            "value": "News",
+                            "key": "title",
+                            "label": "Title",
+                            "required": false,
+                            "order": 1,
+                            "controlType": "textbox"
+                          },
+                          {
+                            "value": 2,
+                            "key": "instanceId",
+                            "required": false,
+                            "order": -1,
+                            "controlType": "hidden"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "styleClass": "six wide",
+              "gadgets": [
+                {
+                  "componentType": "CPUGadgetComponent",
+                  "name": "CPU Chart",
+                  "description": "Monitors CPU utilization for CDM.",
+                  "icon": "images/cpu.png",
+                  "instanceId": 1499912922910,
+                  "tags": [
+                    {
+                      "facet": "Performance",
+                      "name": "real-time"
+                    },
+                    {
+                      "facet": "Chart",
+                      "name": "bar"
+                    }
+                  ],
+                  "config": {
+                    "propertyPages": [
+                      {
+                        "displayName": "Run",
+                        "groupId": "run",
+                        "position": 10,
+                        "properties": [
+                          {
+                            "value": "CPU Utilization",
+                            "key": "title",
+                            "label": "Title",
+                            "required": false,
+                            "order": 1,
+                            "controlType": "textbox"
+                          },
+                          {
+                            "value": "Carlosappliance - Process Monitor",
+                            "key": "endpoint",
+                            "label": "API Endpoints",
+                            "required": false,
+                            "order": 3,
+                            "controlType": "dynamicdropdown"
+                          },
+                          {
+                            "value": 999,
+                            "key": "instanceId",
+                            "required": false,
+                            "order": -1,
+                            "controlType": "hidden"
+                          }
+                        ]
+                      },
+                      {
+                        "displayName": "Chart",
+                        "groupId": "chart",
+                        "position": 11,
+                        "properties": [
+                          {
+                            "value": true,
+                            "key": "chart_properties",
+                            "label": "Show chart details",
+                            "required": false,
+                            "order": 3,
+                            "controlType": "checkbox"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "componentType": "TrendGadgetComponent",
+                  "name": "Trend",
+                  "description": "General trends.",
+                  "icon": "images/trend.png",
+                  "instanceId": 1499912901569,
+                  "tags": [
+                    {
+                      "facet": "Performance",
+                      "name": "trend"
+                    },
+                    {
+                      "facet": "Chart",
+                      "name": "area"
+                    }
+                  ],
+                  "config": {
+                    "propertyPages": [
+                      {
+                        "displayName": "Run",
+                        "groupId": "run",
+                        "position": 10,
+                        "properties": [
+                          {
+                            "value": "Devappliance - ECX",
+                            "key": "endpoint",
+                            "label": "API Endpoints",
+                            "required": false,
+                            "order": 2,
+                            "controlType": "dynamicdropdown"
+                          },
+                          {
+                            "value": "Trend",
+                            "key": "title",
+                            "label": "Title",
+                            "required": false,
+                            "order": 1,
+                            "controlType": "textbox"
+                          },
+                          {
+                            "value": 2,
+                            "key": "instanceId",
+                            "required": false,
+                            "order": -1,
+                            "controlType": "hidden"
+                          }
+                        ]
+                      },
+                      {
+                        "displayName": "Chart",
+                        "groupId": "chart",
+                        "position": 11,
+                        "properties": [
+                          {
+                            "value": true,
+                            "key": "chart_properties",
+                            "label": "Show chart details",
+                            "required": false,
+                            "order": 3,
+                            "controlType": "checkbox"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "styleClass": "three wide",
+              "gadgets": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+
 
 # NGX Dynamic Dashboard Framework
 

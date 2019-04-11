@@ -89,7 +89,7 @@ The following JSON document describes a single board along with its layout, gadg
                 {
                   "componentType": "CPUGadgetComponent",
                   "name": "CPU Chart",
-                  "description": "Monitors CPU utilization for CDM.",
+                  "description": "Monitors CPU utilization for application.",
                   "icon": "images/cpu.png",
                   "instanceId": 1499912922910,
                   "tags": [
@@ -176,7 +176,7 @@ The following JSON document describes a single board along with its layout, gadg
                         "position": 10,
                         "properties": [
                           {
-                            "value": "Devappliance - ECX",
+                            "value": "Devappliance",
                             "key": "endpoint",
                             "label": "API Endpoints",
                             "required": false,

@@ -1,4 +1,20 @@
-# The following JSON document describes a single board along with its layout, gadgets and their properites.
+
+# NGX Dynamic Dashboard Framework
+
+## Natural Language Processing (NLP) integration
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/nlp.gif)
+
+## Sample Board 1
+![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/images/sb1.png)
+
+## Add Board and Gadget 
+![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/add.gif)
+
+## Layout
+![Image Layout](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/layout.gif)
+
+## Example JSON document
+The following JSON document describes a single board along with its layout, gadgets and their properites.
 
 ```json
 {
@@ -215,22 +231,6 @@
   ]
 }
 ```
-
-
-
-# NGX Dynamic Dashboard Framework
-
-## Natural Language Processing (NLP) integration
-![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/nlp.gif)
-
-## Sample Board 1
-![Image of Main Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/images/sb1.png)
-
-## Add Board and Gadget 
-![Image of Add Gadget To Screen](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/add.gif)
-
-## Layout
-![Image Layout](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/layout.gif)
 
 ## Alert/Notification
 ![Image Notification](https://github.com/catalogicsoftware/Angular-2-Dashboard-Framework/blob/master/src/assets/documentation/gifs/notification.gif)

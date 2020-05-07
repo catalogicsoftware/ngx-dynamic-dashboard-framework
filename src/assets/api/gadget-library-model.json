@@ -613,7 +613,7 @@
                 "options": [
                   {
                     "key": "vSnap + vAdp (All Ports)",
-                    "value": "8900,8080,22,111,20048,2049"
+                    "value": "8900,8098, 8080,22,111,20048,2049"
                   },
                   {
                     "key": "SPP Single Appliance (All Ports)",
@@ -642,6 +642,10 @@
                   {
                     "key": "VADP (8080)",
                     "value": "8080"
+                  },
+		  {
+                    "key": "VADP on vSnap (8098)",
+                    "value": "8098"
                   },
                   {
                     "key": "WinRM (5985)",

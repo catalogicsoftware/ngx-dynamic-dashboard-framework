@@ -64,6 +64,12 @@
     "description": "VSnap management service"
   },
   {
+    "serviceName": "VADP Proxy on vSnap node",
+    "portNumber": "8098",
+    "transportProtocol": "tcp",
+    "description": "VMware VM data mover management interface running on vSnap"
+  },
+  {
     "serviceName": "ESXI Network File Copy (NFC)",
     "portNumber": "902",
     "transportProtocol": "tcp",
